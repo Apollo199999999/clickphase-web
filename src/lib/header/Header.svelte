@@ -3,47 +3,25 @@
 	import logo from "./svelte-logo.svg";
 	import "fluent-svelte/theme.css";
 	import { Button } from "fluent-svelte";
-	import { onMount } from "svelte";
 
-	let loaded = false;
-	onMount(() => {
-		loaded = true;
-	});
-
-	function checkList(ctrl) {
-		if (loaded == true) {
-			var list = document
-				.getElementById("menu")
-				.getElementsByTagName("li");
-
-			for (i = 0; i < list.length; i++) {
-				list[i].style.background = "#ffffff";
-			}
-
-			ctrl.style.background = "#ff0000";
-		}
-	}
 </script>
 
 <header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
-
 	<nav>
-		<div class="container">
+		<div class="corner">
+			<a href="https://kit.svelte.dev">
+				<img src={logo} alt="SvelteKit" />
+			</a>
+		</div>
+
+		<div>
 			<ul id="menu">
 				<li class:active={$page.url.pathname === "/"}>
-					<Button variant="hyperlink" sveltekit:prefetch href="/"
-						>Home</Button>
+					<a sveltekit:prefetch href="/">Home</a>
 				</li>
 				<li
-					class:active={$page.url.pathname === "/about"}
-					click={checkList(this)}>
-					<Button variant="hyperlink" sveltekit:prefetch href="/about"
-						>About</Button>
+					class:active={$page.url.pathname === "/about"}>
+					<a sveltekit:prefetch href="/about">About</a>
 				</li>
 			</ul>
 		</div>
@@ -52,6 +30,8 @@
 </header>
 
 <style>
+	@import url("https://unpkg.com/fluent-svelte/theme.css");
+
 	header {
 		display: flex;
 		justify-content: space-between;
@@ -92,16 +72,17 @@
 		align-items: center;
 		list-style: none;
 	}
-
-	li {
-		position: relative;
-		height: 32px;
+	li a {
+		margin-left: 20px;
+		text-decoration: none;
+		color: var(--fds-accent-default);
+		font-family: var(--fds-font-family-text)
+		
+	}
+	li a:hover{
+		color: var(--fds-accent-secondary);
+		font-family: var(--fds-font-family-text);
 	}
 
-	.container {
-		height: 32px;
-		margin-top: 8px;
-		vertical-align: middle;
-	}
 
 </style>

@@ -1,6 +1,6 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
-	import '../app.css';
+	import "fluent-svelte/theme.css";
 </script>
 
 <Header />
@@ -14,13 +14,20 @@
 </footer>
 
 <style>
+	@import url("https://unpkg.com/fluent-svelte/theme.css");
+
+	/* Some base styles to get things looking right. */
+	:global(body) {
+		background-color: var(--fds-solid-background-base);
+		color: var(--fds-text-primary);
+	}
+	
 	main {
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 1rem;
+		padding: 20px;
 		width: 100%;
-		max-width: 1024px;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
