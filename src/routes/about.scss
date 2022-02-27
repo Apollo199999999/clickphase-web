@@ -1,3 +1,16 @@
+@keyframes rainbow-background-hue-rotate {
+    0% {
+        filter: none;
+    }
+    50% {
+        filter: hue-rotate(180deg);
+    }
+    to {
+        filter: none;
+    }
+}
+
+// Backdrop canvas
 .rainbow-background {
     position: absolute;
     z-index: -1;
