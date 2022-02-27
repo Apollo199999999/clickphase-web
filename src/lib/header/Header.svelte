@@ -1,6 +1,28 @@
 <script>
-	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
+	import { page } from "$app/stores";
+	import logo from "./svelte-logo.svg";
+	import "fluent-svelte/theme.css";
+	import { Button } from "fluent-svelte";
+	import { onMount } from "svelte";
+
+	let loaded = false;
+	onMount(() => {
+		loaded = true;
+	});
+
+	function checkList(ctrl) {
+		if (loaded == true) {
+			var list = document
+				.getElementById("menu")
+				.getElementsByTagName("li");
+
+			for (i = 0; i < list.length; i++) {
+				list[i].style.background = "#ffffff";
+			}
+
+			ctrl.style.background = "#ff0000";
+		}
+	}
 </script>
 
 <header>
@@ -11,17 +33,22 @@
 	</div>
 
 	<nav>
-		<ul>
-			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.url.pathname === '/about'}>
-				<a sveltekit:prefetch href="/about">About</a>
-			</li>
-		</ul>
+		<div class="container">
+			<ul id="menu">
+				<li class:active={$page.url.pathname === "/"}>
+					<Button variant="hyperlink" sveltekit:prefetch href="/"
+						>Home</Button>
+				</li>
+				<li
+					class:active={$page.url.pathname === "/about"}
+					click={checkList(this)}>
+					<Button variant="hyperlink" sveltekit:prefetch href="/about"
+						>About</Button>
+				</li>
+			</ul>
+		</div>
 	</nav>
-
-	<div class="corner">
-		<!-- TODO put something else here? github link? -->
-	</div>
+	<div class="corner"/>
 </header>
 
 <style>
@@ -52,56 +79,29 @@
 	nav {
 		display: flex;
 		justify-content: center;
+		position: relative;
 	}
-
 
 	ul {
 		position: relative;
-		padding: 0;
-		margin: 0;
+		padding: 0px;
+		margin: 0px;
 		height: 3em;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		list-style: none;
-		background: var(--background);
-		background-size: contain;
 	}
 
 	li {
 		position: relative;
-		height: 100%;
+		height: 32px;
 	}
 
-	/* this part controls the small triangle */
-
-	li.active::before {
-		--size: 6px;
-		--width: 15px;
-		content: '';
-		width: 15;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--width) solid transparent;
-		background-color: blue;
+	.container {
+		height: 32px;
+		margin-top: 8px;
+		vertical-align: middle;
 	}
 
-	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 1em;
-		color: var(--heading-color);
-		font-weight: 700;
-		font-size: 0.8rem;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
-	}
-
-	a:hover {
-		color: var(--accent-color);
-	}
 </style>
