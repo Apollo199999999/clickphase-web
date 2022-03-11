@@ -6,7 +6,7 @@
 
 </script>
 
-<link rel="preload" href="./FluentSystemIcons-Regular.ttf" as="font" type="font/woff" crossorigin="anonymous">
+<link rel="preload" href="./FluentSystemIcons-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
 <header>
 	<div class="corner">
@@ -45,6 +45,7 @@
     	appearance: button;
 		border-radius: 5px;
 		background-color: var(--fds-accent-default);
+		color: black;
 	}
 	
 	header {
@@ -99,7 +100,7 @@
 		margin-right: 0.5em;
 	}
 
-	li a {
+	a {
 		-webkit-appearance: button;
     	-moz-appearance: button;
     	appearance: button;
