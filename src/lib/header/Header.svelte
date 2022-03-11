@@ -6,7 +6,7 @@
 
 </script>
 
-<link rel="preload" href="./FluentSystemIcons-Regular.ttf" as="font" type="font/woff" crossorigin="anonymous">
+<link rel="preload" href="./FluentSystemIcons-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
 <header>
 	<div class="corner">
