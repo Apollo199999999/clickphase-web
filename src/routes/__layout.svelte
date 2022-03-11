@@ -4,7 +4,7 @@
 </script>
 
 <Header />
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <main>
 	<slot />
 </main>
@@ -30,7 +30,7 @@
 		flex-direction: column;
 		width: 100%;
 		margin: 0, auto;
-		padding: 1em;
+		padding: 2em;
 		box-sizing: border-box;
 	}
 
