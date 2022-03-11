@@ -48,6 +48,7 @@
 		height: 100%;
 		text-decoration: none;
 		color: inherit;
+		margin-right: 1em;
 		
 	}
 
@@ -55,13 +56,13 @@
 		width: 2.5em;
 		height: 2.5em;
 		object-fit: contain;
-		margin-right: 5px;
+		margin-right: 0.5em;
 	}
 
 	nav {
 		display: flex;
 		justify-content: center;
-		margin-left: 3em;
+		margin-left: 1.5em;
 	}
 
 
@@ -79,7 +80,7 @@
 	li {
 		position: relative;
 		height: 100%;
-		margin-right: 5px;
+		margin-right: 0.5em;
 	}
 
 </style>

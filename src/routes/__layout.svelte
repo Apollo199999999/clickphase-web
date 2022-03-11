@@ -20,13 +20,17 @@
 	:global(body) {
 		background-color: var(--fds-solid-background-base);
 		color: var(--fds-text-primary);
+		margin: 0%;
+		padding: 0%;
 	}
+
 	main {
 		flex: 1;
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		margin: 0 auto;
+		margin: 0, auto;
+		padding: 1em;
 		box-sizing: border-box;
 	}
 
