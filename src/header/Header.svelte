@@ -2,11 +2,11 @@
 	import { page } from '$app/stores';
 	import logo from './logo-img.png';
 	import "fluent-svelte/theme.css";
-	import { TextBlock, Button } from "fluent-svelte";
+	import { TextBlock } from "fluent-svelte";
 
 </script>
 
-<link rel="preload" href="./FluentSystemIcons-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="./FluentSystemIcons-Regular.ttf" as="font" type="font/woff" crossorigin="anonymous">
 
 <header>
 	<div class="corner">

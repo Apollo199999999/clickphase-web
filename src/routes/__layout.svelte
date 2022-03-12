@@ -1,9 +1,9 @@
 <script>
-	import Header from '$lib/header/Header.svelte';
-	import '../app.css';
+	import Header from '/src/header/Header.svelte';
 </script>
 
-<Header />
+<Header/>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <main>
 	<slot />
