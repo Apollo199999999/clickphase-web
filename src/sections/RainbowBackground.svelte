@@ -1,28 +1,8 @@
-<script>
-	import "fluent-svelte/theme.css";
-	import { TextBlock } from "fluent-svelte";
-</script>
-
-<div class="container">
-    <div class="mask">
-        <div class="rainbow" />
-    </div>
-    
-    <TextBlock class="titleText" variant="display">About/Contact</TextBlock>
+<div class="mask">
+    <div class="rainbow" />
 </div>
 
 <style>
-    .container{
-        position: relative;
-    }
-
-    .container :global(.titleText) {
-        position:absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-  }
-
     /*image mask*/
     .mask {
         height: 30em;

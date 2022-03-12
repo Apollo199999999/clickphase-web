@@ -1,19 +1,20 @@
 <script>
-	import Hero from "/src/sections/aboutcontact/Hero.svelte";
+	import "fluent-svelte/theme.css";
+	import HeroSection from "/src/sections/aboutcontact/HeroSection.svelte";
+	import InfoSection from "/src/sections/aboutcontact/InfoSection.svelte";
 </script>
 
 <svelte:head>
-	<title>About/Contact</title>
+	<title>About & Contact</title>
 </svelte:head>
 
+<HeroSection/>
 <div class="content">
-	<Hero/>
+	<InfoSection/>
 </div>
 
 <style>
 	.content {
-		width: 100%;
-		max-width: var(--column-width);
-		margin: var(--column-margin-top) auto 0 auto;
+		padding: 2em;
 	}
 </style>

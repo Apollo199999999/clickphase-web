@@ -1,3 +1,3 @@
 <svelte:head>
-	<title>Animations/Videos</title>
+	<title>Animations & Videos</title>
 </svelte:head>

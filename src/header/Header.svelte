@@ -3,10 +3,9 @@
 	import logo from './logo-img.png';
 	import "fluent-svelte/theme.css";
 	import { TextBlock } from "fluent-svelte";
-
 </script>
 
-<link rel="preload" href="/src/fonts/FluentSystemIcons-Regular.ttf" as="font" type="font/woff" crossorigin="anonymous">
+<link rel="preload" href="/src/fonts/FluentSystemIcons-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
 <header>
 	<div class="corner">
@@ -25,10 +24,10 @@
 				<a sveltekit:prefetch href="/software">Software</a>
 			</li>
 			<li class:active={$page.url.pathname === '/animationsvideos'}>
-				<a sveltekit:prefetch href="/animationsvideos">Animations/Videos</a>
+				<a sveltekit:prefetch href="/animationsvideos">Animations & Videos</a>
 			</li>
 			<li class:active={$page.url.pathname === '/aboutcontact'}>
-				<a sveltekit:prefetch href="/aboutcontact">About/Contact</a>
+				<a sveltekit:prefetch href="/aboutcontact">About & Contact</a>
 			</li>
 		</ul>
 	</nav>
