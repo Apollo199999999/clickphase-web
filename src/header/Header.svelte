@@ -48,7 +48,10 @@
 		-webkit-appearance: button;
     	-moz-appearance: button;
     	appearance: button;
+		padding: 5px 12px 5px 10px;
 		border-radius: 5px;
+    	text-decoration: none;
+		font-family: var(--fds-font-family-display);
 		background-color: var(--fds-accent-default) !important;
 		color: var(--fds-text-on-accent-primary) !important;
 	}
@@ -125,6 +128,7 @@
 		border-radius: 5px;
     	text-decoration: none;
 		font-family: var(--fds-font-family-display);
+		color: var(--fds-accent-text-primary);
 		background-color: var(--fds-card-background-secondary);
 	}
 
