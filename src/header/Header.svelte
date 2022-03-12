@@ -6,7 +6,7 @@
 
 </script>
 
-<link rel="preload" href="./FluentSystemIcons-Regular.ttf" as="font" type="font/woff" crossorigin="anonymous">
+<link rel="preload" href="/src/fonts/FluentSystemIcons-Regular.ttf" as="font" type="font/woff" crossorigin="anonymous">
 
 <header>
 	<div class="corner">
@@ -19,16 +19,16 @@
 	<nav>
 		<ul>
 			<li class:active={$page.url.pathname === '/'}>
-				<a sveltekit:prefetch href="/" on:click="{this.addClass("active")}">Home</a>
+				<a sveltekit:prefetch href="/">Home</a>
 			</li>
 			<li class:active={$page.url.pathname === '/software'}>
-				<a sveltekit:prefetch href="/software" on:click="{this.addClass("active")}">Software</a>
+				<a sveltekit:prefetch href="/software">Software</a>
 			</li>
-			<li class:active={$page.url.pathname === '/videos'}>
-				<a sveltekit:prefetch href="/videos" on:click="{this.addClass("active")}">Animations/Videos</a>
+			<li class:active={$page.url.pathname === '/animationsvideos'}>
+				<a sveltekit:prefetch href="/animationsvideos">Animations/Videos</a>
 			</li>
-			<li class:active={$page.url.pathname === '/about'}>
-				<a sveltekit:prefetch href="/about" on:click="{this.addClass("active")}">About/Contact</a>
+			<li class:active={$page.url.pathname === '/aboutcontact'}>
+				<a sveltekit:prefetch href="/aboutcontact">About/Contact</a>
 			</li>
 		</ul>
 	</nav>
@@ -39,12 +39,18 @@
 <style>
 	@import url("https://unpkg.com/fluent-svelte/theme.css");
 
-	.active{
+	@font-face {
+    	font-family: 'FluentUIIcons';
+    	src: url('/src/fonts/FluentSystemIcons-Regular.ttf'); /*URL to font*/
+	}
+
+	.active a {
 		-webkit-appearance: button;
     	-moz-appearance: button;
     	appearance: button;
 		border-radius: 5px;
-		background-color: var(--fds-accent-default);
+		background-color: var(--fds-accent-default) !important;
+		color: var(--fds-text-on-accent-primary) !important;
 	}
 	
 	header {
@@ -67,6 +73,7 @@
 		color: inherit;
 		margin-right: 3em;
 	}
+
 
 	.corner img {
 		width: 2.5em;
@@ -123,7 +130,7 @@
 
 	li a[href="/"]::before{
 		content: '\F480' ;
-		font-family: "FluentSystemIcons-Regular";
+		font-family: "FluentUIIcons";
 		font-size: 18px;
    		float: left;
    		margin-right: 5px;
@@ -132,25 +139,25 @@
 
 	li a[href="/software"]::before{
 		content: '\02A7' ;
-		font-family: "FluentSystemIcons-Regular";
+		font-family: "FluentUIIcons";
 		font-size: 18px;
    		float: left;
    		margin-right: 5px;
 		margin-top: 3px;
 	}
 
-	li a[href="/videos"]::before{
+	li a[href="/animationsvideos"]::before{
 		content: '\0378' ;
-		font-family: "FluentSystemIcons-Regular";
+		font-family: "FluentUIIcons";
 		font-size: 18px;
    		float: left;
    		margin-right: 5px;
 		margin-top: 3px;
 	}
 
-	li a[href="/about"]::before{
+	li a[href="/aboutcontact"]::before{
 		content: '\F4A3' ;
-		font-family: "FluentSystemIcons-Regular";
+		font-family: "FluentUIIcons";
 		font-size: 18px;
    		float: left;
    		margin-right: 5px;
