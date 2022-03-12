@@ -30,7 +30,7 @@
 		flex-direction: column;
 		width: 100%;
 		margin: 0, auto;
-		padding: 2em;
+		padding: 0%;
 		box-sizing: border-box;
 	}
 

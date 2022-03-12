@@ -1,0 +1,104 @@
+<script>
+	import "fluent-svelte/theme.css";
+	import { TextBlock } from "fluent-svelte";
+</script>
+
+<div class="container">
+    <div class="mask">
+        <div class="rainbow" />
+    </div>
+    
+    <TextBlock class="titleText" variant="display">About/Contact</TextBlock>
+</div>
+
+<style>
+    .container{
+        position: relative;
+    }
+
+    .container :global(.titleText) {
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+  }
+
+    /*image mask*/
+    .mask {
+        height: 30em;
+        width: 100%;
+        -webkit-mask-image: url("/src/images/mask.png");
+        mask-image: url("/src/images/mask.png");
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;    
+    }
+
+    /* rainbow background */
+    .rainbow {
+        height: 30em;
+        width: 100%;
+        background: linear-gradient(
+            124deg,
+            #ff2400,
+            #e81d1d,
+            #e8b71d,
+            #e3e81d,
+            #1de840,
+            #1ddde8,
+            #2b1de8,
+            #dd00f3,
+            #dd00f3
+        );
+        background-size: 1800% 1800%;
+
+        -webkit-animation: rainbow 18s ease infinite;
+        -z-animation: rainbow 18s ease infinite;
+        -o-animation: rainbow 18s ease infinite;
+        animation: rainbow 18s ease infinite;
+    }
+
+    @-webkit-keyframes rainbow {
+        0% {
+            background-position: 0% 82%;
+        }
+        50% {
+            background-position: 100% 19%;
+        }
+        100% {
+            background-position: 0% 82%;
+        }
+    }
+    @-moz-keyframes rainbow {
+        0% {
+            background-position: 0% 82%;
+        }
+        50% {
+            background-position: 100% 19%;
+        }
+        100% {
+            background-position: 0% 82%;
+        }
+    }
+    @-o-keyframes rainbow {
+        0% {
+            background-position: 0% 82%;
+        }
+        50% {
+            background-position: 100% 19%;
+        }
+        100% {
+            background-position: 0% 82%;
+        }
+    }
+    @keyframes rainbow {
+        0% {
+            background-position: 0% 82%;
+        }
+        50% {
+            background-position: 100% 19%;
+        }
+        100% {
+            background-position: 0% 82%;
+        }
+    }
+</style>
