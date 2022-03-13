@@ -13,6 +13,8 @@
     .container{
         position: relative;
         word-wrap: break-word;
+        align-items: center;
+		justify-content: center;
     }
 
     .container :global(.titleText) {
@@ -20,5 +22,6 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        text-align: center;
   }
 </style>

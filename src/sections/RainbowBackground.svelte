@@ -7,8 +7,8 @@
     .mask {
         height: 30em;
         width: 100%;
-        -webkit-mask-image: url("/src/images/mask.png");
-        mask-image: url("/src/images/mask.png");
+        -webkit-mask-image: url("/mask.png");
+        mask-image: url("/mask.png");
         -webkit-mask-repeat: no-repeat;
         mask-repeat: no-repeat;    
     }

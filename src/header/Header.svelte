@@ -1,16 +1,17 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from './logo-img.png';
 	import "fluent-svelte/theme.css";
 	import { TextBlock } from "fluent-svelte";
 </script>
 
-<link rel="preload" href="/src/fonts/FluentSystemIcons-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<svelte:head>
+	<link rel="preload" href="/FluentSystemIcons-Regular.ttf" as="font" crossorigin="anonymous">
+</svelte:head>
 
 <header>
 	<div class="corner">
 		<a sveltekit:prefetch href="/">
-			<img src={logo} alt="ClickPhase" />
+			<img src="/logo-img.png" alt="ClickPhase" />
 			<TextBlock variant="title">ClickPhase</TextBlock>
 		</a>
 	</div>
@@ -24,10 +25,10 @@
 				<a sveltekit:prefetch href="/software">Software</a>
 			</li>
 			<li class:active={$page.url.pathname === '/animationsvideos'}>
-				<a sveltekit:prefetch href="/animationsvideos">Animations & Videos</a>
+				<a sveltekit:prefetch href="/animationsvideos">Animations/Videos</a>
 			</li>
 			<li class:active={$page.url.pathname === '/aboutcontact'}>
-				<a sveltekit:prefetch href="/aboutcontact">About & Contact</a>
+				<a sveltekit:prefetch href="/aboutcontact">About/Contact</a>
 			</li>
 		</ul>
 	</nav>
@@ -40,7 +41,7 @@
 
 	@font-face {
     	font-family: 'FluentUIIcons';
-    	src: url('/src/fonts/FluentSystemIcons-Regular.ttf'); /*URL to font*/
+    	src: url('/FluentSystemIcons-Regular.ttf'); /*URL to font*/
 	}
 
 	.active a {

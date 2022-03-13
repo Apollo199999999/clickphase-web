@@ -9,7 +9,7 @@
 
     <div class="logo">
 		<a href="{void(0)}">
-			<img src="/src/header/logo-img.png" alt="ClickPhase" />
+			<img src="/logo-img.png" alt="ClickPhase" />
 			<TextBlock variant="display">ClickPhase</TextBlock>
 		</a>
 	</div>
