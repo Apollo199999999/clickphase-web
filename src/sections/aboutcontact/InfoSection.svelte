@@ -4,8 +4,7 @@
 </script>
 
 <div class="container">
-	<!-- logo section  -->
-    <TextBlock class="text" variant="titleLarge">Logo</TextBlock>
+    <TextBlock class="text" variant="titleLarge">About ClickPhase</TextBlock>
 
     <div class="logo">
 		<a href="{void(0)}">
@@ -14,18 +13,23 @@
 		</a>
 	</div>
 
-	<!-- about section -->
-	<TextBlock class="text" variant="titleLarge">About ClickPhase</TextBlock>
 </div>
 
 <style>
     .container{
         width: 100%;
+		word-wrap: break-word;
+        align-items: center;
+		justify-content: center;
+		text-align: center;
     }
 
+	/* TODO: set logo scale */
     .logo {
-        margin-top: 2em;
+		transform: scale(1.0);	
+        margin-top: 4em;
 		margin-bottom: 4em;
+		background-color: yellowgreen;
 	}
 
 	.logo a {

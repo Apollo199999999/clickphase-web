@@ -57,9 +57,13 @@
 	}
 	
 	header {
+		position: sticky;
+		top: 0;
+		z-index: 2147483647;
 		display: flex;
-		background-color: var(--fds-card-background-default);
 		overflow: auto;
+		background-color: var(--fds-card-background-default);
+		backdrop-filter: blur(60px) saturate(150%);
 	}
 
 	.corner {

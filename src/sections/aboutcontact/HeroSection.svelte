@@ -15,6 +15,7 @@
         word-wrap: break-word;
         align-items: center;
 		justify-content: center;
+        text-align: center;
     }
 
     .container :global(.titleText) {
