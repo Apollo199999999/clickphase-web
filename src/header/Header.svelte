@@ -136,7 +136,8 @@
     	color: var(--fds-text-secondary);
 		font-family: var(--fds-font-family-display);
 		display: flex;
-		align-items: center;
+   		justify-content: space-around;
+   		align-items: center;
 		margin: auto;
 	}
 
@@ -159,6 +160,9 @@
 		margin: auto;
 		margin-right: 0.2em;
 		margin-top: 2px;
+		display: flex;
+   		justify-content: space-around;
+   		align-items: center;
   	}
 
 
