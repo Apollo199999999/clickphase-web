@@ -43,7 +43,7 @@
 
 	<ul>
 		<li>
-			<TextBlock variant="bodyLarge">
+			<TextBlock class="linkTextBlock" variant="bodyLarge">
 				Email:
 				<a class="links" href="mailto:clickphasehelp@gmail.com">
 					clickphasehelp@gmail.com
@@ -51,7 +51,7 @@
 			</TextBlock>
 		</li>
 		<li>
-			<TextBlock variant="bodyLarge"
+			<TextBlock class="linkTextBlock" variant="bodyLarge"
 				>GitHub Account:
 				<a
 					class="links"
@@ -64,7 +64,7 @@
 			</TextBlock>
 		</li>
 		<li>
-			<TextBlock variant="bodyLarge"
+			<TextBlock class="linkTextBlock" variant="bodyLarge"
 				>YouTube Channel:
 				<a
 					class="links"
@@ -77,7 +77,7 @@
 			</TextBlock>
 		</li>
 		<li>
-			<TextBlock variant="bodyLarge"
+			<TextBlock class="linkTextBlock" variant="bodyLarge"
 				>Personal YouTube Channel:
 				<a
 					class="links"
@@ -155,8 +155,13 @@
 		text-align: center;
 	}
 
+	.container :global(.linkTextBlock) {
+		text-align: center;
+	}
+
 	.links {
 		color: var(--fds-accent-text-primary);
+		text-align: center;
 		/* These are technically the same, but use both */
 		overflow-wrap: break-word;
 		word-wrap: break-word;
@@ -174,8 +179,13 @@
 		hyphens: auto;
 	}
 
-	ul li {
-		display: block;
+	.container ul{
+		padding: 0;
+		-webkit-padding-start: 0;
+    	list-style-type: none;
+	}
+
+	.container ul li {
 		margin-bottom: 0.2em;
 	}
 

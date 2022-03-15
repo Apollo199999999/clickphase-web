@@ -1,3 +1,5 @@
+<!-- Code taken in large parts from: https://codepen.io/nohoid/pen/eYXpNL -->
+
 <div class="mask">
     <div class="rainbow" />
 </div>
