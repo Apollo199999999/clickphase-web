@@ -19,16 +19,28 @@
 	<nav>
 		<ul>
 			<li class:active={$page.url.pathname === '/'}>
-				<a sveltekit:prefetch href="/">Home</a>
+				<a sveltekit:prefetch href="/">
+					<p class="linkIcon">&#xF480;</p>
+					Home
+				</a>
 			</li>
 			<li class:active={$page.url.pathname === '/software'}>
-				<a sveltekit:prefetch href="/software">Software</a>
+				<a sveltekit:prefetch href="/software">
+					<p class="linkIcon">&#x02A7;</p>
+						Software
+				</a>
 			</li>
 			<li class:active={$page.url.pathname === '/animationsvideos'}>
-				<a sveltekit:prefetch href="/animationsvideos">Animations/Videos</a>
+				<a sveltekit:prefetch href="/animationsvideos">
+					<p class="linkIcon">&#x0378;</p>
+						Animations/Videos
+				</a>
 			</li>
 			<li class:active={$page.url.pathname === '/aboutcontact'}>
-				<a sveltekit:prefetch href="/aboutcontact">About/Contact</a>
+				<a sveltekit:prefetch href="/aboutcontact">
+					<p class="linkIcon">&#xF4A3;</p>
+					About/Contact
+				</a>
 			</li>
 		</ul>
 	</nav>
@@ -123,6 +135,9 @@
     	text-decoration: none;
     	color: var(--fds-text-secondary);
 		font-family: var(--fds-font-family-display);
+		display: flex;
+		align-items: center;
+		margin: auto;
 	}
 
 	li a:hover {
@@ -137,41 +152,14 @@
 		background-color: var(--fds-card-background-secondary);
 	}
 
-	li a[href="/"]::before{
-		content: '\F480' ;
-		font-family: "FluentUIIcons";
-		font-size: 18px;
-   		float: left;
-   		margin-right: 5px;
-		margin-top: 3px;
-	}
-
-	li a[href="/software"]::before{
-		content: '\02A7' ;
-		font-family: "FluentUIIcons";
-		font-size: 18px;
-   		float: left;
-   		margin-right: 5px;
-		margin-top: 3px;
-	}
-
-	li a[href="/animationsvideos"]::before{
-		content: '\0378' ;
-		font-family: "FluentUIIcons";
-		font-size: 18px;
-   		float: left;
-   		margin-right: 5px;
-		margin-top: 3px;
-	}
-
-	li a[href="/aboutcontact"]::before{
-		content: '\F4A3' ;
-		font-family: "FluentUIIcons";
-		font-size: 18px;
-   		float: left;
-   		margin-right: 5px;
-		margin-top: 3px;
-	}
+	.linkIcon {
+        font-family: "FluentUIIcons" ;
+		font-size: 20px;
+		float: left;
+		margin: auto;
+		margin-right: 0.2em;
+		margin-top: 2px;
+  	}
 
 
 </style>
