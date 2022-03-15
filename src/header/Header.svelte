@@ -133,6 +133,7 @@
     	appearance: button;
 		padding: 5px 12px 5px 10px;
 		border-radius: var(--fds-control-corner-radius);
+		-webkit-border-radius: var(--fds-control-corner-radius);
     	text-decoration: none;
     	color: var(--fds-text-secondary);
 		font-family: var(--fds-font-family-display);
