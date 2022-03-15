@@ -76,6 +76,7 @@
 		overflow: auto;
 		background-color: var(--fds-card-background-default);
 		backdrop-filter: blur(60px) saturate(150%);
+		-webkit-backdrop-filter: blur(60px) saturate(150%);
 		border-bottom: 1px solid var(--fds-card-background-secondary);
 	}
 
@@ -131,7 +132,7 @@
     	-moz-appearance: button;
     	appearance: button;
 		padding: 5px 12px 5px 10px;
-		border-radius: 5px;
+		border-radius: var(--fds-control-corner-radius);
     	text-decoration: none;
     	color: var(--fds-text-secondary);
 		font-family: var(--fds-font-family-display);
@@ -139,6 +140,7 @@
    		justify-content: space-around;
    		align-items: center;
 		margin: auto;
+		vertical-align: middle;
 	}
 
 	li a:hover {
@@ -158,11 +160,11 @@
 		font-size: 20px;
 		float: left;
 		margin: auto;
-		margin-right: 0.2em;
-		margin-top: 2px;
+		margin-right: 0.3em;
 		display: flex;
    		justify-content: space-around;
    		align-items: center;
+		vertical-align: middle;
   	}
 
 
