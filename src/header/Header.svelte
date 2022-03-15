@@ -64,7 +64,7 @@
 		overflow: auto;
 		background-color: var(--fds-card-background-default);
 		backdrop-filter: blur(60px) saturate(150%);
-		border-bottom: 1px solid var(--fds-control-stroke-on-accent-secondary);
+		border-bottom: 1px solid var(--fds-card-background-secondary);
 	}
 
 	.corner {

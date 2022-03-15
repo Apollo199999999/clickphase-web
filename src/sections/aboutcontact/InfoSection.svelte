@@ -1,6 +1,23 @@
-<script>
+<script lang="ts" >
     import { TextBlock } from "fluent-svelte";
 	import "fluent-svelte/theme.css";
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+
+		//function to change the scale of the logo div
+		function changeLogoScale(){
+			//scale logo
+			let logo = (<HTMLElement>document.querySelector(".logo"));
+	   		let width = logo.clientWidth;
+	   		let scale = width/450;
+	  		logo.style.transform = "scale(" + scale + ")";
+		}
+
+		//change the logo scale everytime the window resizes
+		window.addEventListener("resize", changeLogoScale);
+		changeLogoScale();
+    });
 </script>
 
 <div class="container">
@@ -26,10 +43,11 @@
 
 	/* TODO: set logo scale */
     .logo {
-		transform: scale(1.0);	
+		max-width: 450px;
         margin-top: 4em;
 		margin-bottom: 4em;
-		background-color: yellowgreen;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	.logo a {
