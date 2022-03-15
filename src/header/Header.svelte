@@ -60,10 +60,16 @@
 		-webkit-appearance: button;
     	-moz-appearance: button;
     	appearance: button;
-		padding: 5px 12px 5px 10px;
-		border-radius: 5px;
+		padding: 5px 11px 6px 9px;
+		border-radius: 0.3em;
+		-webkit-border-radius: 0.3em;
     	text-decoration: none;
 		font-family: var(--fds-font-family-display);
+		display: flex;
+   		justify-content: space-around;
+   		align-items: center;
+		margin: auto;
+		vertical-align: middle;
 		background-color: var(--fds-accent-default) !important;
 		color: var(--fds-text-on-accent-primary) !important;
 	}
@@ -131,9 +137,9 @@
 		-webkit-appearance: button;
     	-moz-appearance: button;
     	appearance: button;
-		padding: 5px 12px 5px 10px;
-		border-radius: var(--fds-control-corner-radius);
-		-webkit-border-radius: var(--fds-control-corner-radius);
+		padding: 5px 11px 6px 9px;
+		border-radius: 0.3em;
+		-webkit-border-radius: 0.3em;
     	text-decoration: none;
     	color: var(--fds-text-secondary);
 		font-family: var(--fds-font-family-display);
@@ -148,10 +154,16 @@
 		-webkit-appearance: button;
     	-moz-appearance: button;
     	appearance: button;
-		padding: 5px 12px 5px 10px;
-		border-radius: 5px;
+		padding: 5px 11px 6px 9px;
+		border-radius: 0.3em;
+		-webkit-border-radius: 0.3em;
     	text-decoration: none;
 		font-family: var(--fds-font-family-display);
+		display: flex;
+   		justify-content: space-around;
+   		align-items: center;
+		margin: auto;
+		vertical-align: middle;
 		color: var(--fds-accent-text-primary);
 		background-color: var(--fds-card-background-secondary);
 	}
