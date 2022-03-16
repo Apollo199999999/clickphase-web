@@ -140,7 +140,6 @@
    		align-items: center;
 		margin: auto;
 		vertical-align: middle;
-		position: relative;
 	}
 
 	li a:hover {
@@ -161,6 +160,7 @@
         font-family: "FluentUIIcons" ;
 		font-size: 20px;
 		vertical-align: middle;
+		align-items: center;
 		margin: auto;
 		margin-right: 0.3em;
 		margin-top: 2px;
