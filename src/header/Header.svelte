@@ -57,12 +57,7 @@
 	}
 
 	.active a {
-		-webkit-appearance: button;
-    	-moz-appearance: button;
-    	appearance: button;
 		padding: 5px 11px 6px 9px;
-		border-radius: 0.3em;
-		-webkit-border-radius: 0.3em;
     	text-decoration: none;
 		font-family: var(--fds-font-family-display);
 		display: flex;
@@ -134,12 +129,7 @@
 	}
 
 	li a {
-		-webkit-appearance: button;
-    	-moz-appearance: button;
-    	appearance: button;
 		padding: 5px 11px 6px 9px;
-		border-radius: 0.3em;
-		-webkit-border-radius: 0.3em;
     	text-decoration: none;
     	color: var(--fds-text-secondary);
 		font-family: var(--fds-font-family-display);
@@ -151,12 +141,7 @@
 	}
 
 	li a:hover {
-		-webkit-appearance: button;
-    	-moz-appearance: button;
-    	appearance: button;
 		padding: 5px 11px 6px 9px;
-		border-radius: 0.3em;
-		-webkit-border-radius: 0.3em;
     	text-decoration: none;
 		font-family: var(--fds-font-family-display);
 		display: flex;
