@@ -21,25 +21,25 @@
 			<li class:active={$page.url.pathname === '/'}>
 				<a sveltekit:prefetch href="/">
 					<p class="linkIcon">&#xF480;</p>
-					Home
+					<p class="linkText">Home</p>
 				</a>
 			</li>
 			<li class:active={$page.url.pathname === '/software'}>
 				<a sveltekit:prefetch href="/software">
 					<p class="linkIcon">&#x02A7;</p>
-						Software
+					<p class="linkText">Software</p>
 				</a>
 			</li>
 			<li class:active={$page.url.pathname === '/animationsvideos'}>
 				<a sveltekit:prefetch href="/animationsvideos">
 					<p class="linkIcon">&#x0378;</p>
-						Animations/Videos
+					<p class="linkText">Animations/Videos</p>
 				</a>
 			</li>
 			<li class:active={$page.url.pathname === '/aboutcontact'}>
 				<a sveltekit:prefetch href="/aboutcontact">
 					<p class="linkIcon">&#xF4A3;</p>
-					About/Contact
+					<p class="linkText">About/Contact</p>
 				</a>
 			</li>
 		</ul>
@@ -57,15 +57,6 @@
 	}
 
 	.active a {
-		padding: 5px 11px 6px 7px;
-		border-radius: var(--fds-control-corner-radius);
-    	text-decoration: none;
-		font-family: var(--fds-font-family-display);
-		display: flex;
-   		justify-content: space-around;
-   		align-items: center;
-		margin: auto;
-		vertical-align: middle;
 		background-color: var(--fds-accent-default) !important;
 		color: var(--fds-text-on-accent-primary) !important;
 	}
@@ -130,28 +121,15 @@
 	}
 
 	li a {
-		padding: 5px 11px 6px 7px;
+		padding: 5px 11px 5px 7px;
 		border-radius: var(--fds-control-corner-radius);
-    	text-decoration: none;
-    	color: var(--fds-text-secondary);
+    	text-decoration: none;		
 		font-family: var(--fds-font-family-display);
 		display: flex;
-   		justify-content: space-around;
-   		align-items: center;
-		margin: auto;
-		vertical-align: middle;
+    	color: var(--fds-text-secondary);
 	}
 
 	li a:hover {
-		padding: 5px 11px 6px 7px;
-		border-radius: var(--fds-control-corner-radius);
-    	text-decoration: none;
-		font-family: var(--fds-font-family-display);
-		display: flex;
-   		justify-content: space-around;
-   		align-items: center;
-		margin: auto;
-		vertical-align: middle;
 		color: var(--fds-accent-text-primary);
 		background-color: var(--fds-card-background-secondary);
 	}
@@ -159,12 +137,13 @@
 	.linkIcon {
         font-family: "FluentUIIcons" ;
 		font-size: 20px;
-		vertical-align: middle;
-		align-items: center;
 		margin: auto;
 		margin-right: 0.3em;
-		margin-top: 0.125em;
   	}
-
+	
+	.linkText{
+		margin: auto;
+		line-height: 100%;
+	}
 
 </style>
