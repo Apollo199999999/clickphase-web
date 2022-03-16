@@ -72,10 +72,23 @@
 		z-index: 2147483647;
 		display: flex;
 		overflow: auto;
-		background-color: var(--fds-card-background-default);
-		backdrop-filter: blur(60px) saturate(150%);
-		-webkit-backdrop-filter: blur(60px) saturate(150%);
+		background-color: var(--fds-solid-background-base);
 		border-bottom: 1px solid var(--fds-card-background-secondary);
+	}
+
+	@supports (-webkit-backdrop-filter: blur(60px) saturate(150%)) or
+		(backdrop-filter: blur(60px) saturate(150%)) {
+		header {
+			position: sticky;
+			top: 0;
+			z-index: 2147483647;
+			display: flex;
+			overflow: auto;
+			background-color: var(--fds-control-fill-tertiary);
+			backdrop-filter: blur(60px) saturate(150%);
+			-webkit-backdrop-filter: blur(60px) saturate(150%);
+			border-bottom: 1px solid var(--fds-control-stroke-default);
+		}
 	}
 
 	.corner {

@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>About & Contact</title>
+	<title>ClickPhase - About & Contact</title>
 </svelte:head>
 
 <HeroSection/>

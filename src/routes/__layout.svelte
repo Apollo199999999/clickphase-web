@@ -18,7 +18,7 @@
 
 	/* Some base styles to get things looking right. */
 	:global(body) {
-		background-color: var(--fds-solid-background-base);
+		background-color: var(--fds-solid-background-secondary);
 		color: var(--fds-text-primary);
 		margin: 0%;
 		padding: 0%;

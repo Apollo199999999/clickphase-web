@@ -1,24 +1,20 @@
-<script context="module">
-	export const prerender = true;
+<script>
+	import "fluent-svelte/theme.css";
+	import HeroSection from "/src/sections/home/HeroSection.svelte";
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>ClickPhase - Home</title>
 </svelte:head>
 
-<section>
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-</section>
+<HeroSection/>
+<div class="content">
+	
+</div>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
+	.content {
+		padding: 2em;
 	}
-
 </style>
+

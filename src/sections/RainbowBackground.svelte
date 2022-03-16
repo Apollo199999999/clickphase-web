@@ -32,7 +32,6 @@
             #dd00f3
         );
         background-size: 1800% 1800%;
-
         -webkit-animation: rainbow 18s ease infinite;
         -z-animation: rainbow 18s ease infinite;
         -o-animation: rainbow 18s ease infinite;
