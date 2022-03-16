@@ -57,7 +57,7 @@
 	}
 
 	.active a {
-		padding: 5px 11px 6px 9px;
+		padding: 5px 11px 6px 7px;
 		border-radius: var(--fds-control-corner-radius);
     	text-decoration: none;
 		font-family: var(--fds-font-family-display);
@@ -130,7 +130,7 @@
 	}
 
 	li a {
-		padding: 5px 11px 6px 9px;
+		padding: 5px 11px 6px 7px;
 		border-radius: var(--fds-control-corner-radius);
     	text-decoration: none;
     	color: var(--fds-text-secondary);
@@ -140,10 +140,11 @@
    		align-items: center;
 		margin: auto;
 		vertical-align: middle;
+		position: relative;
 	}
 
 	li a:hover {
-		padding: 5px 11px 6px 9px;
+		padding: 5px 11px 6px 7px;
 		border-radius: var(--fds-control-corner-radius);
     	text-decoration: none;
 		font-family: var(--fds-font-family-display);
@@ -159,13 +160,10 @@
 	.linkIcon {
         font-family: "FluentUIIcons" ;
 		font-size: 20px;
-		float: left;
+		vertical-align: middle;
 		margin: auto;
 		margin-right: 0.3em;
-		display: flex;
-   		justify-content: space-around;
-   		align-items: center;
-		vertical-align: middle;
+		margin-top: 2px;
   	}
 
 
