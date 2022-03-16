@@ -1,11 +1,16 @@
 <script>
-	import { page } from '$app/stores';
+	import { page } from "$app/stores";
 	import "fluent-svelte/theme.css";
 	import { TextBlock } from "fluent-svelte";
 </script>
 
 <svelte:head>
-	<link rel="preload" href="/FluentSystemIcons-Regular.ttf" as="font" crossorigin="anonymous">
+	<link
+		rel="preload"
+		href="/FluentSystemIcons-Regular.ttf"
+		as="font"
+		crossorigin="anonymous"
+	/>
 </svelte:head>
 
 <header>
@@ -18,25 +23,25 @@
 
 	<nav>
 		<ul>
-			<li class:active={$page.url.pathname === '/'}>
+			<li class:active={$page.url.pathname === "/"}>
 				<a sveltekit:prefetch href="/">
 					<p class="linkIcon">&#xF480;</p>
 					<p class="linkText">Home</p>
 				</a>
 			</li>
-			<li class:active={$page.url.pathname === '/software'}>
+			<li class:active={$page.url.pathname === "/software"}>
 				<a sveltekit:prefetch href="/software">
 					<p class="linkIcon">&#x02A7;</p>
 					<p class="linkText">Software</p>
 				</a>
 			</li>
-			<li class:active={$page.url.pathname === '/animationsvideos'}>
+			<li class:active={$page.url.pathname === "/animationsvideos"}>
 				<a sveltekit:prefetch href="/animationsvideos">
 					<p class="linkIcon">&#x0378;</p>
 					<p class="linkText">Animations/Videos</p>
 				</a>
 			</li>
-			<li class:active={$page.url.pathname === '/aboutcontact'}>
+			<li class:active={$page.url.pathname === "/aboutcontact"}>
 				<a sveltekit:prefetch href="/aboutcontact">
 					<p class="linkIcon">&#xF4A3;</p>
 					<p class="linkText">About/Contact</p>
@@ -45,22 +50,22 @@
 		</ul>
 	</nav>
 
-	<div class="corner"/>
+	<div class="corner" />
 </header>
 
 <style>
 	@import url("https://unpkg.com/fluent-svelte/theme.css");
 
 	@font-face {
-    	font-family: 'FluentUIIcons';
-    	src: url('/FluentSystemIcons-Regular.ttf'); /*URL to font*/
+		font-family: "FluentUIIcons";
+		src: url("/FluentSystemIcons-Regular.ttf"); /*URL to font*/
 	}
 
 	.active a {
 		background-color: var(--fds-accent-default) !important;
 		color: var(--fds-text-on-accent-primary) !important;
 	}
-	
+
 	header {
 		position: sticky;
 		top: 0;
@@ -88,7 +93,6 @@
 		margin-right: 3em;
 	}
 
-
 	.corner img {
 		width: 2.5em;
 		height: 2.5em;
@@ -101,7 +105,6 @@
 		justify-content: center;
 		margin-left: 1em;
 	}
-
 
 	ul {
 		position: relative;
@@ -123,10 +126,10 @@
 	li a {
 		padding: 5px 11px 5px 7px;
 		border-radius: var(--fds-control-corner-radius);
-    	text-decoration: none;		
+		text-decoration: none;
 		font-family: var(--fds-font-family-display);
 		display: flex;
-    	color: var(--fds-text-secondary);
+		color: var(--fds-text-secondary);
 	}
 
 	li a:hover {
@@ -135,15 +138,14 @@
 	}
 
 	.linkIcon {
-        font-family: "FluentUIIcons" ;
+		font-family: "FluentUIIcons";
 		font-size: 20px;
 		margin: auto;
 		margin-right: 0.3em;
-  	}
-	
-	.linkText{
+	}
+
+	.linkText {
 		margin: auto;
 		line-height: 100%;
 	}
-
 </style>
