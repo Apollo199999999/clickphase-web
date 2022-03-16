@@ -58,6 +58,7 @@
 
 	.active a {
 		padding: 5px 11px 6px 9px;
+		border-radius: var(--fds-control-corner-radius);
     	text-decoration: none;
 		font-family: var(--fds-font-family-display);
 		display: flex;
@@ -130,6 +131,7 @@
 
 	li a {
 		padding: 5px 11px 6px 9px;
+		border-radius: var(--fds-control-corner-radius);
     	text-decoration: none;
     	color: var(--fds-text-secondary);
 		font-family: var(--fds-font-family-display);
@@ -142,6 +144,7 @@
 
 	li a:hover {
 		padding: 5px 11px 6px 9px;
+		border-radius: var(--fds-control-corner-radius);
     	text-decoration: none;
 		font-family: var(--fds-font-family-display);
 		display: flex;
