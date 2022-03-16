@@ -163,7 +163,7 @@
 		align-items: center;
 		margin: auto;
 		margin-right: 0.3em;
-		margin-top: 0.07em;
+		margin-top: 0.125em;
   	}
 
 
