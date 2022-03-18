@@ -7,17 +7,30 @@
 <style>
     /*image mask*/
     .mask {
-        height: 30em;
-        width: 100%;
+        height: 35em;
         -webkit-mask-image: url("/mask.png");
         mask-image: url("/mask.png");
         -webkit-mask-repeat: no-repeat;
-        mask-repeat: no-repeat;    
+        mask-repeat: no-repeat;
+        mask-size: 100% 35em;
+        -webkit-mask-size: 100% 35em;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .mask {
+            height: 50em;
+            -webkit-mask-image: url("/mask.png");
+            mask-image: url("/mask.png");
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            mask-size: 100% 50em;
+            -webkit-mask-size: 100% 50em;
+        }
     }
 
     /* rainbow background */
     .rainbow {
-        height: 30em;
+        height: 100%;
         width: 100%;
         background: linear-gradient(
             124deg,
