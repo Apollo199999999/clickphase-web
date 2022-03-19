@@ -161,8 +161,9 @@
             position: relative;
             margin-right: 5em;
             text-align: center;
-            width: 90vw;
             height: auto;
+            width: 90vw;
+            margin: auto;
             opacity: 0.8;
         }
     }
