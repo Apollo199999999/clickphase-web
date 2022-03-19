@@ -18,13 +18,13 @@
 
     @media only screen and (max-width: 1000px) {
         .mask {
-            height: 50em;
+            height: 120vw;
             -webkit-mask-image: url("/mask.png");
             mask-image: url("/mask.png");
             -webkit-mask-repeat: no-repeat;
             mask-repeat: no-repeat;
-            mask-size: 100% 50em;
-            -webkit-mask-size: 100% 50em;
+            mask-size: 100% 120vw;
+            -webkit-mask-size: 100% 120vw;
         }
     }
 

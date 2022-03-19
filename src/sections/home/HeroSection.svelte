@@ -1,12 +1,7 @@
-<script lang="ts">
+<script>
     import RainbowBackground from "/src/sections/RainbowBackground.svelte";
     import "fluent-svelte/theme.css";
     import { TextBlock, Button } from "fluent-svelte";
-    import { onMount } from "svelte";
-
-    onMount(() => {
-        //TODO: CHANGE SCREENSHOT SCALE
-    });
 </script>
 
 <RainbowBackground />
@@ -28,7 +23,7 @@
                 />
             </picture>
 
-            <TextBlock variant="subtitle"
+            <TextBlock class="subText" variant="subtitle"
                 >Dynamic Desktop for Windows 10 and Windows 11</TextBlock
             >
 
@@ -68,6 +63,11 @@
 
     .leftPane {
         position: relative;
+        max-height: 35em;
+    }
+
+    .rightPane{
+        max-height: 35em;
     }
 
     .leftPaneElements {
@@ -90,14 +90,15 @@
         left: 50%;
         transform: translate(-50%, -50%);
         margin-right: 5em;
-        text-align: center;
-        height: 30em;
+        object-fit: contain;
+        max-width: 85%;
+        max-height: 90%;
+        width: auto;
+        height: auto;
         opacity: 0.8;
     }
 
     .leftPaneElements :global(.learnMoreBtn) {
-        transform: scale(1.1);
-        margin-left: calc(0.1 * 4em);
         margin-top: 2em;
         display: block;
     }
@@ -107,13 +108,15 @@
             position: absolute;
             margin: auto;
             width: 100%;
-            height: 47em;
+            height: 115vw;
             display: grid;
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 1fr;
         }
 
         .leftPane {
+            margin-top: 10vw;
+            margin-bottom: 10vw;
             position: relative;
             text-align: center;
             display: flex;
@@ -123,33 +126,44 @@
 
         .leftPaneElements {
             text-align: center;
-            margin: auto;
+            margin: 2em;
             position: absolute;
+            background-color: aquamarine;
         }
 
         .leftPaneElements picture img {
             display: block;
             margin: 0 auto;
-            margin-top: 2em;
-            margin-bottom: 2em;
-            height: 92px;
+            margin-bottom: 5vw;
+            height: 15vw;
+        }
+
+        .leftPaneElements :global(.subText){
+            font-size: 3vw;
+            line-height: normal;
         }
 
         .leftPaneElements :global(.learnMoreBtn) {
-            transform: scale(1.1);
             margin: 0 auto;
-            margin-top: 2em;
-            display: block;
+            margin-top: 3vw;
+            margin-bottom: 3vw;
+            font-size: 2vw;
+            padding: 0%;
+            line-height: normal;
+            width: 15vw;
+            height: 5vw;
         }
 
+        .rightPane{
+            margin-top: 5vw;
+        }
+        
         .rightPane picture img {
             position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            margin: 0 auto;
+            margin-right: 5em;
             text-align: center;
-            height: 25em;
+            width: 90vw;
+            height: auto;
             opacity: 0.8;
         }
     }
