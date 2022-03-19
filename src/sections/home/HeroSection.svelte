@@ -128,7 +128,6 @@
             text-align: center;
             margin: 2em;
             position: absolute;
-            background-color: aquamarine;
         }
 
         .leftPaneElements picture img {
