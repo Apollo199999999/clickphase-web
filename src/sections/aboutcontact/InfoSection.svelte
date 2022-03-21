@@ -14,8 +14,8 @@
 		}
 
 		//change the logo scale everytime the window resizes
-		window.addEventListener("resize", changeLogoScale);
 		changeLogoScale();
+		window.addEventListener("resize", changeLogoScale);
 	});
 </script>
 
