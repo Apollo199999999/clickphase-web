@@ -108,7 +108,6 @@
 		margin-top: 1em;
 	}
 
-	/* TODO: set logo scale */
 	.logo {
 		max-width: 450px;
 		margin-top: 4em;
