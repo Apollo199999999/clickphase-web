@@ -72,22 +72,20 @@
 		z-index: 2147483647;
 		display: flex;
 		overflow: auto;
-		background-color: var(--fds-solid-background-base);
-		border-bottom: 1px solid var(--fds-card-background-secondary);
+		background-color: var(--fds-control-solid-fill-default);
 	}
 
-	@supports (-webkit-backdrop-filter: blur(60px) saturate(150%)) or
-		(backdrop-filter: blur(60px) saturate(150%)) {
+	@supports (-webkit-backdrop-filter: blur(60px) saturate(200%)) or
+		(backdrop-filter: blur(60px) saturate(200%)) {
 		header {
 			position: sticky;
 			top: 0;
 			z-index: 2147483647;
 			display: flex;
 			overflow: auto;
-			background-color: var(--fds-control-fill-tertiary);
-			backdrop-filter: blur(60px) saturate(150%);
-			-webkit-backdrop-filter: blur(60px) saturate(150%);
-			border-bottom: 1px solid var(--fds-control-stroke-default);
+			background-color: var(--fds-control-fill-default);
+			backdrop-filter: blur(60px) saturate(200%);
+			-webkit-backdrop-filter: blur(60px) saturate(200%);
 		}
 	}
 

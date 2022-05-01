@@ -1,11 +1,11 @@
 <script>
-    import RainbowBackground from "/src/sections/RainbowBackground.svelte"
+    import MicaBackground from "/src/sections/MicaBackground.svelte"
 	import "fluent-svelte/theme.css";
 	import { TextBlock } from "fluent-svelte";
 </script>
 
 <div class="container">
-    <RainbowBackground/>
+    <MicaBackground/>
     <TextBlock class="titleText" variant="display">About & Contact</TextBlock>
 </div>
 
