@@ -38,10 +38,10 @@
 
 <style>
     * {
-        background: #000 !important;
-        color: #0f0 !important;
-        outline: solid #f00 1px !important;
+        margin: 0%;
+        padding: 0%;
     }
+    
     .container {
         position: relative;
         word-wrap: break-word;
@@ -52,7 +52,6 @@
     }
 
     .logo {
-        background-color: aqua;
         position: absolute;
         top: 50%;
         left: 50%;
