@@ -10,7 +10,7 @@
             let logo = <HTMLElement>document.querySelector(".logo");
             let screenW = window.innerWidth;
             let scale = screenW / 550;
-            
+
             //only scale according to display width if scale >= 1.2 (otherwise logo gets too big)
             if (scale >= 1.2) {
                 logo.style.transform = "translate(-50%, -50%) scale(1.2)";
@@ -37,20 +37,23 @@
 </div>
 
 <style>
+    * {
+        background: #000 !important;
+        color: #0f0 !important;
+        outline: solid #f00 1px !important;
+    }
     .container {
         position: relative;
         word-wrap: break-word;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 0%
+        padding: 0%;
     }
 
     .logo {
         background-color: aqua;
         position: absolute;
-        padding: 0%;
-        margin-right: 0%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -65,7 +68,7 @@
         height: 100%;
         text-decoration: none;
         color: inherit;
-        padding: 0%
+        padding: 0%;
     }
 
     .logo img {
@@ -73,6 +76,6 @@
         height: 6em;
         object-fit: contain;
         margin-right: 1.2em;
-        padding: 0%
+        padding: 0%;
     }
 </style>
