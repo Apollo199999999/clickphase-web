@@ -28,6 +28,7 @@
 		margin: 0, auto;
 		padding: 0%;
 		box-sizing: border-box;
+		overflow-x: hidden;
 	}
 
 </style>

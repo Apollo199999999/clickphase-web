@@ -38,10 +38,9 @@
 
 <style>
     * {
-        margin: 0%;
-        padding: 0%;
+        overflow-x: hidden;
     }
-    
+
     .container {
         position: relative;
         word-wrap: break-word;
