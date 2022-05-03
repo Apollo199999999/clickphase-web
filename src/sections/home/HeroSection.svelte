@@ -37,10 +37,6 @@
 </div>
 
 <style>
-    * {
-        overflow-x: hidden;
-    }
-
     .container {
         position: relative;
         word-wrap: break-word;
