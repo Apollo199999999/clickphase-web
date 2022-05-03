@@ -46,8 +46,10 @@
     }
 
     .logo {
+        background-color: aqua;
         position: absolute;
         padding: 0%;
+        margin-right: 0%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);

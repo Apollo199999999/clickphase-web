@@ -6,31 +6,35 @@
 <!--TODO: IMPLEMENT PARALLAX SCROLLING-->
 <style>
     .parallax {
-        overflow: hidden;
+        position: relative;
+        width: 100%;
         height: 35em;
+        overflow: hidden;
     }
 
     .image {
-        background: url("/MicaLight.png");
+        background-image: url("/MicaLight.png");
         width: 100%;
         height: 100%;
-        transform: scale(1.7);
         filter: saturate(120%);
+        transform: scale(1.7);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        background-attachment: fixed;
     }
 
     @media (prefers-color-scheme: dark) {
         .image {
-            background: url("/MicaDark.png");
+            background-image: url("/MicaDark.png");
             width: 100%;
             height: 100%;
-            transform: scale(1.7);
             filter: saturate(120%);
+            transform: scale(1.7);
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
+            background-attachment: fixed;
         }
     }
     .image:before {
