@@ -43,6 +43,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
+        padding: 0%
     }
 
     .logo {
@@ -64,6 +65,7 @@
         height: 100%;
         text-decoration: none;
         color: inherit;
+        padding: 0%
     }
 
     .logo img {
@@ -71,5 +73,6 @@
         height: 6em;
         object-fit: contain;
         margin-right: 1.2em;
+        padding: 0%
     }
 </style>
