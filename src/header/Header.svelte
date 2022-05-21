@@ -54,8 +54,6 @@
 </header>
 
 <style>
-	@import url("https://unpkg.com/fluent-svelte/theme.css");
-
 	@font-face {
 		font-family: "FluentUIIcons";
 		src: url("/FluentSystemIcons-Regular.ttf"); /*URL to font*/
