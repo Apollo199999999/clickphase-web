@@ -1,17 +1,16 @@
 <script>
-	import Header from '/src/header/Header.svelte';
+	import Header from "/src/header/Header.svelte";
+	import "fluent-svelte/theme.css";
 </script>
 
-<Header/>
+<Header />
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <main>
 	<slot />
 </main>
 
 <style>
-	@import url("https://unpkg.com/fluent-svelte/theme.css");
-
 	/* Some base styles to get things looking right. */
 	:global(body) {
 		background-color: var(--fds-solid-background-base);
@@ -30,5 +29,5 @@
 		box-sizing: border-box;
 		overflow-x: hidden;
 	}
-
+	
 </style>
