@@ -1,7 +1,3 @@
-<script>
-    import { TextBlock } from "fluent-svelte";
-</script>
-
 <svelte:head>
     <link
         rel="preload"
