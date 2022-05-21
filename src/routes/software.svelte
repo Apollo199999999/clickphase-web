@@ -9,7 +9,7 @@
 
 <HeroSection/>
 <div class="content">
-	
+
 </div>
 
 <style>
@@ -17,4 +17,3 @@
 		padding: 2em;
 	}
 </style>
-
