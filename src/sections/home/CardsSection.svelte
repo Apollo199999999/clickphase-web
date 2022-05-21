@@ -36,7 +36,7 @@
         width: 300px;
         height: 400px;
         text-align: center;
-        border-radius: 3px;
+        border-radius: var(--fds-control-corner-radius);
         z-index: 2147483646;
         border: red;
         -webkit-transition: 200ms ease-in-out;
