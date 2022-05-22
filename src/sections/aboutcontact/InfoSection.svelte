@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import { TextBlock } from "fluent-svelte";
 	import "fluent-svelte/theme.css";
 	import { onMount } from "svelte";
@@ -7,7 +7,7 @@
 		//function to change the scale of the logo div
 		function changeLogoScale() {
 			//scale logo
-			let logo = <HTMLElement>document.querySelector(".logo");
+			let logo = document.querySelector(".logo");
 			let width = logo.clientWidth;
 			let scale = width / 450;
 			logo.style.transform = "scale(" + scale + ")";

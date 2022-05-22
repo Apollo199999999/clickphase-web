@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
     import MicaBackground from "/src/sections/MicaBackground.svelte";
     import "fluent-svelte/theme.css";
     import { TextBlock, Button } from "fluent-svelte";
@@ -7,7 +7,7 @@
     onMount(() => {
         //function to change the scale of the logo div
         function changeLogoScale() {
-            let logo = <HTMLElement>document.querySelector(".logo");
+            let logo = document.querySelector(".logo");
             let screenW = window.innerWidth;
             let scale = screenW / 550;
 
