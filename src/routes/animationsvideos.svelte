@@ -1,6 +1,7 @@
 <script>
 	import "fluent-svelte/theme.css";
 	import HeroSection from "/src/sections/animationsvideos/HeroSection.svelte";
+	import VideoChannels from "/src/sections/animationsvideos/VideoChannels.svelte";
 </script>
 
 <svelte:head>
@@ -9,7 +10,7 @@
 
 <HeroSection/>
 <div class="content">
-	
+	<VideoChannels/>
 </div>
 
 <style>

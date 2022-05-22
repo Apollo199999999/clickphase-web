@@ -71,10 +71,12 @@
 
     .container {
         margin-top: -10em;
-        padding: 4em;
+        overflow: hidden;
     }
 
     .cards-collection {
+        padding-left: 0.7em;
+        padding-right: 0.7em;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -98,7 +100,7 @@
         align-items: center;
         margin: 0.7rem;
         width: 280px;
-        min-width: 280px;
+        min-width: 200px;
         flex-grow: 1;
         height: 350px;
         text-align: center;
@@ -125,6 +127,10 @@
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     }
 
+    .card-content{
+        width: 100%;
+    }
+
     .card-default-icon {
         font-family: "FluentUIIcons";
         font-size: 100px;
@@ -142,5 +148,7 @@
         font-size: 28px;
         margin: 0px;
         margin-top: 1.5rem;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 </style>

@@ -4,30 +4,40 @@
 </script>
 
 <div class="container">
-    <TextBlock variant="titleLarge" >Featured Software</TextBlock>
+    <TextBlock variant="titleLarge">My animations & videos</TextBlock>
+    <TextBlock variant="bodyLarge" class="bodyText">You can find all of my animations and videos on my 3 YouTube channels.</TextBlock>
 
     <div class="cards-collection">
-        <div class="card" onclick="window.location.href = '/dynawin';">
+        <div class="card" onclick="window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank');">
             <div class="card-content">
                 <img
                     class="card-image"
-                    alt="DynaWin"
-                    src="/app-images/dynawin/DynaWinImage.jpg"
+                    alt="ClickPhase"
+                    src="/youtube-profiles/clickphase.png"
                 />
-                <p class="card-text">DynaWin</p>
-                <p class="card-subtext">Dynamic Desktop for Windows 10 and Windows 11</p>
+                <p class="card-text">ClickPhase</p>
             </div>
         </div>
 
-        <div class="card" onclick="window.location.href = '/launcherx';">
+        <div class="card" onclick="window.open('https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ', '_blank');">
             <div class="card-content">
                 <img
                     class="card-image"
-                    alt="LauncherX"
-                    src="/app-images/launcherx/LauncherXImage.png"
+                    alt="Matthias Wang"
+                    src="/youtube-profiles/matthias-wang.jpg"
                 />
-                <p class="card-text">LauncherX</p>
-                <p class="card-subtext">Organise all your stuff!</p>
+                <p class="card-text">Matthias Wang</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="window.open('https://www.youtube.com/channel/UCDVwYsVmGsjiWVdWCb_4vIg', '_blank');">
+            <div class="card-content">
+                <img
+                    class="card-image"
+                    alt="Granny the Great"
+                    src="/youtube-profiles/granny.png"
+                />
+                <p class="card-text">Granny the Great</p>
             </div>
         </div>
     </div>
@@ -35,7 +45,7 @@
 
 <style>
     .container {
-        margin-top: 2em;
+        margin-top: 1em;
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;
@@ -44,8 +54,15 @@
         overflow: hidden;
     }
 
+    .container :global(.bodyText) {
+		display: block;
+		text-align: center;
+		margin: auto;
+        margin-top: 1.5em;
+	}
+
     .cards-collection {
-        margin-top: 1em;
+        margin-top: 2em;
         padding-left: 0.7em;
         padding-right: 0.7em;
         display: -webkit-box;
@@ -103,7 +120,7 @@
     }
 
     .card-image {
-        width: 80%;
+        width: 40%;
         max-width: 260px;
     }
 
@@ -111,17 +128,9 @@
         font-family: var(--fds-font-family-display);
         font-size: 28px;
         margin: 0px;
-        margin-top: 1.5rem;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .card-subtext {
-        font-family: var(--fds-font-family-text);
-        font-size: 17px;
-        margin: 0px;
         margin-top: 1rem;
         margin-left: 10px;
         margin-right: 10px;
     }
+
 </style>

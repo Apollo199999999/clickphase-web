@@ -4,7 +4,7 @@
 </script>
 
 <div class="container">
-    <TextBlock variant="titleLarge" >Featured Software</TextBlock>
+    <TextBlock variant="titleLarge">All Software</TextBlock>
 
     <div class="cards-collection">
         <div class="card" onclick="window.location.href = '/dynawin';">
@@ -30,12 +30,24 @@
                 <p class="card-subtext">Organise all your stuff!</p>
             </div>
         </div>
+
+        <div class="card" onclick="window.location.href = '/granny-keyboard';">
+            <div class="card-content">
+                <img
+                    class="card-image"
+                    alt="Granny Keyboard"
+                    src="/app-images/grannykeyboard/GrannyKeyboardImage.png"
+                />
+                <p class="card-text">Granny Keyboard</p>
+                <p class="card-subtext">Your keys will start worshipping Granny</p>
+            </div>
+        </div>
     </div>
 </div>
 
 <style>
     .container {
-        margin-top: 2em;
+        margin-top: 1em;
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;
@@ -45,7 +57,7 @@
     }
 
     .cards-collection {
-        margin-top: 1em;
+        margin-top: 2em;
         padding-left: 0.7em;
         padding-right: 0.7em;
         display: -webkit-box;
