@@ -71,6 +71,7 @@
 
     .container {
         margin-top: -10em;
+        padding: 4em;
     }
 
     .cards-collection {
@@ -96,12 +97,13 @@
         justify-content: center;
         align-items: center;
         margin: 0.7rem;
-        width: 300px;
+        width: 280px;
+        min-width: 280px;
+        flex-grow: 1;
         height: 350px;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
         z-index: 2147483646;
-        border: red;
         -webkit-transition: 200ms ease-in-out;
         -o-transition: 200ms ease-in-out;
         transition: 200ms ease-in-out;
@@ -131,7 +133,7 @@
     }
 
     .card-github-icon {
-        fill: white;
+        fill: var(--fds-text-primary);
         margin: 0px;
     }
 
@@ -139,6 +141,6 @@
         font-family: var(--fds-font-family-display);
         font-size: 28px;
         margin: 0px;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
     }
 </style>
