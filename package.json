@@ -8,7 +8,8 @@
     "preview": "svelte-kit preview",
     "prepare": "svelte-kit sync",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "postbuild": "npx svelte-sitemap --domain https://clickphase.vercel.app"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
@@ -18,6 +19,7 @@
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.6",
     "svelte-preprocess": "^4.10.1",
+    "svelte-sitemap": "^2.5.0",
     "tslib": "^2.3.1",
     "typescript": "~4.6.2"
   },
