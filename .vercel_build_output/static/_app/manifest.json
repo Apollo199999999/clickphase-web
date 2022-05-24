@@ -1,0 +1,151 @@
+{
+  ".svelte-kit/runtime/client/start.js": {
+    "file": "start-6460bc2b.js",
+    "src": ".svelte-kit/runtime/client/start.js",
+    "isEntry": true,
+    "imports": [
+      "_index-b6d12f89.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      "src/routes/__error.svelte",
+      "src/routes/aboutcontact.svelte",
+      "src/routes/animationsvideos.svelte",
+      "src/routes/dynawin.svelte",
+      "src/routes/granny-keyboard.svelte",
+      "src/routes/index.svelte",
+      "src/routes/launcherx.svelte",
+      "src/routes/software.svelte"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "pages/__layout.svelte-5ae346ff.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-b6d12f89.js",
+      "_NavigationView.svelte_svelte_type_style_lang-bca745cd.js"
+    ],
+    "css": [
+      "assets/pages/__layout.svelte-8a072537.css"
+    ]
+  },
+  "src/routes/__error.svelte": {
+    "file": "pages/__error.svelte-425d2417.js",
+    "src": "src/routes/__error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-b6d12f89.js",
+      "_NavigationView.svelte_svelte_type_style_lang-bca745cd.js"
+    ],
+    "css": [
+      "assets/pages/__error.svelte-b3caadf6.css"
+    ]
+  },
+  "src/routes/aboutcontact.svelte": {
+    "file": "pages/aboutcontact.svelte-92218eff.js",
+    "src": "src/routes/aboutcontact.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-b6d12f89.js",
+      "_NavigationView.svelte_svelte_type_style_lang-bca745cd.js",
+      "_MicaBackground-f7e9eda1.js"
+    ],
+    "css": [
+      "assets/pages/aboutcontact.svelte-9f8f5d94.css"
+    ]
+  },
+  "src/routes/animationsvideos.svelte": {
+    "file": "pages/animationsvideos.svelte-42d0ba86.js",
+    "src": "src/routes/animationsvideos.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-b6d12f89.js",
+      "_NavigationView.svelte_svelte_type_style_lang-bca745cd.js",
+      "_MicaBackground-f7e9eda1.js"
+    ],
+    "css": [
+      "assets/pages/animationsvideos.svelte-83c6da4a.css"
+    ]
+  },
+  "src/routes/dynawin.svelte": {
+    "file": "pages/dynawin.svelte-c964b0dc.js",
+    "src": "src/routes/dynawin.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-b6d12f89.js"
+    ]
+  },
+  "src/routes/granny-keyboard.svelte": {
+    "file": "pages/granny-keyboard.svelte-df17cc57.js",
+    "src": "src/routes/granny-keyboard.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-b6d12f89.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "pages/index.svelte-6cc2e83f.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-b6d12f89.js",
+      "_NavigationView.svelte_svelte_type_style_lang-bca745cd.js",
+      "_MicaBackground-f7e9eda1.js"
+    ],
+    "css": [
+      "assets/pages/index.svelte-7bfce31c.css"
+    ]
+  },
+  "src/routes/launcherx.svelte": {
+    "file": "pages/launcherx.svelte-462ac58a.js",
+    "src": "src/routes/launcherx.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-b6d12f89.js"
+    ]
+  },
+  "src/routes/software.svelte": {
+    "file": "pages/software.svelte-5aefbd18.js",
+    "src": "src/routes/software.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-b6d12f89.js",
+      "_NavigationView.svelte_svelte_type_style_lang-bca745cd.js",
+      "_MicaBackground-f7e9eda1.js"
+    ],
+    "css": [
+      "assets/pages/software.svelte-b4e36593.css"
+    ]
+  },
+  "_index-b6d12f89.js": {
+    "file": "chunks/index-b6d12f89.js"
+  },
+  "_NavigationView.svelte_svelte_type_style_lang-bca745cd.js": {
+    "file": "chunks/NavigationView.svelte_svelte_type_style_lang-bca745cd.js",
+    "imports": [
+      "_index-b6d12f89.js"
+    ],
+    "css": [
+      "assets/NavigationView.svelte_svelte_type_style_lang-7136ff2f.css"
+    ]
+  },
+  "_MicaBackground-f7e9eda1.js": {
+    "file": "chunks/MicaBackground-f7e9eda1.js",
+    "imports": [
+      "_index-b6d12f89.js"
+    ],
+    "css": [
+      "assets/MicaBackground-efffe9ed.css"
+    ]
+  }
+}
