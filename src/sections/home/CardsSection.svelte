@@ -16,7 +16,7 @@
         <div class="card" onclick="window.location.href = '/software';">
             <div class="card-content">
                 <p class="card-default-icon">&#x02A7;</p>
-                <p class="card-text">All Software</p>
+                <p class="card-text">All Softwares</p>
             </div>
         </div>
 
