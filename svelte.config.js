@@ -18,8 +18,6 @@ export default {
       split: false,
     }),
 
-    prerender: {
-      default: true
-    }
+   
   }
 };
