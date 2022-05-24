@@ -7,8 +7,7 @@
 <div class="container">
     <MicaBackground />
     <TextBlock class="titleText" variant="display"
-        >Animations & Videos</TextBlock
-    >
+        >Animations & Videos</TextBlock>
 </div>
 
 <style>

@@ -1,11 +1,10 @@
 <!-- Container element -->
-<div class="parallax">
+<div class="container">
     <div class="image" />
 </div>
 
-<!--TODO: IMPLEMENT PARALLAX SCROLLING-->
 <style>
-    .parallax {
+    .container {
         position: relative;
         width: 100%;
         height: 35em;
@@ -21,7 +20,6 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        background-attachment: fixed;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -34,7 +32,6 @@
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-            background-attachment: fixed;
         }
     }
     .image:before {
