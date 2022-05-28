@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>ClickPhase - Animations & Videos</title>
+	<title>Animations & Videos - ClickPhase</title>
 </svelte:head>
 
 <HeroSection/>
