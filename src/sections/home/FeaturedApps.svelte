@@ -76,7 +76,7 @@
         height: 350px;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
-        z-index: 2147483646;
+        z-index: 999;
         -webkit-transition: 200ms ease-in-out;
         -o-transition: 200ms ease-in-out;
         transition: 200ms ease-in-out;

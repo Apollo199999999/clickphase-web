@@ -10,6 +10,7 @@
 </svelte:head>
 
 <HeroSection/>
+
 <div class="content">
 	<CardsSection/>
 	<FeaturedApps/>
