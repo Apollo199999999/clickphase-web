@@ -11,31 +11,29 @@
 <svelte:window bind:scrollY={sy} />
 
 <div class="parallax-container">
-    <MicaBackground />
+    <MicaBackground/>
 
     <div class="bg-image-div">
         <img
             style="transform: translate(0,{-sy * 0.2}px)"
-            alt="DynaWin Window Screenshot"
+            alt="LauncherX Window Screenshot"
         />
     </div>
 
     <div class="logo-components">
-        <img style="transform: translate(0,{-sy * 0.1}px)" alt="DynaWin Logo" />
+        <img style="transform: translate(0,{-sy * 0.1}px)" alt="LauncherX Logo" />
         <TextBlock
             variant="subtitle"
             style="transform: translate(0,{-sy * 0.1}px)"
-            class="caption-text"
-        >
-            Dynamic Desktop for Windows 10 and Windows 11
+            class="caption-text">
+            Organise all your stuff!
         </TextBlock>
 
         <Button
             class="download-btn"
             style="transform: translate(0,{-sy * 0.1}px) scale(calc(16/14))"
-            onclick="window.open('https://github.com/Apollo199999999/DynaWin/releases', '_blank');"
-            variant="accent"
-            >Download DynaWin
+            onclick="window.open('https://github.com/Apollo199999999/LauncherX/releases', '_blank');"
+            variant="accent">Download LauncherX
         </Button>
     </div>
 </div>
@@ -61,16 +59,16 @@
     .bg-image-div img {
         max-height: calc(72vh - 50px);
         max-width: 80vw;
-        content: url("/screenshots/dynawin/WindowLight.png");
-        filter: blur(2px);
+        content: url("/screenshots/launcherx/WindowLight.png");
+        filter: blur(6px);
     }
 
     @media (prefers-color-scheme: dark) {
         .bg-image-div img {
             max-height: calc(72vh - 50px);
             max-width: 80vw;
-            content: url("/screenshots/dynawin/WindowDark.png");
-            filter: blur(2px);
+            content: url("/screenshots/launcherx/WindowDark.png");
+            filter: blur(6px);
         }
     }
 
@@ -83,17 +81,17 @@
 
     .logo-components img {
         display: block;
-        max-height: 20vh;
+        max-height: 15vh;
         max-width: 80vw;
-        content: url("/app-images/dynawin/logoLight.png");
+        content: url("/app-images/launcherx/logoLight.png");
     }
 
     @media (prefers-color-scheme: dark) {
         .logo-components img {
             display: block;
-            max-height: 20vh;
+            max-height: 15vh;
             max-width: 80vw;
-            content: url("/app-images/dynawin/logoDark.png");
+            content: url("/app-images/launcherx/logoDark.png");
         }
     }
 
@@ -105,6 +103,7 @@
     }
 
     .logo-components :global(.download-btn) {
-        margin-top: calc(calc(16 / 14) * 20px);
+        margin-top: calc(calc(16/14) * 20px);
     }
+
 </style>

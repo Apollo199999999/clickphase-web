@@ -61,8 +61,8 @@
     }
 
     .error-button {
-        transform: scale(1.1);
-        margin-top: calc(1.5rem * 1.1);
+        transform: scale(calc(16/14));
+        margin-top: calc(1.5rem * calc(16/14));
     }
 
     .mica-bg {

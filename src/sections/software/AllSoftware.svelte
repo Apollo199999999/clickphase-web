@@ -36,7 +36,7 @@
                 <img
                     class="card-image"
                     alt="Granny Keyboard"
-                    src="/app-images/grannykeyboard/GrannyKeyboardImage.png"
+                    src="/app-images/granny-keyboard/GrannyKeyboardImage.png"
                 />
                 <p class="card-text">Granny Keyboard</p>
                 <p class="card-subtext">Your keys will start worshipping Granny</p>
