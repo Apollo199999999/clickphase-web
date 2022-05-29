@@ -15,5 +15,6 @@
 <style>
 	.content {
 		padding: 2em;
+		height: 100em;
 	}
 </style>
