@@ -147,7 +147,7 @@
 	}
 
 	.linkIcon {
-		font-family: "FluentUIIcons";
+		font-family: "FluentUIIcons" !important;
 		font-size: 20px;
 		margin: auto;
 		margin-right: 0.3em;

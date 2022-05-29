@@ -132,7 +132,7 @@
     }
 
     .card-default-icon {
-        font-family: "FluentUIIcons";
+        font-family: "FluentUIIcons" !important;
         font-size: 100px;
         color: var(--fds-accent-default);
         margin: 0px;
@@ -145,6 +145,7 @@
 
     .card-text {
         font-family: var(--fds-font-family-display);
+        font-weight: 600;
         font-size: 28px;
         margin: 0px;
         margin-top: 1.5rem;

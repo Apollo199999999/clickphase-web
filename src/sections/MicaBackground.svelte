@@ -5,9 +5,8 @@
 
 <style>
     .container {
-        position: relative;
         width: 100%;
-        height: 35em;
+        height: 72vh;
         overflow: hidden;
     }
 

@@ -1,6 +1,7 @@
 <script>
 	import Header from "/src/header/Header.svelte";
 	import "fluent-svelte/theme.css";
+	import { TextBlock } from "fluent-svelte";
 </script>
 
 <Header />
@@ -20,6 +21,11 @@
 		width: 100%;
 	}
 
+	
+	:global(h1, h2, h3, h4, h5, h6, p){
+		font-family: var(--fds-font-family-display) !important;
+	}
+
 	main {
 		flex: 1;
 		display: flex;
@@ -30,4 +36,5 @@
 		box-sizing: border-box;
 		overflow-x: hidden;
 	}
+
 </style>

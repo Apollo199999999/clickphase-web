@@ -109,6 +109,7 @@
 
     .card-text {
         font-family: var(--fds-font-family-display);
+        font-weight: 600;
         font-size: 28px;
         margin: 0px;
         margin-top: 1.5rem;
@@ -117,11 +118,11 @@
     }
 
     .card-subtext {
-        font-family: var(--fds-font-family-text);
-        font-size: 17px;
+        font-family: var(--fds-font-family-display);
+        font-size: 18px;
         margin: 0px;
         margin-top: 1rem;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 </style>
