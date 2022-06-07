@@ -60,6 +60,7 @@
         max-height: calc(72vh - 50px);
         max-width: 95vw;
         content: url("/screenshots/granny-keyboard/Window.png");
+        -webkit-fliter: blur(4px);
         filter: blur(4px);
     }
 

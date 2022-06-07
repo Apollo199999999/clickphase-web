@@ -4,7 +4,7 @@
 </script>
 
 <div class="container">
-    <TextBlock variant="titleLarge" >Featured Software</TextBlock>
+    <TextBlock variant="titleLarge">Featured Software</TextBlock>
 
     <div class="cards-collection">
         <div class="card" onclick="window.location.href = '/dynawin';">

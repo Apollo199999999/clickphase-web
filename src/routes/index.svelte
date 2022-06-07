@@ -18,7 +18,7 @@
 
 <style>
 	.content {
-		padding: 2em;
+		padding: 5vw;
 	}
 </style>
 

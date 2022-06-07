@@ -7,6 +7,18 @@
     <TextBlock variant="titleLarge">All Software</TextBlock>
 
     <div class="cards-collection">
+        <div class="card" onclick="window.location.href = '/p5js-paint-app';">
+            <div class="card-content">
+                <img
+                    class="card-image"
+                    alt="p5.js Paint App"
+                    src="/app-images/p5js-paint-app/p5jsPaintAppImage.png"
+                />
+                <p class="card-text">p5.js Paint App</p>
+                <p class="card-subtext">A lightweight, online, and minimal paint app made in p5.js</p>
+            </div>
+        </div>
+
         <div class="card" onclick="window.location.href = '/dynawin';">
             <div class="card-content">
                 <img

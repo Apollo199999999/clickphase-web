@@ -60,6 +60,7 @@
         max-height: calc(72vh - 50px);
         max-width: 80vw;
         content: url("/screenshots/launcherx/WindowLight.png");
+        -webkit-fliter: blur(6px);
         filter: blur(6px);
     }
 
@@ -68,6 +69,7 @@
             max-height: calc(72vh - 50px);
             max-width: 80vw;
             content: url("/screenshots/launcherx/WindowDark.png");
+            -webkit-fliter: blur(6px);
             filter: blur(6px);
         }
     }

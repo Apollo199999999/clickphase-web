@@ -13,7 +13,7 @@
 <div class="container">
     <MicaBackground />
     <div class="text-div">
-        <TextBlock class="titleText" style="transform: translate(0,{-sy * 0.15}px)" variant="display">Software</TextBlock>
+        <TextBlock class="titleText" style="transform: translate(0,{-sy * 0.2}px)" variant="display">Software</TextBlock>
     </div>
 </div>
 

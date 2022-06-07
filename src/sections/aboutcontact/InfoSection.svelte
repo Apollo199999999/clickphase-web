@@ -137,7 +137,7 @@
 	.container :global(.bodyText) {
 		display: block;
 		text-align: center;
-		max-width: 900px;
+		max-width: 1100px;
 		margin: auto;
 		margin-bottom: 2em;
 	}
@@ -192,7 +192,7 @@
 	.container :global(.contactText) {
 		display: block;
 		text-align: center;
-		max-width: 900px;
+		max-width: 1100px;
 		margin: auto;
 		margin-top: 2.8em;
 		margin-bottom: 2em;
