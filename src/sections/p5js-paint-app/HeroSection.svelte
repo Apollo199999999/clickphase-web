@@ -66,8 +66,8 @@
         max-height: calc(72vh - 50px);
         max-width: 80vw;
         content: url("/screenshots/p5js-paint-app/Window.png");
-        -webkit-fliter: blur(5px);
-        filter: blur(5px);
+        -webkit-fliter: blur(4px) brightness(0.8);
+        filter: blur(4px) brightness(0.8);
     }
 
     .logo-components {
@@ -79,14 +79,12 @@
 
     .logo-components :global(.logo-title) {
         display: block;
-        color: hsla(0, 0%, 0%, 89.56%);
         line-height: normal;
         font-size: min(7vmax, 68px);
     }
 
     .logo-components :global(.caption-text) {
         display: block;
-        color: hsla(0, 0%, 0%, 89.56%);
         margin-top: 20px;
         margin-left: 20px;
         margin-right: 20px;
