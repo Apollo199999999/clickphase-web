@@ -4,6 +4,9 @@
     import { TextBlock, Button } from "fluent-svelte";
     import { onMount } from "svelte";
 
+    //variable for the scrollY of the page
+    let sy;
+
     onMount(() => {
         //function to change the scale of the logo div
         function changeLogoScale() {
@@ -26,13 +29,18 @@
     });
 </script>
 
+<!-- this binds `sy` to the current value of `window.scrollY` -->
+<svelte:window bind:scrollY={sy} />
+
 <div class="container">
     <MicaBackground />
     <div class="logo">
-        <a href={void 0}>
-            <img src="/logo-img.png" alt="ClickPhase" />
-            <TextBlock variant="display">ClickPhase</TextBlock>
-        </a>
+        <div style="transform: translate(0,{-sy * 0.15}px)">
+            <a href={void 0}>
+                <img src="/logo-img.png" alt="ClickPhase" />
+                <TextBlock variant="display">ClickPhase</TextBlock>
+            </a>
+        </div>
     </div>
 </div>
 
