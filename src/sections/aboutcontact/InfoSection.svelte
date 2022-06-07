@@ -100,12 +100,12 @@
 
 <style>
 	.container {
+		margin-top: 1em;
 		width: 100%;
 		word-wrap: break-word;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		margin-top: 1em;
 	}
 
 	.logo {
