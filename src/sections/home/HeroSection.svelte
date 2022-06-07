@@ -35,7 +35,7 @@
 <div class="container">
     <MicaBackground />
     <div class="logo">
-        <div style="transform: translate(0,{-sy * 0.15}px)">
+        <div style="transform: translate(0,{-sy * 0.12}px)">
             <a href={void 0}>
                 <img src="/logo-img.png" alt="ClickPhase" />
                 <TextBlock variant="display">ClickPhase</TextBlock>
