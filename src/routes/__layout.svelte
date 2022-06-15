@@ -22,7 +22,7 @@
 	}
 
 	
-	:global(h1, h2, h3, h4, h5, h6, p){
+	:global(h1, h2, h3, h4, h5, h6, p, span){
 		font-family: var(--fds-font-family-display) !important;
 	}
 
