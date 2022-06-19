@@ -8,7 +8,7 @@
     <HeaderChip>Feature</HeaderChip>
     <TextBlock class="titleText" variant="titleLarge">Dynamic Wallpaper</TextBlock>
     <TextBlock variant="bodyLarge" class="bodyText">
-        DynaWin is a utility that allows the Windows desktop to change dynamically.
+        Placeholder Text
     </TextBlock>
 </div>
 
