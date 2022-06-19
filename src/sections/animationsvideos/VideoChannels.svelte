@@ -4,7 +4,7 @@
 </script>
 
 <div class="container">
-    <TextBlock variant="titleLarge">My animations & videos</TextBlock>
+    <TextBlock variant="titleLarge" class="titleText">My animations & videos</TextBlock>
     <TextBlock variant="bodyLarge" class="bodyText">You can find all of my animations and videos on my 3 YouTube channels.</TextBlock>
 
     <div class="cards-collection">
@@ -52,6 +52,12 @@
         justify-content: center;
         text-align: center;
         overflow: hidden;
+    }
+
+    /* force the title to wrap if it is almost touching the edges */
+    .container :global(.titleText) {
+        margin-left: 5px;
+        margin-right: 5px;
     }
 
     .container :global(.bodyText) {
