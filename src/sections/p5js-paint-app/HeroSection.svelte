@@ -66,28 +66,39 @@
         max-height: calc(72vh - 50px);
         max-width: 80vw;
         content: url("/screenshots/p5js-paint-app/Window.png");
-        -webkit-fliter: blur(4px) brightness(0.8);
-        filter: blur(4px) brightness(0.8);
+        -webkit-fliter: blur(4px);
+        filter: blur(4px);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        .bg-image-div img {
+            max-height: calc(72vh - 50px);
+            max-width: 80vw;
+            content: url("/screenshots/p5js-paint-app/Window.png");
+            -webkit-fliter: blur(4px) brightness(0.8);
+            filter: blur(4px) brightness(0.8);
+        }
     }
 
     .logo-components {
         position: absolute;
+        word-wrap: break-word;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        width: 90vw;
     }
 
     .logo-components :global(.logo-title) {
         display: block;
         line-height: normal;
         font-size: min(7vmax, 68px);
+        margin: auto;
     }
 
     .logo-components :global(.caption-text) {
         display: block;
         margin-top: 20px;
-        margin-left: 20px;
-        margin-right: 20px;
     }
 
     .logo-components :global(.visit-btn) {

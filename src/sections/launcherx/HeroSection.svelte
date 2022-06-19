@@ -76,9 +76,11 @@
 
     .logo-components {
         position: absolute;
+        word-wrap: break-word;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        width: 90vw;
     }
 
     .logo-components img {
@@ -86,6 +88,7 @@
         max-height: 15vh;
         max-width: 80vw;
         content: url("/app-images/launcherx/logoLight.png");
+        margin: auto;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -94,14 +97,13 @@
             max-height: 15vh;
             max-width: 80vw;
             content: url("/app-images/launcherx/logoDark.png");
+            margin: auto;
         }
     }
 
     .logo-components :global(.caption-text) {
         display: block;
         margin-top: 10px;
-        margin-left: 20px;
-        margin-right: 20px;
     }
 
     .logo-components :global(.download-btn) {

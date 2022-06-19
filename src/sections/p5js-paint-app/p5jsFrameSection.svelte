@@ -8,7 +8,7 @@
     <TextBlock variant="titleLarge">p5.js Paint App</TextBlock>
     <TextBlock variant="bodyLarge" class="bodyText">
         A lightweight, online, and minimal paint app developed in p5.js by me.
-        (Works best on desktop, mobile users should use the 'Toggle Fullscreen' button)
+        (Works best on desktop, does not work well on mobile)
     </TextBlock>
 
     <Fullscreen let:onToggle>
