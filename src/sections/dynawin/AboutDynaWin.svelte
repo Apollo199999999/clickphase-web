@@ -47,7 +47,7 @@
         width: 90vw;
         max-width: 1120px;
         height: calc(calc(90vw / 16) * 9);
-        max-height: calc(calc(1120px / 16) * 9);;
+        max-height: calc(calc(1120px / 16) * 9);
         margin-top: 1.5em;
     }
 
