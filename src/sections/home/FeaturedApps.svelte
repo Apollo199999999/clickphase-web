@@ -46,8 +46,6 @@
 
     .cards-collection {
         margin-top: 1em;
-        padding-left: 0.7em;
-        padding-right: 0.7em;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;

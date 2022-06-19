@@ -2,7 +2,8 @@
 	import "fluent-svelte/theme.css";
 	import HeroSection from "/src/sections/dynawin/HeroSection.svelte";
 	import AboutDynaWin from "/src/sections/dynawin/AboutDynaWin.svelte";
-import Aboutcontact from "./aboutcontact.svelte";
+	import DynamicThemeFeature from "/src/sections/dynawin/DynamicThemeFeature.svelte";
+	import DynamicWallpaperFeature from "/src/sections/dynawin/DynamicWallpaperFeature.svelte";
 </script>
 
 <svelte:head>
@@ -13,6 +14,9 @@ import Aboutcontact from "./aboutcontact.svelte";
 <div class="content">
 	<AboutDynaWin/>
 </div>
+
+<DynamicThemeFeature/>
+<DynamicWallpaperFeature/>
 
 <style>
 	.content {
