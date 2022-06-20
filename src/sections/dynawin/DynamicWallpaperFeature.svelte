@@ -8,7 +8,7 @@
     <HeaderChip>Feature</HeaderChip>
     <TextBlock class="titleText" variant="titleLarge">Dynamic Wallpaper</TextBlock>
     <TextBlock variant="bodyLarge" class="bodyText">
-        Placeholder Text
+        Placeholder Text, WIP
     </TextBlock>
 </div>
 
