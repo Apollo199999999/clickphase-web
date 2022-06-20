@@ -11,15 +11,7 @@
 </svelte:head>
 
 <HeroSection/>
-<div class="content">
-	<AboutDynaWin/>
-</div>
-
+<AboutDynaWin/>
 <DynamicThemeFeature/>
 <DynamicWallpaperFeature/>
 
-<style>
-	.content {
-		padding: 2em 5vw 2em 5vw;
-	}
-</style>

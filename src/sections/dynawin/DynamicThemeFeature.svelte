@@ -2,6 +2,7 @@
     import { TextBlock } from "fluent-svelte";
     import "fluent-svelte/theme.css";
     import HeaderChip from "/src/components/HeaderChip.svelte";
+    import { CompareImage } from "svelte-compare-image";
 </script>
 
 <div class="container">
@@ -35,6 +36,19 @@
                 </p>
             </div>
         </div>
+    </div>
+
+    <div class="compare-image-div">
+        <CompareImage
+            class="image-comparer"
+            imageLeftSrc="/screenshots/dynawin/DynamicLight.png"
+            imageLeftAlt="Light Theme"
+            imageRightSrc="/screenshots/dynawin/DynamicDark.png"
+            imageRightAlt="Dark Theme"
+            --handle-size="2.5rem"
+            --slider-color="#ffffff"
+            --slider-width="0.125rem"
+        />
     </div>
 </div>
 
@@ -131,4 +145,10 @@
         margin-left: 20px;
         margin-right: 20px;
     }
+
+    .compare-image-div{
+        /* resize the CompareImage container using padding */
+        padding: 1em 5vw 0vw 5vw;
+    }
+    
 </style>
