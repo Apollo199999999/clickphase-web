@@ -45,7 +45,7 @@
     :global(.install-infobar){
         max-width: 1024px;
         margin: auto;
-        padding: 0.3rem;
+        padding: 0.2rem;
     }
 
     /* Prevent the content dialog from touching the navigation bar by adding a top margin */
