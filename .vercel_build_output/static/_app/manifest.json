@@ -1,0 +1,201 @@
+{
+  ".svelte-kit/runtime/client/start.js": {
+    "file": "start-891b6f0a.js",
+    "src": ".svelte-kit/runtime/client/start.js",
+    "isEntry": true,
+    "imports": [
+      "_index-306fcf0d.js",
+      "_index-f639a060.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      "src/routes/__error.svelte",
+      "src/routes/aboutcontact.svelte",
+      "src/routes/animationsvideos.svelte",
+      "src/routes/dynawin.svelte",
+      "src/routes/granny-keyboard.svelte",
+      "src/routes/index.svelte",
+      "src/routes/launcherx.svelte",
+      "src/routes/p5js-paint-app.svelte",
+      "src/routes/software.svelte"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "pages/__layout.svelte-5a6bd7db.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-306fcf0d.js",
+      "_NavigationView.svelte_svelte_type_style_lang-c16d035c.js"
+    ],
+    "css": [
+      "assets/pages/__layout.svelte-d14c8db4.css"
+    ]
+  },
+  "src/routes/__error.svelte": {
+    "file": "pages/__error.svelte-a662b440.js",
+    "src": "src/routes/__error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-306fcf0d.js",
+      "_NavigationView.svelte_svelte_type_style_lang-c16d035c.js",
+      "_Button-cef66c42.js"
+    ],
+    "css": [
+      "assets/pages/__error.svelte-a49a4206.css"
+    ]
+  },
+  "src/routes/aboutcontact.svelte": {
+    "file": "pages/aboutcontact.svelte-612d55dd.js",
+    "src": "src/routes/aboutcontact.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-306fcf0d.js",
+      "_NavigationView.svelte_svelte_type_style_lang-c16d035c.js",
+      "_MicaBackground-d5b6acee.js"
+    ],
+    "css": [
+      "assets/pages/aboutcontact.svelte-2852329c.css"
+    ]
+  },
+  "src/routes/animationsvideos.svelte": {
+    "file": "pages/animationsvideos.svelte-45ea89a6.js",
+    "src": "src/routes/animationsvideos.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-306fcf0d.js",
+      "_NavigationView.svelte_svelte_type_style_lang-c16d035c.js",
+      "_MicaBackground-d5b6acee.js"
+    ],
+    "css": [
+      "assets/pages/animationsvideos.svelte-8c28f8db.css"
+    ]
+  },
+  "src/routes/dynawin.svelte": {
+    "file": "pages/dynawin.svelte-7baa1268.js",
+    "src": "src/routes/dynawin.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-306fcf0d.js",
+      "_NavigationView.svelte_svelte_type_style_lang-c16d035c.js",
+      "_MicaBackground-d5b6acee.js",
+      "_Button-cef66c42.js",
+      "_index-f639a060.js"
+    ],
+    "css": [
+      "assets/pages/dynawin.svelte-c42c728a.css"
+    ]
+  },
+  "src/routes/granny-keyboard.svelte": {
+    "file": "pages/granny-keyboard.svelte-279ed286.js",
+    "src": "src/routes/granny-keyboard.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-306fcf0d.js",
+      "_NavigationView.svelte_svelte_type_style_lang-c16d035c.js",
+      "_MicaBackground-d5b6acee.js",
+      "_Button-cef66c42.js"
+    ],
+    "css": [
+      "assets/pages/granny-keyboard.svelte-2571db27.css"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "pages/index.svelte-fb38b96e.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-306fcf0d.js",
+      "_NavigationView.svelte_svelte_type_style_lang-c16d035c.js",
+      "_MicaBackground-d5b6acee.js"
+    ],
+    "css": [
+      "assets/pages/index.svelte-4b1bc7c0.css"
+    ]
+  },
+  "src/routes/launcherx.svelte": {
+    "file": "pages/launcherx.svelte-3b71e4ea.js",
+    "src": "src/routes/launcherx.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-306fcf0d.js",
+      "_NavigationView.svelte_svelte_type_style_lang-c16d035c.js",
+      "_MicaBackground-d5b6acee.js",
+      "_Button-cef66c42.js"
+    ],
+    "css": [
+      "assets/pages/launcherx.svelte-65c50e04.css"
+    ]
+  },
+  "src/routes/p5js-paint-app.svelte": {
+    "file": "pages/p5js-paint-app.svelte-24c09eb2.js",
+    "src": "src/routes/p5js-paint-app.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-306fcf0d.js",
+      "_NavigationView.svelte_svelte_type_style_lang-c16d035c.js",
+      "_MicaBackground-d5b6acee.js",
+      "_Button-cef66c42.js"
+    ],
+    "css": [
+      "assets/pages/p5js-paint-app.svelte-7908d459.css"
+    ]
+  },
+  "src/routes/software.svelte": {
+    "file": "pages/software.svelte-a4c1bb03.js",
+    "src": "src/routes/software.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-306fcf0d.js",
+      "_NavigationView.svelte_svelte_type_style_lang-c16d035c.js",
+      "_MicaBackground-d5b6acee.js"
+    ],
+    "css": [
+      "assets/pages/software.svelte-f3a18a4f.css"
+    ]
+  },
+  "_index-306fcf0d.js": {
+    "file": "chunks/index-306fcf0d.js"
+  },
+  "_index-f639a060.js": {
+    "file": "chunks/index-f639a060.js",
+    "imports": [
+      "_index-306fcf0d.js"
+    ]
+  },
+  "_NavigationView.svelte_svelte_type_style_lang-c16d035c.js": {
+    "file": "chunks/NavigationView.svelte_svelte_type_style_lang-c16d035c.js",
+    "imports": [
+      "_index-306fcf0d.js"
+    ],
+    "css": [
+      "assets/NavigationView.svelte_svelte_type_style_lang-7136ff2f.css"
+    ]
+  },
+  "_Button-cef66c42.js": {
+    "file": "chunks/Button-cef66c42.js",
+    "imports": [
+      "_index-306fcf0d.js",
+      "_NavigationView.svelte_svelte_type_style_lang-c16d035c.js"
+    ]
+  },
+  "_MicaBackground-d5b6acee.js": {
+    "file": "chunks/MicaBackground-d5b6acee.js",
+    "imports": [
+      "_index-306fcf0d.js"
+    ],
+    "css": [
+      "assets/MicaBackground-b6441a3f.css"
+    ]
+  }
+}
