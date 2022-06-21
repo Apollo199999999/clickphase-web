@@ -68,7 +68,9 @@
 	}
 
     .cards-collection {
-        margin-top: 2em;
+        margin-top: 1.5em;
+        /* set negative margin-bottom to account for .card margin-bottom */
+        margin-bottom: -1.5em;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -90,7 +92,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0.7rem;
+        margin: 0em 0.7em 1.5em 0.7em;
         width: 280px;
         min-width: 200px;
         flex-grow: 1;

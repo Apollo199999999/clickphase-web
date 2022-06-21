@@ -70,11 +70,13 @@
     }
 
     .container {
-        margin-top: -10em;
+        margin-top: -11.5em;
         overflow: hidden;
     }
 
     .cards-collection {
+        /* add margin-bottom so total bottom margin is 2em */
+        margin-bottom: 0.5em;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -96,7 +98,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0.7rem;
+        margin: 0em 0.7rem 1.5em 0.7rem;
         width: 280px;
         min-width: 200px;
         flex-grow: 1;

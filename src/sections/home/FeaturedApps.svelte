@@ -15,7 +15,9 @@
                     src="/app-images/dynawin/DynaWinImage.jpg"
                 />
                 <p class="card-text">DynaWin</p>
-                <p class="card-subtext">Dynamic Desktop for Windows 10 and Windows 11</p>
+                <p class="card-subtext">
+                    Dynamic Desktop for Windows 10 and Windows 11
+                </p>
             </div>
         </div>
 
@@ -45,7 +47,9 @@
     }
 
     .cards-collection {
-        margin-top: 1em;
+        margin-top: 1.5em;
+        /* set negative margin-bottom to account for .card margin-bottom */
+        margin-bottom: -1.5em;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -67,7 +71,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0.7rem;
+        margin: 0em 0.7em 1.5em 0.7em;
         width: 280px;
         min-width: 200px;
         flex-grow: 1;
@@ -96,7 +100,7 @@
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     }
 
-    .card-content{
+    .card-content {
         width: 100%;
     }
 

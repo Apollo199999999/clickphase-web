@@ -10,7 +10,7 @@
 
     <TextBlock class="titleText" variant="titleLarge">Dynamic Theme</TextBlock>
     <TextBlock variant="bodyLarge" class="bodyText">
-        Switch your Windows or app theme based on time
+        Switch your Windows theme or app theme based on time
     </TextBlock>
 
     <div class="cards-collection">
@@ -21,7 +21,7 @@
                     You can configure DynaWin to automatically switch the theme
                     at specified timings. For example, you can automatically
                     switch Windows to Dark theme, so that it is easier on the
-                    eyes when working at night.
+                    eyes at night.
                 </p>
             </div>
         </div>
@@ -41,9 +41,9 @@
     <div class="compare-image-div">
         <CompareImage
             class="image-comparer"
-            imageLeftSrc="/screenshots/dynawin/DynamicLight.png"
+            imageLeftSrc="/screenshots/dynawin/DynamicThemeLight.png"
             imageLeftAlt="Light Theme"
-            imageRightSrc="/screenshots/dynawin/DynamicDark.png"
+            imageRightSrc="/screenshots/dynawin/DynamicThemeDark.png"
             imageRightAlt="Dark Theme"
             --handle-size="2.5rem"
             --slider-color="#ffffff"
@@ -79,6 +79,8 @@
 
     .cards-collection {
         margin-top: 1.5em;
+        /* set negative margin-bottom to account for .card margin-bottom */
+        margin-bottom: -1.5em;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -100,8 +102,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0.7rem;
-        padding: 1.5rem;
+        margin: 0em 0.7em 1.5em 0.7em;
+        padding: 1.5rem 0.2rem;
         width: 280px;
         min-width: 200px;
         flex-grow: 1;
@@ -119,8 +121,8 @@
                 var(--fds-card-background-default)
             ),
             linear-gradient(
-                var(--fds-solid-background-base),
-                var(--fds-solid-background-base)
+                var(--fds-solid-background-secondary),
+                var(--fds-solid-background-secondary)
             ); /* first bg is on top of this */
     }
 
@@ -148,7 +150,7 @@
 
     .compare-image-div{
         /* resize the CompareImage container using padding */
-        padding: 1em 5vw 0vw 5vw;
+        padding: 1.5em 5vw 0vw 5vw;
     }
     
 </style>
