@@ -37,7 +37,7 @@
                     You can choose to change your wallpaper either based on the
                     time, or based on your battery percentage. This can help remind you
                     when your battery is running low, or remind you to unplug
-                    your laptop charger when it is fully charged.
+                    your laptop charger when your laptop is fully charged.
                 </p>
             </div>
         </div>
