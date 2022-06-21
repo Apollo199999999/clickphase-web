@@ -10,7 +10,7 @@
 
     <TextBlock class="titleText" variant="titleLarge">Dynamic Theme</TextBlock>
     <TextBlock variant="bodyLarge" class="bodyText">
-        Switch your Windows theme or app theme based on time
+        Switch your Windows theme or app theme based on time.
     </TextBlock>
 
     <div class="cards-collection">
