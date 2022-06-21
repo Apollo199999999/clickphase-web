@@ -35,7 +35,7 @@
                 <p class="card-text">Choose when to change your wallpaper</p>
                 <p class="card-subtext">
                     You can choose to change your wallpaper either based on the
-                    time, or based on your battery percentage, to remind you
+                    time, or based on your battery percentage. This can help remind you
                     when your battery is running low, or remind you to unplug
                     your laptop charger when it is fully charged.
                 </p>
@@ -46,9 +46,9 @@
     <div class="compare-image-div">
         <CompareImage
             class="image-comparer"
-            imageLeftSrc="/screenshots/dynawin/DynamicThemeLight.png"
+            imageLeftSrc="/screenshots/dynawin/DynamicWallpaperLight.png"
             imageLeftAlt="Light Theme"
-            imageRightSrc="/screenshots/dynawin/DynamicThemeDark.png"
+            imageRightSrc="/screenshots/dynawin/DynamicWallpaperDark.png"
             imageRightAlt="Dark Theme"
             --handle-size="2.5rem"
             --slider-color="#ffffff"
