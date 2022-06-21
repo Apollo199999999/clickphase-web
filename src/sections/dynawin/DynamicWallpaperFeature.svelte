@@ -12,14 +12,14 @@
         >Dynamic Wallpaper</TextBlock
     >
     <TextBlock variant="bodyLarge" class="bodyText">
-        Switch your desktop wallpaper at certain triggers
+        Switch your desktop wallpaper at certain triggers.
     </TextBlock>
 
     <div class="cards-collection">
         <div class="card">
             <div class="card-content">
                 <p class="card-text">
-                    Automatic switching of desktop wallpaper.
+                    Automatic switching of desktop wallpaper
                 </p>
                 <p class="card-subtext">
                     You can configure DynaWin to automatically switch your
