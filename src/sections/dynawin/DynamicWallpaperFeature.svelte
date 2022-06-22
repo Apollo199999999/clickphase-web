@@ -60,7 +60,7 @@
 <style>
     .container {
         padding: 2em 5vw 2em 5vw;
-        background-color: var(--fds-solid-background-base);
+        background-color: var(--fds-solid-background-secondary);
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;
@@ -126,8 +126,8 @@
                 var(--fds-card-background-default)
             ),
             linear-gradient(
-                var(--fds-solid-background-base),
-                var(--fds-solid-background-base)
+                var(--fds-solid-background-secondary),
+                var(--fds-solid-background-secondary)
             ); /* first bg is on top of this */
     }
 

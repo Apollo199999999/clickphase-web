@@ -62,7 +62,7 @@
 
     .error-button {
         transform: scale(calc(16/14));
-        margin-top: calc(1.5rem * calc(16/14));
+        margin-top: calc(1.5rem / calc(16/14));
     }
 
     .mica-bg {

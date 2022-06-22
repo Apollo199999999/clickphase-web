@@ -98,7 +98,7 @@
     }
 
     .logo-components :global(.download-btn) {
-        margin-top: calc(calc(16/14) * 20px);
+        margin-top: calc(25px / calc(16/14));
     }
 
 </style>

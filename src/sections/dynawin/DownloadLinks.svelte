@@ -1,61 +1,67 @@
 <script>
-    import { TextBlock } from "fluent-svelte";
+    import { TextBlock, Button } from "fluent-svelte";
     import "fluent-svelte/theme.css";
     import HeaderChip from "/src/components/HeaderChip.svelte";
-    import { CompareImage } from "svelte-compare-image";
 </script>
 
 <div class="container">
-    <HeaderChip>Feature</HeaderChip>
+    <HeaderChip>Links</HeaderChip>
 
-    <TextBlock class="titleText" variant="titleLarge">Dynamic Theme</TextBlock>
+    <TextBlock class="titleText" variant="titleLarge"
+        >Downloads and Links</TextBlock
+    >
     <TextBlock variant="bodyLarge" class="bodyText">
-        Switch your Windows theme or app theme based on time.
+        DynaWin downloads and other links.
     </TextBlock>
 
     <div class="cards-collection">
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Automatic switching of theme</p>
+                <p class="card-text">Download DynaWin</p>
                 <p class="card-subtext">
-                    You can configure DynaWin to automatically switch the theme
-                    at specified timings. For example, you can automatically
-                    switch Windows to Dark theme, so that it is easier on the
-                    eyes at night.
+                    Click the button below to download DynaWin:
                 </p>
+                <Button
+                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/releases', '_blank');"
+                    variant="accent"
+                    class="download-btn"
+                    >Download DynaWin
+                </Button>
             </div>
         </div>
 
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Choose which mode to switch</p>
-                <p class="card-subtext">
-                    You can configure DynaWin to switch only the app or system
-                    theme, or both. This allows DynaWin to better cater to your
-                    needs.
-                </p>
+                <p class="card-text">DynaWin links</p>
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/DynaWin', '_blank');"
+                    variant="hyperlink">DynaWin source code</Button
+                >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank');"
+                    variant="hyperlink">Report a bug</Button
+                >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank');"
+                    variant="hyperlink">Request a feature</Button
+                >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/blob/main/NOTICE.txt', '_blank');"
+                    variant="hyperlink">Third Party Notices and Licenses</Button
+                >
             </div>
         </div>
-    </div>
-
-    <div class="compare-image-div">
-        <CompareImage
-            class="image-comparer"
-            imageLeftSrc="/screenshots/dynawin/DynamicThemeLight.png"
-            imageLeftAlt="Light Theme"
-            imageRightSrc="/screenshots/dynawin/DynamicThemeDark.png"
-            imageRightAlt="Dark Theme"
-            --handle-size="2.5rem"
-            --slider-color="#ffffff"
-            --slider-width="0.125rem"
-        />
     </div>
 </div>
 
 <style>
     .container {
         padding: 2em 5vw 2em 5vw;
-        background-color: var(--fds-solid-background-base);
+        background-color: var(--fds-solid-background-secondary);
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;
@@ -107,7 +113,7 @@
         width: 280px;
         min-width: 200px;
         flex-grow: 1;
-        min-height: 180px;
+        min-height: 145px;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
         z-index: 999;
@@ -121,8 +127,8 @@
                 var(--fds-card-background-default)
             ),
             linear-gradient(
-                var(--fds-solid-background-base),
-                var(--fds-solid-background-base)
+                var(--fds-solid-background-secondary),
+                var(--fds-solid-background-secondary)
             ); /* first bg is on top of this */
     }
 
@@ -148,9 +154,14 @@
         margin-right: 20px;
     }
 
-    .compare-image-div{
-        /* resize the CompareImage container using padding */
-        padding: 1.5em 5vw 0vw 5vw;
+    :global(.download-btn) {
+        margin-top: calc(1.5em / 1.1);
+        transform: scale(1.1);
     }
-    
+
+    :global(.hyperlinks) {
+        margin-top: 1em;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 </style>
