@@ -161,6 +161,7 @@
 
     :global(.hyperlinks) {
         margin-top: 1em;
+        margin-bottom: -0.5em;
         margin-left: 10px;
         margin-right: 10px;
     }
