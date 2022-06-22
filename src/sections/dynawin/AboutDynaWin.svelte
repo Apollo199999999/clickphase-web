@@ -1,5 +1,6 @@
 <script>
     import { TextBlock, InfoBar, Button, ContentDialog } from "fluent-svelte";
+    import HeaderChip from "/src/components/HeaderChip.svelte";
     import "fluent-svelte/theme.css";
 
     //variable to control state of ContentDialog
@@ -22,6 +23,7 @@
      </ContentDialog>
      
      <div class="container">
+        <HeaderChip>About</HeaderChip>
          <TextBlock variant="titleLarge" class="titleText">About DynaWin</TextBlock>
          <TextBlock variant="bodyLarge" class="bodyText"
              >DynaWin is a utility that allows the Windows desktop to change

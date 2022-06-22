@@ -1,5 +1,6 @@
 <script>
-    import { TextBlock, InfoBar, Button, ContentDialog } from "fluent-svelte";
+    import { TextBlock } from "fluent-svelte";
+    import HeaderChip from "/src/components/HeaderChip.svelte";
     import "fluent-svelte/theme.css";
 
     //variable to control state of ContentDialog
@@ -7,6 +8,8 @@
 </script>
 
 <div class="container">
+    <HeaderChip>About</HeaderChip>
+    
     <TextBlock variant="titleLarge" class="titleText"
         >About Granny Keyboard</TextBlock>
 
