@@ -25,8 +25,7 @@
          <TextBlock variant="titleLarge" class="titleText">About DynaWin</TextBlock>
          <TextBlock variant="bodyLarge" class="bodyText"
              >DynaWin is a utility that allows the Windows desktop to change
-             dynamically.</TextBlock
-         >
+             dynamically.</TextBlock>
          <iframe
              src="https://www.youtube-nocookie.com/embed/J0iyzZG5tXc"
              title="YouTube video player"

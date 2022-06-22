@@ -1,6 +1,8 @@
 <script>
 	import "fluent-svelte/theme.css";
 	import HeroSection from "/src/sections/granny-keyboard/HeroSection.svelte";
+	import AboutGrannyKeyboard from "/src/sections/granny-keyboard/AboutGrannyKeyboard.svelte";
+	import DownloadLinks from "/src/sections/granny-keyboard/DownloadLinks.svelte";
 </script>
 
 <svelte:head>
@@ -8,12 +10,6 @@
 </svelte:head>
 
 <HeroSection/>
-<div class="content">
+<AboutGrannyKeyboard/>
+<DownloadLinks/>
 
-</div>
-
-<style>
-	.content {
-		padding: 2em 5vw 2em 5vw;
-	}
-</style>
