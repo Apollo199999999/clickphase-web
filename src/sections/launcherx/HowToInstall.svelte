@@ -5,17 +5,15 @@
 </script>
 
 <div class="container">
-    <HeaderChip>About</HeaderChip>
-    
-    <TextBlock variant="titleLarge" class="titleText">About Granny Keyboard</TextBlock>
+    <HeaderChip>Installation</HeaderChip>
+
+    <TextBlock variant="titleLarge" class="titleText">How to install</TextBlock>
 
     <TextBlock variant="bodyLarge" class="bodyText"
-        >Granny Keyboard is a keyboard modifier that modifies your keyboard to
-        make it worthy of Granny. Whichever key you press, the word 'Granny'
-        will be added in front of it and a dialog box will pop up.</TextBlock>
+        >How to install LauncherX.</TextBlock>
 
     <iframe
-        src="https://www.youtube-nocookie.com/embed/NdBmcblzhFA"
+        src="https://www.youtube-nocookie.com/embed/8QV_SVkfgtU"
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -26,8 +24,7 @@
 <style>
     .container {
         padding: 2em 5vw 2em 5vw;
-        background-color: var(--fds-solid-background-base);
-        margin-top: 1em;
+        background-color: var(--fds-solid-background-secondary);
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;

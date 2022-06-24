@@ -6,16 +6,15 @@
 
 <div class="container">
     <HeaderChip>About</HeaderChip>
-    
-    <TextBlock variant="titleLarge" class="titleText">About Granny Keyboard</TextBlock>
+
+    <TextBlock variant="titleLarge" class="titleText">About LauncherX</TextBlock>
 
     <TextBlock variant="bodyLarge" class="bodyText"
-        >Granny Keyboard is a keyboard modifier that modifies your keyboard to
-        make it worthy of Granny. Whichever key you press, the word 'Granny'
-        will be added in front of it and a dialog box will pop up.</TextBlock>
+        >LauncherX is a Windows Program used to organize and access all of your
+        files, folders, websites, and pretty much anything.</TextBlock>
 
     <iframe
-        src="https://www.youtube-nocookie.com/embed/NdBmcblzhFA"
+        src="https://www.youtube-nocookie.com/embed/TPSv2jQtsIA"
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
