@@ -76,8 +76,8 @@
     }
 
     .cards-collection {
-        /* add margin-bottom so total bottom margin is 2em */
-        margin-bottom: 0.5em;
+         /* set negative margin-bottom to account for .card margin-bottom */
+        margin-bottom: -1.5em;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
