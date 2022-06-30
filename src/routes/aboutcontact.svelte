@@ -9,12 +9,4 @@
 </svelte:head>
 
 <HeroSection/>
-<div class="content">
-	<InfoSection/>
-</div>
-
-<style>
-	.content {
-		padding: 2em 5vw 2em 5vw;
-	}
-</style>
+<InfoSection/>

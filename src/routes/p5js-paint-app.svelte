@@ -9,12 +9,4 @@
 </svelte:head>
 
 <HeroSection/>
-<div class="content">
-    <P5jsFrameSection/>
-</div>
-
-<style>
-	.content {
-		padding: 2em 5vw 2em 5vw;
-	}
-</style>
+<P5jsFrameSection/>

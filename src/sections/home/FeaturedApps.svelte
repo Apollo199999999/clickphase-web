@@ -38,6 +38,7 @@
 <style>
     .container {
         margin-top: 2em;
+        padding: 2em 5vw 2em 5vw;
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;
