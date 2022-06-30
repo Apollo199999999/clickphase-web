@@ -102,7 +102,6 @@
 	.container {
 		margin-top: 1em;
 		padding: 2em 5vw 2em 5vw;
-		width: 100%;
 		word-wrap: break-word;
 		align-items: center;
 		justify-content: center;
