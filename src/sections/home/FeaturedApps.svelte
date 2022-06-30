@@ -47,6 +47,7 @@
     }
 
     .cards-collection {
+        margin-top: 1.5em;
         /* set negative margin-bottom to account for .card margin-bottom */
         margin-bottom: -1.5em;
         display: -webkit-box;
