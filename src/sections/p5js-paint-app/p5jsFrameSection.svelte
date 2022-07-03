@@ -2,9 +2,12 @@
     import { TextBlock, Button } from "fluent-svelte";
     import "fluent-svelte/theme.css";
     import Fullscreen from "svelte-fullscreen";
+    import HeaderChip from "/src/components/HeaderChip.svelte";
 </script>
 
 <div class="container">
+    <HeaderChip>About</HeaderChip>
+    
     <TextBlock variant="titleLarge">p5.js Paint App</TextBlock>
     <TextBlock variant="bodyLarge" class="bodyText">
         A lightweight, online, and minimal paint app developed in p5.js by me.

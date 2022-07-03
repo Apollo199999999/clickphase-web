@@ -11,6 +11,9 @@
 
 <svelte:head>
 	<title>DynaWin - ClickPhase</title>
+	<meta name="description" content="DynaWin - Dynamic Desktop for Windows 10 and Windows 11" />
+	<meta name="keywords" content="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js" />
+	<meta name="author" content="ClickPhase" />
 </svelte:head>
 
 <HeroSection/>

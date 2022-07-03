@@ -6,6 +6,9 @@
 
 <svelte:head>
 	<title>Animations & Videos - ClickPhase</title>
+	<meta name="description" content="Animations and Videos from ClickPhase and others." />
+	<meta name="keywords" content="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js" />
+	<meta name="author" content="ClickPhase" />
 </svelte:head>
 
 <HeroSection/>
