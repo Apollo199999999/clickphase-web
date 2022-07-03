@@ -12,12 +12,4 @@
 </svelte:head>
 
 <HeroSection/>
-<div class="content">
-	<VideoChannels/>
-</div>
-
-<style>
-	.content {
-		padding: 2em 5vw 2em 5vw;
-	}
-</style>
+<VideoChannels/>

@@ -12,12 +12,4 @@
 </svelte:head>
 
 <HeroSection/>
-<div class="content">
-	<AllSoftware/>
-</div>
-
-<style>
-	.content {
-		padding: 2em 5vw 2em 5vw;
-	}
-</style>
+<AllSoftware/>

@@ -101,7 +101,7 @@
 <style>
 	.container {
 		margin-top: 1em;
-		width: 100%;
+		padding: 2em 5vw 2em 5vw;
 		word-wrap: break-word;
 		align-items: center;
 		justify-content: center;

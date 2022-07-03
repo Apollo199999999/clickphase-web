@@ -12,15 +12,8 @@
 	<meta name="author" content="ClickPhase" />
 </svelte:head>
 
-<HeroSection />
+<HeroSection/>
+<CardsSection/>
+<FeaturedApps/>
 
-<div class="content">
-	<CardsSection />
-	<FeaturedApps />
-</div>
 
-<style>
-	.content {
-		padding: 2em 5vw 2em 5vw;
-	}
-</style>
