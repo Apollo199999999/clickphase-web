@@ -5,7 +5,7 @@
 </script>
 
 <div class="padding-div">
-    <InfoBar severity="attention" class="attention-infobar" title="Attention" >
+    <InfoBar severity="caution" class="attention-infobar" title="Attention" >
         This page is still under construction. For now, please head to <a
             class="links"
             target="_blank"
