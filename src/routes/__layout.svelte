@@ -2,6 +2,19 @@
 	import Header from "/src/header/Header.svelte";
 	import "fluent-svelte/theme.css";
 	import { TextBlock } from "fluent-svelte";
+	import { webVitals } from "/src/vitals.js";
+	import { browser } from "$app/env";
+	import { page } from "$app/stores";
+
+	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
+
+	$: if (browser && analyticsId) {
+		webVitals({
+			path: $page.url.pathname,
+			params: $page.params,
+			analyticsId,
+		});
+	}
 </script>
 
 <Header />
@@ -21,8 +34,7 @@
 		width: 100%;
 	}
 
-	
-	:global(h1, h2, h3, h4, h5, h6, p, span){
+	:global(h1, h2, h3, h4, h5, h6, p, span) {
 		font-family: var(--fds-font-family-display) !important;
 	}
 
@@ -36,5 +48,4 @@
 		box-sizing: border-box;
 		overflow-x: hidden;
 	}
-
 </style>

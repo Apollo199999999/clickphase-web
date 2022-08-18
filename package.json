@@ -25,6 +25,7 @@
   "type": "module",
   "dependencies": {
     "svelte-compare-image": "^1.0.0-1",
-    "svelte-fullscreen": "^2.0.0"
+    "svelte-fullscreen": "^2.0.0",
+    "web-vitals": "^2.1.4"
   }
 }

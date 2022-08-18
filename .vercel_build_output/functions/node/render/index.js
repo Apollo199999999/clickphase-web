@@ -5422,7 +5422,7 @@ var init_install_fetch = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/index-30fa663f.js
+// .svelte-kit/output/server/chunks/index-223a4ced.js
 function noop2() {
 }
 function run(fn) {
@@ -5463,9 +5463,9 @@ function listen(node, event, handler, options) {
   node.addEventListener(event, handler, options);
   return () => node.removeEventListener(event, handler, options);
 }
-function custom_event(type, detail, bubbles = false) {
+function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
   const e2 = document.createEvent("CustomEvent");
-  e2.initCustomEvent(type, bubbles, false, detail);
+  e2.initCustomEvent(type, bubbles, cancelable, detail);
   return e2;
 }
 function set_current_component(component) {
@@ -5481,18 +5481,21 @@ function onDestroy(fn) {
 }
 function createEventDispatcher() {
   const component = get_current_component();
-  return (type, detail) => {
+  return (type, detail, { cancelable = false } = {}) => {
     const callbacks = component.$$.callbacks[type];
     if (callbacks) {
-      const event = custom_event(type, detail);
+      const event = custom_event(type, detail, { cancelable });
       callbacks.slice().forEach((fn) => {
         fn.call(component, event);
       });
+      return !event.defaultPrevented;
     }
+    return true;
   };
 }
 function setContext(key2, context) {
   get_current_component().$$.context.set(key2, context);
+  return context;
 }
 function getContext(key2) {
   return get_current_component().$$.context.get(key2);
@@ -5502,6 +5505,9 @@ function bubble(component, event) {
   if (callbacks) {
     callbacks.slice().forEach((fn) => fn.call(this, event));
   }
+}
+function is_void(name) {
+  return void_element_names.test(name) || name.toLowerCase() === "!doctype";
 }
 function spread(args, attrs_to_add) {
   const attributes = Object.assign({}, ...args);
@@ -5559,11 +5565,23 @@ function merge_ssr_styles(style_attribute, style_directive) {
   }
   return style_object;
 }
-function escape(html) {
-  return String(html).replace(/["'&<>]/g, (match) => escaped[match]);
+function escape(value, is_attr = false) {
+  const str = String(value);
+  const pattern = is_attr ? ATTR_REGEX : CONTENT_REGEX;
+  pattern.lastIndex = 0;
+  let escaped2 = "";
+  let last = 0;
+  while (pattern.test(str)) {
+    const i2 = pattern.lastIndex - 1;
+    const ch = str[i2];
+    escaped2 += str.substring(last, i2) + (ch === "&" ? "&amp;" : ch === '"' ? "&quot;" : "&lt;");
+    last = i2 + 1;
+  }
+  return escaped2 + str.substring(last);
 }
 function escape_attribute_value(value) {
-  return typeof value === "string" ? escape(value) : value;
+  const should_escape = typeof value === "string" || value && typeof value === "object";
+  return should_escape ? escape(value, true) : value;
 }
 function escape_object(obj) {
   const result = {};
@@ -5605,7 +5623,7 @@ function create_ssr_component(fn) {
       return {
         html,
         css: {
-          code: Array.from(result.css).map((css24) => css24.code).join("\n"),
+          code: Array.from(result.css).map((css26) => css26.code).join("\n"),
           map: null
         },
         head: result.title + result.head
@@ -5617,15 +5635,15 @@ function create_ssr_component(fn) {
 function add_attribute(name, value, boolean) {
   if (value == null || boolean && !value)
     return "";
-  const assignment = boolean && value === true ? "" : `="${escape_attribute_value(value.toString())}"`;
+  const assignment = boolean && value === true ? "" : `="${escape(value, true)}"`;
   return ` ${name}${assignment}`;
 }
 function style_object_to_string(style_object) {
   return Object.keys(style_object).filter((key2) => style_object[key2]).map((key2) => `${key2}: ${style_object[key2]};`).join(" ");
 }
-var current_component, boolean_attributes, invalid_attribute_name_character, escaped, missing_component, on_destroy;
-var init_index_30fa663f = __esm({
-  ".svelte-kit/output/server/chunks/index-30fa663f.js"() {
+var current_component, boolean_attributes, void_element_names, invalid_attribute_name_character, ATTR_REGEX, CONTENT_REGEX, missing_component, on_destroy;
+var init_index_223a4ced = __esm({
+  ".svelte-kit/output/server/chunks/index-223a4ced.js"() {
     Promise.resolve();
     boolean_attributes = /* @__PURE__ */ new Set([
       "allowfullscreen",
@@ -5653,14 +5671,10 @@ var init_index_30fa663f = __esm({
       "reversed",
       "selected"
     ]);
+    void_element_names = /^(?:area|base|br|col|command|embed|hr|img|input|keygen|link|meta|param|source|track|wbr)$/;
     invalid_attribute_name_character = /[\s'">/=\u{FDD0}-\u{FDEF}\u{FFFE}\u{FFFF}\u{1FFFE}\u{1FFFF}\u{2FFFE}\u{2FFFF}\u{3FFFE}\u{3FFFF}\u{4FFFE}\u{4FFFF}\u{5FFFE}\u{5FFFF}\u{6FFFE}\u{6FFFF}\u{7FFFE}\u{7FFFF}\u{8FFFE}\u{8FFFF}\u{9FFFE}\u{9FFFF}\u{AFFFE}\u{AFFFF}\u{BFFFE}\u{BFFFF}\u{CFFFE}\u{CFFFF}\u{DFFFE}\u{DFFFF}\u{EFFFE}\u{EFFFF}\u{FFFFE}\u{FFFFF}\u{10FFFE}\u{10FFFF}]/u;
-    escaped = {
-      '"': "&quot;",
-      "'": "&#39;",
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;"
-    };
+    ATTR_REGEX = /[&"]/g;
+    CONTENT_REGEX = /[&<]/g;
     missing_component = {
       $$render: () => ""
     };
@@ -5674,68 +5688,208 @@ var init_hooks_1c45ba0b = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/NavigationView.svelte_svelte_type_style_lang-d1ad264c.js
+// .svelte-kit/output/server/chunks/NavigationView.svelte_svelte_type_style_lang-8088d3b7.js
 var css, TextBlock;
-var init_NavigationView_svelte_svelte_type_style_lang_d1ad264c = __esm({
-  ".svelte-kit/output/server/chunks/NavigationView.svelte_svelte_type_style_lang-d1ad264c.js"() {
-    init_index_30fa663f();
+var init_NavigationView_svelte_svelte_type_style_lang_8088d3b7 = __esm({
+  ".svelte-kit/output/server/chunks/NavigationView.svelte_svelte_type_style_lang-8088d3b7.js"() {
+    init_index_223a4ced();
     css = {
       code: ".text-block.svelte-zxj483{color:currentColor;display:inline-block;margin:0;padding:0}.text-block.type-display.svelte-zxj483,.text-block.type-subtitle.svelte-zxj483,.text-block.type-title.svelte-zxj483,.text-block.type-title-large.svelte-zxj483{font-family:var(--fds-font-family-display);font-weight:600}.text-block.type-body.svelte-zxj483,.text-block.type-body-large.svelte-zxj483,.text-block.type-body-strong.svelte-zxj483{font-family:var(--fds-font-family-text)}.text-block.type-caption.svelte-zxj483{font-family:var(--fds-font-family-small);font-size:var(--fds-caption-font-size);font-weight:400;line-height:16px}.text-block.type-body.svelte-zxj483,.text-block.type-body-large.svelte-zxj483,.text-block.type-body-strong.svelte-zxj483{font-size:var(--fds-body-font-size);font-weight:400;line-height:20px}.text-block.type-body-strong.svelte-zxj483{font-weight:600}.text-block.type-body-large.svelte-zxj483{font-size:var(--fds-body-large-font-size);line-height:24px}.text-block.type-subtitle.svelte-zxj483{font-size:var(--fds-subtitle-font-size);line-height:28px}.text-block.type-title.svelte-zxj483{font-size:var(--fds-title-font-size);line-height:36px}.text-block.type-title-large.svelte-zxj483{font-size:var(--fds-title-large-font-size);line-height:52px}.text-block.type-display.svelte-zxj483{font-size:var(--fds-display-font-size);line-height:92px}",
       map: null
     };
     TextBlock = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let $$restProps = compute_rest_props($$props, ["variant", "class", "element"]);
+      let $$restProps = compute_rest_props($$props, ["variant", "tag", "class", "element"]);
       let { variant = "body" } = $$props;
+      let { tag = void 0 } = $$props;
       let { class: className = "" } = $$props;
       let { element = null } = $$props;
+      const map = {
+        caption: { tag: "span", name: "caption" },
+        body: { tag: "span", name: "body" },
+        bodyStrong: { tag: "h5", name: "body-strong" },
+        bodyLarge: { tag: "h5", name: "body-large" },
+        subtitle: { tag: "h4", name: "subtitle" },
+        title: { tag: "h3", name: "title" },
+        titleLarge: { tag: "h2", name: "title-large" },
+        display: { tag: "h1", name: "display" }
+      };
       if ($$props.variant === void 0 && $$bindings.variant && variant !== void 0)
         $$bindings.variant(variant);
+      if ($$props.tag === void 0 && $$bindings.tag && tag !== void 0)
+        $$bindings.tag(tag);
       if ($$props.class === void 0 && $$bindings.class && className !== void 0)
         $$bindings.class(className);
       if ($$props.element === void 0 && $$bindings.element && element !== void 0)
         $$bindings.element(element);
       $$result.css.add(css);
-      return `${variant === "caption" ? `<span${spread([
-        {
-          class: "text-block type-caption " + escape(className)
-        },
-        escape_object($$restProps)
-      ], { classes: "svelte-zxj483" })}${add_attribute("this", element, 0)}>${slots.default ? slots.default({}) : ``}</span>` : `${variant === "body" ? `<span${spread([
-        {
-          class: "text-block type-body " + escape(className)
-        },
-        escape_object($$restProps)
-      ], { classes: "svelte-zxj483" })}${add_attribute("this", element, 0)}>${slots.default ? slots.default({}) : ``}</span>` : `${variant === "bodyStrong" ? `<h6${spread([
-        {
-          class: "text-block type-body-strong " + escape(className)
-        },
-        escape_object($$restProps)
-      ], { classes: "svelte-zxj483" })}${add_attribute("this", element, 0)}>${slots.default ? slots.default({}) : ``}</h6>` : `${variant === "bodyLarge" ? `<h5${spread([
-        {
-          class: "text-block type-body-large " + escape(className)
-        },
-        escape_object($$restProps)
-      ], { classes: "svelte-zxj483" })}${add_attribute("this", element, 0)}>${slots.default ? slots.default({}) : ``}</h5>` : `${variant === "subtitle" ? `<h4${spread([
-        {
-          class: "text-block type-subtitle " + escape(className)
-        },
-        escape_object($$restProps)
-      ], { classes: "svelte-zxj483" })}${add_attribute("this", element, 0)}>${slots.default ? slots.default({}) : ``}</h4>` : `${variant === "title" ? `<h3${spread([
-        {
-          class: "text-block type-title " + escape(className)
-        },
-        escape_object($$restProps)
-      ], { classes: "svelte-zxj483" })}${add_attribute("this", element, 0)}>${slots.default ? slots.default({}) : ``}</h3>` : `${variant === "titleLarge" ? `<h2${spread([
-        {
-          class: "text-block type-title-large " + escape(className)
-        },
-        escape_object($$restProps)
-      ], { classes: "svelte-zxj483" })}${add_attribute("this", element, 0)}>${slots.default ? slots.default({}) : ``}</h2>` : `${variant === "display" ? `<h1${spread([
-        {
-          class: "text-block type-display " + escape(className)
-        },
-        escape_object($$restProps)
-      ], { classes: "svelte-zxj483" })}${add_attribute("this", element, 0)}>${slots.default ? slots.default({}) : ``}</h1>` : ``}`}`}`}`}`}`}`}`;
+      return `${((tag$1) => {
+        return tag$1 ? `<${tag ? tag : map[variant].tag}${spread([
+          {
+            class: "text-block type-" + escape(map[variant].name, true) + " " + escape(className, true)
+          },
+          escape_object($$restProps)
+        ], { classes: "svelte-zxj483" })}${add_attribute("this", element, 0)}>${is_void(tag$1) ? "" : `${slots.default ? slots.default({}) : ``}
+`}${is_void(tag$1) ? "" : `</${tag$1}>`}` : "";
+      })(tag ? tag : map[variant].tag)}`;
+    });
+  }
+});
+
+// node_modules/web-vitals/dist/web-vitals.umd.js
+var require_web_vitals_umd = __commonJS({
+  "node_modules/web-vitals/dist/web-vitals.umd.js"(exports, module2) {
+    !function(e2, t2) {
+      typeof exports == "object" && typeof module2 != "undefined" ? t2(exports) : typeof define == "function" && define.amd ? define(["exports"], t2) : t2((e2 = typeof globalThis != "undefined" ? globalThis : e2 || self).webVitals = {});
+    }(exports, function(e2) {
+      "use strict";
+      var t2, n, i2, r2, a = function(e3, t3) {
+        return { name: e3, value: t3 === void 0 ? -1 : t3, delta: 0, entries: [], id: "v2-".concat(Date.now(), "-").concat(Math.floor(8999999999999 * Math.random()) + 1e12) };
+      }, o = function(e3, t3) {
+        try {
+          if (PerformanceObserver.supportedEntryTypes.includes(e3)) {
+            if (e3 === "first-input" && !("PerformanceEventTiming" in self))
+              return;
+            var n2 = new PerformanceObserver(function(e4) {
+              return e4.getEntries().map(t3);
+            });
+            return n2.observe({ type: e3, buffered: true }), n2;
+          }
+        } catch (e4) {
+        }
+      }, u = function(e3, t3) {
+        var n2 = function n3(i3) {
+          i3.type !== "pagehide" && document.visibilityState !== "hidden" || (e3(i3), t3 && (removeEventListener("visibilitychange", n3, true), removeEventListener("pagehide", n3, true)));
+        };
+        addEventListener("visibilitychange", n2, true), addEventListener("pagehide", n2, true);
+      }, c = function(e3) {
+        addEventListener("pageshow", function(t3) {
+          t3.persisted && e3(t3);
+        }, true);
+      }, f3 = function(e3, t3, n2) {
+        var i3;
+        return function(r3) {
+          t3.value >= 0 && (r3 || n2) && (t3.delta = t3.value - (i3 || 0), (t3.delta || i3 === void 0) && (i3 = t3.value, e3(t3)));
+        };
+      }, s3 = -1, m2 = function() {
+        return document.visibilityState === "hidden" ? 0 : 1 / 0;
+      }, d = function() {
+        u(function(e3) {
+          var t3 = e3.timeStamp;
+          s3 = t3;
+        }, true);
+      }, v = function() {
+        return s3 < 0 && (s3 = m2(), d(), c(function() {
+          setTimeout(function() {
+            s3 = m2(), d();
+          }, 0);
+        })), { get firstHiddenTime() {
+          return s3;
+        } };
+      }, p = function(e3, t3) {
+        var n2, i3 = v(), r3 = a("FCP"), u2 = function(e4) {
+          e4.name === "first-contentful-paint" && (m3 && m3.disconnect(), e4.startTime < i3.firstHiddenTime && (r3.value = e4.startTime, r3.entries.push(e4), n2(true)));
+        }, s4 = window.performance && performance.getEntriesByName && performance.getEntriesByName("first-contentful-paint")[0], m3 = s4 ? null : o("paint", u2);
+        (s4 || m3) && (n2 = f3(e3, r3, t3), s4 && u2(s4), c(function(i4) {
+          r3 = a("FCP"), n2 = f3(e3, r3, t3), requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+              r3.value = performance.now() - i4.timeStamp, n2(true);
+            });
+          });
+        }));
+      }, l = false, g = -1, y = { passive: true, capture: true }, T = new Date(), h2 = function(e3, r3) {
+        t2 || (t2 = r3, n = e3, i2 = new Date(), S2(removeEventListener), E());
+      }, E = function() {
+        if (n >= 0 && n < i2 - T) {
+          var e3 = { entryType: "first-input", name: t2.type, target: t2.target, cancelable: t2.cancelable, startTime: t2.timeStamp, processingStart: t2.timeStamp + n };
+          r2.forEach(function(t3) {
+            t3(e3);
+          }), r2 = [];
+        }
+      }, L = function(e3) {
+        if (e3.cancelable) {
+          var t3 = (e3.timeStamp > 1e12 ? new Date() : performance.now()) - e3.timeStamp;
+          e3.type == "pointerdown" ? function(e4, t4) {
+            var n2 = function() {
+              h2(e4, t4), r3();
+            }, i3 = function() {
+              r3();
+            }, r3 = function() {
+              removeEventListener("pointerup", n2, y), removeEventListener("pointercancel", i3, y);
+            };
+            addEventListener("pointerup", n2, y), addEventListener("pointercancel", i3, y);
+          }(t3, e3) : h2(t3, e3);
+        }
+      }, S2 = function(e3) {
+        ["mousedown", "keydown", "touchstart", "pointerdown"].forEach(function(t3) {
+          return e3(t3, L, y);
+        });
+      }, w = {};
+      e2.getCLS = function(e3, t3) {
+        l || (p(function(e4) {
+          g = e4.value;
+        }), l = true);
+        var n2, i3 = function(t4) {
+          g > -1 && e3(t4);
+        }, r3 = a("CLS", 0), s4 = 0, m3 = [], d2 = function(e4) {
+          if (!e4.hadRecentInput) {
+            var t4 = m3[0], i4 = m3[m3.length - 1];
+            s4 && e4.startTime - i4.startTime < 1e3 && e4.startTime - t4.startTime < 5e3 ? (s4 += e4.value, m3.push(e4)) : (s4 = e4.value, m3 = [e4]), s4 > r3.value && (r3.value = s4, r3.entries = m3, n2());
+          }
+        }, v2 = o("layout-shift", d2);
+        v2 && (n2 = f3(i3, r3, t3), u(function() {
+          v2.takeRecords().map(d2), n2(true);
+        }), c(function() {
+          s4 = 0, g = -1, r3 = a("CLS", 0), n2 = f3(i3, r3, t3);
+        }));
+      }, e2.getFCP = p, e2.getFID = function(e3, i3) {
+        var s4, m3 = v(), d2 = a("FID"), p2 = function(e4) {
+          e4.startTime < m3.firstHiddenTime && (d2.value = e4.processingStart - e4.startTime, d2.entries.push(e4), s4(true));
+        }, l2 = o("first-input", p2);
+        s4 = f3(e3, d2, i3), l2 && u(function() {
+          l2.takeRecords().map(p2), l2.disconnect();
+        }, true), l2 && c(function() {
+          var o2;
+          d2 = a("FID"), s4 = f3(e3, d2, i3), r2 = [], n = -1, t2 = null, S2(addEventListener), o2 = p2, r2.push(o2), E();
+        });
+      }, e2.getLCP = function(e3, t3) {
+        var n2, i3 = v(), r3 = a("LCP"), s4 = function(e4) {
+          var t4 = e4.startTime;
+          t4 < i3.firstHiddenTime && (r3.value = t4, r3.entries.push(e4), n2());
+        }, m3 = o("largest-contentful-paint", s4);
+        if (m3) {
+          n2 = f3(e3, r3, t3);
+          var d2 = function() {
+            w[r3.id] || (m3.takeRecords().map(s4), m3.disconnect(), w[r3.id] = true, n2(true));
+          };
+          ["keydown", "click"].forEach(function(e4) {
+            addEventListener(e4, d2, { once: true, capture: true });
+          }), u(d2, true), c(function(i4) {
+            r3 = a("LCP"), n2 = f3(e3, r3, t3), requestAnimationFrame(function() {
+              requestAnimationFrame(function() {
+                r3.value = performance.now() - i4.timeStamp, w[r3.id] = true, n2(true);
+              });
+            });
+          });
+        }
+      }, e2.getTTFB = function(e3) {
+        var t3, n2 = a("TTFB");
+        t3 = function() {
+          try {
+            var t4 = performance.getEntriesByType("navigation")[0] || function() {
+              var e4 = performance.timing, t5 = { entryType: "navigation", startTime: 0 };
+              for (var n3 in e4)
+                n3 !== "navigationStart" && n3 !== "toJSON" && (t5[n3] = Math.max(e4[n3] - e4.navigationStart, 0));
+              return t5;
+            }();
+            if (n2.value = n2.delta = t4.responseStart, n2.value < 0 || n2.value > performance.now())
+              return;
+            n2.entries = [t4], e3(n2);
+          } catch (e4) {
+          }
+        }, document.readyState === "complete" ? setTimeout(t3, 0) : addEventListener("load", function() {
+          return setTimeout(t3, 0);
+        });
+      }, Object.defineProperty(e2, "__esModule", { value: true });
     });
   }
 });
@@ -5745,11 +5899,12 @@ var layout_svelte_exports = {};
 __export(layout_svelte_exports, {
   default: () => _layout
 });
-var getStores, page, css$1, Header, css2, _layout;
+var import_web_vitals, getStores, page, css$1, Header, css2, _layout;
 var init_layout_svelte = __esm({
   ".svelte-kit/output/server/entries/pages/__layout.svelte.js"() {
-    init_index_30fa663f();
-    init_NavigationView_svelte_svelte_type_style_lang_d1ad264c();
+    init_index_223a4ced();
+    init_NavigationView_svelte_svelte_type_style_lang_8088d3b7();
+    import_web_vitals = __toESM(require_web_vitals_umd(), 1);
     getStores = () => {
       const stores = getContext("__svelte__");
       return {
@@ -5809,15 +5964,18 @@ var init_layout_svelte = __esm({
 </header>`;
     });
     css2 = {
-      code: "body{background-color:var(--fds-solid-background-base);color:var(--fds-text-primary);margin:0%;padding:0%;width:100%}h1, h2, h3, h4, h5, h6, p, span{font-family:var(--fds-font-family-display) !important}main.svelte-1k74kcd{flex:1;display:flex;flex-direction:column;width:100%;margin:0, auto;padding:0%;box-sizing:border-box;overflow-x:hidden}",
+      code: "body{background-color:var(--fds-solid-background-base);color:var(--fds-text-primary);margin:0%;padding:0%;width:100%}h1, h2, h3, h4, h5, h6, p, span{font-family:var(--fds-font-family-display) !important}main.svelte-o28w7s{flex:1;display:flex;flex-direction:column;width:100%;margin:0, auto;padding:0%;box-sizing:border-box;overflow-x:hidden}",
       map: null
     };
     _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let $$unsubscribe_page;
+      $$unsubscribe_page = subscribe(page, (value) => value);
       $$result.css.add(css2);
+      $$unsubscribe_page();
       return `${validate_component(Header, "Header").$$render($$result, {}, {}, {})}
 
 <meta name="${"viewport"}" content="${"width=device-width, initial-scale=1.0"}">
-<main class="${"svelte-1k74kcd"}">${slots.default ? slots.default({}) : ``}
+<main class="${"svelte-o28w7s"}">${slots.default ? slots.default({}) : ``}
 </main>`;
     });
   }
@@ -5835,13 +5993,13 @@ var entry, js, css3;
 var init__ = __esm({
   ".svelte-kit/output/server/nodes/0.js"() {
     init_layout_svelte();
-    entry = "pages/__layout.svelte-5a6bd7db.js";
-    js = ["pages/__layout.svelte-5a6bd7db.js", "chunks/index-306fcf0d.js", "chunks/NavigationView.svelte_svelte_type_style_lang-c16d035c.js"];
-    css3 = ["assets/pages/__layout.svelte-d14c8db4.css", "assets/NavigationView.svelte_svelte_type_style_lang-7136ff2f.css"];
+    entry = "pages/__layout.svelte-f296506a.js";
+    js = ["pages/__layout.svelte-f296506a.js", "chunks/index-a7d8ca41.js", "chunks/NavigationView.svelte_svelte_type_style_lang-86c9a88c.js"];
+    css3 = ["assets/pages/__layout.svelte-682c4f33.css", "assets/NavigationView.svelte_svelte_type_style_lang-492d57f0.css"];
   }
 });
 
-// .svelte-kit/output/server/chunks/Button-a47ea82f.js
+// .svelte-kit/output/server/chunks/Button-9355eef8.js
 function uid(prefix) {
   return prefix + String.fromCharCode(Math.floor(Math.random() * 26) + 97) + Math.random().toString(16).slice(2) + Date.now().toString(16).split(".")[0];
 }
@@ -5904,10 +6062,10 @@ function createEventForwarder(component, exclude = []) {
   };
 }
 var css4, Button;
-var init_Button_a47ea82f = __esm({
-  ".svelte-kit/output/server/chunks/Button-a47ea82f.js"() {
-    init_index_30fa663f();
-    init_NavigationView_svelte_svelte_type_style_lang_d1ad264c();
+var init_Button_9355eef8 = __esm({
+  ".svelte-kit/output/server/chunks/Button-9355eef8.js"() {
+    init_index_223a4ced();
+    init_NavigationView_svelte_svelte_type_style_lang_8088d3b7();
     css4 = {
       code: ".button.svelte-1ulhukx{align-items:center;border:none;border-radius:var(--fds-control-corner-radius);box-sizing:border-box;cursor:default;display:inline-flex;font-family:var(--fds-font-family-text);font-size:var(--fds-body-font-size);font-weight:400;justify-content:center;line-height:20px;outline:none;padding-block:4px 6px;padding-inline:11px;position:relative;text-decoration:none;transition:var(--fds-control-faster-duration) ease background;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.button.svelte-1ulhukx:focus-visible{box-shadow:var(--fds-focus-stroke)}.button.style-standard.svelte-1ulhukx{background-clip:padding-box;background-color:var(--fds-control-fill-default);border:1px solid;border-color:var(--fds-control-border-default);color:var(--fds-text-primary)}.button.style-standard.svelte-1ulhukx:hover{background-color:var(--fds-control-fill-secondary)}.button.style-standard.svelte-1ulhukx:active{background-color:var(--fds-control-fill-tertiary);border-color:var(--fds-control-stroke-default);color:var(--fds-text-secondary)}.button.style-standard.disabled.svelte-1ulhukx{background-color:var(--fds-control-fill-disabled);border-color:var(--fds-control-stroke-default);color:var(--fds-text-disabled)}.button.style-accent.svelte-1ulhukx{background-color:var(--fds-accent-default);border:1px solid var(--fds-control-stroke-on-accent-default);border-bottom-color:var(--fds-control-stroke-on-accent-secondary);color:var(--fds-text-on-accent-primary);transition:var(--fds-control-faster-duration) ease border-color}.button.style-accent.svelte-1ulhukx:hover{background-color:var(--fds-accent-secondary)}.button.style-accent.svelte-1ulhukx:active{background-color:var(--fds-accent-tertiary);border-color:transparent;color:var(--fds-text-on-accent-secondary)}.button.style-accent.disabled.svelte-1ulhukx{background-color:var(--fds-accent-disabled);border-color:transparent;color:var(--fds-text-on-accent-disabled)}.button.style-hyperlink.svelte-1ulhukx{background-color:var(--fds-subtle-fill-transparent);color:var(--fds-accent-text-primary);cursor:pointer}.button.style-hyperlink.svelte-1ulhukx:hover{background-color:var(--fds-subtle-fill-secondary)}.button.style-hyperlink.svelte-1ulhukx:active{background-color:var(--fds-subtle-fill-tertiary);color:var(--fds-accent-text-tertiary)}.button.style-hyperlink.disabled.svelte-1ulhukx{color:var(--fds-accent-text-disabled)}.button.disabled.svelte-1ulhukx{pointer-events:none}",
       map: null
@@ -5932,24 +6090,23 @@ var init_Button_a47ea82f = __esm({
         $$bindings.element(element);
       $$result.css.add(css4);
       return `
-${href && !disabled ? `<a${spread([
-        { role: "button" },
-        {
-          class: "button style-" + escape(variant) + " " + escape(className)
-        },
-        { href: escape_attribute_value(href) },
-        escape_object($$restProps)
-      ], {
-        classes: (disabled ? "disabled" : "") + " svelte-1ulhukx"
-      })}${add_attribute("this", element, 0)}>${slots.default ? slots.default({}) : ``}</a>` : `<button${spread([
-        {
-          class: "button style-" + escape(variant) + " " + escape(className)
-        },
-        { disabled: disabled || null },
-        escape_object($$restProps)
-      ], {
-        classes: (disabled ? "disabled" : "") + " svelte-1ulhukx"
-      })}${add_attribute("this", element, 0)}>${slots.default ? slots.default({}) : ``}</button>`}`;
+${((tag) => {
+        return tag ? `<${href && !disabled ? "a" : "button"}${spread([
+          {
+            role: escape_attribute_value(href && !disabled ? "button" : void 0)
+          },
+          {
+            href: escape_attribute_value(href && !disabled ? href : void 0)
+          },
+          {
+            class: "button style-" + escape(variant, true) + " " + escape(className, true)
+          },
+          escape_object($$restProps)
+        ], {
+          classes: (disabled ? "disabled" : "") + " svelte-1ulhukx"
+        })}${add_attribute("this", element, 0)}>${is_void(tag) ? "" : `${slots.default ? slots.default({}) : ``}
+`}${is_void(tag) ? "" : `</${tag}>`}` : "";
+      })(href && !disabled ? "a" : "button")}`;
     });
   }
 });
@@ -5968,11 +6125,11 @@ function load({ error: error2, status }) {
 var css5, _error;
 var init_error_svelte = __esm({
   ".svelte-kit/output/server/entries/pages/__error.svelte.js"() {
-    init_index_30fa663f();
-    init_NavigationView_svelte_svelte_type_style_lang_d1ad264c();
-    init_Button_a47ea82f();
+    init_index_223a4ced();
+    init_NavigationView_svelte_svelte_type_style_lang_8088d3b7();
+    init_Button_9355eef8();
     css5 = {
-      code: '.container.svelte-1md9ckr{position:relative;word-wrap:break-word;align-items:center;justify-content:center;text-align:center}.components.svelte-1md9ckr{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);text-align:center}.error-status.svelte-1md9ckr{line-height:normal}.error-message.svelte-1md9ckr{margin-top:1rem;line-height:normal}.error-button.svelte-1md9ckr{transform:scale(calc(16/14));margin-top:calc(1.5rem * calc(16/14))}.mica-bg.svelte-1md9ckr{position:relative;width:100%;height:calc(100vh - 4em);overflow:hidden}.image.svelte-1md9ckr{background-image:url("/MicaLight.png");width:100%;height:100%;filter:saturate(120%);transform:scale(1.7);background-position:center;background-repeat:no-repeat;background-size:cover;background-attachment:fixed}@media(prefers-color-scheme: dark){.image.svelte-1md9ckr{background-image:url("/MicaDark.png");width:100%;height:100%;filter:saturate(120%);transform:scale(1.7);background-position:center;background-repeat:no-repeat;background-size:cover;background-attachment:fixed}}.image.svelte-1md9ckr:before{content:"";position:absolute;left:0;right:0;top:0;bottom:0;background:var(--fds-card-background-secondary)}',
+      code: '.container.svelte-1pkjsfi{position:relative;word-wrap:break-word;align-items:center;justify-content:center;text-align:center}.components.svelte-1pkjsfi{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);text-align:center}.error-status.svelte-1pkjsfi{line-height:normal}.error-message.svelte-1pkjsfi{margin-top:1rem;line-height:normal}.error-button.svelte-1pkjsfi{transform:scale(calc(16/14));margin-top:calc(1.5rem / calc(16/14))}.mica-bg.svelte-1pkjsfi{position:relative;width:100%;height:calc(100vh - 4em);overflow:hidden}.image.svelte-1pkjsfi{background-image:url("/MicaLight.png");width:100%;height:100%;filter:saturate(120%);transform:scale(1.7);background-position:center;background-repeat:no-repeat;background-size:cover;background-attachment:fixed}@media(prefers-color-scheme: dark){.image.svelte-1pkjsfi{background-image:url("/MicaDark.png");width:100%;height:100%;filter:saturate(120%);transform:scale(1.7);background-position:center;background-repeat:no-repeat;background-size:cover;background-attachment:fixed}}.image.svelte-1pkjsfi:before{content:"";position:absolute;left:0;right:0;top:0;bottom:0;background:var(--fds-card-background-secondary)}',
       map: null
     };
     _error = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -5984,18 +6141,18 @@ var init_error_svelte = __esm({
         $$bindings.status(status);
       $$result.css.add(css5);
       return `
-<div class="${"container svelte-1md9ckr"}"><div class="${"mica-bg svelte-1md9ckr"}"><div class="${"image svelte-1md9ckr"}"></div></div>
-    <div class="${"components svelte-1md9ckr"}"><div class="${"error-status svelte-1md9ckr"}">${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "display" }, {}, {
+<div class="${"container svelte-1pkjsfi"}"><div class="${"mica-bg svelte-1pkjsfi"}"><div class="${"image svelte-1pkjsfi"}"></div></div>
+    <div class="${"components svelte-1pkjsfi"}"><div class="${"error-status svelte-1pkjsfi"}">${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "display" }, {}, {
         default: () => {
           return `Error ${escape(status)}`;
         }
       })}</div>
-        <div class="${"error-message svelte-1md9ckr"}">${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "bodyLarge" }, {}, {
+        <div class="${"error-message svelte-1pkjsfi"}">${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "bodyLarge" }, {}, {
         default: () => {
           return `Error message: ${escape(message)}`;
         }
       })}</div>
-        <div class="${"error-button svelte-1md9ckr"}">${validate_component(Button, "Button").$$render($$result, { href: "/" }, {}, {
+        <div class="${"error-button svelte-1pkjsfi"}">${validate_component(Button, "Button").$$render($$result, { href: "/" }, {}, {
         default: () => {
           return `Return to homepage`;
         }
@@ -6017,17 +6174,17 @@ var entry2, js2, css6;
 var init__2 = __esm({
   ".svelte-kit/output/server/nodes/1.js"() {
     init_error_svelte();
-    entry2 = "pages/__error.svelte-a662b440.js";
-    js2 = ["pages/__error.svelte-a662b440.js", "chunks/index-306fcf0d.js", "chunks/NavigationView.svelte_svelte_type_style_lang-c16d035c.js", "chunks/Button-cef66c42.js"];
-    css6 = ["assets/pages/__error.svelte-a49a4206.css", "assets/NavigationView.svelte_svelte_type_style_lang-7136ff2f.css"];
+    entry2 = "pages/__error.svelte-607a0d71.js";
+    js2 = ["pages/__error.svelte-607a0d71.js", "chunks/index-a7d8ca41.js", "chunks/NavigationView.svelte_svelte_type_style_lang-86c9a88c.js", "chunks/Button-9d1ab1dc.js"];
+    css6 = ["assets/pages/__error.svelte-a92cb9ee.css", "assets/NavigationView.svelte_svelte_type_style_lang-492d57f0.css"];
   }
 });
 
-// .svelte-kit/output/server/chunks/MicaBackground-c1f5214e.js
+// .svelte-kit/output/server/chunks/MicaBackground-bde423f3.js
 var css7, MicaBackground;
-var init_MicaBackground_c1f5214e = __esm({
-  ".svelte-kit/output/server/chunks/MicaBackground-c1f5214e.js"() {
-    init_index_30fa663f();
+var init_MicaBackground_bde423f3 = __esm({
+  ".svelte-kit/output/server/chunks/MicaBackground-bde423f3.js"() {
+    init_index_223a4ced();
     css7 = {
       code: '.container.svelte-wa3wd2{width:100%;height:72vh;overflow:hidden}.image.svelte-wa3wd2{background-image:url("/MicaLight.png");width:100%;height:100%;filter:saturate(120%);transform:scale(1.7);background-position:center;background-repeat:no-repeat;background-size:cover}@media(prefers-color-scheme: dark){.image.svelte-wa3wd2{background-image:url("/MicaDark.png");width:100%;height:100%;filter:saturate(120%);transform:scale(1.7);background-position:center;background-repeat:no-repeat;background-size:cover}}.image.svelte-wa3wd2:before{content:"";position:absolute;left:0;right:0;top:0;bottom:0;background:var(--fds-card-background-secondary)}',
       map: null
@@ -6046,24 +6203,24 @@ var index_svelte_exports = {};
 __export(index_svelte_exports, {
   default: () => Routes
 });
-var css$3, HeroSection, css$2, CardsSection, css$12, FeaturedApps, css8, Routes;
+var css$2, HeroSection, css$12, CardsSection, css8, FeaturedApps, Routes;
 var init_index_svelte = __esm({
   ".svelte-kit/output/server/entries/pages/index.svelte.js"() {
-    init_index_30fa663f();
-    init_NavigationView_svelte_svelte_type_style_lang_d1ad264c();
-    init_MicaBackground_c1f5214e();
-    css$3 = {
+    init_index_223a4ced();
+    init_NavigationView_svelte_svelte_type_style_lang_8088d3b7();
+    init_MicaBackground_bde423f3();
+    css$2 = {
       code: ".container.svelte-10rlesd.svelte-10rlesd{position:relative;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;padding:0%}.logo.svelte-10rlesd.svelte-10rlesd{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.logo.svelte-10rlesd a.svelte-10rlesd{display:flex;align-items:center;justify-content:center;width:100%;height:100%;text-decoration:none;color:inherit;padding:0%}.logo.svelte-10rlesd img.svelte-10rlesd{width:6em;height:6em;object-fit:contain;margin-right:1.2em;padding:0%}",
       map: null
     };
     HeroSection = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let sy;
-      $$result.css.add(css$3);
+      $$result.css.add(css$2);
       return `
 
 
 <div class="${"container svelte-10rlesd"}">${validate_component(MicaBackground, "MicaBackground").$$render($$result, {}, {}, {})}
-    <div class="${"logo svelte-10rlesd"}"><div style="${"transform: translate(0," + escape(-sy * 0.17) + "px)"}"><a${add_attribute("href", void 0, 0)} class="${"svelte-10rlesd"}"><img src="${"/logo-img.png"}" alt="${"ClickPhase"}" class="${"svelte-10rlesd"}">
+    <div class="${"logo svelte-10rlesd"}"><div style="${"transform: translate(0," + escape(-sy * 0.17, true) + "px)"}"><a${add_attribute("href", void 0, 0)} class="${"svelte-10rlesd"}"><img src="${"/logo-img.png"}" alt="${"ClickPhase"}" class="${"svelte-10rlesd"}">
                 ${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "display" }, {}, {
         default: () => {
           return `ClickPhase`;
@@ -6071,61 +6228,55 @@ var init_index_svelte = __esm({
       })}</a></div></div>
 </div>`;
     });
-    css$2 = {
-      code: '@font-face{font-family:"FluentUIIcons";src:url("/FluentSystemIcons-Regular.ttf")}.container.svelte-1od4uel{margin-top:-10em;overflow:hidden}.cards-collection.svelte-1od4uel{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.card.svelte-1od4uel{display:flex;justify-content:center;align-items:center;margin:0.7rem;width:280px;min-width:200px;flex-grow:1;height:350px;text-align:center;border-radius:var(--fds-control-corner-radius);z-index:999;-webkit-transition:200ms ease-in-out;-o-transition:200ms ease-in-out;transition:200ms ease-in-out;-webkit-box-shadow:0 0 15px rgba(0, 0, 0, 0.3);box-shadow:0 0 15px rgba(0, 0, 0, 0.3);background:linear-gradient(\r\n                var(--fds-card-background-default),\r\n                var(--fds-card-background-default)\r\n            ),\r\n            linear-gradient(\r\n                var(--fds-solid-background-base),\r\n                var(--fds-solid-background-base)\r\n            )}.card.svelte-1od4uel:hover{transform:scale(1.035);-webkit-box-shadow:0 0 20px rgba(0, 0, 0, 0.2);box-shadow:0 0 20px rgba(0, 0, 0, 0.2)}.card-content.svelte-1od4uel{width:100%}.card-default-icon.svelte-1od4uel{font-family:"FluentUIIcons" !important;font-size:100px;color:var(--fds-accent-default);margin:0px}.card-github-icon.svelte-1od4uel{fill:var(--fds-text-primary);margin:0px}.card-text.svelte-1od4uel{font-family:var(--fds-font-family-display);font-weight:600;font-size:28px;margin:0px;margin-top:1.5rem;margin-left:10px;margin-right:10px}',
+    css$12 = {
+      code: '@font-face{font-family:"FluentUIIcons";src:url("/FluentSystemIcons-Regular.ttf")}.container.svelte-1qqtj1q{margin-top:-11.5em;padding:2em 5vw 2em 5vw;overflow:hidden}.cards-collection.svelte-1qqtj1q{margin-bottom:-1.5em;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.card.svelte-1qqtj1q{display:flex;justify-content:center;align-items:center;margin:0em 0.7rem 1.5em 0.7rem;width:280px;min-width:200px;flex-grow:1;height:350px;text-align:center;border-radius:var(--fds-control-corner-radius);z-index:999;-webkit-transition:200ms ease-in-out;-o-transition:200ms ease-in-out;transition:200ms ease-in-out;-webkit-box-shadow:0 0 15px rgba(0, 0, 0, 0.3);box-shadow:0 0 15px rgba(0, 0, 0, 0.3);background:linear-gradient(\r\n                var(--fds-card-background-default),\r\n                var(--fds-card-background-default)\r\n            ),\r\n            linear-gradient(\r\n                var(--fds-solid-background-base),\r\n                var(--fds-solid-background-base)\r\n            )}.card.svelte-1qqtj1q:hover{transform:scale(1.035);-webkit-box-shadow:0 0 20px rgba(0, 0, 0, 0.2);box-shadow:0 0 20px rgba(0, 0, 0, 0.2)}.card-content.svelte-1qqtj1q{width:100%}.card-default-icon.svelte-1qqtj1q{font-family:"FluentUIIcons" !important;font-size:100px;color:var(--fds-accent-default);margin:0px}.card-github-icon.svelte-1qqtj1q{fill:var(--fds-text-primary);margin:0px}.card-text.svelte-1qqtj1q{font-family:var(--fds-font-family-display);font-weight:600;font-size:28px;margin:0px;margin-top:1.5rem;margin-left:10px;margin-right:10px}',
       map: null
     };
     CardsSection = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css$2);
+      $$result.css.add(css$12);
       return `${$$result.head += `<link rel="${"preload"}" href="${"/FluentSystemIcons-Regular.ttf"}" as="${"font"}" crossorigin="${"anonymous"}" data-svelte="svelte-1cl6w1x">`, ""}
 
-<div class="${"container svelte-1od4uel"}"><div class="${"cards-collection svelte-1od4uel"}"><div class="${"card svelte-1od4uel"}" onclick="${"window.location.href = '/software';"}"><div class="${"card-content svelte-1od4uel"}"><p class="${"card-default-icon svelte-1od4uel"}">\u02A7</p>
-                <p class="${"card-text svelte-1od4uel"}">All Software</p></div></div>
+<div class="${"container svelte-1qqtj1q"}"><div class="${"cards-collection svelte-1qqtj1q"}"><div class="${"card svelte-1qqtj1q"}" onclick="${"window.location.href = '/software';"}"><div class="${"card-content svelte-1qqtj1q"}"><p class="${"card-default-icon svelte-1qqtj1q"}">\u02A7</p>
+                <p class="${"card-text svelte-1qqtj1q"}">All Software</p></div></div>
 
-        <div class="${"card svelte-1od4uel"}" onclick="${"window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank');"}"><div class="${"card-content svelte-1od4uel"}"><p class="${"card-default-icon svelte-1od4uel"}">\u0379</p>
-                <p class="${"card-text svelte-1od4uel"}">YouTube</p></div></div>
+        <div class="${"card svelte-1qqtj1q"}" onclick="${"window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank');"}"><div class="${"card-content svelte-1qqtj1q"}"><p class="${"card-default-icon svelte-1qqtj1q"}">\u0379</p>
+                <p class="${"card-text svelte-1qqtj1q"}">YouTube</p></div></div>
 
-        <div class="${"card svelte-1od4uel"}" onclick="${"window.location.href = 'mailto:clickphasehelp@gmail.com';"}"><div class="${"card-content svelte-1od4uel"}"><p class="${"card-default-icon svelte-1od4uel"}">\uF509</p>
-                <p class="${"card-text svelte-1od4uel"}">Email</p></div></div>
+        <div class="${"card svelte-1qqtj1q"}" onclick="${"window.location.href = 'mailto:clickphasehelp@gmail.com';"}"><div class="${"card-content svelte-1qqtj1q"}"><p class="${"card-default-icon svelte-1qqtj1q"}">\uF509</p>
+                <p class="${"card-text svelte-1qqtj1q"}">Email</p></div></div>
 
-        <div class="${"card svelte-1od4uel"}" onclick="${"window.open('https://github.com/Apollo199999999', '_blank');"}"><div class="${"card-content svelte-1od4uel"}"><svg xmlns="${"http://www.w3.org/2000/svg"}" viewBox="${"0 0 16 16"}" width="${"100"}" height="${"100"}" class="${"card-github-icon svelte-1od4uel"}"><path fill-rule="${"evenodd"}" d="${"M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"}"></path></svg>
-                <p class="${"card-text svelte-1od4uel"}">GitHub</p></div></div></div>
+        <div class="${"card svelte-1qqtj1q"}" onclick="${"window.open('https://github.com/Apollo199999999', '_blank');"}"><div class="${"card-content svelte-1qqtj1q"}"><svg xmlns="${"http://www.w3.org/2000/svg"}" viewBox="${"0 0 16 16"}" width="${"100"}" height="${"100"}" class="${"card-github-icon svelte-1qqtj1q"}"><path fill-rule="${"evenodd"}" d="${"M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"}"></path></svg>
+                <p class="${"card-text svelte-1qqtj1q"}">GitHub</p></div></div></div>
 </div>`;
     });
-    css$12 = {
-      code: ".container.svelte-1auwf3c{margin-top:2em;overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.cards-collection.svelte-1auwf3c{margin-top:1em;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.card.svelte-1auwf3c{display:flex;justify-content:center;align-items:center;margin:0.7rem;width:280px;min-width:200px;flex-grow:1;height:350px;text-align:center;border-radius:var(--fds-control-corner-radius);z-index:999;-webkit-transition:200ms ease-in-out;-o-transition:200ms ease-in-out;transition:200ms ease-in-out;-webkit-box-shadow:0 0 15px rgba(0, 0, 0, 0.3);box-shadow:0 0 15px rgba(0, 0, 0, 0.3);background:linear-gradient(\r\n                var(--fds-card-background-default),\r\n                var(--fds-card-background-default)\r\n            ),\r\n            linear-gradient(\r\n                var(--fds-solid-background-base),\r\n                var(--fds-solid-background-base)\r\n            )}.card.svelte-1auwf3c:hover{transform:scale(1.035);-webkit-box-shadow:0 0 20px rgba(0, 0, 0, 0.2);box-shadow:0 0 20px rgba(0, 0, 0, 0.2)}.card-content.svelte-1auwf3c{width:100%}.card-image.svelte-1auwf3c{width:80%;max-width:260px}.card-text.svelte-1auwf3c{font-family:var(--fds-font-family-display);font-weight:600;font-size:28px;margin:0px;margin-top:1.5rem;margin-left:10px;margin-right:10px}.card-subtext.svelte-1auwf3c{font-family:var(--fds-font-family-display);font-size:18px;margin:0px;margin-top:1rem;margin-left:20px;margin-right:20px}",
+    css8 = {
+      code: ".container.svelte-8l66gp{padding:2em 5vw 2em 5vw;overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.cards-collection.svelte-8l66gp{margin-top:1.5em;margin-bottom:-1.5em;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.card.svelte-8l66gp{display:flex;justify-content:center;align-items:center;margin:0em 0.7em 1.5em 0.7em;width:280px;min-width:200px;flex-grow:1;height:350px;text-align:center;border-radius:var(--fds-control-corner-radius);z-index:999;-webkit-transition:200ms ease-in-out;-o-transition:200ms ease-in-out;transition:200ms ease-in-out;-webkit-box-shadow:0 0 15px rgba(0, 0, 0, 0.3);box-shadow:0 0 15px rgba(0, 0, 0, 0.3);background:linear-gradient(\r\n                var(--fds-card-background-default),\r\n                var(--fds-card-background-default)\r\n            ),\r\n            linear-gradient(\r\n                var(--fds-solid-background-base),\r\n                var(--fds-solid-background-base)\r\n            )}.card.svelte-8l66gp:hover{transform:scale(1.035);-webkit-box-shadow:0 0 20px rgba(0, 0, 0, 0.2);box-shadow:0 0 20px rgba(0, 0, 0, 0.2)}.card-content.svelte-8l66gp{width:100%}.card-image.svelte-8l66gp{width:80%;max-width:260px}.card-text.svelte-8l66gp{font-family:var(--fds-font-family-display);font-weight:600;font-size:28px;margin:0px;margin-top:1.5rem;margin-left:10px;margin-right:10px}.card-subtext.svelte-8l66gp{font-family:var(--fds-font-family-display);font-size:18px;margin:0px;margin-top:1rem;margin-left:20px;margin-right:20px}",
       map: null
     };
     FeaturedApps = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css$12);
-      return `<div class="${"container svelte-1auwf3c"}">${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "titleLarge" }, {}, {
+      $$result.css.add(css8);
+      return `<div class="${"container svelte-8l66gp"}">${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "titleLarge" }, {}, {
         default: () => {
           return `Featured Software`;
         }
       })}
 
-    <div class="${"cards-collection svelte-1auwf3c"}"><div class="${"card svelte-1auwf3c"}" onclick="${"window.location.href = '/dynawin';"}"><div class="${"card-content svelte-1auwf3c"}"><img class="${"card-image svelte-1auwf3c"}" alt="${"DynaWin"}" src="${"/app-images/dynawin/DynaWinImage.jpg"}">
-                <p class="${"card-text svelte-1auwf3c"}">DynaWin</p>
-                <p class="${"card-subtext svelte-1auwf3c"}">Dynamic Desktop for Windows 10 and Windows 11</p></div></div>
+    <div class="${"cards-collection svelte-8l66gp"}"><div class="${"card svelte-8l66gp"}" onclick="${"window.location.href = '/dynawin';"}"><div class="${"card-content svelte-8l66gp"}"><img class="${"card-image svelte-8l66gp"}" alt="${"DynaWin"}" src="${"/app-images/dynawin/DynaWinImage.jpg"}">
+                <p class="${"card-text svelte-8l66gp"}">DynaWin</p>
+                <p class="${"card-subtext svelte-8l66gp"}">Dynamic Desktop for Windows 10 and Windows 11
+                </p></div></div>
 
-        <div class="${"card svelte-1auwf3c"}" onclick="${"window.location.href = '/launcherx';"}"><div class="${"card-content svelte-1auwf3c"}"><img class="${"card-image svelte-1auwf3c"}" alt="${"LauncherX"}" src="${"/app-images/launcherx/LauncherXImage.png"}">
-                <p class="${"card-text svelte-1auwf3c"}">LauncherX</p>
-                <p class="${"card-subtext svelte-1auwf3c"}">Organise all your stuff!</p></div></div></div>
+        <div class="${"card svelte-8l66gp"}" onclick="${"window.location.href = '/launcherx';"}"><div class="${"card-content svelte-8l66gp"}"><img class="${"card-image svelte-8l66gp"}" alt="${"LauncherX"}" src="${"/app-images/launcherx/LauncherXImage.png"}">
+                <p class="${"card-text svelte-8l66gp"}">LauncherX</p>
+                <p class="${"card-subtext svelte-8l66gp"}">Organise all your stuff!</p></div></div></div>
 </div>`;
     });
-    css8 = {
-      code: ".content.svelte-vp6s3y{padding:2em 5vw 2em 5vw}",
-      map: null
-    };
     Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css8);
-      return `${$$result.head += `${$$result.title = `<title>Home - ClickPhase</title>`, ""}`, ""}
+      return `${$$result.head += `${$$result.title = `<title>Home - ClickPhase</title>`, ""}<meta name="${"description"}" content="${"The official site of ClickPhase. ClickPhase specialises in desktop software and utlities."}" data-svelte="svelte-ra94wo"><meta name="${"keywords"}" content="${"Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"}" data-svelte="svelte-ra94wo"><meta name="${"author"}" content="${"ClickPhase"}" data-svelte="svelte-ra94wo">`, ""}
 
 ${validate_component(HeroSection, "HeroSection").$$render($$result, {}, {}, {})}
-
-<div class="${"content svelte-vp6s3y"}">${validate_component(CardsSection, "CardsSection").$$render($$result, {}, {}, {})}
-	${validate_component(FeaturedApps, "FeaturedApps").$$render($$result, {}, {}, {})}
-</div>`;
+${validate_component(CardsSection, "CardsSection").$$render($$result, {}, {}, {})}
+${validate_component(FeaturedApps, "FeaturedApps").$$render($$result, {}, {}, {})}`;
     });
   }
 });
@@ -6142,9 +6293,9 @@ var entry3, js3, css9;
 var init__3 = __esm({
   ".svelte-kit/output/server/nodes/6.js"() {
     init_index_svelte();
-    entry3 = "pages/index.svelte-fb38b96e.js";
-    js3 = ["pages/index.svelte-fb38b96e.js", "chunks/index-306fcf0d.js", "chunks/NavigationView.svelte_svelte_type_style_lang-c16d035c.js", "chunks/MicaBackground-d5b6acee.js"];
-    css9 = ["assets/pages/index.svelte-4b1bc7c0.css", "assets/NavigationView.svelte_svelte_type_style_lang-7136ff2f.css", "assets/MicaBackground-b6441a3f.css"];
+    entry3 = "pages/index.svelte-1d7b96c3.js";
+    js3 = ["pages/index.svelte-1d7b96c3.js", "chunks/index-a7d8ca41.js", "chunks/NavigationView.svelte_svelte_type_style_lang-86c9a88c.js", "chunks/MicaBackground-ff907a83.js"];
+    css9 = ["assets/pages/index.svelte-d7fa926c.css", "assets/NavigationView.svelte_svelte_type_style_lang-492d57f0.css", "assets/MicaBackground-b6441a3f.css"];
   }
 });
 
@@ -6153,19 +6304,19 @@ var aboutcontact_svelte_exports = {};
 __export(aboutcontact_svelte_exports, {
   default: () => Aboutcontact
 });
-var css$22, HeroSection2, css$13, InfoSection, css10, Aboutcontact;
+var css$13, HeroSection2, css10, InfoSection, Aboutcontact;
 var init_aboutcontact_svelte = __esm({
   ".svelte-kit/output/server/entries/pages/aboutcontact.svelte.js"() {
-    init_index_30fa663f();
-    init_NavigationView_svelte_svelte_type_style_lang_d1ad264c();
-    init_MicaBackground_c1f5214e();
-    css$22 = {
+    init_index_223a4ced();
+    init_NavigationView_svelte_svelte_type_style_lang_8088d3b7();
+    init_MicaBackground_bde423f3();
+    css$13 = {
       code: ".container.svelte-kgadmr{position:relative;word-wrap:break-word;align-items:center;justify-content:center;text-align:center}.text-div.svelte-kgadmr{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.text-div.svelte-kgadmr .titleText{line-height:normal;font-size:min(7vmax, 68px)}",
       map: null
     };
     HeroSection2 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let sy;
-      $$result.css.add(css$22);
+      $$result.css.add(css$13);
       return `
 
 
@@ -6181,19 +6332,19 @@ var init_aboutcontact_svelte = __esm({
       })}</div>
 </div>`;
     });
-    css$13 = {
-      code: ".container.svelte-3xfpaz.svelte-3xfpaz{margin-top:1em;width:100%;word-wrap:break-word;align-items:center;justify-content:center;text-align:center}.logo.svelte-3xfpaz.svelte-3xfpaz{max-width:450px;margin-top:4em;margin-bottom:4em;margin-left:auto;margin-right:auto}.logo.svelte-3xfpaz a.svelte-3xfpaz{display:flex;align-items:center;justify-content:center;width:100%;height:100%;text-decoration:none;color:inherit;margin-right:3em}.logo.svelte-3xfpaz img.svelte-3xfpaz{width:6em;height:6em;object-fit:contain;margin-right:1.2em}.container.svelte-3xfpaz .bodyText{display:block;text-align:center;max-width:1100px;margin:auto;margin-bottom:2em}.divider.svelte-3xfpaz.svelte-3xfpaz{border-top:1px solid var(--fds-divider-stroke-default);margin:auto;max-width:1200px}.container.svelte-3xfpaz .contactHeader{display:block;margin-top:1em;margin-bottom:1em;text-align:center}.container.svelte-3xfpaz .linkTextBlock{text-align:center}.links.svelte-3xfpaz.svelte-3xfpaz{color:var(--fds-accent-text-primary);text-align:center;overflow-wrap:break-word;word-wrap:break-word;-ms-word-break:break-all;word-break:break-all;word-break:break-word;-ms-hyphens:auto;-moz-hyphens:auto;-webkit-hyphens:auto;hyphens:auto}.container.svelte-3xfpaz ul.svelte-3xfpaz{padding:0;-webkit-padding-start:0;list-style-type:none}.container.svelte-3xfpaz ul li.svelte-3xfpaz{margin-bottom:0.2em}.container.svelte-3xfpaz .contactText{display:block;text-align:center;max-width:1100px;margin:auto;margin-top:2.8em;margin-bottom:2em}",
+    css10 = {
+      code: ".container.svelte-3j17de.svelte-3j17de{margin-top:1em;padding:2em 5vw 2em 5vw;word-wrap:break-word;align-items:center;justify-content:center;text-align:center}.logo.svelte-3j17de.svelte-3j17de{max-width:450px;margin-top:4em;margin-bottom:4em;margin-left:auto;margin-right:auto}.logo.svelte-3j17de a.svelte-3j17de{display:flex;align-items:center;justify-content:center;width:100%;height:100%;text-decoration:none;color:inherit;margin-right:3em}.logo.svelte-3j17de img.svelte-3j17de{width:6em;height:6em;object-fit:contain;margin-right:1.2em}.container.svelte-3j17de .bodyText{display:block;text-align:center;max-width:1100px;margin:auto;margin-bottom:2em}.divider.svelte-3j17de.svelte-3j17de{border-top:1px solid var(--fds-divider-stroke-default);margin:auto;max-width:1200px}.container.svelte-3j17de .contactHeader{display:block;margin-top:1em;margin-bottom:1em;text-align:center}.container.svelte-3j17de .linkTextBlock{text-align:center}.links.svelte-3j17de.svelte-3j17de{color:var(--fds-accent-text-primary);text-align:center;overflow-wrap:break-word;word-wrap:break-word;-ms-word-break:break-all;word-break:break-all;word-break:break-word;-ms-hyphens:auto;-moz-hyphens:auto;-webkit-hyphens:auto;hyphens:auto}.container.svelte-3j17de ul.svelte-3j17de{padding:0;-webkit-padding-start:0;list-style-type:none}.container.svelte-3j17de ul li.svelte-3j17de{margin-bottom:0.2em}.container.svelte-3j17de .contactText{display:block;text-align:center;max-width:1100px;margin:auto;margin-top:2.8em;margin-bottom:2em}",
       map: null
     };
     InfoSection = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css$13);
-      return `<div class="${"container svelte-3xfpaz"}">${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "titleLarge" }, {}, {
+      $$result.css.add(css10);
+      return `<div class="${"container svelte-3j17de"}">${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "titleLarge" }, {}, {
         default: () => {
           return `About ClickPhase`;
         }
       })}
 
-	<div class="${"logo svelte-3xfpaz"}"><a${add_attribute("href", void 0, 0)} class="${"svelte-3xfpaz"}"><img src="${"/logo-img.png"}" alt="${"ClickPhase"}" class="${"svelte-3xfpaz"}">
+	<div class="${"logo svelte-3j17de"}"><a${add_attribute("href", void 0, 0)} class="${"svelte-3j17de"}"><img src="${"/logo-img.png"}" alt="${"ClickPhase"}" class="${"svelte-3j17de"}">
 			${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "display" }, {}, {
         default: () => {
           return `ClickPhase`;
@@ -6208,7 +6359,7 @@ var init_aboutcontact_svelte = __esm({
         }
       })}
 
-	<div class="${"divider svelte-3xfpaz"}"></div>
+	<div class="${"divider svelte-3j17de"}"></div>
 
 	${validate_component(TextBlock, "TextBlock").$$render($$result, {
         class: "contactHeader",
@@ -6219,43 +6370,43 @@ var init_aboutcontact_svelte = __esm({
         }
       })}
 
-	<ul class="${"svelte-3xfpaz"}"><li class="${"svelte-3xfpaz"}">${validate_component(TextBlock, "TextBlock").$$render($$result, {
+	<ul class="${"svelte-3j17de"}"><li class="${"svelte-3j17de"}">${validate_component(TextBlock, "TextBlock").$$render($$result, {
         class: "linkTextBlock",
         variant: "bodyLarge"
       }, {}, {
         default: () => {
           return `Email:
-				<a class="${"links svelte-3xfpaz"}" href="${"mailto:clickphasehelp@gmail.com"}">clickphasehelp@gmail.com
+				<a class="${"links svelte-3j17de"}" href="${"mailto:clickphasehelp@gmail.com"}">clickphasehelp@gmail.com
 				</a>`;
         }
       })}</li>
-		<li class="${"svelte-3xfpaz"}">${validate_component(TextBlock, "TextBlock").$$render($$result, {
+		<li class="${"svelte-3j17de"}">${validate_component(TextBlock, "TextBlock").$$render($$result, {
         class: "linkTextBlock",
         variant: "bodyLarge"
       }, {}, {
         default: () => {
           return `GitHub Account:
-				<a class="${"links svelte-3xfpaz"}" target="${"_blank"}" rel="${"noopener noreferrer"}" href="${"https://github.com/Apollo199999999"}">https://github.com/Apollo199999999
+				<a class="${"links svelte-3j17de"}" target="${"_blank"}" rel="${"noopener noreferrer"}" href="${"https://github.com/Apollo199999999"}">https://github.com/Apollo199999999
 				</a>`;
         }
       })}</li>
-		<li class="${"svelte-3xfpaz"}">${validate_component(TextBlock, "TextBlock").$$render($$result, {
+		<li class="${"svelte-3j17de"}">${validate_component(TextBlock, "TextBlock").$$render($$result, {
         class: "linkTextBlock",
         variant: "bodyLarge"
       }, {}, {
         default: () => {
           return `YouTube Channel:
-				<a class="${"links svelte-3xfpaz"}" target="${"_blank"}" rel="${"noopener noreferrer"}" href="${"https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g"}">https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g
+				<a class="${"links svelte-3j17de"}" target="${"_blank"}" rel="${"noopener noreferrer"}" href="${"https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g"}">https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g
 				</a>`;
         }
       })}</li>
-		<li class="${"svelte-3xfpaz"}">${validate_component(TextBlock, "TextBlock").$$render($$result, {
+		<li class="${"svelte-3j17de"}">${validate_component(TextBlock, "TextBlock").$$render($$result, {
         class: "linkTextBlock",
         variant: "bodyLarge"
       }, {}, {
         default: () => {
           return `Personal YouTube Channel:
-				<a class="${"links svelte-3xfpaz"}" target="${"_blank"}" rel="${"noopener noreferrer"}" href="${"https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ"}">https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ
+				<a class="${"links svelte-3j17de"}" target="${"_blank"}" rel="${"noopener noreferrer"}" href="${"https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ"}">https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ
 				</a>`;
         }
       })}</li></ul>
@@ -6272,17 +6423,11 @@ var init_aboutcontact_svelte = __esm({
       })}
 </div>`;
     });
-    css10 = {
-      code: ".content.svelte-vp6s3y{padding:2em 5vw 2em 5vw}",
-      map: null
-    };
     Aboutcontact = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css10);
-      return `${$$result.head += `${$$result.title = `<title>About &amp; Contact - ClickPhase</title>`, ""}`, ""}
+      return `${$$result.head += `${$$result.title = `<title>About &amp; Contact - ClickPhase</title>`, ""}<meta name="${"description"}" content="${"About ClickPhase and how to contact ClickPhase."}" data-svelte="svelte-mxenvi"><meta name="${"keywords"}" content="${"Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"}" data-svelte="svelte-mxenvi"><meta name="${"author"}" content="${"ClickPhase"}" data-svelte="svelte-mxenvi">`, ""}
 
 ${validate_component(HeroSection2, "HeroSection").$$render($$result, {}, {}, {})}
-<div class="${"content svelte-vp6s3y"}">${validate_component(InfoSection, "InfoSection").$$render($$result, {}, {}, {})}
-</div>`;
+${validate_component(InfoSection, "InfoSection").$$render($$result, {}, {}, {})}`;
     });
   }
 });
@@ -6299,9 +6444,9 @@ var entry4, js4, css11;
 var init__4 = __esm({
   ".svelte-kit/output/server/nodes/2.js"() {
     init_aboutcontact_svelte();
-    entry4 = "pages/aboutcontact.svelte-612d55dd.js";
-    js4 = ["pages/aboutcontact.svelte-612d55dd.js", "chunks/index-306fcf0d.js", "chunks/NavigationView.svelte_svelte_type_style_lang-c16d035c.js", "chunks/MicaBackground-d5b6acee.js"];
-    css11 = ["assets/pages/aboutcontact.svelte-2852329c.css", "assets/NavigationView.svelte_svelte_type_style_lang-7136ff2f.css", "assets/MicaBackground-b6441a3f.css"];
+    entry4 = "pages/aboutcontact.svelte-956928a1.js";
+    js4 = ["pages/aboutcontact.svelte-956928a1.js", "chunks/index-a7d8ca41.js", "chunks/NavigationView.svelte_svelte_type_style_lang-86c9a88c.js", "chunks/MicaBackground-ff907a83.js"];
+    css11 = ["assets/pages/aboutcontact.svelte-281d7559.css", "assets/NavigationView.svelte_svelte_type_style_lang-492d57f0.css", "assets/MicaBackground-b6441a3f.css"];
   }
 });
 
@@ -6310,19 +6455,19 @@ var animationsvideos_svelte_exports = {};
 __export(animationsvideos_svelte_exports, {
   default: () => Animationsvideos
 });
-var css$23, HeroSection3, css$14, VideoChannels, css12, Animationsvideos;
+var css$14, HeroSection3, css12, VideoChannels, Animationsvideos;
 var init_animationsvideos_svelte = __esm({
   ".svelte-kit/output/server/entries/pages/animationsvideos.svelte.js"() {
-    init_index_30fa663f();
-    init_NavigationView_svelte_svelte_type_style_lang_d1ad264c();
-    init_MicaBackground_c1f5214e();
-    css$23 = {
+    init_index_223a4ced();
+    init_NavigationView_svelte_svelte_type_style_lang_8088d3b7();
+    init_MicaBackground_bde423f3();
+    css$14 = {
       code: ".container.svelte-19s7slf{position:relative;word-wrap:break-word;align-items:center;justify-content:center;text-align:center}.text-div.svelte-19s7slf{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.text-div.svelte-19s7slf .titleText{line-height:normal;font-size:min(7vmax, 68px)}",
       map: null
     };
     HeroSection3 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let sy;
-      $$result.css.add(css$23);
+      $$result.css.add(css$14);
       return `
 
 
@@ -6338,13 +6483,13 @@ var init_animationsvideos_svelte = __esm({
       })}</div>
 </div>`;
     });
-    css$14 = {
-      code: ".container.svelte-evou65{margin-top:1em;overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-evou65 .titleText{margin-left:5px;margin-right:5px}.container.svelte-evou65 .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em}.cards-collection.svelte-evou65{margin-top:2em;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.card.svelte-evou65{display:flex;justify-content:center;align-items:center;margin:0.7rem;width:280px;min-width:200px;flex-grow:1;height:350px;text-align:center;border-radius:var(--fds-control-corner-radius);z-index:999;-webkit-transition:200ms ease-in-out;-o-transition:200ms ease-in-out;transition:200ms ease-in-out;-webkit-box-shadow:0 0 15px rgba(0, 0, 0, 0.3);box-shadow:0 0 15px rgba(0, 0, 0, 0.3);background:linear-gradient(\r\n                var(--fds-card-background-default),\r\n                var(--fds-card-background-default)\r\n            ),\r\n            linear-gradient(\r\n                var(--fds-solid-background-base),\r\n                var(--fds-solid-background-base)\r\n            )}.card.svelte-evou65:hover{transform:scale(1.035);-webkit-box-shadow:0 0 20px rgba(0, 0, 0, 0.2);box-shadow:0 0 20px rgba(0, 0, 0, 0.2)}.card-content.svelte-evou65{width:100%}.card-image.svelte-evou65{width:40%;max-width:260px}.card-text.svelte-evou65{font-family:var(--fds-font-family-display);font-weight:600;font-size:28px;margin:0px;margin-top:1rem;margin-left:20px;margin-right:20px}",
+    css12 = {
+      code: ".container.svelte-1sady8u{margin-top:1em;padding:2em 5vw 2em 5vw;overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-1sady8u .titleText{margin-left:5px;margin-right:5px}.container.svelte-1sady8u .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em}.cards-collection.svelte-1sady8u{margin-top:1.5em;margin-bottom:-1.5em;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.card.svelte-1sady8u{display:flex;justify-content:center;align-items:center;margin:0em 0.7em 1.5em 0.7em;width:280px;min-width:200px;flex-grow:1;height:350px;text-align:center;border-radius:var(--fds-control-corner-radius);z-index:999;-webkit-transition:200ms ease-in-out;-o-transition:200ms ease-in-out;transition:200ms ease-in-out;-webkit-box-shadow:0 0 15px rgba(0, 0, 0, 0.3);box-shadow:0 0 15px rgba(0, 0, 0, 0.3);background:linear-gradient(\r\n                var(--fds-card-background-default),\r\n                var(--fds-card-background-default)\r\n            ),\r\n            linear-gradient(\r\n                var(--fds-solid-background-base),\r\n                var(--fds-solid-background-base)\r\n            )}.card.svelte-1sady8u:hover{transform:scale(1.035);-webkit-box-shadow:0 0 20px rgba(0, 0, 0, 0.2);box-shadow:0 0 20px rgba(0, 0, 0, 0.2)}.card-content.svelte-1sady8u{width:100%}.card-image.svelte-1sady8u{width:40%;max-width:260px}.card-text.svelte-1sady8u{font-family:var(--fds-font-family-display);font-weight:600;font-size:28px;margin:0px;margin-top:1rem;margin-left:20px;margin-right:20px}",
       map: null
     };
     VideoChannels = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css$14);
-      return `<div class="${"container svelte-evou65"}">${validate_component(TextBlock, "TextBlock").$$render($$result, {
+      $$result.css.add(css12);
+      return `<div class="${"container svelte-1sady8u"}">${validate_component(TextBlock, "TextBlock").$$render($$result, {
         variant: "titleLarge",
         class: "titleText"
       }, {}, {
@@ -6358,27 +6503,21 @@ var init_animationsvideos_svelte = __esm({
         }
       })}
 
-    <div class="${"cards-collection svelte-evou65"}"><div class="${"card svelte-evou65"}" onclick="${"window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank');"}"><div class="${"card-content svelte-evou65"}"><img class="${"card-image svelte-evou65"}" alt="${"ClickPhase"}" src="${"/youtube-profiles/clickphase.png"}">
-                <p class="${"card-text svelte-evou65"}">ClickPhase</p></div></div>
+    <div class="${"cards-collection svelte-1sady8u"}"><div class="${"card svelte-1sady8u"}" onclick="${"window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank');"}"><div class="${"card-content svelte-1sady8u"}"><img class="${"card-image svelte-1sady8u"}" alt="${"ClickPhase"}" src="${"/youtube-profiles/clickphase.png"}">
+                <p class="${"card-text svelte-1sady8u"}">ClickPhase</p></div></div>
 
-        <div class="${"card svelte-evou65"}" onclick="${"window.open('https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ', '_blank');"}"><div class="${"card-content svelte-evou65"}"><img class="${"card-image svelte-evou65"}" alt="${"Matthias Wang"}" src="${"/youtube-profiles/matthias-wang.jpg"}">
-                <p class="${"card-text svelte-evou65"}">Matthias Wang</p></div></div>
+        <div class="${"card svelte-1sady8u"}" onclick="${"window.open('https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ', '_blank');"}"><div class="${"card-content svelte-1sady8u"}"><img class="${"card-image svelte-1sady8u"}" alt="${"Matthias Wang"}" src="${"/youtube-profiles/matthias-wang.jpg"}">
+                <p class="${"card-text svelte-1sady8u"}">Matthias Wang</p></div></div>
 
-        <div class="${"card svelte-evou65"}" onclick="${"window.open('https://www.youtube.com/channel/UCDVwYsVmGsjiWVdWCb_4vIg', '_blank');"}"><div class="${"card-content svelte-evou65"}"><img class="${"card-image svelte-evou65"}" alt="${"Granny the Great"}" src="${"/youtube-profiles/granny.png"}">
-                <p class="${"card-text svelte-evou65"}">Granny the Great</p></div></div></div>
+        <div class="${"card svelte-1sady8u"}" onclick="${"window.open('https://www.youtube.com/channel/UCDVwYsVmGsjiWVdWCb_4vIg', '_blank');"}"><div class="${"card-content svelte-1sady8u"}"><img class="${"card-image svelte-1sady8u"}" alt="${"Granny the Great"}" src="${"/youtube-profiles/granny.png"}">
+                <p class="${"card-text svelte-1sady8u"}">Granny the Great</p></div></div></div>
 </div>`;
     });
-    css12 = {
-      code: ".content.svelte-vp6s3y{padding:2em 5vw 2em 5vw}",
-      map: null
-    };
     Animationsvideos = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css12);
-      return `${$$result.head += `${$$result.title = `<title>Animations &amp; Videos - ClickPhase</title>`, ""}`, ""}
+      return `${$$result.head += `${$$result.title = `<title>Animations &amp; Videos - ClickPhase</title>`, ""}<meta name="${"description"}" content="${"Animations and Videos from ClickPhase and others."}" data-svelte="svelte-1uumrc6"><meta name="${"keywords"}" content="${"Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"}" data-svelte="svelte-1uumrc6"><meta name="${"author"}" content="${"ClickPhase"}" data-svelte="svelte-1uumrc6">`, ""}
 
 ${validate_component(HeroSection3, "HeroSection").$$render($$result, {}, {}, {})}
-<div class="${"content svelte-vp6s3y"}">${validate_component(VideoChannels, "VideoChannels").$$render($$result, {}, {}, {})}
-</div>`;
+${validate_component(VideoChannels, "VideoChannels").$$render($$result, {}, {}, {})}`;
     });
   }
 });
@@ -6395,66 +6534,20 @@ var entry5, js5, css13;
 var init__5 = __esm({
   ".svelte-kit/output/server/nodes/3.js"() {
     init_animationsvideos_svelte();
-    entry5 = "pages/animationsvideos.svelte-45ea89a6.js";
-    js5 = ["pages/animationsvideos.svelte-45ea89a6.js", "chunks/index-306fcf0d.js", "chunks/NavigationView.svelte_svelte_type_style_lang-c16d035c.js", "chunks/MicaBackground-d5b6acee.js"];
-    css13 = ["assets/pages/animationsvideos.svelte-8c28f8db.css", "assets/NavigationView.svelte_svelte_type_style_lang-7136ff2f.css", "assets/MicaBackground-b6441a3f.css"];
+    entry5 = "pages/animationsvideos.svelte-4a18f59a.js";
+    js5 = ["pages/animationsvideos.svelte-4a18f59a.js", "chunks/index-a7d8ca41.js", "chunks/NavigationView.svelte_svelte_type_style_lang-86c9a88c.js", "chunks/MicaBackground-ff907a83.js"];
+    css13 = ["assets/pages/animationsvideos.svelte-c6cf0e0f.css", "assets/NavigationView.svelte_svelte_type_style_lang-492d57f0.css", "assets/MicaBackground-b6441a3f.css"];
   }
 });
 
-// .svelte-kit/output/server/entries/pages/dynawin.svelte.js
-var dynawin_svelte_exports = {};
-__export(dynawin_svelte_exports, {
-  default: () => Dynawin
-});
-function writable2(value, start = noop2) {
-  let stop;
-  const subscribers = /* @__PURE__ */ new Set();
-  function set(new_value) {
-    if (safe_not_equal(value, new_value)) {
-      value = new_value;
-      if (stop) {
-        const run_queue = !subscriber_queue2.length;
-        for (const subscriber of subscribers) {
-          subscriber[1]();
-          subscriber_queue2.push(subscriber, value);
-        }
-        if (run_queue) {
-          for (let i2 = 0; i2 < subscriber_queue2.length; i2 += 2) {
-            subscriber_queue2[i2][0](subscriber_queue2[i2 + 1]);
-          }
-          subscriber_queue2.length = 0;
-        }
-      }
-    }
-  }
-  function update(fn) {
-    set(fn(value));
-  }
-  function subscribe2(run2, invalidate = noop2) {
-    const subscriber = [run2, invalidate];
-    subscribers.add(subscriber);
-    if (subscribers.size === 1) {
-      stop = start(set) || noop2;
-    }
-    run2(value);
-    return () => {
-      subscribers.delete(subscriber);
-      if (subscribers.size === 0) {
-        stop();
-        stop = null;
-      }
-    };
-  }
-  return { set, update, subscribe: subscribe2 };
-}
-var css$8, InfoBadge, css$7, InfoBar, css$6, ContentDialog, subscriber_queue2, css$5, HeroSection4, css$4, AboutDynaWin, css$32, HeaderChip, css$24, CompareImage, css$15, DynamicThemeFeature, css14, DynamicWallpaperFeature, Dynawin;
-var init_dynawin_svelte = __esm({
-  ".svelte-kit/output/server/entries/pages/dynawin.svelte.js"() {
-    init_index_30fa663f();
-    init_NavigationView_svelte_svelte_type_style_lang_d1ad264c();
-    init_MicaBackground_c1f5214e();
-    init_Button_a47ea82f();
-    css$8 = {
+// .svelte-kit/output/server/chunks/InfoBar-c3821baf.js
+var css$15, InfoBadge, css14, InfoBar;
+var init_InfoBar_c3821baf = __esm({
+  ".svelte-kit/output/server/chunks/InfoBar-c3821baf.js"() {
+    init_index_223a4ced();
+    init_Button_9355eef8();
+    init_NavigationView_svelte_svelte_type_style_lang_8088d3b7();
+    css$15 = {
       code: ".info-badge.svelte-106nxdf{align-items:center;border-radius:16px;box-sizing:border-box;color:var(--fds-text-on-accent-primary);display:inline-flex;font-family:var(--fds-font-family-small);font-size:var(--fds-caption-font-size);justify-content:center;line-height:var(--fds-caption-font-size);min-block-size:16px;min-inline-size:16px;padding:2px 4px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.info-badge.severity-attention.svelte-106nxdf{background-color:var(--fds-system-attention)}.info-badge.severity-success.svelte-106nxdf{background-color:var(--fds-system-success)}.info-badge.severity-caution.svelte-106nxdf{background-color:var(--fds-system-caution)}.info-badge.severity-critical.svelte-106nxdf{background-color:var(--fds-system-critical)}.info-badge.severity-information.svelte-106nxdf{background-color:var(--fds-system-solid-neutral)}.info-badge.svelte-106nxdf svg{fill:currentColor;block-size:8px;inline-size:8px}",
       map: null
     };
@@ -6474,11 +6567,11 @@ var init_dynawin_svelte = __esm({
         $$bindings.class(className);
       if ($$props.element === void 0 && $$bindings.element && element !== void 0)
         $$bindings.element(element);
-      $$result.css.add(css$8);
+      $$result.css.add(css$15);
       return `
 <span${spread([
         {
-          class: "info-badge severity-" + escape(severity) + " " + escape(className)
+          class: "info-badge severity-" + escape(severity, true) + " " + escape(className, true)
         },
         escape_object($$restProps)
       ], { classes: "svelte-106nxdf" })}${add_attribute("this", element, 0)}>${slots.default ? slots.default({}) : `
@@ -6486,7 +6579,7 @@ var init_dynawin_svelte = __esm({
 	`}
 </span>`;
     });
-    css$7 = {
+    css14 = {
       code: ".info-bar.svelte-fp4fp6.svelte-fp4fp6{-webkit-padding-start:15px;align-items:center;background-clip:padding-box;border:1px solid var(--fds-card-stroke-default);border-radius:var(--fds-control-corner-radius);box-sizing:border-box;display:flex;font-family:var(--fds-font-family-text);min-block-size:48px;padding-inline-start:15px;position:relative;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.info-bar.severity-information.svelte-fp4fp6.svelte-fp4fp6{background-color:var(--fds-card-background-secondary)}.info-bar.severity-success.svelte-fp4fp6.svelte-fp4fp6{background-color:var(--fds-system-background-success)}.info-bar.severity-caution.svelte-fp4fp6.svelte-fp4fp6{background-color:var(--fds-system-background-caution)}.info-bar.severity-critical.svelte-fp4fp6.svelte-fp4fp6{background-color:var(--fds-system-background-critical)}.info-bar.severity-attention.svelte-fp4fp6.svelte-fp4fp6{background-color:var(--fds-system-background-attention)}.info-bar-icon.svelte-fp4fp6.svelte-fp4fp6{-webkit-margin-before:16px;align-self:flex-start;display:flex;flex:0 0 auto;margin-block-start:16px}.info-bar-content.svelte-fp4fp6.svelte-fp4fp6{-webkit-margin-start:13px;-webkit-margin-before:7px;-webkit-margin-after:7px;align-items:center;box-sizing:border-box;display:flex;flex:1 1 auto;flex-wrap:wrap;margin-block-end:7px;margin-block-start:7px;margin-inline-start:13px;position:relative}.info-bar-content.action-wrapped.svelte-fp4fp6.svelte-fp4fp6,.info-bar-content.message-wrapped.svelte-fp4fp6.svelte-fp4fp6{-webkit-margin-before:13px;-webkit-margin-after:15px;margin-block-end:15px;margin-block-start:13px}.info-bar-content.message-wrapped.svelte-fp4fp6 h5.svelte-fp4fp6,.info-bar-content.message-wrapped.svelte-fp4fp6 p.svelte-fp4fp6{align-self:flex-start}.info-bar-content.message-wrapped.svelte-fp4fp6 .info-bar-action.svelte-fp4fp6{-webkit-margin-end:50%;margin-inline-end:50%}.info-bar-content.action-wrapped.svelte-fp4fp6 .info-bar-action.svelte-fp4fp6{-webkit-padding-before:16px;padding-block-start:16px}.info-bar.svelte-fp4fp6 h5.svelte-fp4fp6,.info-bar.svelte-fp4fp6 p.svelte-fp4fp6{color:var(--fds-text-primary);font-size:var(--fds-body-font-size);font-weight:400;line-height:20px;margin:0}.info-bar.svelte-fp4fp6 h5.svelte-fp4fp6{-webkit-margin-end:12px;font-weight:600;margin-inline-end:12px}.info-bar.svelte-fp4fp6 p.svelte-fp4fp6{-webkit-margin-end:15px;flex:1 1 auto;margin-inline-end:15px}.info-bar-action.svelte-fp4fp6.svelte-fp4fp6{-webkit-margin-end:4px;margin-inline-end:4px}.info-bar-action.svelte-fp4fp6.svelte-fp4fp6,.info-bar-close-button.svelte-fp4fp6.svelte-fp4fp6{align-items:center;align-self:flex-start;display:flex}.info-bar-close-button.svelte-fp4fp6.svelte-fp4fp6{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:var(--fds-subtle-fill-transparent);block-size:38px;border:none;border-radius:var(--fds-control-corner-radius);color:var(--fds-text-primary);flex:0 0 auto;inline-size:38px;justify-content:center;margin:4px;outline:none;transition:var(--fds-control-fast-duration) var(--fds-control-fast-out-slow-in-easing)}.info-bar-close-button.svelte-fp4fp6.svelte-fp4fp6:focus-visible{box-shadow:var(--fds-focus-stroke)}.info-bar-close-button.svelte-fp4fp6.svelte-fp4fp6:hover{background-color:var(--fds-subtle-fill-secondary)}.info-bar-close-button.svelte-fp4fp6.svelte-fp4fp6:active{background-color:var(--fds-subtle-fill-tertiary);color:var(--fds-text-secondary)}.info-bar-close-button.svelte-fp4fp6 svg.svelte-fp4fp6{fill:currentColor;block-size:12px;inline-size:12px}",
       map: null
     };
@@ -6543,7 +6636,7 @@ var init_dynawin_svelte = __esm({
         $$bindings.actionElement(actionElement);
       if ($$props.closeButtonElement === void 0 && $$bindings.closeButtonElement && closeButtonElement !== void 0)
         $$bindings.closeButtonElement(closeButtonElement);
-      $$result.css.add(css$7);
+      $$result.css.add(css14);
       actionWrapped = clientHeight;
       messageWrapped = clientHeight;
       {
@@ -6556,7 +6649,7 @@ var init_dynawin_svelte = __esm({
       return `
 ${open ? `<div${spread([
         {
-          class: "info-bar severity-" + escape(severity) + " " + escape(className)
+          class: "info-bar severity-" + escape(severity, true) + " " + escape(className, true)
         },
         { role: "alert" },
         escape_object($$restProps)
@@ -6572,7 +6665,83 @@ ${open ? `<div${spread([
 			${$$slots.action ? `<div class="${"info-bar-action svelte-fp4fp6"}"${add_attribute("this", actionElement, 0)}>${slots.action ? slots.action({}) : ``}</div>` : ``}</div>
 		${closable ? `<button class="${"info-bar-close-button svelte-fp4fp6"}" type="${"button"}" aria-label="${"Close"}"${add_attribute("this", closeButtonElement, 0)}><svg aria-hidden="${"true"}" xmlns="${"http://www.w3.org/2000/svg"}" width="${"12"}" height="${"12"}" viewBox="${"0 0 1024 1024"}" class="${"svelte-fp4fp6"}"><path fill="${"currentColor"}" d="${"M512,584.5L87.5,1009C77.5,1019 65.5,1024 51.5,1024C36.8333,1024 24.5833,1019.08 14.75,1009.25C4.91667,999.417 0,987.167 0,972.5C0,958.5 5,946.5 15,936.5L439.5,512L15,87.5C5,77.5 0,65.3334 0,51C0,44 1.33333,37.3334 4,31C6.66667,24.6667 10.3333,19.25 15,14.75C19.6667,10.25 25.1667,6.66669 31.5,4C37.8333,1.33337 44.5,0 51.5,0C65.5,0 77.5,5 87.5,15L512,439.5L936.5,15C946.5,5 958.667,0 973,0C980,0 986.583,1.33337 992.75,4C998.917,6.66669 1004.33,10.3334 1009,15C1013.67,19.6667 1017.33,25.0834 1020,31.25C1022.67,37.4167 1024,44 1024,51C1024,65.3334 1019,77.5 1009,87.5L584.5,512L1009,936.5C1019,946.5 1024,958.5 1024,972.5C1024,979.5 1022.67,986.167 1020,992.5C1017.33,998.833 1013.75,1004.33 1009.25,1009C1004.75,1013.67 999.333,1017.33 993,1020C986.667,1022.67 980,1024 973,1024C958.667,1024 946.5,1019 936.5,1009Z"}"></path></svg></button>` : ``}</div>` : ``}`;
     });
-    css$6 = {
+  }
+});
+
+// .svelte-kit/output/server/chunks/HeaderChip-992c049f.js
+var css15, HeaderChip;
+var init_HeaderChip_992c049f = __esm({
+  ".svelte-kit/output/server/chunks/HeaderChip-992c049f.js"() {
+    init_index_223a4ced();
+    init_NavigationView_svelte_svelte_type_style_lang_8088d3b7();
+    css15 = {
+      code: ".header-chip.svelte-1bkpq2h{display:inline-flex;margin-block-end:8px;padding:4px 16px;border-radius:50px;background-color:var(--fds-subtle-fill-secondary);color:var(--fds-text-secondary);font-size:var(--fds-body-font-size);font-weight:600;line-height:18px;user-select:none;margin-bottom:0.5em}",
+      map: null
+    };
+    HeaderChip = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      $$result.css.add(css15);
+      return `<div><span class="${"header-chip svelte-1bkpq2h"}">${slots.default ? slots.default({}) : ``}</span>
+</div>`;
+    });
+  }
+});
+
+// .svelte-kit/output/server/entries/pages/dynawin.svelte.js
+var dynawin_svelte_exports = {};
+__export(dynawin_svelte_exports, {
+  default: () => Dynawin
+});
+function writable2(value, start = noop2) {
+  let stop;
+  const subscribers = /* @__PURE__ */ new Set();
+  function set(new_value) {
+    if (safe_not_equal(value, new_value)) {
+      value = new_value;
+      if (stop) {
+        const run_queue = !subscriber_queue2.length;
+        for (const subscriber of subscribers) {
+          subscriber[1]();
+          subscriber_queue2.push(subscriber, value);
+        }
+        if (run_queue) {
+          for (let i2 = 0; i2 < subscriber_queue2.length; i2 += 2) {
+            subscriber_queue2[i2][0](subscriber_queue2[i2 + 1]);
+          }
+          subscriber_queue2.length = 0;
+        }
+      }
+    }
+  }
+  function update(fn) {
+    set(fn(value));
+  }
+  function subscribe2(run2, invalidate = noop2) {
+    const subscriber = [run2, invalidate];
+    subscribers.add(subscriber);
+    if (subscribers.size === 1) {
+      stop = start(set) || noop2;
+    }
+    run2(value);
+    return () => {
+      subscribers.delete(subscriber);
+      if (subscribers.size === 0) {
+        stop();
+        stop = null;
+      }
+    };
+  }
+  return { set, update, subscribe: subscribe2 };
+}
+var css$8, ContentDialog, subscriber_queue2, css$7, HeroSection4, css$6, AboutDynaWin, css$5, Compatibility, css$4, CompareImage, css$3, DynamicThemeFeature, css$22, DynamicWallpaperFeature, css$16, AutomaticUpdates, css16, DownloadLinks, Dynawin;
+var init_dynawin_svelte = __esm({
+  ".svelte-kit/output/server/entries/pages/dynawin.svelte.js"() {
+    init_index_223a4ced();
+    init_NavigationView_svelte_svelte_type_style_lang_8088d3b7();
+    init_MicaBackground_bde423f3();
+    init_Button_9355eef8();
+    init_InfoBar_c3821baf();
+    init_HeaderChip_992c049f();
+    css$8 = {
       code: ".content-dialog.svelte-1szmc6y{-webkit-animation:dialog-inner var(--fds-control-fast-duration) var(--fds-control-fast-out-slow-in-easing);animation:dialog-inner var(--fds-control-fast-duration) var(--fds-control-fast-out-slow-in-easing);background-clip:padding-box;background-color:var(--fds-solid-background-base);border:1px solid var(--fds-surface-stroke-default);border-radius:var(--fds-overlay-corner-radius);box-shadow:var(--fds-dialog-shadow);box-sizing:border-box;max-inline-size:calc(100% - 24px);overflow:hidden;position:fixed}.content-dialog.size-min.svelte-1szmc6y{inline-size:320px}.content-dialog.size-standard.svelte-1szmc6y{inline-size:448px}.content-dialog.size-max.svelte-1szmc6y{inline-size:540px}.content-dialog-smoke.svelte-1szmc6y{align-items:center;block-size:100%;display:flex;flex-direction:column;inline-size:100%;inset-block-start:0;inset-inline-start:0;justify-content:center;position:fixed;z-index:101}.content-dialog-smoke.darken.svelte-1szmc6y{background-color:var(--fds-smoke-background-default)}.content-dialog.svelte-1szmc6y .content-dialog-title{color:var(--fds-text-primary);display:block;margin-bottom:12px}.content-dialog-body.svelte-1szmc6y,.content-dialog-footer.svelte-1szmc6y{padding:24px}.content-dialog-body.svelte-1szmc6y{background-color:var(--fds-layer-background-default);color:var(--fds-text-primary);font-family:var(--fds-font-family-text);font-size:var(--fds-body-font-size);font-weight:400;line-height:20px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.content-dialog-footer.svelte-1szmc6y{grid-gap:8px;-webkit-border-before:1px solid var(--fds-card-stroke-default);border-block-start:1px solid var(--fds-card-stroke-default);display:grid;grid-auto-flow:column;grid-auto-rows:1fr;white-space:nowrap}.content-dialog-footer.svelte-1szmc6y>.button:only-child{inline-size:50%;justify-self:end}",
       map: null
     };
@@ -6632,7 +6801,7 @@ ${open ? `<div${spread([
         $$bindings.bodyElement(bodyElement);
       if ($$props.footerElement === void 0 && $$bindings.footerElement && footerElement !== void 0)
         $$bindings.footerElement(footerElement);
-      $$result.css.add(css$6);
+      $$result.css.add(css$8);
       {
         if (!open)
           dispatch("close");
@@ -6641,7 +6810,7 @@ ${open ? `<div${spread([
 
 ${open ? `<div class="${["content-dialog-smoke svelte-1szmc6y", darken ? "darken" : ""].join(" ").trim()}"${add_attribute("this", backdropElement, 0)}><div${spread([
         {
-          class: "content-dialog size-" + escape(size) + " " + escape(className)
+          class: "content-dialog size-" + escape(size, true) + " " + escape(className, true)
         },
         { role: "dialog" },
         { "aria-modal": "true" },
@@ -6666,21 +6835,21 @@ ${open ? `<div class="${["content-dialog-smoke svelte-1szmc6y", darken ? "darken
 		${slots.outer ? slots.outer({}) : ``}</div>` : ``}`;
     });
     subscriber_queue2 = [];
-    css$5 = {
-      code: '.parallax-container.svelte-35939b.svelte-35939b{position:relative;width:100%;height:72vh;overflow-y:hidden;align-items:center;justify-content:center;text-align:center}.bg-image-div.svelte-35939b.svelte-35939b{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.bg-image-div.svelte-35939b img.svelte-35939b{max-height:calc(72vh - 50px);max-width:80vw;content:url("/screenshots/dynawin/WindowLight.png");-webkit-fliter:blur(2px);filter:blur(2px)}@media(prefers-color-scheme: dark){.bg-image-div.svelte-35939b img.svelte-35939b{max-height:calc(72vh - 50px);max-width:80vw;content:url("/screenshots/dynawin/WindowDark.png");-webkit-fliter:blur(2px);filter:blur(2px)}}.logo-components.svelte-35939b.svelte-35939b{position:absolute;word-wrap:break-word;top:50%;left:50%;transform:translate(-50%, -50%);width:90vw}.logo-components.svelte-35939b img.svelte-35939b{display:block;max-height:20vh;max-width:80vw;content:url("/app-images/dynawin/logoLight.png");margin:auto}@media(prefers-color-scheme: dark){.logo-components.svelte-35939b img.svelte-35939b{display:block;max-height:20vh;max-width:80vw;content:url("/app-images/dynawin/logoDark.png");margin:auto}}.logo-components.svelte-35939b .caption-text{display:block;margin-top:10px}.logo-components.svelte-35939b .download-btn{margin-top:calc(calc(16 / 14) * 20px)}',
+    css$7 = {
+      code: '.parallax-container.svelte-f0ytc1.svelte-f0ytc1{position:relative;width:100%;height:72vh;overflow-y:hidden;align-items:center;justify-content:center;text-align:center}.bg-image-div.svelte-f0ytc1.svelte-f0ytc1{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.bg-image-div.svelte-f0ytc1 img.svelte-f0ytc1{max-height:calc(72vh - 50px);max-width:80vw;content:url("/screenshots/dynawin/WindowLight.png");-webkit-fliter:blur(2px);filter:blur(2px)}@media(prefers-color-scheme: dark){.bg-image-div.svelte-f0ytc1 img.svelte-f0ytc1{max-height:calc(72vh - 50px);max-width:80vw;content:url("/screenshots/dynawin/WindowDark.png");-webkit-fliter:blur(2px);filter:blur(2px)}}.logo-components.svelte-f0ytc1.svelte-f0ytc1{position:absolute;word-wrap:break-word;top:50%;left:50%;transform:translate(-50%, -50%);width:90vw}.logo-components.svelte-f0ytc1 img.svelte-f0ytc1{display:block;max-height:20vh;max-width:80vw;content:url("/app-images/dynawin/logoLight.png");margin:auto}@media(prefers-color-scheme: dark){.logo-components.svelte-f0ytc1 img.svelte-f0ytc1{display:block;max-height:20vh;max-width:80vw;content:url("/app-images/dynawin/logoDark.png");margin:auto}}.logo-components.svelte-f0ytc1 .caption-text{display:block;margin-top:10px}.logo-components.svelte-f0ytc1 .download-btn{margin-top:calc(25px / calc(16 / 14))}',
       map: null
     };
     HeroSection4 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let sy;
-      $$result.css.add(css$5);
+      $$result.css.add(css$7);
       return `
 
 
-<div class="${"parallax-container svelte-35939b"}">${validate_component(MicaBackground, "MicaBackground").$$render($$result, {}, {}, {})}
+<div class="${"parallax-container svelte-f0ytc1"}">${validate_component(MicaBackground, "MicaBackground").$$render($$result, {}, {}, {})}
 
-    <div class="${"bg-image-div svelte-35939b"}"><img style="${"transform: translate(0," + escape(-sy * 0.2) + "px)"}" alt="${"DynaWin Window Screenshot"}" class="${"svelte-35939b"}"></div>
+    <div class="${"bg-image-div svelte-f0ytc1"}"><img style="${"transform: translate(0," + escape(-sy * 0.2, true) + "px)"}" alt="${"DynaWin Window Screenshot"}" class="${"svelte-f0ytc1"}"></div>
 
-    <div class="${"logo-components svelte-35939b"}"><img style="${"transform: translate(0," + escape(-sy * 0.1) + "px)"}" alt="${"DynaWin Logo"}" class="${"svelte-35939b"}">
+    <div class="${"logo-components svelte-f0ytc1"}"><img style="${"transform: translate(0," + escape(-sy * 0.1, true) + "px)"}" alt="${"DynaWin Logo"}" class="${"svelte-f0ytc1"}">
         ${validate_component(TextBlock, "TextBlock").$$render($$result, {
         variant: "subtitle",
         style: "transform: translate(0," + -sy * 0.1 + "px)",
@@ -6705,18 +6874,18 @@ ${open ? `<div class="${["content-dialog-smoke svelte-1szmc6y", darken ? "darken
       })}</div>
 </div>`;
     });
-    css$4 = {
-      code: ".padding-div.svelte-14bizta.svelte-14bizta{padding:2em 5vw 2em 5vw}.install-infobar{max-width:1024px;margin:auto;padding:0.3rem}.content-dialog{margin-top:20px}.container.svelte-14bizta.svelte-14bizta{margin-top:1em;overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-14bizta .titleText{margin-left:5px;margin-right:5px}.container.svelte-14bizta .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em}.container.svelte-14bizta iframe.svelte-14bizta{width:90vw;max-width:840px;height:calc(calc(90vw / 16) * 9);max-height:473px;margin-top:1.5em}",
+    css$6 = {
+      code: ".padding-div.svelte-1x9kd4c.svelte-1x9kd4c{padding:2em 5vw 2em 5vw;background-color:var(--fds-solid-background-base)}.install-infobar{max-width:1024px;margin:auto;padding:0.2em}.content-dialog{margin-top:20px}.container.svelte-1x9kd4c.svelte-1x9kd4c{margin-top:1em;overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-1x9kd4c .titleText{margin-left:5px;margin-right:5px}.container.svelte-1x9kd4c .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em}.container.svelte-1x9kd4c iframe.svelte-1x9kd4c{width:90vw;max-width:840px;height:calc(calc(90vw / 16) * 9);max-height:473px;margin-top:1.5em}",
       map: null
     };
     AboutDynaWin = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let open = false;
-      $$result.css.add(css$4);
+      $$result.css.add(css$6);
       let $$settled;
       let $$rendered;
       do {
         $$settled = true;
-        $$rendered = `<div class="${"padding-div svelte-14bizta"}">${validate_component(InfoBar, "InfoBar").$$render($$result, {
+        $$rendered = `<div class="${"padding-div svelte-1x9kd4c"}">${validate_component(InfoBar, "InfoBar").$$render($$result, {
           severity: "caution",
           class: "install-infobar",
           title: "Before you install..."
@@ -6760,7 +6929,12 @@ ${open ? `<div class="${["content-dialog-smoke svelte-1szmc6y", darken ? "darken
           }
         })}
      
-     <div class="${"container svelte-14bizta"}">${validate_component(TextBlock, "TextBlock").$$render($$result, {
+     <div class="${"container svelte-1x9kd4c"}">${validate_component(HeaderChip, "HeaderChip").$$render($$result, {}, {}, {
+          default: () => {
+            return `About`;
+          }
+        })}
+         ${validate_component(TextBlock, "TextBlock").$$render($$result, {
           variant: "titleLarge",
           class: "titleText"
         }, {}, {
@@ -6774,21 +6948,43 @@ ${open ? `<div class="${["content-dialog-smoke svelte-1szmc6y", darken ? "darken
              dynamically.`;
           }
         })}
-         <iframe src="${"https://www.youtube-nocookie.com/embed/J0iyzZG5tXc"}" title="${"YouTube video player"}" frameborder="${"0"}" allow="${"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"}" allowfullscreen class="${"svelte-14bizta"}"></iframe></div>
+         <iframe src="${"https://www.youtube-nocookie.com/embed/J0iyzZG5tXc"}" title="${"YouTube video player"}" frameborder="${"0"}" allow="${"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"}" allowfullscreen class="${"svelte-1x9kd4c"}"></iframe></div>
 </div>`;
       } while (!$$settled);
       return $$rendered;
     });
-    css$32 = {
-      code: ".header-chip.svelte-1bkpq2h{display:inline-flex;margin-block-end:8px;padding:4px 16px;border-radius:50px;background-color:var(--fds-subtle-fill-secondary);color:var(--fds-text-secondary);font-size:var(--fds-body-font-size);font-weight:600;line-height:18px;user-select:none;margin-bottom:0.5em}",
+    css$5 = {
+      code: ".container.svelte-1wisto3{padding:2em 5vw 2em 5vw;background-color:var(--fds-solid-background-secondary);overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-1wisto3 .titleText{margin-left:5px;margin-right:5px}.container.svelte-1wisto3 .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em;max-width:1100px}",
       map: null
     };
-    HeaderChip = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css$32);
-      return `<div><span class="${"header-chip svelte-1bkpq2h"}">${slots.default ? slots.default({}) : ``}</span>
+    Compatibility = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      $$result.css.add(css$5);
+      return `<div class="${"container svelte-1wisto3"}">${validate_component(HeaderChip, "HeaderChip").$$render($$result, {}, {}, {
+        default: () => {
+          return `System`;
+        }
+      })}
+
+    ${validate_component(TextBlock, "TextBlock").$$render($$result, {
+        class: "titleText",
+        variant: "titleLarge"
+      }, {}, {
+        default: () => {
+          return `Compatibility`;
+        }
+      })}
+    ${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "bodyLarge", class: "bodyText" }, {}, {
+        default: () => {
+          return `DynaWin works with Windows 10 and Windows 11. I have not tested if
+        DynaWin works with Windows 8.1 or Windows 7, so if you are on those
+        versions of Windows, use at your own risk. DynaWin also requires .NET
+        framework version 4.8 to function properly.
+    `;
+        }
+      })}
 </div>`;
     });
-    css$24 = {
+    css$4 = {
       code: '.svelte-compare-image-container.svelte-qgpj5s{box-sizing:border-box;position:relative;width:100%;height:var(--container-height);overflow:hidden}.svelte-compare-image-container.svelte-qgpj5s:focus-within{outline:auto 4px rgba(59, 153, 252, 0.7);outline:auto 4px -moz-mac-focusring;outline:auto 4px -webkit-focus-ring-color}img.svelte-qgpj5s{display:block;height:100%;object-fit:cover;position:absolute;width:100%}.left-img.svelte-qgpj5s{clip:rect(\n      auto,\n      calc(var(--container-width) * var(--slider-position)),\n      auto,\n      auto\n    )}.right-img.svelte-qgpj5s{clip:rect(\n      auto,\n      auto,\n      auto,\n      calc(var(--container-width) * var(--slider-position))\n    )}.slider.svelte-qgpj5s{display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;width:var(--handle-size);cursor:ew-resize;position:absolute;left:calc(\n      var(--container-width) * var(--slider-position) -\n        var(--handle-size, 2.5rem) / 2\n    );top:0}.slider.svelte-qgpj5s:focus{outline:none}.line.svelte-qgpj5s{background:var(--slider-color, #ffffff);box-shadow:0 3px 1px -2px rgba(0, 0, 0, 0.2),\n      0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);flex:0 1 auto;height:100%;width:var(--slider-width, 0.125rem)}.handle.svelte-qgpj5s{box-sizing:border-box;flex:1 0 auto;display:flex;justify-content:center;align-items:center;border:var(--slider-width, 0.125rem) solid var(--slider-color, #ffffff);border-radius:100%;box-shadow:0 3px 1px -2px rgba(0, 0, 0, 0.2),\n      0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);height:var(--handle-size, 2.5rem);width:var(--handle-size, 2.5rem)}.handle.svelte-qgpj5s::before{content:"";border:inset calc(var(--handle-size, 2.5rem) * 0.15) rgba(0, 0, 0, 0);border-right:calc(var(--handle-size, 2.5rem) * 0.15) solid\n      var(--slider-color, #ffffff);height:0;margin-right:calc(var(--handle-size, 2.5rem) * 0.25);width:0}.handle.svelte-qgpj5s::after{content:"";border:inset calc(var(--handle-size, 2.5rem) * 0.15) rgba(0, 0, 0, 0);border-left:calc(var(--handle-size, 2.5rem) * 0.15) solid\n      var(--slider-color, #ffffff);height:0;width:0}',
       map: null
     };
@@ -6825,7 +7021,7 @@ ${open ? `<div class="${["content-dialog-smoke svelte-1szmc6y", darken ? "darken
         $$bindings.imageRightSrc(imageRightSrc);
       if ($$props.imageRightAlt === void 0 && $$bindings.imageRightAlt && imageRightAlt !== void 0)
         $$bindings.imageRightAlt(imageRightAlt);
-      $$result.css.add(css$24);
+      $$result.css.add(css$4);
       $$subscribe_containerWidthStore(containerWidthStore = syncWidth(containerRef));
       {
         {
@@ -6838,20 +7034,20 @@ ${open ? `<div class="${["content-dialog-smoke svelte-1szmc6y", darken ? "darken
         }
       }
       $$unsubscribe_containerWidthStore();
-      return `<div class="${"svelte-compare-image-container svelte-qgpj5s"}" style="${"--container-height: " + escape(height) + "px; --container-width: " + escape($containerWidthStore) + "px; --slider-position: " + escape(sliderPosition) + ";"}" data-testid="${"svelte-compare-image"}"${add_attribute("this", containerRef, 0)}><img${add_attribute("src", imageLeftSrc, 0)}${add_attribute("alt", imageLeftAlt, 0)} class="${"left-img svelte-qgpj5s"}"${add_attribute("this", imageLeftRef, 0)}>
+      return `<div class="${"svelte-compare-image-container svelte-qgpj5s"}" style="${"--container-height: " + escape(height, true) + "px; --container-width: " + escape($containerWidthStore, true) + "px; --slider-position: " + escape(sliderPosition, true) + ";"}" data-testid="${"svelte-compare-image"}"${add_attribute("this", containerRef, 0)}><img${add_attribute("src", imageLeftSrc, 0)}${add_attribute("alt", imageLeftAlt, 0)} class="${"left-img svelte-qgpj5s"}"${add_attribute("this", imageLeftRef, 0)}>
   <img${add_attribute("src", imageRightSrc, 0)}${add_attribute("alt", imageRightAlt, 0)} class="${"right-img svelte-qgpj5s"}"${add_attribute("this", imageRightRef, 0)}>
   <div class="${"slider svelte-qgpj5s"}" role="${"slider"}"${add_attribute("aria-valuemin", 0, 0)}${add_attribute("aria-valuemax", 1, 0)}${add_attribute("aria-valuenow", sliderPosition, 0)} aria-label="${"Compare image"}" tabindex="${"0"}"${add_attribute("this", sliderRef, 0)}><div class="${"line svelte-qgpj5s"}"></div>
     <div class="${"handle svelte-qgpj5s"}"></div>
     <div class="${"line svelte-qgpj5s"}"></div></div>
 </div>`;
     });
-    css$15 = {
-      code: ".container.svelte-h10jww{padding:2em 5vw 2em 5vw;background-color:var(--fds-solid-background-secondary);overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-h10jww .titleText{margin-left:5px;margin-right:5px}.container.svelte-h10jww .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em}.cards-collection.svelte-h10jww{margin-top:1.5em;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.card.svelte-h10jww{display:flex;justify-content:center;align-items:center;margin:0.7rem;padding:1.5rem;width:280px;min-width:200px;flex-grow:1;min-height:180px;text-align:center;border-radius:var(--fds-control-corner-radius);z-index:999;-webkit-transition:200ms ease-in-out;-o-transition:200ms ease-in-out;transition:200ms ease-in-out;-webkit-box-shadow:0 0 5px rgba(0, 0, 0, 0.3);box-shadow:0 0 5px rgba(0, 0, 0, 0.3);background:linear-gradient(\r\n                var(--fds-card-background-default),\r\n                var(--fds-card-background-default)\r\n            ),\r\n            linear-gradient(\r\n                var(--fds-solid-background-base),\r\n                var(--fds-solid-background-base)\r\n            )}.card-content.svelte-h10jww{width:100%}.card-text.svelte-h10jww{font-family:var(--fds-font-family-display);font-weight:600;font-size:28px;margin:0px;margin-left:10px;margin-right:10px}.card-subtext.svelte-h10jww{font-family:var(--fds-font-family-display);font-size:18px;margin:0px;margin-top:1rem;margin-left:20px;margin-right:20px}.compare-image-div.svelte-h10jww{padding:1em 5vw 0vw 5vw}",
+    css$3 = {
+      code: ".container.svelte-quqcrl{padding:2em 5vw 2em 5vw;background-color:var(--fds-solid-background-base);overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-quqcrl .titleText{margin-left:5px;margin-right:5px}.container.svelte-quqcrl .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em}.cards-collection.svelte-quqcrl{margin-top:1.5em;margin-bottom:-1.5em;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.card.svelte-quqcrl{display:flex;justify-content:center;align-items:center;margin:0em 0.7em 1.5em 0.7em;padding:1.5rem 0.2rem;width:280px;min-width:200px;flex-grow:1;min-height:180px;text-align:center;border-radius:var(--fds-control-corner-radius);z-index:999;-webkit-transition:200ms ease-in-out;-o-transition:200ms ease-in-out;transition:200ms ease-in-out;-webkit-box-shadow:0 0 5px rgba(0, 0, 0, 0.3);box-shadow:0 0 5px rgba(0, 0, 0, 0.3);background:linear-gradient(\r\n                var(--fds-card-background-default),\r\n                var(--fds-card-background-default)\r\n            ),\r\n            linear-gradient(\r\n                var(--fds-solid-background-base),\r\n                var(--fds-solid-background-base)\r\n            )}.card-content.svelte-quqcrl{width:100%}.card-text.svelte-quqcrl{font-family:var(--fds-font-family-display);font-weight:600;font-size:28px;margin:0px;margin-left:10px;margin-right:10px}.card-subtext.svelte-quqcrl{font-family:var(--fds-font-family-display);font-size:18px;margin:0px;margin-top:1rem;margin-left:20px;margin-right:20px}.compare-image-div.svelte-quqcrl{padding:1.5em 5vw 0vw 5vw}",
       map: null
     };
     DynamicThemeFeature = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css$15);
-      return `<div class="${"container svelte-h10jww"}">${validate_component(HeaderChip, "HeaderChip").$$render($$result, {}, {}, {
+      $$result.css.add(css$3);
+      return `<div class="${"container svelte-quqcrl"}">${validate_component(HeaderChip, "HeaderChip").$$render($$result, {}, {}, {
         default: () => {
           return `Feature`;
         }
@@ -6867,44 +7063,45 @@ ${open ? `<div class="${["content-dialog-smoke svelte-1szmc6y", darken ? "darken
       })}
     ${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "bodyLarge", class: "bodyText" }, {}, {
         default: () => {
-          return `Switch your Windows or app theme based on time
+          return `Switch your Windows theme or app theme based on time.
     `;
         }
       })}
 
-    <div class="${"cards-collection svelte-h10jww"}"><div class="${"card svelte-h10jww"}"><div class="${"card-content svelte-h10jww"}"><p class="${"card-text svelte-h10jww"}">Automatic switching of theme</p>
-                <p class="${"card-subtext svelte-h10jww"}">You can configure DynaWin to automatically switch the theme
+    <div class="${"cards-collection svelte-quqcrl"}"><div class="${"card svelte-quqcrl"}"><div class="${"card-content svelte-quqcrl"}"><p class="${"card-text svelte-quqcrl"}">Automatic switching of theme</p>
+                <p class="${"card-subtext svelte-quqcrl"}">You can configure DynaWin to automatically switch the theme
                     at specified timings. For example, you can automatically
                     switch Windows to Dark theme, so that it is easier on the
-                    eyes when working at night.
+                    eyes at night.
                 </p></div></div>
 
-        <div class="${"card svelte-h10jww"}"><div class="${"card-content svelte-h10jww"}"><p class="${"card-text svelte-h10jww"}">Choose which mode to switch</p>
-                <p class="${"card-subtext svelte-h10jww"}">You can configure DynaWin to switch only the app or system
+        <div class="${"card svelte-quqcrl"}"><div class="${"card-content svelte-quqcrl"}"><p class="${"card-text svelte-quqcrl"}">Choose which mode to switch</p>
+                <p class="${"card-subtext svelte-quqcrl"}">You can configure DynaWin to switch only the app or system
                     theme, or both. This allows DynaWin to better cater to your
                     needs.
                 </p></div></div></div>
 
-    <div class="${"compare-image-div svelte-h10jww"}"><div style="display: contents; --handle-size:${"2.5rem"}; --slider-color:${"#ffffff"}; --slider-width:${"0.125rem"};">${validate_component(CompareImage, "CompareImage").$$render($$result, {
+    <div class="${"compare-image-div svelte-quqcrl"}"><div style="display: contents; --handle-size:${"2.5rem"}; --slider-color:${"#ffffff"}; --slider-width:${"0.125rem"};">${validate_component(CompareImage, "CompareImage").$$render($$result, {
         class: "image-comparer",
-        imageLeftSrc: "/screenshots/dynawin/DynamicLight.png",
+        imageLeftSrc: "/screenshots/dynawin/DynamicThemeLight.png",
         imageLeftAlt: "Light Theme",
-        imageRightSrc: "/screenshots/dynawin/DynamicDark.png",
+        imageRightSrc: "/screenshots/dynawin/DynamicThemeDark.png",
         imageRightAlt: "Dark Theme"
       }, {}, {})}</div></div>
 </div>`;
     });
-    css14 = {
-      code: ".container.svelte-1px3z3m{padding:2em 5vw 2em 5vw;background-color:var(--fds-solid-background-base);overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-1px3z3m .titleText{margin-left:5px;margin-right:5px}.container.svelte-1px3z3m .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em}",
+    css$22 = {
+      code: ".container.svelte-4v8q38{padding:2em 5vw 2em 5vw;background-color:var(--fds-solid-background-secondary);overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-4v8q38 .titleText{margin-left:5px;margin-right:5px}.container.svelte-4v8q38 .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em}.cards-collection.svelte-4v8q38{margin-top:1.5em;margin-bottom:-1.5em;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.card.svelte-4v8q38{display:flex;justify-content:center;align-items:center;margin:0em 0.7em 1.5em 0.7em;padding:1.5rem 0.2rem;width:280px;min-width:200px;flex-grow:1;min-height:180px;text-align:center;border-radius:var(--fds-control-corner-radius);z-index:999;-webkit-transition:200ms ease-in-out;-o-transition:200ms ease-in-out;transition:200ms ease-in-out;-webkit-box-shadow:0 0 5px rgba(0, 0, 0, 0.3);box-shadow:0 0 5px rgba(0, 0, 0, 0.3);background:linear-gradient(\r\n                var(--fds-card-background-default),\r\n                var(--fds-card-background-default)\r\n            ),\r\n            linear-gradient(\r\n                var(--fds-solid-background-secondary),\r\n                var(--fds-solid-background-secondary)\r\n            )}.card-content.svelte-4v8q38{width:100%}.card-text.svelte-4v8q38{font-family:var(--fds-font-family-display);font-weight:600;font-size:28px;margin:0px;margin-left:10px;margin-right:10px}.card-subtext.svelte-4v8q38{font-family:var(--fds-font-family-display);font-size:18px;margin:0px;margin-top:1rem;margin-left:20px;margin-right:20px}.compare-image-div.svelte-4v8q38{padding:1.5em 5vw 0vw 5vw}",
       map: null
     };
     DynamicWallpaperFeature = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css14);
-      return `<div class="${"container svelte-1px3z3m"}">${validate_component(HeaderChip, "HeaderChip").$$render($$result, {}, {}, {
+      $$result.css.add(css$22);
+      return `<div class="${"container svelte-4v8q38"}">${validate_component(HeaderChip, "HeaderChip").$$render($$result, {}, {}, {
         default: () => {
           return `Feature`;
         }
       })}
+
     ${validate_component(TextBlock, "TextBlock").$$render($$result, {
         class: "titleText",
         variant: "titleLarge"
@@ -6915,19 +7112,155 @@ ${open ? `<div class="${["content-dialog-smoke svelte-1szmc6y", darken ? "darken
       })}
     ${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "bodyLarge", class: "bodyText" }, {}, {
         default: () => {
-          return `Placeholder Text
+          return `Switch your desktop wallpaper at certain triggers.
+    `;
+        }
+      })}
+
+    <div class="${"cards-collection svelte-4v8q38"}"><div class="${"card svelte-4v8q38"}"><div class="${"card-content svelte-4v8q38"}"><p class="${"card-text svelte-4v8q38"}">Automatic switching of desktop wallpaper
+                </p>
+                <p class="${"card-subtext svelte-4v8q38"}">You can configure DynaWin to automatically switch your
+                    wallpaper at specific triggers. For example, you can
+                    configure DynaWin to switch your wallpaper at night, to make
+                    it easier on the eyes at night.
+                </p></div></div>
+
+        <div class="${"card svelte-4v8q38"}"><div class="${"card-content svelte-4v8q38"}"><p class="${"card-text svelte-4v8q38"}">Choose when to change your wallpaper</p>
+                <p class="${"card-subtext svelte-4v8q38"}">You can choose to change your wallpaper either based on the
+                    time, or based on your battery percentage. This can help remind you
+                    when your battery is running low, or remind you to unplug
+                    your laptop charger when your laptop is fully charged.
+                </p></div></div></div>
+
+    <div class="${"compare-image-div svelte-4v8q38"}"><div style="display: contents; --handle-size:${"2.5rem"}; --slider-color:${"#ffffff"}; --slider-width:${"0.125rem"};">${validate_component(CompareImage, "CompareImage").$$render($$result, {
+        class: "image-comparer",
+        imageLeftSrc: "/screenshots/dynawin/DynamicWallpaperLight.png",
+        imageLeftAlt: "Light Theme",
+        imageRightSrc: "/screenshots/dynawin/DynamicWallpaperDark.png",
+        imageRightAlt: "Dark Theme"
+      }, {}, {})}</div></div>
+</div>`;
+    });
+    css$16 = {
+      code: ".container.svelte-14h04yk{padding:2em 5vw 2em 5vw;background-color:var(--fds-solid-background-base);overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-14h04yk .titleText{margin-left:5px;margin-right:5px}.container.svelte-14h04yk .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em;max-width:1100px}",
+      map: null
+    };
+    AutomaticUpdates = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      $$result.css.add(css$16);
+      return `<div class="${"container svelte-14h04yk"}">${validate_component(HeaderChip, "HeaderChip").$$render($$result, {}, {}, {
+        default: () => {
+          return `Feature`;
+        }
+      })}
+
+    ${validate_component(TextBlock, "TextBlock").$$render($$result, {
+        class: "titleText",
+        variant: "titleLarge"
+      }, {}, {
+        default: () => {
+          return `Automatic Updates`;
+        }
+      })}
+    ${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "bodyLarge", class: "bodyText" }, {}, {
+        default: () => {
+          return `DynaWin also automatically notifies you when there is a new update. This
+        is to ensure that you have the latest version of DynaWin at all times so
+        that you can have the latest features available.
     `;
         }
       })}
 </div>`;
     });
+    css16 = {
+      code: ".container.svelte-2gk8ks{padding:2em 5vw 2em 5vw;background-color:var(--fds-solid-background-secondary);overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-2gk8ks .titleText{margin-left:5px;margin-right:5px}.container.svelte-2gk8ks .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em}.cards-collection.svelte-2gk8ks{margin-top:1.5em;margin-bottom:-1.5em;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.card.svelte-2gk8ks{display:flex;justify-content:center;align-items:center;margin:0em 0.7em 1.5em 0.7em;padding:1.5rem 0.2rem;width:280px;min-width:200px;flex-grow:1;min-height:145px;text-align:center;border-radius:var(--fds-control-corner-radius);z-index:999;-webkit-transition:200ms ease-in-out;-o-transition:200ms ease-in-out;transition:200ms ease-in-out;-webkit-box-shadow:0 0 5px rgba(0, 0, 0, 0.3);box-shadow:0 0 5px rgba(0, 0, 0, 0.3);background:linear-gradient(\r\n                var(--fds-card-background-default),\r\n                var(--fds-card-background-default)\r\n            ),\r\n            linear-gradient(\r\n                var(--fds-solid-background-secondary),\r\n                var(--fds-solid-background-secondary)\r\n            )}.card-content.svelte-2gk8ks{width:100%}.card-text.svelte-2gk8ks{font-family:var(--fds-font-family-display);font-weight:600;font-size:28px;margin:0px;margin-left:10px;margin-right:10px}.card-subtext.svelte-2gk8ks{font-family:var(--fds-font-family-display);font-size:18px;margin:0px;margin-top:1rem;margin-left:20px;margin-right:20px}.download-btn{margin-top:calc(1.5em / 1.1);transform:scale(1.1)}.hyperlinks{margin-top:1em;margin-bottom:-0.5em;margin-left:10px;margin-right:10px}",
+      map: null
+    };
+    DownloadLinks = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      $$result.css.add(css16);
+      return `<div class="${"container svelte-2gk8ks"}">${validate_component(HeaderChip, "HeaderChip").$$render($$result, {}, {}, {
+        default: () => {
+          return `Links`;
+        }
+      })}
+
+    ${validate_component(TextBlock, "TextBlock").$$render($$result, {
+        class: "titleText",
+        variant: "titleLarge"
+      }, {}, {
+        default: () => {
+          return `Downloads and Links`;
+        }
+      })}
+    ${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "bodyLarge", class: "bodyText" }, {}, {
+        default: () => {
+          return `DynaWin downloads and other links.
+    `;
+        }
+      })}
+
+    <div class="${"cards-collection svelte-2gk8ks"}"><div class="${"card svelte-2gk8ks"}"><div class="${"card-content svelte-2gk8ks"}"><p class="${"card-text svelte-2gk8ks"}">Download DynaWin</p>
+                <p class="${"card-subtext svelte-2gk8ks"}">Click the button below to download DynaWin:
+                </p>
+                ${validate_component(Button, "Button").$$render($$result, {
+        onclick: "window.open('https://github.com/Apollo199999999/DynaWin/releases', '_blank');",
+        variant: "accent",
+        class: "download-btn"
+      }, {}, {
+        default: () => {
+          return `Download DynaWin
+                `;
+        }
+      })}</div></div>
+
+        <div class="${"card svelte-2gk8ks"}"><div class="${"card-content svelte-2gk8ks"}"><p class="${"card-text svelte-2gk8ks"}">DynaWin links</p>
+                ${validate_component(Button, "Button").$$render($$result, {
+        class: "hyperlinks",
+        onclick: "window.open('https://github.com/Apollo199999999/DynaWin', '_blank');",
+        variant: "hyperlink"
+      }, {}, {
+        default: () => {
+          return `DynaWin source code`;
+        }
+      })}
+                ${validate_component(Button, "Button").$$render($$result, {
+        class: "hyperlinks",
+        onclick: "window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank');",
+        variant: "hyperlink"
+      }, {}, {
+        default: () => {
+          return `Report a bug`;
+        }
+      })}
+                ${validate_component(Button, "Button").$$render($$result, {
+        class: "hyperlinks",
+        onclick: "window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank');",
+        variant: "hyperlink"
+      }, {}, {
+        default: () => {
+          return `Request a feature`;
+        }
+      })}
+                ${validate_component(Button, "Button").$$render($$result, {
+        class: "hyperlinks",
+        onclick: "window.open('https://github.com/Apollo199999999/DynaWin/blob/main/NOTICE.txt', '_blank');",
+        variant: "hyperlink"
+      }, {}, {
+        default: () => {
+          return `Third Party Notices and Licenses`;
+        }
+      })}</div></div></div>
+</div>`;
+    });
     Dynawin = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `${$$result.head += `${$$result.title = `<title>DynaWin - ClickPhase</title>`, ""}`, ""}
+      return `${$$result.head += `${$$result.title = `<title>DynaWin - ClickPhase</title>`, ""}<meta name="${"description"}" content="${"DynaWin - Dynamic Desktop for Windows 10 and Windows 11"}" data-svelte="svelte-iig045"><meta name="${"keywords"}" content="${"Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"}" data-svelte="svelte-iig045"><meta name="${"author"}" content="${"ClickPhase"}" data-svelte="svelte-iig045">`, ""}
 
 ${validate_component(HeroSection4, "HeroSection").$$render($$result, {}, {}, {})}
 ${validate_component(AboutDynaWin, "AboutDynaWin").$$render($$result, {}, {}, {})}
+${validate_component(Compatibility, "Compatibility").$$render($$result, {}, {}, {})}
 ${validate_component(DynamicThemeFeature, "DynamicThemeFeature").$$render($$result, {}, {}, {})}
-${validate_component(DynamicWallpaperFeature, "DynamicWallpaperFeature").$$render($$result, {}, {}, {})}`;
+${validate_component(DynamicWallpaperFeature, "DynamicWallpaperFeature").$$render($$result, {}, {}, {})}
+${validate_component(AutomaticUpdates, "AutomaticUpdates").$$render($$result, {}, {}, {})}
+${validate_component(DownloadLinks, "DownloadLinks").$$render($$result, {}, {}, {})}`;
     });
   }
 });
@@ -6935,18 +7268,18 @@ ${validate_component(DynamicWallpaperFeature, "DynamicWallpaperFeature").$$rende
 // .svelte-kit/output/server/nodes/4.js
 var __exports6 = {};
 __export(__exports6, {
-  css: () => css15,
+  css: () => css17,
   entry: () => entry6,
   js: () => js6,
   module: () => dynawin_svelte_exports
 });
-var entry6, js6, css15;
+var entry6, js6, css17;
 var init__6 = __esm({
   ".svelte-kit/output/server/nodes/4.js"() {
     init_dynawin_svelte();
-    entry6 = "pages/dynawin.svelte-7baa1268.js";
-    js6 = ["pages/dynawin.svelte-7baa1268.js", "chunks/index-306fcf0d.js", "chunks/NavigationView.svelte_svelte_type_style_lang-c16d035c.js", "chunks/MicaBackground-d5b6acee.js", "chunks/Button-cef66c42.js", "chunks/index-f639a060.js"];
-    css15 = ["assets/pages/dynawin.svelte-c42c728a.css", "assets/NavigationView.svelte_svelte_type_style_lang-7136ff2f.css", "assets/MicaBackground-b6441a3f.css"];
+    entry6 = "pages/dynawin.svelte-994e1fc4.js";
+    js6 = ["pages/dynawin.svelte-994e1fc4.js", "chunks/index-a7d8ca41.js", "chunks/NavigationView.svelte_svelte_type_style_lang-86c9a88c.js", "chunks/MicaBackground-ff907a83.js", "chunks/Button-9d1ab1dc.js", "chunks/InfoBar-6ec7ff53.js", "chunks/HeaderChip-049c70ed.js", "chunks/index-adad17a3.js"];
+    css17 = ["assets/pages/dynawin.svelte-c818b42b.css", "assets/NavigationView.svelte_svelte_type_style_lang-492d57f0.css", "assets/MicaBackground-b6441a3f.css", "assets/HeaderChip-3ac8b427.css"];
   }
 });
 
@@ -6955,28 +7288,29 @@ var granny_keyboard_svelte_exports = {};
 __export(granny_keyboard_svelte_exports, {
   default: () => Granny_keyboard
 });
-var css$16, HeroSection5, css16, Granny_keyboard;
+var css$23, HeroSection5, css$17, AboutGrannyKeyboard, css18, DownloadLinks2, Granny_keyboard;
 var init_granny_keyboard_svelte = __esm({
   ".svelte-kit/output/server/entries/pages/granny-keyboard.svelte.js"() {
-    init_index_30fa663f();
-    init_NavigationView_svelte_svelte_type_style_lang_d1ad264c();
-    init_MicaBackground_c1f5214e();
-    init_Button_a47ea82f();
-    css$16 = {
-      code: '.parallax-container.svelte-1l4uk04.svelte-1l4uk04{position:relative;width:100%;height:72vh;overflow-y:hidden;align-items:center;justify-content:center;text-align:center}.bg-image-div.svelte-1l4uk04.svelte-1l4uk04{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.bg-image-div.svelte-1l4uk04 img.svelte-1l4uk04{max-height:calc(72vh - 50px);max-width:95vw;content:url("/screenshots/granny-keyboard/Window.png");-webkit-fliter:blur(4px);filter:blur(4px)}.logo-components.svelte-1l4uk04.svelte-1l4uk04{position:absolute;word-wrap:break-word;top:50%;left:50%;transform:translate(-50%, -50%);width:90vw}.logo-components.svelte-1l4uk04 img.svelte-1l4uk04{display:block;max-height:17vh;max-width:90vw;content:url("/app-images/granny-keyboard/logoLight.png");margin:auto}@media(prefers-color-scheme: dark){.logo-components.svelte-1l4uk04 img.svelte-1l4uk04{display:block;max-height:17vh;max-width:90vw;content:url("/app-images/granny-keyboard/logoDark.png");margin:auto}}.logo-components.svelte-1l4uk04 .caption-text{display:block;margin-top:10px}.logo-components.svelte-1l4uk04 .download-btn{margin-top:calc(calc(16/14) * 20px)}',
+    init_index_223a4ced();
+    init_NavigationView_svelte_svelte_type_style_lang_8088d3b7();
+    init_MicaBackground_bde423f3();
+    init_Button_9355eef8();
+    init_HeaderChip_992c049f();
+    css$23 = {
+      code: '.parallax-container.svelte-1iyksoe.svelte-1iyksoe{position:relative;width:100%;height:72vh;overflow-y:hidden;align-items:center;justify-content:center;text-align:center}.bg-image-div.svelte-1iyksoe.svelte-1iyksoe{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.bg-image-div.svelte-1iyksoe img.svelte-1iyksoe{max-height:calc(72vh - 50px);max-width:95vw;content:url("/screenshots/granny-keyboard/Window.png");-webkit-fliter:blur(4px);filter:blur(4px)}.logo-components.svelte-1iyksoe.svelte-1iyksoe{position:absolute;word-wrap:break-word;top:50%;left:50%;transform:translate(-50%, -50%);width:90vw}.logo-components.svelte-1iyksoe img.svelte-1iyksoe{display:block;max-height:17vh;max-width:90vw;content:url("/app-images/granny-keyboard/logoLight.png");margin:auto}@media(prefers-color-scheme: dark){.logo-components.svelte-1iyksoe img.svelte-1iyksoe{display:block;max-height:17vh;max-width:90vw;content:url("/app-images/granny-keyboard/logoDark.png");margin:auto}}.logo-components.svelte-1iyksoe .caption-text{display:block;margin-top:10px}.logo-components.svelte-1iyksoe .download-btn{margin-top:calc(25px / calc(16/14))}',
       map: null
     };
     HeroSection5 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let sy;
-      $$result.css.add(css$16);
+      $$result.css.add(css$23);
       return `
 
 
-<div class="${"parallax-container svelte-1l4uk04"}">${validate_component(MicaBackground, "MicaBackground").$$render($$result, {}, {}, {})}
+<div class="${"parallax-container svelte-1iyksoe"}">${validate_component(MicaBackground, "MicaBackground").$$render($$result, {}, {}, {})}
 
-    <div class="${"bg-image-div svelte-1l4uk04"}"><img style="${"transform: translate(0," + escape(-sy * 0.2) + "px)"}" alt="${"Granny Keyboard Windows Screenshot"}" class="${"svelte-1l4uk04"}"></div>
+    <div class="${"bg-image-div svelte-1iyksoe"}"><img style="${"transform: translate(0," + escape(-sy * 0.2, true) + "px)"}" alt="${"Granny Keyboard Windows Screenshot"}" class="${"svelte-1iyksoe"}"></div>
 
-    <div class="${"logo-components svelte-1l4uk04"}"><img style="${"transform: translate(0," + escape(-sy * 0.1) + "px)"}" alt="${"Granny Keyboard Logo"}" class="${"svelte-1l4uk04"}">
+    <div class="${"logo-components svelte-1iyksoe"}"><img style="${"transform: translate(0," + escape(-sy * 0.1, true) + "px)"}" alt="${"Granny Keyboard Logo"}" class="${"svelte-1iyksoe"}">
         ${validate_component(TextBlock, "TextBlock").$$render($$result, {
         variant: "subtitle",
         style: "transform: translate(0," + -sy * 0.1 + "px)",
@@ -7001,16 +7335,115 @@ var init_granny_keyboard_svelte = __esm({
       })}</div>
 </div>`;
     });
-    css16 = {
-      code: ".content.svelte-vp6s3y{padding:2em 5vw 2em 5vw}",
+    css$17 = {
+      code: ".container.svelte-18fotlr.svelte-18fotlr{padding:2em 5vw 2em 5vw;background-color:var(--fds-solid-background-base);margin-top:1em;overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-18fotlr .titleText{margin-left:5px;margin-right:5px}.container.svelte-18fotlr .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em;max-width:1100px}.container.svelte-18fotlr iframe.svelte-18fotlr{width:90vw;max-width:840px;height:calc(calc(90vw / 16) * 9);max-height:473px;margin-top:1.5em}",
       map: null
     };
+    AboutGrannyKeyboard = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      $$result.css.add(css$17);
+      return `<div class="${"container svelte-18fotlr"}">${validate_component(HeaderChip, "HeaderChip").$$render($$result, {}, {}, {
+        default: () => {
+          return `About`;
+        }
+      })}
+    
+    ${validate_component(TextBlock, "TextBlock").$$render($$result, {
+        variant: "titleLarge",
+        class: "titleText"
+      }, {}, {
+        default: () => {
+          return `About Granny Keyboard`;
+        }
+      })}
+
+    ${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "bodyLarge", class: "bodyText" }, {}, {
+        default: () => {
+          return `Granny Keyboard is a keyboard modifier that modifies your keyboard to
+        make it worthy of Granny. Whichever key you press, the word &#39;Granny&#39;
+        will be added in front of it and a dialog box will pop up.`;
+        }
+      })}
+
+    <iframe src="${"https://www.youtube-nocookie.com/embed/NdBmcblzhFA"}" title="${"YouTube video player"}" frameborder="${"0"}" allow="${"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"}" allowfullscreen class="${"svelte-18fotlr"}"></iframe>
+</div>`;
+    });
+    css18 = {
+      code: ".container.svelte-2gk8ks{padding:2em 5vw 2em 5vw;background-color:var(--fds-solid-background-secondary);overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-2gk8ks .titleText{margin-left:5px;margin-right:5px}.container.svelte-2gk8ks .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em}.cards-collection.svelte-2gk8ks{margin-top:1.5em;margin-bottom:-1.5em;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.card.svelte-2gk8ks{display:flex;justify-content:center;align-items:center;margin:0em 0.7em 1.5em 0.7em;padding:1.5rem 0.2rem;width:280px;min-width:200px;flex-grow:1;min-height:145px;text-align:center;border-radius:var(--fds-control-corner-radius);z-index:999;-webkit-transition:200ms ease-in-out;-o-transition:200ms ease-in-out;transition:200ms ease-in-out;-webkit-box-shadow:0 0 5px rgba(0, 0, 0, 0.3);box-shadow:0 0 5px rgba(0, 0, 0, 0.3);background:linear-gradient(\r\n                var(--fds-card-background-default),\r\n                var(--fds-card-background-default)\r\n            ),\r\n            linear-gradient(\r\n                var(--fds-solid-background-secondary),\r\n                var(--fds-solid-background-secondary)\r\n            )}.card-content.svelte-2gk8ks{width:100%}.card-text.svelte-2gk8ks{font-family:var(--fds-font-family-display);font-weight:600;font-size:28px;margin:0px;margin-left:10px;margin-right:10px}.card-subtext.svelte-2gk8ks{font-family:var(--fds-font-family-display);font-size:18px;margin:0px;margin-top:1rem;margin-left:20px;margin-right:20px}.download-btn{margin-top:calc(1.5em / 1.1);transform:scale(1.1)}.hyperlinks{margin-top:1em;margin-bottom:-0.5em;margin-left:10px;margin-right:10px}",
+      map: null
+    };
+    DownloadLinks2 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      $$result.css.add(css18);
+      return `<div class="${"container svelte-2gk8ks"}">${validate_component(HeaderChip, "HeaderChip").$$render($$result, {}, {}, {
+        default: () => {
+          return `Links`;
+        }
+      })}
+
+    ${validate_component(TextBlock, "TextBlock").$$render($$result, {
+        class: "titleText",
+        variant: "titleLarge"
+      }, {}, {
+        default: () => {
+          return `Downloads and Links`;
+        }
+      })}
+    ${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "bodyLarge", class: "bodyText" }, {}, {
+        default: () => {
+          return `Granny Keyboard downloads and other links.
+    `;
+        }
+      })}
+
+    <div class="${"cards-collection svelte-2gk8ks"}"><div class="${"card svelte-2gk8ks"}"><div class="${"card-content svelte-2gk8ks"}"><p class="${"card-text svelte-2gk8ks"}">Download Granny Keyboard</p>
+                <p class="${"card-subtext svelte-2gk8ks"}">Click the button below to download Granny Keyboard:
+                </p>
+                ${validate_component(Button, "Button").$$render($$result, {
+        onclick: "window.open('https://github.com/Apollo199999999/Granny-Keyboard/releases', '_blank');",
+        variant: "accent",
+        class: "download-btn"
+      }, {}, {
+        default: () => {
+          return `Download Granny Keyboard
+                `;
+        }
+      })}</div></div>
+
+        <div class="${"card svelte-2gk8ks"}"><div class="${"card-content svelte-2gk8ks"}"><p class="${"card-text svelte-2gk8ks"}">Granny Keyboard links</p>
+                ${validate_component(Button, "Button").$$render($$result, {
+        class: "hyperlinks",
+        onclick: "window.open('https://github.com/Apollo199999999/Granny-Keyboard', '_blank');",
+        variant: "hyperlink"
+      }, {}, {
+        default: () => {
+          return `Granny Keyboard source code`;
+        }
+      })}
+                ${validate_component(Button, "Button").$$render($$result, {
+        class: "hyperlinks",
+        onclick: "window.open('https://github.com/Apollo199999999/Granny-Keyboard/issues', '_blank');",
+        variant: "hyperlink"
+      }, {}, {
+        default: () => {
+          return `Report a bug`;
+        }
+      })}
+                ${validate_component(Button, "Button").$$render($$result, {
+        class: "hyperlinks",
+        onclick: "window.open('https://github.com/Apollo199999999/Granny-Keyboard/issues', '_blank');",
+        variant: "hyperlink"
+      }, {}, {
+        default: () => {
+          return `Request a feature`;
+        }
+      })}</div></div></div>
+</div>`;
+    });
     Granny_keyboard = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css16);
-      return `${$$result.head += `${$$result.title = `<title>Granny Keyboard - ClickPhase</title>`, ""}`, ""}
+      return `${$$result.head += `${$$result.title = `<title>Granny Keyboard - ClickPhase</title>`, ""}<meta name="${"description"}" content="${"Granny Keyboard - Your keys will start worshipping Granny"}" data-svelte="svelte-17x9va3"><meta name="${"keywords"}" content="${"Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"}" data-svelte="svelte-17x9va3"><meta name="${"author"}" content="${"ClickPhase"}" data-svelte="svelte-17x9va3">`, ""}
 
 ${validate_component(HeroSection5, "HeroSection").$$render($$result, {}, {}, {})}
-<div class="${"content svelte-vp6s3y"}"></div>`;
+${validate_component(AboutGrannyKeyboard, "AboutGrannyKeyboard").$$render($$result, {}, {}, {})}
+${validate_component(DownloadLinks2, "DownloadLinks").$$render($$result, {}, {}, {})}`;
     });
   }
 });
@@ -7018,18 +7451,18 @@ ${validate_component(HeroSection5, "HeroSection").$$render($$result, {}, {}, {})
 // .svelte-kit/output/server/nodes/5.js
 var __exports7 = {};
 __export(__exports7, {
-  css: () => css17,
+  css: () => css19,
   entry: () => entry7,
   js: () => js7,
   module: () => granny_keyboard_svelte_exports
 });
-var entry7, js7, css17;
+var entry7, js7, css19;
 var init__7 = __esm({
   ".svelte-kit/output/server/nodes/5.js"() {
     init_granny_keyboard_svelte();
-    entry7 = "pages/granny-keyboard.svelte-279ed286.js";
-    js7 = ["pages/granny-keyboard.svelte-279ed286.js", "chunks/index-306fcf0d.js", "chunks/NavigationView.svelte_svelte_type_style_lang-c16d035c.js", "chunks/MicaBackground-d5b6acee.js", "chunks/Button-cef66c42.js"];
-    css17 = ["assets/pages/granny-keyboard.svelte-2571db27.css", "assets/NavigationView.svelte_svelte_type_style_lang-7136ff2f.css", "assets/MicaBackground-b6441a3f.css"];
+    entry7 = "pages/granny-keyboard.svelte-b68765e0.js";
+    js7 = ["pages/granny-keyboard.svelte-b68765e0.js", "chunks/index-a7d8ca41.js", "chunks/NavigationView.svelte_svelte_type_style_lang-86c9a88c.js", "chunks/MicaBackground-ff907a83.js", "chunks/Button-9d1ab1dc.js", "chunks/HeaderChip-049c70ed.js"];
+    css19 = ["assets/pages/granny-keyboard.svelte-8ad5b121.css", "assets/NavigationView.svelte_svelte_type_style_lang-492d57f0.css", "assets/MicaBackground-b6441a3f.css", "assets/HeaderChip-3ac8b427.css"];
   }
 });
 
@@ -7038,28 +7471,30 @@ var launcherx_svelte_exports = {};
 __export(launcherx_svelte_exports, {
   default: () => Launcherx
 });
-var css$17, HeroSection6, css18, Launcherx;
+var css$24, HeroSection6, css$18, AboutLauncherX, css20, HowToInstall, Launcherx;
 var init_launcherx_svelte = __esm({
   ".svelte-kit/output/server/entries/pages/launcherx.svelte.js"() {
-    init_index_30fa663f();
-    init_NavigationView_svelte_svelte_type_style_lang_d1ad264c();
-    init_MicaBackground_c1f5214e();
-    init_Button_a47ea82f();
-    css$17 = {
-      code: '.parallax-container.svelte-tx0l95.svelte-tx0l95{position:relative;width:100%;height:72vh;overflow-y:hidden;align-items:center;justify-content:center;text-align:center}.bg-image-div.svelte-tx0l95.svelte-tx0l95{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.bg-image-div.svelte-tx0l95 img.svelte-tx0l95{max-height:calc(72vh - 50px);max-width:80vw;content:url("/screenshots/launcherx/WindowLight.png");-webkit-fliter:blur(6px);filter:blur(6px)}@media(prefers-color-scheme: dark){.bg-image-div.svelte-tx0l95 img.svelte-tx0l95{max-height:calc(72vh - 50px);max-width:80vw;content:url("/screenshots/launcherx/WindowDark.png");-webkit-fliter:blur(6px);filter:blur(6px)}}.logo-components.svelte-tx0l95.svelte-tx0l95{position:absolute;word-wrap:break-word;top:50%;left:50%;transform:translate(-50%, -50%);width:90vw}.logo-components.svelte-tx0l95 img.svelte-tx0l95{display:block;max-height:15vh;max-width:80vw;content:url("/app-images/launcherx/logoLight.png");margin:auto}@media(prefers-color-scheme: dark){.logo-components.svelte-tx0l95 img.svelte-tx0l95{display:block;max-height:15vh;max-width:80vw;content:url("/app-images/launcherx/logoDark.png");margin:auto}}.logo-components.svelte-tx0l95 .caption-text{display:block;margin-top:10px}.logo-components.svelte-tx0l95 .download-btn{margin-top:calc(calc(16/14) * 20px)}',
+    init_index_223a4ced();
+    init_NavigationView_svelte_svelte_type_style_lang_8088d3b7();
+    init_MicaBackground_bde423f3();
+    init_Button_9355eef8();
+    init_InfoBar_c3821baf();
+    init_HeaderChip_992c049f();
+    css$24 = {
+      code: '.parallax-container.svelte-egah5j.svelte-egah5j{position:relative;width:100%;height:72vh;overflow-y:hidden;align-items:center;justify-content:center;text-align:center}.bg-image-div.svelte-egah5j.svelte-egah5j{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.bg-image-div.svelte-egah5j img.svelte-egah5j{max-height:calc(72vh - 50px);max-width:80vw;content:url("/screenshots/launcherx/WindowLight.png");-webkit-fliter:blur(6px);filter:blur(6px)}@media(prefers-color-scheme: dark){.bg-image-div.svelte-egah5j img.svelte-egah5j{max-height:calc(72vh - 50px);max-width:80vw;content:url("/screenshots/launcherx/WindowDark.png");-webkit-fliter:blur(6px);filter:blur(6px)}}.logo-components.svelte-egah5j.svelte-egah5j{position:absolute;word-wrap:break-word;top:50%;left:50%;transform:translate(-50%, -50%);width:90vw}.logo-components.svelte-egah5j img.svelte-egah5j{display:block;max-height:15vh;max-width:80vw;content:url("/app-images/launcherx/logoLight.png");margin:auto}@media(prefers-color-scheme: dark){.logo-components.svelte-egah5j img.svelte-egah5j{display:block;max-height:15vh;max-width:80vw;content:url("/app-images/launcherx/logoDark.png");margin:auto}}.logo-components.svelte-egah5j .caption-text{display:block;margin-top:10px}.logo-components.svelte-egah5j .download-btn{margin-top:calc(25px / calc(16/14))}',
       map: null
     };
     HeroSection6 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let sy;
-      $$result.css.add(css$17);
+      $$result.css.add(css$24);
       return `
 
 
-<div class="${"parallax-container svelte-tx0l95"}">${validate_component(MicaBackground, "MicaBackground").$$render($$result, {}, {}, {})}
+<div class="${"parallax-container svelte-egah5j"}">${validate_component(MicaBackground, "MicaBackground").$$render($$result, {}, {}, {})}
 
-    <div class="${"bg-image-div svelte-tx0l95"}"><img style="${"transform: translate(0," + escape(-sy * 0.2) + "px)"}" alt="${"LauncherX Window Screenshot"}" class="${"svelte-tx0l95"}"></div>
+    <div class="${"bg-image-div svelte-egah5j"}"><img style="${"transform: translate(0," + escape(-sy * 0.2, true) + "px)"}" alt="${"LauncherX Window Screenshot"}" class="${"svelte-egah5j"}"></div>
 
-    <div class="${"logo-components svelte-tx0l95"}"><img style="${"transform: translate(0," + escape(-sy * 0.1) + "px)"}" alt="${"LauncherX Logo"}" class="${"svelte-tx0l95"}">
+    <div class="${"logo-components svelte-egah5j"}"><img style="${"transform: translate(0," + escape(-sy * 0.1, true) + "px)"}" alt="${"LauncherX Logo"}" class="${"svelte-egah5j"}">
         ${validate_component(TextBlock, "TextBlock").$$render($$result, {
         variant: "subtitle",
         style: "transform: translate(0," + -sy * 0.1 + "px)",
@@ -7084,16 +7519,86 @@ var init_launcherx_svelte = __esm({
       })}</div>
 </div>`;
     });
-    css18 = {
-      code: ".content.svelte-vp6s3y{padding:2em 5vw 2em 5vw}",
+    css$18 = {
+      code: ".padding-div.svelte-1qg3puz.svelte-1qg3puz{padding:2em 5vw 2em 5vw;background-color:var(--fds-solid-background-base)}.attention-infobar{max-width:1060px;margin:auto;padding:0.2em}.links.svelte-1qg3puz.svelte-1qg3puz{color:var(--fds-accent-text-primary);text-align:center;overflow-wrap:break-word;word-wrap:break-word;-ms-word-break:break-all;word-break:break-all;word-break:break-word;-ms-hyphens:auto;-moz-hyphens:auto;-webkit-hyphens:auto;hyphens:auto}.container.svelte-1qg3puz.svelte-1qg3puz{background-color:var(--fds-solid-background-base);margin-top:1em;overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-1qg3puz .titleText{margin-left:5px;margin-right:5px}.container.svelte-1qg3puz .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em;max-width:1100px}.container.svelte-1qg3puz iframe.svelte-1qg3puz{width:90vw;max-width:840px;height:calc(calc(90vw / 16) * 9);max-height:473px;margin-top:1.5em}",
       map: null
     };
+    AboutLauncherX = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      $$result.css.add(css$18);
+      return `<div class="${"padding-div svelte-1qg3puz"}">${validate_component(InfoBar, "InfoBar").$$render($$result, {
+        severity: "caution",
+        class: "attention-infobar",
+        title: "Attention"
+      }, {}, {
+        default: () => {
+          return `This page is still under construction. For now, please head to <a class="${"links svelte-1qg3puz"}" target="${"_blank"}" rel="${"noopener noreferrer"}" href="${"https://clickphase.weebly.com/launcherx.html"}">https://clickphase.weebly.com/launcherx.html
+        </a>
+        for information about LauncherX.
+    `;
+        }
+      })}
+
+    <div class="${"container svelte-1qg3puz"}">${validate_component(HeaderChip, "HeaderChip").$$render($$result, {}, {}, {
+        default: () => {
+          return `About`;
+        }
+      })}
+
+        ${validate_component(TextBlock, "TextBlock").$$render($$result, {
+        variant: "titleLarge",
+        class: "titleText"
+      }, {}, {
+        default: () => {
+          return `About LauncherX`;
+        }
+      })}
+
+        ${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "bodyLarge", class: "bodyText" }, {}, {
+        default: () => {
+          return `LauncherX is a Windows Program used to organize and access all of
+            your files, folders, websites, and pretty much anything.`;
+        }
+      })}
+
+        <iframe src="${"https://www.youtube-nocookie.com/embed/TPSv2jQtsIA"}" title="${"YouTube video player"}" frameborder="${"0"}" allow="${"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"}" allowfullscreen class="${"svelte-1qg3puz"}"></iframe></div>
+</div>`;
+    });
+    css20 = {
+      code: ".container.svelte-1j28iyo.svelte-1j28iyo{padding:2em 5vw 2em 5vw;background-color:var(--fds-solid-background-secondary);overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-1j28iyo .titleText{margin-left:5px;margin-right:5px}.container.svelte-1j28iyo .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em;max-width:1100px}.container.svelte-1j28iyo iframe.svelte-1j28iyo{width:90vw;max-width:840px;height:calc(calc(90vw / 16) * 9);max-height:473px;margin-top:1.5em}",
+      map: null
+    };
+    HowToInstall = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      $$result.css.add(css20);
+      return `<div class="${"container svelte-1j28iyo"}">${validate_component(HeaderChip, "HeaderChip").$$render($$result, {}, {}, {
+        default: () => {
+          return `Installation`;
+        }
+      })}
+
+    ${validate_component(TextBlock, "TextBlock").$$render($$result, {
+        variant: "titleLarge",
+        class: "titleText"
+      }, {}, {
+        default: () => {
+          return `How to install`;
+        }
+      })}
+
+    ${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "bodyLarge", class: "bodyText" }, {}, {
+        default: () => {
+          return `How to install LauncherX.`;
+        }
+      })}
+
+    <iframe src="${"https://www.youtube-nocookie.com/embed/8QV_SVkfgtU"}" title="${"YouTube video player"}" frameborder="${"0"}" allow="${"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"}" allowfullscreen class="${"svelte-1j28iyo"}"></iframe>
+</div>`;
+    });
     Launcherx = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css18);
-      return `${$$result.head += `${$$result.title = `<title>LauncherX - ClickPhase</title>`, ""}`, ""}
+      return `${$$result.head += `${$$result.title = `<title>LauncherX - ClickPhase</title>`, ""}<meta name="${"description"}" content="${"LauncherX - Organise all your stuff!"}" data-svelte="svelte-107j836"><meta name="${"keywords"}" content="${"Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"}" data-svelte="svelte-107j836"><meta name="${"author"}" content="${"ClickPhase"}" data-svelte="svelte-107j836">`, ""}
 
 ${validate_component(HeroSection6, "HeroSection").$$render($$result, {}, {}, {})}
-<div class="${"content svelte-vp6s3y"}"></div>`;
+${validate_component(AboutLauncherX, "AboutLauncherX").$$render($$result, {}, {}, {})}
+${validate_component(HowToInstall, "HowToInstall").$$render($$result, {}, {}, {})}`;
     });
   }
 });
@@ -7101,18 +7606,18 @@ ${validate_component(HeroSection6, "HeroSection").$$render($$result, {}, {}, {})
 // .svelte-kit/output/server/nodes/7.js
 var __exports8 = {};
 __export(__exports8, {
-  css: () => css19,
+  css: () => css21,
   entry: () => entry8,
   js: () => js8,
   module: () => launcherx_svelte_exports
 });
-var entry8, js8, css19;
+var entry8, js8, css21;
 var init__8 = __esm({
   ".svelte-kit/output/server/nodes/7.js"() {
     init_launcherx_svelte();
-    entry8 = "pages/launcherx.svelte-3b71e4ea.js";
-    js8 = ["pages/launcherx.svelte-3b71e4ea.js", "chunks/index-306fcf0d.js", "chunks/NavigationView.svelte_svelte_type_style_lang-c16d035c.js", "chunks/MicaBackground-d5b6acee.js", "chunks/Button-cef66c42.js"];
-    css19 = ["assets/pages/launcherx.svelte-65c50e04.css", "assets/NavigationView.svelte_svelte_type_style_lang-7136ff2f.css", "assets/MicaBackground-b6441a3f.css"];
+    entry8 = "pages/launcherx.svelte-b2954deb.js";
+    js8 = ["pages/launcherx.svelte-b2954deb.js", "chunks/index-a7d8ca41.js", "chunks/NavigationView.svelte_svelte_type_style_lang-86c9a88c.js", "chunks/MicaBackground-ff907a83.js", "chunks/Button-9d1ab1dc.js", "chunks/InfoBar-6ec7ff53.js", "chunks/HeaderChip-049c70ed.js"];
+    css21 = ["assets/pages/launcherx.svelte-6230db58.css", "assets/NavigationView.svelte_svelte_type_style_lang-492d57f0.css", "assets/MicaBackground-b6441a3f.css", "assets/HeaderChip-3ac8b427.css"];
   }
 });
 
@@ -7281,29 +7786,30 @@ var p5js_paint_app_svelte_exports = {};
 __export(p5js_paint_app_svelte_exports, {
   default: () => P5js_paint_app
 });
-var import_screenfull, css$25, HeroSection7, Fullscreen, css$18, P5jsFrameSection, css20, P5js_paint_app;
+var import_screenfull, css$19, HeroSection7, Fullscreen, css22, P5jsFrameSection, P5js_paint_app;
 var init_p5js_paint_app_svelte = __esm({
   ".svelte-kit/output/server/entries/pages/p5js-paint-app.svelte.js"() {
-    init_index_30fa663f();
-    init_NavigationView_svelte_svelte_type_style_lang_d1ad264c();
-    init_MicaBackground_c1f5214e();
-    init_Button_a47ea82f();
+    init_index_223a4ced();
+    init_NavigationView_svelte_svelte_type_style_lang_8088d3b7();
+    init_MicaBackground_bde423f3();
+    init_Button_9355eef8();
     import_screenfull = __toESM(require_screenfull(), 1);
-    css$25 = {
-      code: '.parallax-container.svelte-1c2uzel.svelte-1c2uzel{position:relative;width:100%;height:72vh;overflow-y:hidden;align-items:center;justify-content:center;text-align:center}.bg-image-div.svelte-1c2uzel.svelte-1c2uzel{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.bg-image-div.svelte-1c2uzel img.svelte-1c2uzel{max-height:calc(72vh - 50px);max-width:80vw;content:url("/screenshots/p5js-paint-app/Window.png");-webkit-fliter:blur(4px);filter:blur(4px)}@media(prefers-color-scheme: dark){.bg-image-div.svelte-1c2uzel img.svelte-1c2uzel{max-height:calc(72vh - 50px);max-width:80vw;content:url("/screenshots/p5js-paint-app/Window.png");-webkit-fliter:blur(4px) brightness(0.8);filter:blur(4px) brightness(0.8)}}.logo-components.svelte-1c2uzel.svelte-1c2uzel{position:absolute;word-wrap:break-word;top:50%;left:50%;transform:translate(-50%, -50%);width:90vw}.logo-components.svelte-1c2uzel .logo-title{display:block;line-height:normal;font-size:min(7vmax, 68px);margin:auto}.logo-components.svelte-1c2uzel .caption-text{display:block;margin-top:20px}.logo-components.svelte-1c2uzel .visit-btn{margin-top:calc(calc(16 / 14) * 20px)}',
+    init_HeaderChip_992c049f();
+    css$19 = {
+      code: '.parallax-container.svelte-1u6dzon.svelte-1u6dzon{position:relative;width:100%;height:72vh;overflow-y:hidden;align-items:center;justify-content:center;text-align:center}.bg-image-div.svelte-1u6dzon.svelte-1u6dzon{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.bg-image-div.svelte-1u6dzon img.svelte-1u6dzon{max-height:calc(72vh - 50px);max-width:80vw;content:url("/screenshots/p5js-paint-app/Window.png");-webkit-fliter:blur(4px);filter:blur(4px)}@media(prefers-color-scheme: dark){.bg-image-div.svelte-1u6dzon img.svelte-1u6dzon{max-height:calc(72vh - 50px);max-width:80vw;content:url("/screenshots/p5js-paint-app/Window.png");-webkit-fliter:blur(4px) brightness(0.8);filter:blur(4px) brightness(0.8)}}.logo-components.svelte-1u6dzon.svelte-1u6dzon{position:absolute;word-wrap:break-word;top:50%;left:50%;transform:translate(-50%, -50%);width:90vw}.logo-components.svelte-1u6dzon .logo-title{display:block;line-height:normal;font-size:min(7vmax, 68px);margin:auto}.logo-components.svelte-1u6dzon .caption-text{display:block;margin-top:20px}.logo-components.svelte-1u6dzon .visit-btn{margin-top:calc(25px / calc(16 / 14))}',
       map: null
     };
     HeroSection7 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let sy;
-      $$result.css.add(css$25);
+      $$result.css.add(css$19);
       return `
 
 
-<div class="${"parallax-container svelte-1c2uzel"}">${validate_component(MicaBackground, "MicaBackground").$$render($$result, {}, {}, {})}
+<div class="${"parallax-container svelte-1u6dzon"}">${validate_component(MicaBackground, "MicaBackground").$$render($$result, {}, {}, {})}
 
-    <div class="${"bg-image-div svelte-1c2uzel"}"><img style="${"transform: translate(0," + escape(-sy * 0.2) + "px)"}" alt="${"p5.js Paint App Screenshot"}" class="${"svelte-1c2uzel"}"></div>
+    <div class="${"bg-image-div svelte-1u6dzon"}"><img style="${"transform: translate(0," + escape(-sy * 0.2, true) + "px)"}" alt="${"p5.js Paint App Screenshot"}" class="${"svelte-1u6dzon"}"></div>
 
-    <div class="${"logo-components svelte-1c2uzel"}">${validate_component(TextBlock, "TextBlock").$$render($$result, {
+    <div class="${"logo-components svelte-1u6dzon"}">${validate_component(TextBlock, "TextBlock").$$render($$result, {
         class: "logo-title",
         style: "transform: translate(0," + -sy * 0.1 + "px)",
         variant: "display"
@@ -7363,13 +7869,19 @@ var init_p5js_paint_app_svelte = __esm({
       return `<div style="${"width:0; height:0"}"${add_attribute("this", component, 0)}></div>
 ${slots.default ? slots.default({ onToggle, onRequest, onExit }) : ``}`;
     });
-    css$18 = {
-      code: ".container.svelte-13237d3{margin-top:1em;overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-13237d3 .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em}.paint-app-frame.svelte-13237d3{display:flex;align-items:center;justify-content:center;background-color:var(--fds-solid-background-base)}.frame-div.svelte-13237d3{overflow-x:scroll;width:90vw;height:100%}.paint-app-frame.svelte-13237d3 .fullscreen-btn{margin:1em}",
+    css22 = {
+      code: ".container.svelte-1vlp3o7{margin-top:1em;padding:2em 5vw 2em 5vw;overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.container.svelte-1vlp3o7 .bodyText{display:block;text-align:center;margin:auto;margin-top:1.5em}.paint-app-frame.svelte-1vlp3o7{display:flex;align-items:center;justify-content:center;background-color:var(--fds-solid-background-base)}.frame-div.svelte-1vlp3o7{overflow-x:scroll;width:90vw;height:100%}.paint-app-frame.svelte-1vlp3o7 .fullscreen-btn{margin:1em}",
       map: null
     };
     P5jsFrameSection = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css$18);
-      return `<div class="${"container svelte-13237d3"}">${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "titleLarge" }, {}, {
+      $$result.css.add(css22);
+      return `<div class="${"container svelte-1vlp3o7"}">${validate_component(HeaderChip, "HeaderChip").$$render($$result, {}, {}, {
+        default: () => {
+          return `About`;
+        }
+      })}
+    
+    ${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "titleLarge" }, {}, {
         default: () => {
           return `p5.js Paint App`;
         }
@@ -7384,7 +7896,7 @@ ${slots.default ? slots.default({ onToggle, onRequest, onExit }) : ``}`;
 
     ${validate_component(Fullscreen, "Fullscreen").$$render($$result, {}, {}, {
         default: ({ onToggle }) => {
-          return `<div class="${"paint-app-frame svelte-13237d3"}"><div><div class="${"fullscreen-btn-div"}">${validate_component(Button, "Button").$$render($$result, {
+          return `<div class="${"paint-app-frame svelte-1vlp3o7"}"><div><div class="${"fullscreen-btn-div"}">${validate_component(Button, "Button").$$render($$result, {
             class: "fullscreen-btn",
             variant: "accent"
           }, {}, {
@@ -7392,22 +7904,16 @@ ${slots.default ? slots.default({ onToggle, onRequest, onExit }) : ``}`;
               return `Toggle Fullscreen`;
             }
           })}</div>
-                <div class="${"frame-div svelte-13237d3"}"><iframe title="${"p5.js Paint App"}" width="${"900"}" height="${"642"}" src="${"https://editor.p5js.org/Apollo199999999/embed/X0Y6tSIjJ"}"></iframe></div></div></div>`;
+                <div class="${"frame-div svelte-1vlp3o7"}"><iframe title="${"p5.js Paint App"}" width="${"900"}" height="${"642"}" src="${"https://editor.p5js.org/Apollo199999999/embed/X0Y6tSIjJ"}"></iframe></div></div></div>`;
         }
       })}
 </div>`;
     });
-    css20 = {
-      code: ".content.svelte-vp6s3y{padding:2em 5vw 2em 5vw}",
-      map: null
-    };
     P5js_paint_app = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css20);
-      return `${$$result.head += `${$$result.title = `<title>p5.js Paint App - ClickPhase</title>`, ""}`, ""}
+      return `${$$result.head += `${$$result.title = `<title>p5.js Paint App - ClickPhase</title>`, ""}<meta name="${"description"}" content="${"p5.js - A lightweight, online, and minimal paint app made in p5.js"}" data-svelte="svelte-vyya11"><meta name="${"keywords"}" content="${"Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"}" data-svelte="svelte-vyya11"><meta name="${"author"}" content="${"ClickPhase"}" data-svelte="svelte-vyya11">`, ""}
 
 ${validate_component(HeroSection7, "HeroSection").$$render($$result, {}, {}, {})}
-<div class="${"content svelte-vp6s3y"}">${validate_component(P5jsFrameSection, "P5jsFrameSection").$$render($$result, {}, {}, {})}
-</div>`;
+${validate_component(P5jsFrameSection, "P5jsFrameSection").$$render($$result, {}, {}, {})}`;
     });
   }
 });
@@ -7415,18 +7921,18 @@ ${validate_component(HeroSection7, "HeroSection").$$render($$result, {}, {}, {})
 // .svelte-kit/output/server/nodes/8.js
 var __exports9 = {};
 __export(__exports9, {
-  css: () => css21,
+  css: () => css23,
   entry: () => entry9,
   js: () => js9,
   module: () => p5js_paint_app_svelte_exports
 });
-var entry9, js9, css21;
+var entry9, js9, css23;
 var init__9 = __esm({
   ".svelte-kit/output/server/nodes/8.js"() {
     init_p5js_paint_app_svelte();
-    entry9 = "pages/p5js-paint-app.svelte-24c09eb2.js";
-    js9 = ["pages/p5js-paint-app.svelte-24c09eb2.js", "chunks/index-306fcf0d.js", "chunks/NavigationView.svelte_svelte_type_style_lang-c16d035c.js", "chunks/MicaBackground-d5b6acee.js", "chunks/Button-cef66c42.js"];
-    css21 = ["assets/pages/p5js-paint-app.svelte-7908d459.css", "assets/NavigationView.svelte_svelte_type_style_lang-7136ff2f.css", "assets/MicaBackground-b6441a3f.css"];
+    entry9 = "pages/p5js-paint-app.svelte-cba55676.js";
+    js9 = ["pages/p5js-paint-app.svelte-cba55676.js", "chunks/index-a7d8ca41.js", "chunks/NavigationView.svelte_svelte_type_style_lang-86c9a88c.js", "chunks/MicaBackground-ff907a83.js", "chunks/Button-9d1ab1dc.js", "chunks/HeaderChip-049c70ed.js"];
+    css23 = ["assets/pages/p5js-paint-app.svelte-411d2b0a.css", "assets/NavigationView.svelte_svelte_type_style_lang-492d57f0.css", "assets/MicaBackground-b6441a3f.css", "assets/HeaderChip-3ac8b427.css"];
   }
 });
 
@@ -7435,19 +7941,19 @@ var software_svelte_exports = {};
 __export(software_svelte_exports, {
   default: () => Software
 });
-var css$26, HeroSection8, css$19, AllSoftware, css22, Software;
+var css$110, HeroSection8, css24, AllSoftware, Software;
 var init_software_svelte = __esm({
   ".svelte-kit/output/server/entries/pages/software.svelte.js"() {
-    init_index_30fa663f();
-    init_NavigationView_svelte_svelte_type_style_lang_d1ad264c();
-    init_MicaBackground_c1f5214e();
-    css$26 = {
+    init_index_223a4ced();
+    init_NavigationView_svelte_svelte_type_style_lang_8088d3b7();
+    init_MicaBackground_bde423f3();
+    css$110 = {
       code: ".container.svelte-kgadmr{position:relative;word-wrap:break-word;align-items:center;justify-content:center;text-align:center}.text-div.svelte-kgadmr{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}.text-div.svelte-kgadmr .titleText{line-height:normal;font-size:min(7vmax, 68px)}",
       map: null
     };
     HeroSection8 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let sy;
-      $$result.css.add(css$26);
+      $$result.css.add(css$110);
       return `
 
 
@@ -7463,46 +7969,40 @@ var init_software_svelte = __esm({
       })}</div>
 </div>`;
     });
-    css$19 = {
-      code: ".container.svelte-1k97g0q{margin-top:1em;overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.cards-collection.svelte-1k97g0q{margin-top:2em;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.card.svelte-1k97g0q{display:flex;justify-content:center;align-items:center;margin:0.7rem;width:280px;min-width:200px;flex-grow:1;height:350px;text-align:center;border-radius:var(--fds-control-corner-radius);z-index:999;-webkit-transition:200ms ease-in-out;-o-transition:200ms ease-in-out;transition:200ms ease-in-out;-webkit-box-shadow:0 0 15px rgba(0, 0, 0, 0.3);box-shadow:0 0 15px rgba(0, 0, 0, 0.3);background:linear-gradient(\r\n                var(--fds-card-background-default),\r\n                var(--fds-card-background-default)\r\n            ),\r\n            linear-gradient(\r\n                var(--fds-solid-background-base),\r\n                var(--fds-solid-background-base)\r\n            )}.card.svelte-1k97g0q:hover{transform:scale(1.035);-webkit-box-shadow:0 0 20px rgba(0, 0, 0, 0.2);box-shadow:0 0 20px rgba(0, 0, 0, 0.2)}.card-content.svelte-1k97g0q{width:100%}.card-image.svelte-1k97g0q{width:80%;max-width:260px}.card-text.svelte-1k97g0q{font-family:var(--fds-font-family-display);font-weight:600;font-size:28px;margin:0px;margin-top:1.5rem;margin-left:10px;margin-right:10px}.card-subtext.svelte-1k97g0q{font-family:var(--fds-font-family-display);font-size:18px;margin:0px;margin-top:1rem;margin-left:20px;margin-right:20px}",
+    css24 = {
+      code: ".container.svelte-9pbw57{margin-top:1em;padding:2em 5vw 2em 5vw;overflow:hidden;word-wrap:break-word;align-items:center;justify-content:center;text-align:center;overflow:hidden}.cards-collection.svelte-9pbw57{margin-top:1.5em;margin-bottom:-1.5em;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}.card.svelte-9pbw57{display:flex;justify-content:center;align-items:center;margin:0em 0.7em 1.5em 0.7em;width:280px;min-width:200px;flex-grow:1;height:350px;text-align:center;border-radius:var(--fds-control-corner-radius);z-index:999;-webkit-transition:200ms ease-in-out;-o-transition:200ms ease-in-out;transition:200ms ease-in-out;-webkit-box-shadow:0 0 15px rgba(0, 0, 0, 0.3);box-shadow:0 0 15px rgba(0, 0, 0, 0.3);background:linear-gradient(\r\n                var(--fds-card-background-default),\r\n                var(--fds-card-background-default)\r\n            ),\r\n            linear-gradient(\r\n                var(--fds-solid-background-base),\r\n                var(--fds-solid-background-base)\r\n            )}.card.svelte-9pbw57:hover{transform:scale(1.035);-webkit-box-shadow:0 0 20px rgba(0, 0, 0, 0.2);box-shadow:0 0 20px rgba(0, 0, 0, 0.2)}.card-content.svelte-9pbw57{width:100%}.card-image.svelte-9pbw57{width:80%;max-width:260px}.card-text.svelte-9pbw57{font-family:var(--fds-font-family-display);font-weight:600;font-size:28px;margin:0px;margin-top:1.5rem;margin-left:10px;margin-right:10px}.card-subtext.svelte-9pbw57{font-family:var(--fds-font-family-display);font-size:18px;margin:0px;margin-top:1rem;margin-left:20px;margin-right:20px}",
       map: null
     };
     AllSoftware = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css$19);
-      return `<div class="${"container svelte-1k97g0q"}">${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "titleLarge" }, {}, {
+      $$result.css.add(css24);
+      return `<div class="${"container svelte-9pbw57"}">${validate_component(TextBlock, "TextBlock").$$render($$result, { variant: "titleLarge" }, {}, {
         default: () => {
           return `All Software`;
         }
       })}
 
-    <div class="${"cards-collection svelte-1k97g0q"}"><div class="${"card svelte-1k97g0q"}" onclick="${"window.location.href = '/p5js-paint-app';"}"><div class="${"card-content svelte-1k97g0q"}"><img class="${"card-image svelte-1k97g0q"}" alt="${"p5.js Paint App"}" src="${"/app-images/p5js-paint-app/p5jsPaintAppImage.png"}">
-                <p class="${"card-text svelte-1k97g0q"}">p5.js Paint App</p>
-                <p class="${"card-subtext svelte-1k97g0q"}">A lightweight, online, and minimal paint app made in p5.js</p></div></div>
+    <div class="${"cards-collection svelte-9pbw57"}"><div class="${"card svelte-9pbw57"}" onclick="${"window.location.href = '/p5js-paint-app';"}"><div class="${"card-content svelte-9pbw57"}"><img class="${"card-image svelte-9pbw57"}" alt="${"p5.js Paint App"}" src="${"/app-images/p5js-paint-app/p5jsPaintAppImage.png"}">
+                <p class="${"card-text svelte-9pbw57"}">p5.js Paint App</p>
+                <p class="${"card-subtext svelte-9pbw57"}">A lightweight, online, and minimal paint app made in p5.js</p></div></div>
 
-        <div class="${"card svelte-1k97g0q"}" onclick="${"window.location.href = '/dynawin';"}"><div class="${"card-content svelte-1k97g0q"}"><img class="${"card-image svelte-1k97g0q"}" alt="${"DynaWin"}" src="${"/app-images/dynawin/DynaWinImage.jpg"}">
-                <p class="${"card-text svelte-1k97g0q"}">DynaWin</p>
-                <p class="${"card-subtext svelte-1k97g0q"}">Dynamic Desktop for Windows 10 and Windows 11</p></div></div>
+        <div class="${"card svelte-9pbw57"}" onclick="${"window.location.href = '/dynawin';"}"><div class="${"card-content svelte-9pbw57"}"><img class="${"card-image svelte-9pbw57"}" alt="${"DynaWin"}" src="${"/app-images/dynawin/DynaWinImage.jpg"}">
+                <p class="${"card-text svelte-9pbw57"}">DynaWin</p>
+                <p class="${"card-subtext svelte-9pbw57"}">Dynamic Desktop for Windows 10 and Windows 11</p></div></div>
 
-        <div class="${"card svelte-1k97g0q"}" onclick="${"window.location.href = '/launcherx';"}"><div class="${"card-content svelte-1k97g0q"}"><img class="${"card-image svelte-1k97g0q"}" alt="${"LauncherX"}" src="${"/app-images/launcherx/LauncherXImage.png"}">
-                <p class="${"card-text svelte-1k97g0q"}">LauncherX</p>
-                <p class="${"card-subtext svelte-1k97g0q"}">Organise all your stuff!</p></div></div>
+        <div class="${"card svelte-9pbw57"}" onclick="${"window.location.href = '/launcherx';"}"><div class="${"card-content svelte-9pbw57"}"><img class="${"card-image svelte-9pbw57"}" alt="${"LauncherX"}" src="${"/app-images/launcherx/LauncherXImage.png"}">
+                <p class="${"card-text svelte-9pbw57"}">LauncherX</p>
+                <p class="${"card-subtext svelte-9pbw57"}">Organise all your stuff!</p></div></div>
 
-        <div class="${"card svelte-1k97g0q"}" onclick="${"window.location.href = '/granny-keyboard';"}"><div class="${"card-content svelte-1k97g0q"}"><img class="${"card-image svelte-1k97g0q"}" alt="${"Granny Keyboard"}" src="${"/app-images/granny-keyboard/GrannyKeyboardImage.png"}">
-                <p class="${"card-text svelte-1k97g0q"}">Granny Keyboard</p>
-                <p class="${"card-subtext svelte-1k97g0q"}">Your keys will start worshipping Granny</p></div></div></div>
+        <div class="${"card svelte-9pbw57"}" onclick="${"window.location.href = '/granny-keyboard';"}"><div class="${"card-content svelte-9pbw57"}"><img class="${"card-image svelte-9pbw57"}" alt="${"Granny Keyboard"}" src="${"/app-images/granny-keyboard/GrannyKeyboardImage.png"}">
+                <p class="${"card-text svelte-9pbw57"}">Granny Keyboard</p>
+                <p class="${"card-subtext svelte-9pbw57"}">Your keys will start worshipping Granny</p></div></div></div>
 </div>`;
     });
-    css22 = {
-      code: ".content.svelte-vp6s3y{padding:2em 5vw 2em 5vw}",
-      map: null
-    };
     Software = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css22);
-      return `${$$result.head += `${$$result.title = `<title>Software - ClickPhase</title>`, ""}`, ""}
+      return `${$$result.head += `${$$result.title = `<title>Software - ClickPhase</title>`, ""}<meta name="${"description"}" content="${"Software made by ClickPhase. LauncherX, DynaWin, and others."}" data-svelte="svelte-170st9z"><meta name="${"keywords"}" content="${"Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"}" data-svelte="svelte-170st9z"><meta name="${"author"}" content="${"ClickPhase"}" data-svelte="svelte-170st9z">`, ""}
 
 ${validate_component(HeroSection8, "HeroSection").$$render($$result, {}, {}, {})}
-<div class="${"content svelte-vp6s3y"}">${validate_component(AllSoftware, "AllSoftware").$$render($$result, {}, {}, {})}
-</div>`;
+${validate_component(AllSoftware, "AllSoftware").$$render($$result, {}, {}, {})}`;
     });
   }
 });
@@ -7510,18 +8010,18 @@ ${validate_component(HeroSection8, "HeroSection").$$render($$result, {}, {}, {})
 // .svelte-kit/output/server/nodes/9.js
 var __exports10 = {};
 __export(__exports10, {
-  css: () => css23,
+  css: () => css25,
   entry: () => entry10,
   js: () => js10,
   module: () => software_svelte_exports
 });
-var entry10, js10, css23;
+var entry10, js10, css25;
 var init__10 = __esm({
   ".svelte-kit/output/server/nodes/9.js"() {
     init_software_svelte();
-    entry10 = "pages/software.svelte-a4c1bb03.js";
-    js10 = ["pages/software.svelte-a4c1bb03.js", "chunks/index-306fcf0d.js", "chunks/NavigationView.svelte_svelte_type_style_lang-c16d035c.js", "chunks/MicaBackground-d5b6acee.js"];
-    css23 = ["assets/pages/software.svelte-f3a18a4f.css", "assets/NavigationView.svelte_svelte_type_style_lang-7136ff2f.css", "assets/MicaBackground-b6441a3f.css"];
+    entry10 = "pages/software.svelte-cd9f200e.js";
+    js10 = ["pages/software.svelte-cd9f200e.js", "chunks/index-a7d8ca41.js", "chunks/NavigationView.svelte_svelte_type_style_lang-86c9a88c.js", "chunks/MicaBackground-ff907a83.js"];
+    css25 = ["assets/pages/software.svelte-5528fcc6.css", "assets/NavigationView.svelte_svelte_type_style_lang-492d57f0.css", "assets/MicaBackground-b6441a3f.css"];
   }
 });
 
@@ -7605,7 +8105,7 @@ async function setResponse(res, response) {
 }
 
 // .svelte-kit/output/server/index.js
-init_index_30fa663f();
+init_index_223a4ced();
 var __accessCheck2 = (obj, member, msg) => {
   if (!member.has(obj))
     throw TypeError("Cannot " + msg);
@@ -7812,7 +8312,7 @@ async function render_endpoint(event, mod) {
 var chars$1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_$";
 var unsafeChars = /[<>\b\f\n\r\t\0\u2028\u2029]/g;
 var reserved = /^(?:do|if|in|for|int|let|new|try|var|byte|case|char|else|enum|goto|long|this|void|with|await|break|catch|class|const|final|float|short|super|throw|while|yield|delete|double|export|import|native|return|switch|throws|typeof|boolean|default|extends|finally|package|private|abstract|continue|debugger|function|volatile|interface|protected|transient|implements|instanceof|synchronized)$/;
-var escaped2 = {
+var escaped = {
   "<": "\\u003C",
   ">": "\\u003E",
   "/": "\\u002F",
@@ -7997,7 +8497,7 @@ function getType(thing) {
   return Object.prototype.toString.call(thing).slice(8, -1);
 }
 function escapeUnsafeChar(c) {
-  return escaped2[c] || c;
+  return escaped[c] || c;
 }
 function escapeUnsafeChars(str) {
   return str.replace(unsafeChars, escapeUnsafeChar);
@@ -8015,8 +8515,8 @@ function stringifyString(str) {
     var code = char.charCodeAt(0);
     if (char === '"') {
       result += '\\"';
-    } else if (char in escaped2) {
-      result += escaped2[char];
+    } else if (char in escaped) {
+      result += escaped[char];
     } else if (code >= 55296 && code <= 57343) {
       var next = str.charCodeAt(i2 + 1);
       if (code <= 56319 && (next >= 56320 && next <= 57343)) {
@@ -9919,10 +10419,10 @@ var Server = class {
 // .svelte-kit/vercel-tmp/manifest.js
 var manifest = {
   appDir: "_app",
-  assets: /* @__PURE__ */ new Set(["FluentSystemIcons-Regular.ttf", "MicaDark.png", "MicaLight.png", "app-images/dynawin/DynaWinImage.jpg", "app-images/dynawin/logoDark.png", "app-images/dynawin/logoLight.png", "app-images/granny-keyboard/GrannyKeyboardImage.png", "app-images/granny-keyboard/logoDark.png", "app-images/granny-keyboard/logoLight.png", "app-images/launcherx/LauncherXImage.png", "app-images/launcherx/logoDark.png", "app-images/launcherx/logoLight.png", "app-images/p5js-paint-app/p5jsPaintAppImage.png", "favicon.ico", "logo-img.png", "screenshots/dynawin/DynamicDark.png", "screenshots/dynawin/DynamicLight.png", "screenshots/dynawin/WindowDark.png", "screenshots/dynawin/WindowLight.png", "screenshots/granny-keyboard/Window.png", "screenshots/launcherx/WindowDark.png", "screenshots/launcherx/WindowLight.png", "screenshots/p5js-paint-app/Window.png", "sitemap.xml", "youtube-profiles/clickphase.png", "youtube-profiles/granny.png", "youtube-profiles/matthias-wang.jpg"]),
+  assets: /* @__PURE__ */ new Set(["FluentSystemIcons-Regular.ttf", "MicaDark.png", "MicaLight.png", "app-images/dynawin/DynaWinImage.jpg", "app-images/dynawin/logoDark.png", "app-images/dynawin/logoLight.png", "app-images/granny-keyboard/GrannyKeyboardImage.png", "app-images/granny-keyboard/logoDark.png", "app-images/granny-keyboard/logoLight.png", "app-images/launcherx/LauncherXImage.png", "app-images/launcherx/logoDark.png", "app-images/launcherx/logoLight.png", "app-images/p5js-paint-app/p5jsPaintAppImage.png", "favicon.ico", "logo-img.png", "screenshots/dynawin/DynamicThemeDark.png", "screenshots/dynawin/DynamicThemeLight.png", "screenshots/dynawin/DynamicWallpaperDark.png", "screenshots/dynawin/DynamicWallpaperLight.png", "screenshots/dynawin/WindowDark.png", "screenshots/dynawin/WindowLight.png", "screenshots/granny-keyboard/Window.png", "screenshots/launcherx/WindowDark.png", "screenshots/launcherx/WindowLight.png", "screenshots/p5js-paint-app/Window.png", "sitemap.xml", "youtube-profiles/clickphase.png", "youtube-profiles/granny.png", "youtube-profiles/matthias-wang.jpg"]),
   mimeTypes: { ".ttf": "font/ttf", ".png": "image/png", ".jpg": "image/jpeg", ".ico": "image/vnd.microsoft.icon", ".xml": "application/xml" },
   _: {
-    entry: { "file": "start-891b6f0a.js", "js": ["start-891b6f0a.js", "chunks/index-306fcf0d.js", "chunks/index-f639a060.js"], "css": [] },
+    entry: { "file": "start-01655fc5.js", "js": ["start-01655fc5.js", "chunks/index-a7d8ca41.js", "chunks/index-adad17a3.js"], "css": [] },
     nodes: [
       () => Promise.resolve().then(() => (init__(), __exports)),
       () => Promise.resolve().then(() => (init__2(), __exports2)),
