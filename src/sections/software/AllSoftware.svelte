@@ -1,12 +1,33 @@
 <script>
     import { TextBlock } from "fluent-svelte";
     import "fluent-svelte/theme.css";
+    import HeaderChip from "/src/components/HeaderChip.svelte";
 </script>
 
 <div class="container">
+    <HeaderChip>Software</HeaderChip>
+    
     <TextBlock variant="titleLarge">All Software</TextBlock>
 
     <div class="cards-collection">
+        <div class="card" onclick="window.location.href = '/launcherx';">
+            <div class="card-content">
+                <picture>
+                    <source
+                        srcset="/app-images/launcherx/LauncherXImageDark.png"
+                        media="(prefers-color-scheme: dark)"
+                    />
+                    <img
+                        class="card-image"
+                        alt="LauncherX"
+                        src="/app-images/launcherx/LauncherXImageLight.png"
+                    />
+                </picture>
+                <p class="card-text">LauncherX</p>
+                <p class="card-subtext">Modern app launcher for Windows</p>
+            </div>
+        </div>
+
         <div class="card" onclick="window.location.href = '/p5js-paint-app';">
             <div class="card-content">
                 <img
@@ -15,31 +36,28 @@
                     src="/app-images/p5js-paint-app/p5jsPaintAppImage.png"
                 />
                 <p class="card-text">p5.js Paint App</p>
-                <p class="card-subtext">A lightweight, online, and minimal paint app made in p5.js</p>
+                <p class="card-subtext">
+                    A lightweight, online, and minimal paint app made in p5.js
+                </p>
             </div>
         </div>
 
         <div class="card" onclick="window.location.href = '/dynawin';">
             <div class="card-content">
-                <img
-                    class="card-image"
-                    alt="DynaWin"
-                    src="/app-images/dynawin/DynaWinImage.jpg"
-                />
+                <picture>
+                    <source
+                        srcset="/app-images/dynawin/DynaWinImageDark.png"
+                        media="(prefers-color-scheme: dark)"
+                    />
+                    <img
+                        class="card-image"
+                        alt="DynaWin"
+                        src="/app-images/dynawin/DynaWinImageLight.png"
+                    />
                 <p class="card-text">DynaWin</p>
-                <p class="card-subtext">Dynamic Desktop for Windows 10 and Windows 11</p>
-            </div>
-        </div>
-
-        <div class="card" onclick="window.location.href = '/launcherx';">
-            <div class="card-content">
-                <img
-                    class="card-image"
-                    alt="LauncherX"
-                    src="/app-images/launcherx/LauncherXImage.png"
-                />
-                <p class="card-text">LauncherX</p>
-                <p class="card-subtext">Organise all your stuff!</p>
+                <p class="card-subtext">
+                    Dynamic Desktop for Windows 10 and Windows 11
+                </p>
             </div>
         </div>
 
@@ -51,7 +69,9 @@
                     src="/app-images/granny-keyboard/GrannyKeyboardImage.png"
                 />
                 <p class="card-text">Granny Keyboard</p>
-                <p class="card-subtext">Your keys will start worshipping Granny</p>
+                <p class="card-subtext">
+                    Your keys will start worshipping Granny
+                </p>
             </div>
         </div>
     </div>
@@ -123,7 +143,7 @@
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     }
 
-    .card-content{
+    .card-content {
         width: 100%;
     }
 

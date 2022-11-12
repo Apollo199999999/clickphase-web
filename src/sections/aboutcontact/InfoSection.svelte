@@ -2,6 +2,7 @@
 	import { TextBlock } from "fluent-svelte";
 	import "fluent-svelte/theme.css";
 	import { onMount } from "svelte";
+	import HeaderChip from "/src/components/HeaderChip.svelte";
 
 	onMount(() => {
 		//function to change the scale of the logo div
@@ -20,6 +21,7 @@
 </script>
 
 <div class="container">
+	<HeaderChip>About</HeaderChip>
 	<TextBlock variant="titleLarge">About ClickPhase</TextBlock>
 
 	<div class="logo">

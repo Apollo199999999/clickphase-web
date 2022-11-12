@@ -20,6 +20,6 @@
         font-weight: 600;
         line-height: 18px;
         user-select: none;
-        margin-bottom: 0.5em;
+        margin-bottom: 1em;
     }
 </style>

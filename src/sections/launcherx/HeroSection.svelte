@@ -26,7 +26,7 @@
             variant="subtitle"
             style="transform: translate(0,{-sy * 0.1}px)"
             class="caption-text">
-            Organise all your stuff!
+            Modern app launcher for Windows
         </TextBlock>
 
         <Button

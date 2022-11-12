@@ -1,31 +1,44 @@
 <script>
     import { TextBlock } from "fluent-svelte";
     import "fluent-svelte/theme.css";
+    import HeaderChip from "/src/components/HeaderChip.svelte";
 </script>
 
 <div class="container">
+    <HeaderChip>New arrivals</HeaderChip>
     <TextBlock variant="titleLarge">Featured Software</TextBlock>
 
     <div class="cards-collection">
         <div class="card" onclick="window.location.href = '/launcherx';">
             <div class="card-content">
-                <img
-                    class="card-image"
-                    alt="LauncherX"
-                    src="/app-images/launcherx/LauncherXImage.png"
-                />
+                <picture>
+                    <source
+                        srcset="/app-images/launcherx/LauncherXImageDark.png"
+                        media="(prefers-color-scheme: dark)"
+                    />
+                    <img
+                        class="card-image"
+                        alt="LauncherX"
+                        src="/app-images/launcherx/LauncherXImageLight.png"
+                    />
+                </picture>
                 <p class="card-text">LauncherX</p>
-                <p class="card-subtext">Organise all your stuff!</p>
+                <p class="card-subtext">Modern app launcher for Windows</p>
             </div>
         </div>
         
         <div class="card" onclick="window.location.href = '/dynawin';">
             <div class="card-content">
-                <img
-                    class="card-image"
-                    alt="DynaWin"
-                    src="/app-images/dynawin/DynaWinImage.jpg"
-                />
+                <picture>
+                    <source
+                        srcset="/app-images/dynawin/DynaWinImageDark.png"
+                        media="(prefers-color-scheme: dark)"
+                    />
+                    <img
+                        class="card-image"
+                        alt="DynaWin"
+                        src="/app-images/dynawin/DynaWinImageLight.png"
+                    />
                 <p class="card-text">DynaWin</p>
                 <p class="card-subtext">
                     Dynamic Desktop for Windows 10 and Windows 11
@@ -39,6 +52,7 @@
 <style>
     .container {
         padding: 2em 5vw 2em 5vw;
+        background-color: var(--fds-solid-background-secondary);
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;
