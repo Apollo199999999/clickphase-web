@@ -1,9 +1,11 @@
 <script>
     import { TextBlock } from "fluent-svelte";
     import "fluent-svelte/theme.css";
+    import HeaderChip from "/src/components/HeaderChip.svelte";
 </script>
 
 <div class="container">
+    <HeaderChip>Videos</HeaderChip>
     <TextBlock variant="titleLarge" class="titleText">My animations & videos</TextBlock>
     <TextBlock variant="bodyLarge" class="bodyText">You can find all of my animations and videos on my 3 YouTube channels.</TextBlock>
 
@@ -70,7 +72,7 @@
 
     .cards-collection {
         /* set negative margin-bottom to account for .card margin-bottom */
-        margin: 1.5em auto -1.5em auto;
+        margin: 2em auto -1.5em auto;
         max-width: 85vw;
         display: -webkit-box;
         display: -ms-flexbox;

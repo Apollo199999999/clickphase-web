@@ -6,7 +6,7 @@
 
 <svelte:head>
 	<title>LauncherX - ClickPhase</title>
-	<meta name="description" content="LauncherX - Organise all your stuff!" />
+	<meta name="description" content="LauncherX - Modern app launcher for Windows" />
 	<meta name="keywords" content="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js" />
 	<meta name="author" content="ClickPhase" />
 </svelte:head>
