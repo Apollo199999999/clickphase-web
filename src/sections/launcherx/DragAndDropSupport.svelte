@@ -8,17 +8,18 @@
     <HeaderChip>Feature</HeaderChip>
 
     <TextBlock variant="titleLarge" class="titleText"
-        >Launch and access anything</TextBlock
+        >Drag and Drop support</TextBlock
     >
 
     <TextBlock variant="bodyLarge" class="bodyText"
-        >You can add your most-used files, folders, websites to LauncherX to
-        conveniently access all of them from one place.</TextBlock
+        >LauncherX now supports dragging and dropping files and folders from
+        File Explorer as well as websites directly into the window. LauncherX
+        also supports the ability to reorder your items.</TextBlock
     >
 
     <video autoplay loop muted disablePictureInPicture>
         <source
-            src="/screenshots/launcherx/LaunchAccessAnything.mp4"
+            src="/screenshots/launcherx/DragAndDrop.mp4"
             type="video/mp4"
         />
         Your browser does not support the video tag.
@@ -28,7 +29,7 @@
 <style>
     .container {
         padding: 2em 5vw 2em 5vw;
-        background-color: var(--fds-solid-background-base);
+        background-color: var(--fds-solid-background-secondary);
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;
