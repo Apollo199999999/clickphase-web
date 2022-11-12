@@ -155,6 +155,6 @@
 
     .compare-image-div {
         /* resize the CompareImage container using padding */
-        padding: 1.5em 5vw 0vw 5vw;
+        padding: 2em 5vw 0vw 5vw;
     }
 </style>

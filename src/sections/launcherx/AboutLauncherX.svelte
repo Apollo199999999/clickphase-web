@@ -5,7 +5,7 @@
 </script>
 
 <div class="padding-div">
-    <InfoBar severity="caution" class="attention-infobar" title="Attention" >
+    <InfoBar severity="caution" class="attention-infobar" title="Attention">
         This page is still under construction. For now, please head to <a
             class="links"
             target="_blank"
@@ -25,8 +25,8 @@
         >
 
         <TextBlock variant="bodyLarge" class="bodyText"
-            >LauncherX is a Windows Program used to organize and access all of
-            your files, folders, websites, and pretty much anything.</TextBlock
+            >LauncherX is a Windows Program used to conveniently access all of
+            your most-used files, folders, websites.</TextBlock
         >
 
         <iframe
@@ -45,7 +45,7 @@
         background-color: var(--fds-solid-background-base);
     }
 
-    :global(.attention-infobar){
+    :global(.attention-infobar) {
         max-width: 1060px;
         margin: auto;
         padding: 0.2em;

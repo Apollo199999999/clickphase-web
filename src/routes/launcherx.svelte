@@ -2,6 +2,8 @@
 	import "fluent-svelte/theme.css";
 	import HeroSection from "/src/sections/launcherx/HeroSection.svelte";
 	import AboutLauncherX from "/src/sections/launcherx/AboutLauncherX.svelte";
+	import Compatibility from "/src/sections/launcherx/Compatibility.svelte";
+	import AccessAnything from "/src/sections/launcherx/AccessAnything.svelte";
 </script>
 
 <svelte:head>
@@ -13,3 +15,5 @@
 
 <HeroSection/>
 <AboutLauncherX/>
+<Compatibility/>
+<AccessAnything/>
