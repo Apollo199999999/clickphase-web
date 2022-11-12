@@ -60,8 +60,8 @@
         max-height: calc(72vh - 50px);
         max-width: 80vw;
         content: url("/screenshots/launcherx/WindowLight.png");
-        -webkit-fliter: blur(6px);
-        filter: blur(6px);
+        -webkit-fliter: blur(4px);
+        filter: blur(4px);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -69,8 +69,8 @@
             max-height: calc(72vh - 50px);
             max-width: 80vw;
             content: url("/screenshots/launcherx/WindowDark.png");
-            -webkit-fliter: blur(6px);
-            filter: blur(6px);
+            -webkit-fliter: blur(5px);
+            filter: blur(5px);
         }
     }
 
@@ -85,7 +85,7 @@
 
     .logo-components img {
         display: block;
-        max-height: 15vh;
+        max-height: 13vh;
         max-width: 80vw;
         content: url("/app-images/launcherx/logoLight.png");
         margin: auto;
@@ -94,7 +94,7 @@
     @media (prefers-color-scheme: dark) {
         .logo-components img {
             display: block;
-            max-height: 15vh;
+            max-height: 13vh;
             max-width: 80vw;
             content: url("/app-images/launcherx/logoDark.png");
             margin: auto;

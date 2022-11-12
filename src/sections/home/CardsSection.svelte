@@ -70,14 +70,15 @@
     }
 
     .container {
-        margin-top: -11.5em;
+        margin-top: -10em;
         padding: 2em 5vw 2em 5vw;
         overflow: hidden;
     }
 
     .cards-collection {
          /* set negative margin-bottom to account for .card margin-bottom */
-        margin-bottom: -1.5em;
+        margin: auto auto -1.5em auto;
+        max-width: 85vw;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;

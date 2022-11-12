@@ -7,6 +7,18 @@
     <TextBlock variant="titleLarge">Featured Software</TextBlock>
 
     <div class="cards-collection">
+        <div class="card" onclick="window.location.href = '/launcherx';">
+            <div class="card-content">
+                <img
+                    class="card-image"
+                    alt="LauncherX"
+                    src="/app-images/launcherx/LauncherXImage.png"
+                />
+                <p class="card-text">LauncherX</p>
+                <p class="card-subtext">Organise all your stuff!</p>
+            </div>
+        </div>
+        
         <div class="card" onclick="window.location.href = '/dynawin';">
             <div class="card-content">
                 <img
@@ -21,17 +33,6 @@
             </div>
         </div>
 
-        <div class="card" onclick="window.location.href = '/launcherx';">
-            <div class="card-content">
-                <img
-                    class="card-image"
-                    alt="LauncherX"
-                    src="/app-images/launcherx/LauncherXImage.png"
-                />
-                <p class="card-text">LauncherX</p>
-                <p class="card-subtext">Organise all your stuff!</p>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -47,9 +48,9 @@
     }
 
     .cards-collection {
-        margin-top: 1.5em;
         /* set negative margin-bottom to account for .card margin-bottom */
-        margin-bottom: -1.5em;
+        margin: 1.5em auto -1.5em auto;
+        max-width: 85vw;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
