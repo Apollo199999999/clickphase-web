@@ -9,7 +9,7 @@
         <HeaderChip>Feature</HeaderChip>
 
         <TextBlock variant="titleLarge" class="titleText"
-            >Drag and Drop support</TextBlock
+            >Customisable</TextBlock
         >
 
         <TextBlock variant="bodyLarge" class="bodyText"
@@ -36,12 +36,9 @@
         height: 550px;
         display: flex;
         flex-flow: column;
-        overflow: hidden;
         word-wrap: break-word;
-        align-items: center;
         justify-content: center;
         text-align: center;
-        overflow: hidden;
     }
 
     /* force the title to wrap if it is almost touching the edges */

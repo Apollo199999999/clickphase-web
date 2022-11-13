@@ -66,6 +66,7 @@
 
     /* force the title to wrap if it is almost touching the edges */
     .container :global(.titleText) {
+        display: block;
         margin-left: 5px;
         margin-right: 5px;
     }
@@ -103,7 +104,7 @@
         justify-content: center;
         align-items: center;
         margin: 0em 0.7em 1.5em 0.7em;
-        padding: 1.5rem 0.2rem;
+        padding: 1.5rem 1rem;
         width: 180px;
         min-width: 200px;
         flex-grow: 1;

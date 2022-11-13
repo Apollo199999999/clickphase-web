@@ -85,6 +85,7 @@
 
     /* force the title to wrap if it is almost touching the edges */
     .container :global(.titleText) {
+        display: block;
         margin-left: 5px;
         margin-right: 5px;
     }
