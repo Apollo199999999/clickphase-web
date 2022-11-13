@@ -4,6 +4,7 @@
 	import AboutLauncherX from "/src/sections/launcherx/AboutLauncherX.svelte";
 	import Compatibility from "/src/sections/launcherx/Compatibility.svelte";
 	import GroupedFeatures from "/src/sections/launcherx/GroupedFeatures.svelte";
+	import RedesignedUI from "/src/sections/launcherx/RedesignedUI.svelte";
 </script>
 
 <svelte:head>
@@ -17,3 +18,4 @@
 <AboutLauncherX/>
 <Compatibility/>
 <GroupedFeatures/>
+<RedesignedUI/>
