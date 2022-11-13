@@ -8,18 +8,16 @@
     <HeaderChip>Feature</HeaderChip>
 
     <TextBlock variant="titleLarge" class="titleText"
-        >Drag and Drop support</TextBlock
+        >Search Anything</TextBlock
     >
 
     <TextBlock variant="bodyLarge" class="bodyText"
-        >LauncherX now supports dragging and dropping files and folders from
-        File Explorer as well as websites directly into the window. LauncherX
-        also supports the ability to reorder your items.</TextBlock
+        >Search through your items in LauncherX with ease and convenience.</TextBlock
     >
 
     <video autoplay loop muted disablePictureInPicture>
         <source
-            src="/screenshots/launcherx/DragAndDrop.mp4"
+            src="/screenshots/launcherx/SearchAnything.mp4"
             type="video/mp4"
         />
         Your browser does not support the video tag.

@@ -4,7 +4,7 @@
 	import AboutLauncherX from "/src/sections/launcherx/AboutLauncherX.svelte";
 	import Compatibility from "/src/sections/launcherx/Compatibility.svelte";
 	import AccessAnything from "/src/sections/launcherx/AccessAnything.svelte";
-	import DragAndDropSupport from "/src/sections/launcherx/DragAndDropSupport.svelte";
+	import GroupedFeatures from "/src/sections/launcherx/GroupedFeatures.svelte";
 </script>
 
 <svelte:head>
@@ -18,4 +18,4 @@
 <AboutLauncherX/>
 <Compatibility/>
 <AccessAnything/>
-<DragAndDropSupport/>
+<GroupedFeatures/>

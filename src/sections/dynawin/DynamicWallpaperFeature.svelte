@@ -155,6 +155,7 @@
 
     .compare-image-div {
         /* resize the CompareImage container using padding */
-        padding: 2em 5vw 0vw 5vw;
+        max-width: min(1200px, 85vw);
+        margin: 2em auto 0 auto;
     }
 </style>

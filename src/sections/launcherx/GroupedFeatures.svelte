@@ -1,61 +1,30 @@
 <script>
     import { TextBlock } from "fluent-svelte";
     import "fluent-svelte/theme.css";
-    import HeaderChip from "/src/components/HeaderChip.svelte";
-    import { CompareImage } from "svelte-compare-image";
+    import DragAndDropSupport from "./DragAndDropSupport.svelte";
+    import SearchAnything from "./SearchAnything.svelte";
 </script>
 
 <div class="container">
-    <HeaderChip>Feature</HeaderChip>
-
-    <TextBlock class="titleText" variant="titleLarge">Dynamic Theme</TextBlock>
-    <TextBlock variant="bodyLarge" class="bodyText">
-        Switch your Windows theme or app theme based on time.
-    </TextBlock>
-
     <div class="cards-collection">
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Automatic switching of theme</p>
-                <p class="card-subtext">
-                    You can configure DynaWin to automatically switch the theme
-                    at specified timings. For example, you can automatically
-                    switch Windows to Dark theme, so that it is easier on the
-                    eyes at night.
-                </p>
+                <DragAndDropSupport />
             </div>
         </div>
 
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Choose which mode to switch</p>
-                <p class="card-subtext">
-                    You can configure DynaWin to switch only the app or system
-                    theme, or both. This allows DynaWin to better cater to your
-                    needs.
-                </p>
+                <SearchAnything />
             </div>
         </div>
-    </div>
-
-    <div class="compare-image-div">
-        <CompareImage
-            class="image-comparer"
-            imageLeftSrc="/screenshots/dynawin/DynamicThemeLight.png"
-            imageLeftAlt="Light Theme"
-            imageRightSrc="/screenshots/dynawin/DynamicThemeDark.png"
-            imageRightAlt="Dark Theme"
-            --handle-size="2.5rem"
-            --slider-color="#ffffff"
-            --slider-width="0.125rem"
-        />
     </div>
 </div>
 
 <style>
     .container {
         padding: 2em 5vw 2em 5vw;
-        background-color: var(--fds-solid-background-base);
+        background-color: var(--fds-solid-background-secondary);
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;
@@ -80,7 +49,6 @@
     .cards-collection {
         /* set negative margin-bottom to account for .card margin-bottom */
         margin: 2em auto -1.5em auto;
-        max-width: min(1200px, 85vw);
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -121,8 +89,8 @@
                 var(--fds-card-background-default)
             ),
             linear-gradient(
-                var(--fds-solid-background-base),
-                var(--fds-solid-background-base)
+                var(--fds-solid-background-secondary),
+                var(--fds-solid-background-secondary)
             ); /* first bg is on top of this */
     }
 
@@ -130,27 +98,4 @@
         width: 100%;
     }
 
-    .card-text {
-        font-family: var(--fds-font-family-display);
-        font-weight: 600;
-        font-size: 28px;
-        margin: 0px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .card-subtext {
-        font-family: var(--fds-font-family-display);
-        font-size: 18px;
-        margin: 0px;
-        margin-top: 1rem;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-    .compare-image-div{
-        max-width: min(1200px, 85vw);
-        margin: 2em auto 0 auto;
-    }
-    
 </style>
