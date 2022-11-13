@@ -5,58 +5,68 @@
 </script>
 
 <div class="container">
-    <HeaderChip>Feature</HeaderChip>
+    <div class="top">
+        <HeaderChip>Feature</HeaderChip>
 
-    <TextBlock variant="titleLarge" class="titleText"
-        >Launch and access anything</TextBlock
-    >
+        <TextBlock variant="titleLarge" class="titleText"
+            >Launch and Access anything</TextBlock
+        >
 
-    <TextBlock variant="bodyLarge" class="bodyText"
-        >You can add your most-used files, folders, websites to LauncherX to
-        conveniently access all of them from one place.</TextBlock
-    >
+        <TextBlock variant="bodyLarge" class="bodyText"
+            >You can add your most-used files, folders, websites to LauncherX to
+            conveniently access all of them from one place.</TextBlock
+        >
+    </div>
 
-    <video autoplay loop muted disablePictureInPicture>
-        <source
-            src="/screenshots/launcherx/LaunchAccessAnything.mp4"
-            type="video/mp4"
-        />
-        Your browser does not support the video tag.
-    </video>
+    <div class="bottom">
+        <video autoplay loop muted disablePictureInPicture class="video-player">
+            <source
+                src="/screenshots/launcherx/LaunchAccessAnything.mp4"
+                type="video/mp4"
+            />
+            Your browser does not support the video tag.
+        </video>
+    </div>
 </div>
 
 <style>
     .container {
-        padding: 2em 5vw 2em 5vw;
-        background-color: var(--fds-solid-background-base);
-        overflow: hidden;
+        height: 550px;
+        display: flex;
+        flex-flow: column;
         word-wrap: break-word;
-        align-items: center;
         justify-content: center;
         text-align: center;
         overflow: hidden;
     }
 
     /* force the title to wrap if it is almost touching the edges */
-    .container :global(.titleText) {
+    .top :global(.titleText) {
         display: block;
         margin-left: 5px;
         margin-right: 5px;
     }
 
-    .container :global(.bodyText) {
+    .top :global(.bodyText) {
         display: block;
         text-align: center;
-        margin: auto;
         margin-top: 1.5em;
-        max-width: 1100px;
+        max-width: 95%;
     }
 
-    .container video {
-        width: 90vw;
-        max-width: 840px;
-        height: calc(calc(90vw / 16) * 9);
-        max-height: 473px;
+    .bottom {
+        flex-grow: 1;
+        position: relative;
+        min-width: 100%;
         margin-top: 1.5em;
+    }
+
+    .video-player {
+        position: absolute;
+        left: 0;
+        top: 0;
+        float: top;
+        height: 100%;
+        width: 100%;
     }
 </style>

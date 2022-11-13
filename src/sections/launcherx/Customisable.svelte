@@ -9,20 +9,20 @@
         <HeaderChip>Feature</HeaderChip>
 
         <TextBlock variant="titleLarge" class="titleText"
-            >Customisable</TextBlock
+            >Customisable and Consistent</TextBlock
         >
 
         <TextBlock variant="bodyLarge" class="bodyText"
-            >LauncherX now supports dragging and dropping files and folders from
-            File Explorer as well as websites directly into the window.
-            LauncherX also supports the ability to reorder your items.</TextBlock
+            >LauncherX adapts to your desktop wallpaper and accent color, making
+            LauncherX feel consistent with your desktop. LauncherX also allows
+            you to modify the icon size and header text to your liking.</TextBlock
         >
     </div>
 
     <div class="bottom">
         <video autoplay loop muted disablePictureInPicture class="video-player">
             <source
-                src="/screenshots/launcherx/DragAndDrop.mp4"
+                src="/screenshots/launcherx/Customisable.mp4"
                 type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -32,13 +32,13 @@
 
 <style>
     .container {
-        padding: 1em 10px 1em 10px;
         height: 550px;
         display: flex;
         flex-flow: column;
         word-wrap: break-word;
         justify-content: center;
         text-align: center;
+        overflow: hidden;
     }
 
     /* force the title to wrap if it is almost touching the edges */
@@ -52,7 +52,7 @@
         display: block;
         text-align: center;
         margin-top: 1.5em;
-        max-width: 1100px;
+        max-width: 95%;
     }
 
     .bottom {
@@ -60,7 +60,6 @@
         position: relative;
         min-width: 100%;
         margin-top: 1.5em;
-        background-color: aliceblue;
     }
 
     .video-player {

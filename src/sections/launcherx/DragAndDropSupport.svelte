@@ -32,13 +32,10 @@
 
 <style>
     .container {
-        padding: 1em 10px 1em 10px;
         height: 550px;
         display: flex;
         flex-flow: column;
-        overflow: hidden;
         word-wrap: break-word;
-        align-items: center;
         justify-content: center;
         text-align: center;
         overflow: hidden;
@@ -55,7 +52,7 @@
         display: block;
         text-align: center;
         margin-top: 1.5em;
-        max-width: 1100px;
+        max-width: 95%;
     }
 
     .bottom {
@@ -63,7 +60,6 @@
         position: relative;
         min-width: 100%;
         margin-top: 1.5em;
-        background-color: aliceblue;
     }
 
     .video-player {

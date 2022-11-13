@@ -109,7 +109,7 @@
         justify-content: center;
         align-items: center;
         margin: 0em 0.7em 1.5em 0.7em;
-        padding: 1.5rem 1rem;
+        padding: 1.5em;
         width: 180px;
         min-width: 200px;
         flex-grow: 1;

@@ -1,12 +1,20 @@
 <script>
     import { TextBlock } from "fluent-svelte";
     import "fluent-svelte/theme.css";
+    import AccessAnything from "./AccessAnything.svelte";
     import DragAndDropSupport from "./DragAndDropSupport.svelte";
     import SearchAnything from "./SearchAnything.svelte";
     import Customisable from "./Customisable.svelte";
 </script>
 
 <div class="container">
+    <div class="cards-collection cards-collection-top">
+        <div class="card">
+            <div class="card-content">
+                <AccessAnything/>
+            </div>
+        </div>
+    </div>
     <div class="cards-collection">
         <div class="card">
             <div class="card-content">
@@ -31,7 +39,7 @@
 <style>
     .container {
         padding: 2em 5vw 2em 5vw;
-        background-color: var(--fds-solid-background-secondary);
+        background-color: var(--fds-solid-background-base);
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;
@@ -56,7 +64,7 @@
 
     .cards-collection {
         /* set negative margin-bottom to account for .card margin-bottom */
-        margin: 2em auto -1.5em auto;
+        margin: 0em auto -1.5em auto;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -74,12 +82,16 @@
         flex-direction: row;
     }
 
+    .cards-collection-top{
+        margin-bottom: 0em;
+    }
+
     .card {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0em 0.7em 1.5em 0.7em;
-        padding: 1.5rem 1rem;
+        margin: 0em 0.5em 1.5em 0.5em;
+        padding: 2em 1em 1em 1em;
         width: 180px;
         min-width: 40vw;
         flex-grow: 1;
@@ -97,8 +109,8 @@
                 var(--fds-card-background-default)
             ),
             linear-gradient(
-                var(--fds-solid-background-secondary),
-                var(--fds-solid-background-secondary)
+                var(--fds-solid-background-base),
+                var(--fds-solid-background-base)
             ); /* first bg is on top of this */
     }
 
