@@ -1,0 +1,225 @@
+{
+  ".svelte-kit/runtime/client/start.js": {
+    "file": "start-5c4d9e04.js",
+    "src": ".svelte-kit/runtime/client/start.js",
+    "isEntry": true,
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_index-adad17a3.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      "src/routes/__error.svelte",
+      "src/routes/aboutcontact.svelte",
+      "src/routes/animationsvideos.svelte",
+      "src/routes/dynawin.svelte",
+      "src/routes/granny-keyboard.svelte",
+      "src/routes/index.svelte",
+      "src/routes/launcherx.svelte",
+      "src/routes/p5js-paint-app.svelte",
+      "src/routes/software.svelte"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "pages/__layout.svelte-f9836819.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js"
+    ],
+    "css": [
+      "assets/pages/__layout.svelte-682c4f33.css"
+    ]
+  },
+  "src/routes/__error.svelte": {
+    "file": "pages/__error.svelte-607a0d71.js",
+    "src": "src/routes/__error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js",
+      "_Button-9d1ab1dc.js"
+    ],
+    "css": [
+      "assets/pages/__error.svelte-a92cb9ee.css"
+    ]
+  },
+  "src/routes/aboutcontact.svelte": {
+    "file": "pages/aboutcontact.svelte-956928a1.js",
+    "src": "src/routes/aboutcontact.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js",
+      "_MicaBackground-ff907a83.js"
+    ],
+    "css": [
+      "assets/pages/aboutcontact.svelte-281d7559.css"
+    ]
+  },
+  "src/routes/animationsvideos.svelte": {
+    "file": "pages/animationsvideos.svelte-4a18f59a.js",
+    "src": "src/routes/animationsvideos.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js",
+      "_MicaBackground-ff907a83.js"
+    ],
+    "css": [
+      "assets/pages/animationsvideos.svelte-c6cf0e0f.css"
+    ]
+  },
+  "src/routes/dynawin.svelte": {
+    "file": "pages/dynawin.svelte-994e1fc4.js",
+    "src": "src/routes/dynawin.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js",
+      "_MicaBackground-ff907a83.js",
+      "_Button-9d1ab1dc.js",
+      "_InfoBar-6ec7ff53.js",
+      "_HeaderChip-049c70ed.js",
+      "_index-adad17a3.js"
+    ],
+    "css": [
+      "assets/pages/dynawin.svelte-c818b42b.css"
+    ]
+  },
+  "src/routes/granny-keyboard.svelte": {
+    "file": "pages/granny-keyboard.svelte-b68765e0.js",
+    "src": "src/routes/granny-keyboard.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js",
+      "_MicaBackground-ff907a83.js",
+      "_Button-9d1ab1dc.js",
+      "_HeaderChip-049c70ed.js"
+    ],
+    "css": [
+      "assets/pages/granny-keyboard.svelte-8ad5b121.css"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "pages/index.svelte-1d7b96c3.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js",
+      "_MicaBackground-ff907a83.js"
+    ],
+    "css": [
+      "assets/pages/index.svelte-d7fa926c.css"
+    ]
+  },
+  "src/routes/launcherx.svelte": {
+    "file": "pages/launcherx.svelte-b2954deb.js",
+    "src": "src/routes/launcherx.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js",
+      "_MicaBackground-ff907a83.js",
+      "_Button-9d1ab1dc.js",
+      "_InfoBar-6ec7ff53.js",
+      "_HeaderChip-049c70ed.js"
+    ],
+    "css": [
+      "assets/pages/launcherx.svelte-6230db58.css"
+    ]
+  },
+  "src/routes/p5js-paint-app.svelte": {
+    "file": "pages/p5js-paint-app.svelte-cba55676.js",
+    "src": "src/routes/p5js-paint-app.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js",
+      "_MicaBackground-ff907a83.js",
+      "_Button-9d1ab1dc.js",
+      "_HeaderChip-049c70ed.js"
+    ],
+    "css": [
+      "assets/pages/p5js-paint-app.svelte-411d2b0a.css"
+    ]
+  },
+  "src/routes/software.svelte": {
+    "file": "pages/software.svelte-cd9f200e.js",
+    "src": "src/routes/software.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js",
+      "_MicaBackground-ff907a83.js"
+    ],
+    "css": [
+      "assets/pages/software.svelte-5528fcc6.css"
+    ]
+  },
+  "_index-a7d8ca41.js": {
+    "file": "chunks/index-a7d8ca41.js"
+  },
+  "_index-adad17a3.js": {
+    "file": "chunks/index-adad17a3.js",
+    "imports": [
+      "_index-a7d8ca41.js"
+    ]
+  },
+  "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js": {
+    "file": "chunks/NavigationView.svelte_svelte_type_style_lang-86c9a88c.js",
+    "imports": [
+      "_index-a7d8ca41.js"
+    ],
+    "css": [
+      "assets/NavigationView.svelte_svelte_type_style_lang-492d57f0.css"
+    ]
+  },
+  "_Button-9d1ab1dc.js": {
+    "file": "chunks/Button-9d1ab1dc.js",
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js"
+    ]
+  },
+  "_MicaBackground-ff907a83.js": {
+    "file": "chunks/MicaBackground-ff907a83.js",
+    "imports": [
+      "_index-a7d8ca41.js"
+    ],
+    "css": [
+      "assets/MicaBackground-b6441a3f.css"
+    ]
+  },
+  "_InfoBar-6ec7ff53.js": {
+    "file": "chunks/InfoBar-6ec7ff53.js",
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_Button-9d1ab1dc.js",
+      "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js"
+    ]
+  },
+  "_HeaderChip-049c70ed.js": {
+    "file": "chunks/HeaderChip-049c70ed.js",
+    "imports": [
+      "_index-a7d8ca41.js",
+      "_NavigationView.svelte_svelte_type_style_lang-86c9a88c.js"
+    ],
+    "css": [
+      "assets/HeaderChip-3ac8b427.css"
+    ]
+  }
+}
