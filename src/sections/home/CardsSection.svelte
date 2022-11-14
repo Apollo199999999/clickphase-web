@@ -70,7 +70,7 @@
     }
 
     .container {
-        margin-top: -10em;
+        margin-top: -20vh;
         padding: 2em 5vw 4em 5vw;
         background-color: var(--fds-solid-background-base);
         overflow: hidden;
@@ -79,7 +79,7 @@
     .cards-collection {
          /* set negative margin-bottom to account for .card margin-bottom */
         margin: auto auto -1.5em auto;
-        max-width: min(1200px, 85vw);
+        max-width: 90vw;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;

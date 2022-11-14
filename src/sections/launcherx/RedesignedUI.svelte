@@ -97,7 +97,7 @@
     .cards-collection {
         /* set negative margin-bottom to account for .card margin-bottom */
         margin: 2em auto -1.5em auto;
-        max-width: min(1500px, 85vw);
+        max-width: 90vw;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -167,7 +167,7 @@
 
     .compare-image-div {
         /* resize the CompareImage container using padding */
-        max-width: min(1200px, 90vw);
+        max-width: 90vw;
         margin: 2em auto 0 auto;
     }
 </style>

@@ -72,7 +72,7 @@
     .cards-collection {
         /* set negative margin-bottom to account for .card margin-bottom */
         margin: 0em auto -1.5em auto;
-        max-width: min(1500px, 90vw);
+        max-width: 90vw;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;

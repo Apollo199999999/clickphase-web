@@ -80,7 +80,7 @@
     .cards-collection {
         /* set negative margin-bottom to account for .card margin-bottom */
         margin: 2em auto -1.5em auto;
-        max-width: min(1500px, 90vw);
+        max-width: 90vw;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -103,11 +103,10 @@
         justify-content: center;
         align-items: center;
         margin: 0em 0.7em 1.5em 0.7em;
-        padding: 1em;
+        padding: 2em 1em 2em 1em;
         width: 180px;
         min-width: 200px;
         flex-grow: 1;
-        min-height: 25vh;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
         z-index: 999;
@@ -149,7 +148,7 @@
     }
 
     .compare-image-div {
-        max-width: min(1200px, 90vw);
+        max-width: 90vw;
         margin: 2em auto 0 auto;
     }
 </style>

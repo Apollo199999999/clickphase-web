@@ -11,7 +11,7 @@
         >Downloads and Links</TextBlock
     >
     <TextBlock variant="bodyLarge" class="bodyText">
-        DynaWin downloads and other links.
+        DynaWin download links and other links.
     </TextBlock>
 
     <div class="cards-collection">
@@ -87,7 +87,7 @@
     .cards-collection {
         /* set negative margin-bottom to account for .card margin-bottom */
         margin: 2em auto -1.5em auto;
-        max-width: min(1200px, 85vw);
+        max-width: 90vw;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;

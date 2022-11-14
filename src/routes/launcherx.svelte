@@ -5,6 +5,7 @@
 	import Compatibility from "/src/sections/launcherx/Compatibility.svelte";
 	import GroupedFeatures from "/src/sections/launcherx/GroupedFeatures.svelte";
 	import RedesignedUI from "/src/sections/launcherx/RedesignedUI.svelte";
+	import DownloadLinks from "/src/sections/launcherx/DownloadLinks.svelte";
 </script>
 
 <svelte:head>
@@ -19,3 +20,4 @@
 <Compatibility/>
 <GroupedFeatures/>
 <RedesignedUI/>
+<DownloadLinks/>

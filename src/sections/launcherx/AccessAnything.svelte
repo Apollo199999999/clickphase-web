@@ -64,6 +64,6 @@
     .video-player {
         height: 100%;
         width: 100%;
-        max-width: 1000px;
+        max-width: 900px;
     }
 </style>

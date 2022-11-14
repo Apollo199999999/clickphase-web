@@ -63,7 +63,6 @@
     }
 
     .video-player {
-        float: top;
         height: 100%;
         width: 100%;
     }
