@@ -106,9 +106,9 @@
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -120,7 +120,7 @@
         justify-content: center;
         align-items: center;
         margin: 0em 0.7em 1.5em 0.7em;
-        padding: 1.5em;
+        padding: 1em;
         width: 180px;
         min-width: 200px;
         flex-grow: 1;
@@ -161,13 +161,13 @@
         font-size: 18px;
         margin: 0px;
         margin-top: 1rem;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .compare-image-div {
         /* resize the CompareImage container using padding */
-        max-width: min(1200px, 85vw);
+        max-width: min(1200px, 90vw);
         margin: 2em auto 0 auto;
     }
 </style>

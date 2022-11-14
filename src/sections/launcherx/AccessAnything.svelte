@@ -31,7 +31,7 @@
 
 <style>
     .container {
-        height: 550px;
+        height: 100%;
         display: flex;
         flex-flow: column;
         word-wrap: break-word;
@@ -62,11 +62,8 @@
     }
 
     .video-player {
-        position: absolute;
-        left: 0;
-        top: 0;
-        float: top;
         height: 100%;
         width: 100%;
+        max-width: 1000px;
     }
 </style>

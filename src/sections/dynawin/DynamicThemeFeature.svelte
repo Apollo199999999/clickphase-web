@@ -16,12 +16,11 @@
     <div class="cards-collection">
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Automatic switching of theme</p>
+                <p class="card-text">Automatic theme switching</p>
                 <p class="card-subtext">
-                    You can configure DynaWin to automatically switch the theme
-                    at specified timings. For example, you can automatically
-                    switch Windows to Dark theme, so that it is easier on the
-                    eyes at night.
+                    DynaWin can automatically switch the Windows theme at specific
+                    timings. For example, you can automatically switch Windows
+                    to Dark theme at night, so that it is easier on the eyes.
                 </p>
             </div>
         </div>
@@ -31,8 +30,8 @@
                 <p class="card-text">Choose which mode to switch</p>
                 <p class="card-subtext">
                     You can configure DynaWin to switch only the app or system
-                    theme, or both. This allows DynaWin to better cater to your
-                    needs.
+                    theme, or both. This gives you more control over DynaWin's
+                    behaviour and allows DynaWin to better cater to your needs.
                 </p>
             </div>
         </div>
@@ -81,7 +80,7 @@
     .cards-collection {
         /* set negative margin-bottom to account for .card margin-bottom */
         margin: 2em auto -1.5em auto;
-        max-width: min(1200px, 85vw);
+        max-width: min(1500px, 90vw);
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -90,9 +89,9 @@
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -104,11 +103,11 @@
         justify-content: center;
         align-items: center;
         margin: 0em 0.7em 1.5em 0.7em;
-        padding: 1.5em;
+        padding: 1em;
         width: 180px;
         min-width: 200px;
         flex-grow: 1;
-        min-height: 180px;
+        min-height: 25vh;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
         z-index: 999;
@@ -145,13 +144,12 @@
         font-size: 18px;
         margin: 0px;
         margin-top: 1rem;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
-    .compare-image-div{
-        max-width: min(1200px, 85vw);
+    .compare-image-div {
+        max-width: min(1200px, 90vw);
         margin: 2em auto 0 auto;
     }
-    
 </style>

@@ -72,7 +72,7 @@
     .cards-collection {
         /* set negative margin-bottom to account for .card margin-bottom */
         margin: 0em auto -1.5em auto;
-        max-width: min(1500px, 85vw);
+        max-width: min(1500px, 90vw);
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -81,9 +81,9 @@
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -96,8 +96,6 @@
 
     .card {
         display: flex;
-        justify-content: center;
-        align-items: center;
         margin: 0em 0.5em 1.5em 0.5em;
         padding: 2em 1em 1.5em 1em;
         width: 180px;

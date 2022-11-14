@@ -9,7 +9,7 @@
         <HeaderChip>Feature</HeaderChip>
 
         <TextBlock variant="titleLarge" class="titleText"
-            >Customisable and Consistent</TextBlock
+            >Customisable</TextBlock
         >
 
         <TextBlock variant="bodyLarge" class="bodyText"
@@ -32,7 +32,7 @@
 
 <style>
     .container {
-        height: 550px;
+        height: 100%;
         display: flex;
         flex-flow: column;
         word-wrap: break-word;
@@ -63,10 +63,6 @@
     }
 
     .video-player {
-        position: absolute;
-        left: 0;
-        top: 0;
-        float: top;
         height: 100%;
         width: 100%;
     }
