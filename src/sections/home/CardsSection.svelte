@@ -60,6 +60,13 @@
                 <p class="card-text">GitHub</p>
             </div>
         </div>
+
+        <div class="card" onclick="window.location.href = '/aboutcontact';">
+            <div class="card-content">
+                <p class="card-default-icon">&#xF4A3;</p>
+                <p class="card-text">About ClickPhase</p>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -77,7 +84,7 @@
     }
 
     .cards-collection {
-         /* set negative margin-bottom to account for .card margin-bottom */
+        /* set negative margin-bottom to account for .card margin-bottom */
         margin: auto auto -1.5em auto;
         max-width: 90vw;
         display: -webkit-box;
@@ -130,7 +137,7 @@
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     }
 
-    .card-content{
+    .card-content {
         width: 100%;
     }
 
@@ -152,7 +159,7 @@
         font-size: 28px;
         margin: 0px;
         margin-top: 1.5rem;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 </style>

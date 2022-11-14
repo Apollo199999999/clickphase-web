@@ -61,7 +61,7 @@
 <style>
     .container {
         padding: 2em 5vw 2em 5vw;
-        background-color: var(--fds-solid-background-secondary);
+        background-color: var(--fds-solid-background-base);
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;
@@ -128,8 +128,8 @@
                 var(--fds-card-background-default)
             ),
             linear-gradient(
-                var(--fds-solid-background-secondary),
-                var(--fds-solid-background-secondary)
+                var(--fds-solid-background-base),
+                var(--fds-solid-background-base)
             ); /* first bg is on top of this */
     }
 
@@ -158,6 +158,7 @@
     :global(.download-btn) {
         margin-top: calc(1.5em / 1.1);
         transform: scale(1.1);
+        font-size: 16px;
     }
 
     :global(.hyperlinks) {
