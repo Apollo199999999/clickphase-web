@@ -15,8 +15,7 @@
 		],
 		"importsNotUsedAsValues": "error",
 		"isolatedModules": true,
-		"preserveValueImports": true,
-        "module": "ESNext"
+		"preserveValueImports": true
 	},
 	"include": [
 		"../src/**/*.js",
