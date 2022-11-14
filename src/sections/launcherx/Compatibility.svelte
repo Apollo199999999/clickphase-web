@@ -9,10 +9,9 @@
 
     <TextBlock class="titleText" variant="titleLarge">Compatibility</TextBlock>
     <TextBlock variant="bodyLarge" class="bodyText">
-        DynaWin works with Windows 10 and Windows 11. I have not tested if
-        DynaWin works with Windows 8.1 or Windows 7, so if you are on those
-        versions of Windows, use at your own risk. DynaWin also requires .NET
-        framework version 4.8 to function properly.
+        LauncherX is compatible with Windows 7, 8.1, 10 and 11, although it has
+        not been tested extensively with Windows 7 and 8.1. Therefore, use
+        LauncherX with these Windows versions at your own risk.
     </TextBlock>
 </div>
 

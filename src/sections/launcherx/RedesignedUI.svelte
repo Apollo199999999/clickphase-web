@@ -1,55 +1,70 @@
 <script>
-    import { TextBlock, Button } from "fluent-svelte";
+    import { TextBlock } from "fluent-svelte";
     import "fluent-svelte/theme.css";
     import HeaderChip from "/src/components/HeaderChip.svelte";
+    import { CompareImage } from "svelte-compare-image";
 </script>
 
 <div class="container">
-    <HeaderChip>Links</HeaderChip>
+    <HeaderChip>Feature</HeaderChip>
 
     <TextBlock class="titleText" variant="titleLarge"
-        >Downloads and Links</TextBlock
+        >Redesigned user interface</TextBlock
     >
     <TextBlock variant="bodyLarge" class="bodyText">
-        Granny Keyboard download links and other links.
+        LauncherX v2 features a redesigned user interface compared to LauncherX
+        v1.
     </TextBlock>
 
     <div class="cards-collection">
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Download Granny Keyboard</p>
+                <p class="card-text">Light and Dark mode</p>
                 <p class="card-subtext">
-                    Click the button below to download Granny Keyboard:
+                    LauncherX follows the Windows app color theme and
+                    supports both light and dark mode.
                 </p>
-                <Button
-                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/releases', '_blank');"
-                    variant="accent"
-                    class="download-btn"
-                    >Download Granny Keyboard
-                </Button>
             </div>
         </div>
 
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Granny Keyboard links</p>
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard', '_blank');"
-                    variant="hyperlink">Granny Keyboard source code</Button
-                >
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/issues', '_blank');"
-                    variant="hyperlink">Report a bug</Button
-                >
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/issues', '_blank');"
-                    variant="hyperlink">Request a feature</Button
-                >
+                <p class="card-text">Fluent Design</p>
+                <p class="card-subtext">
+                    LauncherX's design is now more in line with the design
+                    language of Windows 11, with new control styles and
+                    materials.
+                    <br />
+                    (Mica backdrop only available on Windows 11)
+                </p>
             </div>
         </div>
+    </div>
+
+    <div class="compare-image-div">
+        <CompareImage
+            class="image-comparer"
+            imageLeftSrc="/screenshots/launcherx/LauncherXDesktopLight.png"
+            imageLeftAlt="Light Theme"
+            imageRightSrc="/screenshots/launcherx/LauncherXDesktopDark.png"
+            imageRightAlt="Dark Theme"
+            --handle-size="2.5rem"
+            --slider-color="#ffffff"
+            --slider-width="0.125rem"
+        />
+    </div>
+    
+    <div class="compare-image-div">
+        <CompareImage
+            class="image-comparer"
+            imageLeftSrc="/screenshots/launcherx/RedesignUI0.png"
+            imageLeftAlt="Light Theme"
+            imageRightSrc="/screenshots/launcherx/RedesignUI1.png"
+            imageRightAlt="Dark Theme"
+            --handle-size="2.5rem"
+            --slider-color="#ffffff"
+            --slider-width="0.125rem"
+        />
     </div>
 </div>
 
@@ -105,11 +120,11 @@
         justify-content: center;
         align-items: center;
         margin: 0em 0.7em 1.5em 0.7em;
-        padding: 1.5em;
+        padding: 1em;
         width: 180px;
         min-width: 200px;
         flex-grow: 1;
-        min-height: 145px;
+        min-height: 150px;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
         z-index: 999;
@@ -146,19 +161,13 @@
         font-size: 18px;
         margin: 0px;
         margin-top: 1rem;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-    :global(.download-btn) {
-        margin-top: calc(1.5em / 1.1);
-        transform: scale(1.1);
-    }
-
-    :global(.hyperlinks) {
-        margin-top: 1em;
-        margin-bottom: -0.5em;
         margin-left: 10px;
         margin-right: 10px;
+    }
+
+    .compare-image-div {
+        /* resize the CompareImage container using padding */
+        max-width: min(1300px, 85vw);
+        margin: 2em auto 0 auto;
     }
 </style>

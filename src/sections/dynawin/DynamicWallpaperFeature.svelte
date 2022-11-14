@@ -18,26 +18,22 @@
     <div class="cards-collection">
         <div class="card">
             <div class="card-content">
-                <p class="card-text">
-                    Automatic switching of desktop wallpaper
-                </p>
+                <p class="card-text">Automatic switiching of your wallpaper</p>
                 <p class="card-subtext">
-                    You can configure DynaWin to automatically switch your
-                    wallpaper at specific triggers. For example, you can
-                    configure DynaWin to switch your wallpaper at night, to make
-                    it easier on the eyes at night.
+                    DynaWin can automatically switch your wallpaper at specific
+                    triggers. For example, you can configure DynaWin to switch
+                    your wallpaper at night, to make it easier on the eyes.
                 </p>
             </div>
         </div>
 
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Choose when to change your wallpaper</p>
+                <p class="card-text">Configure when to switch your wallpaper</p>
                 <p class="card-subtext">
-                    You can choose to change your wallpaper either based on the
-                    time, or based on your battery percentage. This can help remind you
-                    when your battery is running low, or remind you to unplug
-                    your laptop charger when your laptop is fully charged.
+                    DynaWin can change your wallpaper either based on the time,
+                    or based on your battery percentage, to remind you when your
+                    battery is running low, or remind you to unplug your charger.
                 </p>
             </div>
         </div>
@@ -63,7 +59,7 @@
         background-color: var(--fds-solid-background-secondary);
         overflow: hidden;
         word-wrap: break-word;
-        align-items: center;
+        align-items: stretch;
         justify-content: center;
         text-align: center;
         overflow: hidden;
@@ -71,6 +67,7 @@
 
     /* force the title to wrap if it is almost touching the edges */
     .container :global(.titleText) {
+        display: block;
         margin-left: 5px;
         margin-right: 5px;
     }
@@ -85,18 +82,19 @@
     .cards-collection {
         /* set negative margin-bottom to account for .card margin-bottom */
         margin: 2em auto -1.5em auto;
-        max-width: 85vw;
+        max-width: 90vw;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
+        align-items: stretch;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -108,11 +106,10 @@
         justify-content: center;
         align-items: center;
         margin: 0em 0.7em 1.5em 0.7em;
-        padding: 1.5rem 0.2rem;
-        width: 280px;
+        padding: 2em 1em 2em 1em;
+        width: 180px;
         min-width: 200px;
         flex-grow: 1;
-        min-height: 180px;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
         z-index: 999;
@@ -149,12 +146,13 @@
         font-size: 18px;
         margin: 0px;
         margin-top: 1rem;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .compare-image-div {
         /* resize the CompareImage container using padding */
-        padding: 1.5em 5vw 0vw 5vw;
+        max-width: min(1300px, 85vw);
+        margin: 2em auto 0 auto;
     }
 </style>

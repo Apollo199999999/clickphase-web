@@ -64,7 +64,7 @@
     .cards-collection {
         /* set negative margin-bottom to account for .card margin-bottom */
         margin: 2em auto -1.5em auto;
-        max-width: 85vw;
+        max-width: 90vw;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -73,9 +73,9 @@
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -87,7 +87,7 @@
         justify-content: center;
         align-items: center;
         margin: 0em 0.7em 1.5em 0.7em;
-        width: 280px;
+        width: 180px;
         min-width: 200px;
         flex-grow: 1;
         height: 350px;
@@ -104,8 +104,8 @@
                 var(--fds-card-background-default)
             ),
             linear-gradient(
-                var(--fds-solid-background-base),
-                var(--fds-solid-background-base)
+                var(--fds-solid-background-secondary),
+                var(--fds-solid-background-secondary)
             ); /* first bg is on top of this */
     }
 

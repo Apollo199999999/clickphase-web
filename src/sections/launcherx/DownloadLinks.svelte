@@ -11,42 +11,47 @@
         >Downloads and Links</TextBlock
     >
     <TextBlock variant="bodyLarge" class="bodyText">
-        Granny Keyboard download links and other links.
+        LauncherX download links and other links.
     </TextBlock>
 
     <div class="cards-collection">
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Download Granny Keyboard</p>
+                <p class="card-text">Download LauncherX</p>
                 <p class="card-subtext">
-                    Click the button below to download Granny Keyboard:
+                    Click the button below to download LauncherX:
                 </p>
                 <Button
-                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/releases', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/releases', '_blank');"
                     variant="accent"
                     class="download-btn"
-                    >Download Granny Keyboard
+                    >Download LauncherX
                 </Button>
             </div>
         </div>
 
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Granny Keyboard links</p>
+                <p class="card-text">LauncherX links</p>
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard', '_blank');"
-                    variant="hyperlink">Granny Keyboard source code</Button
+                    onclick="window.open('https://github.com/Apollo199999999/LauncherX', '_blank');"
+                    variant="hyperlink">LauncherX source code</Button
                 >
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/issues', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/issues', '_blank');"
                     variant="hyperlink">Report a bug</Button
                 >
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/issues', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/issues', '_blank');"
                     variant="hyperlink">Request a feature</Button
+                >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/blob/master/NOTICE.txt', '_blank');"
+                    variant="hyperlink">Third Party Notices and Licenses</Button
                 >
             </div>
         </div>
@@ -56,7 +61,7 @@
 <style>
     .container {
         padding: 2em 5vw 2em 5vw;
-        background-color: var(--fds-solid-background-secondary);
+        background-color: var(--fds-solid-background-base);
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;
@@ -123,8 +128,8 @@
                 var(--fds-card-background-default)
             ),
             linear-gradient(
-                var(--fds-solid-background-secondary),
-                var(--fds-solid-background-secondary)
+                var(--fds-solid-background-base),
+                var(--fds-solid-background-base)
             ); /* first bg is on top of this */
     }
 
@@ -153,6 +158,7 @@
     :global(.download-btn) {
         margin-top: calc(1.5em / 1.1);
         transform: scale(1.1);
+        font-size: 16px;
     }
 
     :global(.hyperlinks) {
