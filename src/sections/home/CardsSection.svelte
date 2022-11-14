@@ -60,13 +60,6 @@
                 <p class="card-text">GitHub</p>
             </div>
         </div>
-
-        <div class="card" onclick="window.location.href = '/aboutcontact';">
-            <div class="card-content">
-                <p class="card-default-icon">&#xF4A3;</p>
-                <p class="card-text">About ClickPhase</p>
-            </div>
-        </div>
     </div>
 </div>
 
