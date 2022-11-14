@@ -5,6 +5,10 @@
 	import { webVitals } from "/src/vitals";
 	import { browser } from "$app/env";
 	import { page } from "$app/stores";
+	import { inject } from "@vercel/analytics";
+
+	// Make sure to call this only once in your app
+	inject();
 
 	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 
