@@ -31,10 +31,10 @@
 		type: "website",
 		images: [
 			{
-				url: "https://www.example.com/images/og-image.jpg",
-				width: 850,
-				height: 650,
-				alt: "Og Image Alt",
+				url: "https://clickphase.vercel.app/ClickPhaseImage.png",
+				width: 1200,
+				height: 630,
+				alt: "Home - ClickPhase",
 			},
 		],
 	}}
