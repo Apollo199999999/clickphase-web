@@ -80,7 +80,7 @@
 <style>
     .container {
         margin-top: 1em;
-        padding: 3em 5vw 3em 5vw;
+        padding: 3em 5vw 72px 5vw;
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;
