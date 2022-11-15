@@ -1,5 +1,6 @@
 <script>
 	import "fluent-svelte/theme.css";
+	import SvelteSeo from "svelte-seo";
 	import HeroSection from "/src/sections/dynawin/HeroSection.svelte";
 	import AboutDynaWin from "/src/sections/dynawin/AboutDynaWin.svelte";
 	import Compatibility from "/src/sections/dynawin/Compatibility.svelte";
@@ -10,11 +11,29 @@
 </script>
 
 <svelte:head>
-	<title>DynaWin - ClickPhase</title>
-	<meta name="description" content="DynaWin - Dynamic Desktop for Windows 10 and Windows 11" />
-	<meta name="keywords" content="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js" />
 	<meta name="author" content="ClickPhase" />
 </svelte:head>
+
+<SvelteSeo
+	title="DynaWin - ClickPhase"
+	description="DynaWin - Dynamic Desktop for Windows 10 and Windows 11"
+	keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"
+	canonical="https://clickphase.vercel.app/dynawin"
+	openGraph={{
+		title: "DynaWin - ClickPhase",
+		description: "DynaWin - Dynamic Desktop for Windows 10 and Windows 11",
+		url: "https://clickphase.vercel.app/dynawin",
+		type: "website",
+		images: [
+			{
+				url: "https://clickphase.vercel.app/open-graph-images/DynaWinImage.png",
+				width: 1200,
+				height: 630,
+				alt: "DynaWin - ClickPhase",
+			},
+		],
+	}}
+/>
 
 <HeroSection/>
 <AboutDynaWin/>
