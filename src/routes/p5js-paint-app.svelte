@@ -11,12 +11,12 @@
 
 <SvelteSeo
 	title="p5.js Paint App - ClickPhase"
-	description="p5.js - A lightweight, online, and minimal paint app made in p5.js"
+	description="p5.js Paint App - A lightweight, online, and minimal paint app made in p5.js"
 	keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"
 	canonical="https://clickphase.vercel.app/p5js-paint-app"
 	openGraph={{
 		title: "p5.js Paint App - ClickPhase",
-		description: "p5.js - A lightweight, online, and minimal paint app made in p5.js",
+		description: "p5.js Paint App - A lightweight, online, and minimal paint app made in p5.js",
 		url: "https://clickphase.vercel.app/p5js-paint-app",
 		type: "website",
 		images: [
