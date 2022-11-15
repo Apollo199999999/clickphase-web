@@ -21,7 +21,7 @@
 		type: "website",
 		images: [
 			{
-				url: "https://clickphase.vercel.app/ClickPhaseImage.png",
+				url: "https://clickphase.vercel.app/open-graph-images/ClickPhaseImage.png",
 				width: 1200,
 				height: 630,
 				alt: "Software - ClickPhase",
