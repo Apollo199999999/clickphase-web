@@ -9,32 +9,62 @@
             <div class="card-content-left">
                 <p class="card-text">About ClickPhase</p>
                 <p class="card-subtext">
-                    Hi! I am Matthias from ClickPhase, the only person here.
-                    I make software and animations during my free time and I
-                    hope you like using my software and watching my
-                    animations as much as I enjoy making them :)
+                    Hi! I am Matthias from ClickPhase, the only person here. I
+                    make software and animations during my free time and I hope
+                    you like using my software and watching my animations as
+                    much as I enjoy making them :)
                 </p>
             </div>
         </div>
 
         <div class="card">
             <div class="card-content-right">
-                <p class="card-text">Links</p>
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/clickphase-web', '_blank');"
-                    variant="hyperlink">Website source code</Button
-                >
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank');"
-                    variant="hyperlink">Report a bug</Button
-                >
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank');"
-                    variant="hyperlink">Suggest improvements</Button
-                >
+                <div>
+                    <p class="card-text">Pages</p>
+                    <div class="hyperlink-group">
+                        <Button
+                            class="hyperlink"
+                            onclick="window.location.href = '/';"
+                            variant="hyperlink">Home</Button
+                        >
+                        <Button
+                            class="hyperlink"
+                            onclick="window.location.href = '/software';"
+                            variant="hyperlink">Software</Button
+                        >
+                        <Button
+                            class="hyperlink"
+                            onclick="window.location.href = '/animationsvideos';"
+                            variant="hyperlink">Animations & Videos</Button
+                        >
+                        <Button
+                            class="hyperlink"
+                            onclick="window.location.href = '/aboutcontact';"
+                            variant="hyperlink">About & Contact</Button
+                        >
+                    </div>
+                </div>
+
+                <div class="external-links">
+                    <p class="card-text">Links</p>
+                    <div class="hyperlink-group">
+                        <Button
+                            class="hyperlink"
+                            onclick="window.open('https://github.com/Apollo199999999/clickphase-web', '_blank');"
+                            variant="hyperlink">Website source code</Button
+                        >
+                        <Button
+                            class="hyperlink"
+                            onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank');"
+                            variant="hyperlink">Report a bug</Button
+                        >
+                        <Button
+                            class="hyperlink"
+                            onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank');"
+                            variant="hyperlink">Suggest improvements</Button
+                        >
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -45,11 +75,11 @@
                     <TextBlock variant="title">ClickPhase</TextBlock>
                 </a>
 
-                <TextBlock variant="body">Copyright &copy; 2020-present ClickPhase</TextBlock>
+                <TextBlock variant="body"
+                    >Copyright &copy; 2020-present ClickPhase</TextBlock
+                >
             </div>
         </div>
-
-        
     </div>
 </div>
 
@@ -103,7 +133,22 @@
         text-align: right;
     }
 
-    .card-left{
+    .hyperlink-group {
+        margin-right: -11px;
+    }
+
+    @media (max-width: 498px) {
+        .card-content-right {
+            width: 100%;
+            text-align: left;
+        }
+
+        .hyperlink-group {
+            margin-left: -11px;
+        }
+    }
+
+    .card-left {
         margin-right: 2em;
     }
 
@@ -121,10 +166,14 @@
         margin-top: 1rem;
     }
 
-    :global(.hyperlinks) {
+    .external-links {
+        margin-top: 1.5em;
+    }
+
+    :global(.hyperlink) {
         margin-top: 1em;
         margin-bottom: -0.5em;
-        margin-left: 10px;
+        margin-left: 0px;
     }
 
     .logo {
@@ -146,7 +195,7 @@
             ); /* first bg is on top of this */
     }
 
-    .corner{
+    .corner {
         margin: auto;
         transform: scale(1.2);
     }
