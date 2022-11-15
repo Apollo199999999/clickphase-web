@@ -40,7 +40,7 @@
 
 <style>
     .padding-div{
-        padding: 3em 5vw 72px 5vw;
+        padding: 3em 5vw 4.5em 5vw;
         background-color: var(--fds-solid-background-base);
     }
 

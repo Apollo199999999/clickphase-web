@@ -22,24 +22,18 @@
                 <p class="card-text">Links</p>
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin', '_blank');"
-                    variant="hyperlink">DynaWin source code</Button
+                    onclick="window.open('https://github.com/Apollo199999999/clickphase-web', '_blank');"
+                    variant="hyperlink">Website source code</Button
                 >
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank');"
                     variant="hyperlink">Report a bug</Button
                 >
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank');"
-                    variant="hyperlink">Request a feature</Button
-                >
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/blob/main/NOTICE.txt', '_blank');"
-                    variant="hyperlink"
-                    >Third Party Notices and Licenses</Button
+                    onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank');"
+                    variant="hyperlink">Suggest improvements</Button
                 >
             </div>
         </div>

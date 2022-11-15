@@ -25,7 +25,7 @@
 
 <style>
     .container {
-        padding: 3em 5vw 72px 5vw;
+        padding: 3em 5vw 4.5em 5vw;
         background-color: var(--fds-solid-background-base);
         margin-top: 1em;
         overflow: hidden;
