@@ -1,5 +1,6 @@
 <script>
 	import "fluent-svelte/theme.css";
+	import SvelteSeo from "svelte-seo";
 	import HeroSection from "/src/sections/launcherx/HeroSection.svelte";
 	import AboutLauncherX from "/src/sections/launcherx/AboutLauncherX.svelte";
 	import Compatibility from "/src/sections/launcherx/Compatibility.svelte";
@@ -9,11 +10,29 @@
 </script>
 
 <svelte:head>
-	<title>LauncherX - ClickPhase</title>
-	<meta name="description" content="LauncherX - Modern app launcher for Windows" />
-	<meta name="keywords" content="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js" />
 	<meta name="author" content="ClickPhase" />
 </svelte:head>
+
+<SvelteSeo
+	title="LauncherX - ClickPhase"
+	description="LauncherX - Modern app launcher for Windows"
+	keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"
+	canonical="https://clickphase.vercel.app/launcherx"
+	openGraph={{
+		title: "LauncherX - ClickPhase",
+		description: "LauncherX - Modern app launcher for Windows",
+		url: "https://clickphase.vercel.app/launcherx",
+		type: "website",
+		images: [
+			{
+				url: "https://clickphase.vercel.app/open-graph-images/LauncherXImage.png",
+				width: 1200,
+				height: 630,
+				alt: "LauncherX - ClickPhase",
+			},
+		],
+	}}
+/>
 
 <HeroSection/>
 <AboutLauncherX/>
