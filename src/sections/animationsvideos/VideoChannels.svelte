@@ -10,7 +10,7 @@
     <TextBlock variant="bodyLarge" class="bodyText">You can find all of my animations and videos on my 3 YouTube channels.</TextBlock>
 
     <div class="cards-collection">
-        <div class="card" onclick="window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank');">
+        <div class="card" onclick="window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank', 'noopener');">
             <div class="card-content">
                 <img
                     class="card-image"
@@ -21,7 +21,7 @@
             </div>
         </div>
 
-        <div class="card" onclick="window.open('https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ', '_blank');">
+        <div class="card" onclick="window.open('https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ', '_blank', 'noopener');">
             <div class="card-content">
                 <img
                     class="card-image"
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="card" onclick="window.open('https://www.youtube.com/channel/UCDVwYsVmGsjiWVdWCb_4vIg', '_blank');">
+        <div class="card" onclick="window.open('https://www.youtube.com/channel/UCDVwYsVmGsjiWVdWCb_4vIg', '_blank', 'noopener');">
             <div class="card-content">
                 <img
                     class="card-image"

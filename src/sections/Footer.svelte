@@ -55,17 +55,17 @@
                     <div class="hyperlink-group">
                         <Button
                             class="hyperlink"
-                            onclick="window.open('https://github.com/Apollo199999999/clickphase-web', '_blank');"
+                            onclick="window.open('https://github.com/Apollo199999999/clickphase-web', '_blank', 'noopener');"
                             variant="hyperlink">Website GitHub repo</Button
                         >
                         <Button
                             class="hyperlink"
-                            onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank');"
+                            onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank', 'noopener');"
                             variant="hyperlink">Report a bug</Button
                         >
                         <Button
                             class="hyperlink"
-                            onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank');"
+                            onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank', 'noopener');"
                             variant="hyperlink">Suggest improvements</Button
                         >
                     </div>

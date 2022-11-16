@@ -3,7 +3,6 @@
     import "fluent-svelte/theme.css";
     import HeaderChip from "/src/components/HeaderChip.svelte";
     import { onMount } from "svelte";
-    import { debug } from "svelte/internal";
 
     onMount(() => {
         //function to change the scale of the logo div
@@ -57,17 +56,17 @@
                 <div class="hyperlink-group">
                     <Button
                         class="hyperlinks"
-                        onclick="window.open('https://github.com/Apollo199999999/clickphase-web', '_blank');"
+                        onclick="window.open('https://github.com/Apollo199999999/clickphase-web', '_blank', 'noopener');"
                         variant="hyperlink">Website GitHub repo</Button
                     >
                     <Button
                         class="hyperlinks"
-                        onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank');"
+                        onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank', 'noopener');"
                         variant="hyperlink">Report a bug</Button
                     >
                     <Button
                         class="hyperlinks"
-                        onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank');"
+                        onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank', 'noopener');"
                         variant="hyperlink">Suggest improvements</Button
                     >
                 </div>

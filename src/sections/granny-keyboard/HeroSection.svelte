@@ -32,7 +32,7 @@
         <Button
             class="download-btn"
             style="transform: translate(0,{-sy * 0.1}px) scale(calc(16/14))"
-            onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/releases', '_blank');"
+            onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/releases', '_blank', 'noopener');"
             variant="accent">Download Granny Keyboard
         </Button>
     </div>

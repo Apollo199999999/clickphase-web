@@ -22,7 +22,7 @@
                     Click the button below to download LauncherX:
                 </p>
                 <Button
-                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/releases', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/releases', '_blank', 'noopener');"
                     variant="accent"
                     class="download-btn"
                     >Download LauncherX
@@ -35,22 +35,22 @@
                 <p class="card-text">LauncherX links</p>
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/LauncherX', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/LauncherX', '_blank', 'noopener');"
                     variant="hyperlink">LauncherX source code</Button
                 >
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/issues', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/issues', '_blank', 'noopener');"
                     variant="hyperlink">Report a bug</Button
                 >
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/issues', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/issues', '_blank', 'noopener');"
                     variant="hyperlink">Request a feature</Button
                 >
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/blob/master/NOTICE.txt', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/blob/master/NOTICE.txt', '_blank', 'noopener');"
                     variant="hyperlink">Third Party Notices and Licenses</Button
                 >
             </div>

@@ -22,7 +22,7 @@
                     Click the button below to download DynaWin:
                 </p>
                 <Button
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/releases', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/releases', '_blank', 'noopener');"
                     variant="accent"
                     class="download-btn"
                     >Download DynaWin
@@ -35,22 +35,22 @@
                 <p class="card-text">DynaWin links</p>
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/DynaWin', '_blank', 'noopener');"
                     variant="hyperlink">DynaWin source code</Button
                 >
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank', 'noopener');"
                     variant="hyperlink">Report a bug</Button
                 >
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank', 'noopener');"
                     variant="hyperlink">Request a feature</Button
                 >
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/blob/main/NOTICE.txt', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/blob/main/NOTICE.txt', '_blank', 'noopener');"
                     variant="hyperlink">Third Party Notices and Licenses</Button
                 >
             </div>

@@ -37,7 +37,7 @@
         <Button
             class="visit-btn"
             style="transform: translate(0,{-sy * 0.1}px) scale(calc(16/14))"
-            onclick="window.open('https://editor.p5js.org/Apollo199999999/sketches/X0Y6tSIjJ', '_blank');"
+            onclick="window.open('https://editor.p5js.org/Apollo199999999/sketches/X0Y6tSIjJ', '_blank', 'noopener');"
             variant="accent"
             >Visit Paint App on p5.js
         </Button>
