@@ -181,7 +181,7 @@
         padding: 1.5em;
         width: 100vw;
         margin: 0em -5vw;
-        background: var(--fds-card-background-default);
+        background: var(--fds-card-background-secondary);
         margin-bottom: 0em;
     }
 
