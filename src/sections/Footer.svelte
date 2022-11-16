@@ -51,12 +51,12 @@
                 </div>
 
                 <div class="external-links">
-                    <p class="card-text">Links</p>
+                    <p class="card-text">Useful Links</p>
                     <div class="hyperlink-group">
                         <Button
                             class="hyperlink"
                             onclick="window.open('https://github.com/Apollo199999999/clickphase-web', '_blank');"
-                            variant="hyperlink">Website source code</Button
+                            variant="hyperlink">Website GitHub repo</Button
                         >
                         <Button
                             class="hyperlink"
