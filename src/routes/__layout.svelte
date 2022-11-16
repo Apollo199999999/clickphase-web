@@ -1,5 +1,6 @@
 <script>
 	import Header from "/src/header/Header.svelte";
+	import Footer from "/src/sections/Footer.svelte";
 	import "fluent-svelte/theme.css";
 	import { TextBlock } from "fluent-svelte";
 	import { webVitals } from "/src/vitals";
@@ -23,12 +24,14 @@
 	}
 </script>
 
-<Header />
+<Header/>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <main>
 	<slot />
 </main>
+
+<Footer/>
 
 <style>
 	/* Some base styles to get things looking right. */

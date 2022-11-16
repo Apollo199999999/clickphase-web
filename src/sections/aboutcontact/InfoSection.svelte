@@ -95,7 +95,7 @@
 
 	<TextBlock class="contactText" variant="bodyLarge"
 		>If you need support or want to leave feedback, 
-		you may tell us on the designated GitHub repository for each software. 
+		you may tell us on the designated GitHub repository for each piece of software. 
 		Alternatively, you may email us. We will respond within 5 business days.</TextBlock
 	>
 </div>
@@ -103,7 +103,7 @@
 <style>
 	.container {
 		margin-top: 1em;
-		padding: 2em 5vw 2em 5vw;
+		padding: 3em 5vw 4.5em 5vw;
 		word-wrap: break-word;
 		align-items: center;
 		justify-content: center;
