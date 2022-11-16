@@ -7,7 +7,7 @@
     <div class="cards-collection">
         <div class="card card-left">
             <div class="card-content-left">
-                <div class="corner">
+                <div class="logo">
                     <a sveltekit:prefetch href="/">
                         <img src="/logo-img.png" alt="ClickPhase" />
                         <TextBlock variant="titleLarge">ClickPhase</TextBlock>
@@ -150,12 +150,12 @@
         margin-right: 2em;
     }
 
-    .corner {
-        margin-left: -7.5px;
+    .logo {
+        margin-left: -7px;
         display: inline-block;
 	}
 
-	.corner a {
+	.logo a {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -165,7 +165,7 @@
 		color: inherit;
 	}
 
-	.corner img {
+	.logo img {
 		width: 3.6em;
 		height: 3.6em;
 		object-fit: contain;
