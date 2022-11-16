@@ -87,7 +87,7 @@
     .container {
         border-top: 1px solid var(--fds-control-stroke-default);
         background-color: var(--fds-solid-background-tertiary);
-        padding: 2em 5vw;
+        padding: 2em 5vw 0em 5vw;
         text-align: center;
     }
 
@@ -179,20 +179,10 @@
     .logo {
         align-items: center;
         padding: 1.5em;
-        border-radius: var(--fds-control-corner-radius);
-        -webkit-transition: 200ms ease-in-out;
-        -o-transition: 200ms ease-in-out;
-        transition: 200ms ease-in-out;
-        -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        background: linear-gradient(
-                var(--fds-card-background-default),
-                var(--fds-card-background-default)
-            ),
-            linear-gradient(
-                var(--fds-solid-background-tertiary),
-                var(--fds-solid-background-tertiary)
-            ); /* first bg is on top of this */
+        width: 100vw;
+        margin: 0em -5vw;
+        background: var(--fds-card-background-default);
+        margin-bottom: 0em;
     }
 
     .corner {
