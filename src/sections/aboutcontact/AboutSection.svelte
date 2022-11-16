@@ -3,6 +3,7 @@
     import "fluent-svelte/theme.css";
     import HeaderChip from "/src/components/HeaderChip.svelte";
     import { onMount } from "svelte";
+    import { debug } from "svelte/internal";
 
     onMount(() => {
         //function to change the scale of the logo div
@@ -102,8 +103,8 @@
     }
 
     .logo {
-        max-width: 500px;
-        margin-top: 3em;
+        max-width: 450px;
+        margin-top: min(3vw, 2.5em);
         margin-left: auto;
         margin-right: auto;
     }
@@ -127,7 +128,7 @@
 
     .cards-collection {
         /* set negative margin-bottom to account for .card margin-bottom */
-        margin: 3em auto -1.5em auto;
+        margin: min(3vw, 2.5em) auto -1.5em auto;
         max-width: 90vw;
         display: -webkit-box;
         display: -ms-flexbox;

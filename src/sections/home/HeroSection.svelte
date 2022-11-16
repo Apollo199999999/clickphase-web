@@ -12,7 +12,7 @@
         function changeLogoScale() {
             let logo = document.querySelector(".logo");
             let screenW = window.innerWidth;
-            let scale = screenW / 550;
+            let scale = screenW / 520;
 
             //only scale according to display width if scale >= 1.2 (otherwise logo gets too big)
             if (scale >= 1.2) {
@@ -55,6 +55,7 @@
     }
 
     .logo {
+        max-width: 450px;
         position: absolute;
         top: 50%;
         left: 50%;
