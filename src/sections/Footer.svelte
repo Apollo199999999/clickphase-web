@@ -68,16 +68,9 @@
             </div>
         </div>
 
-        <div class="card logo">
+        <div class="card copyright">
             <div class="corner">
-                <a sveltekit:prefetch href="/">
-                    <img src="/logo-img.png" alt="ClickPhase" />
-                    <TextBlock variant="title">ClickPhase</TextBlock>
-                </a>
-
-                <TextBlock variant="body"
-                    >Copyright &copy; 2020-present ClickPhase</TextBlock
-                >
+                <p>Copyright &copy; 2020-present ClickPhase</p>
             </div>
         </div>
     </div>
@@ -176,35 +169,23 @@
         margin-left: 0px;
     }
 
-    .logo {
+    .copyright {
         align-items: center;
-        padding: 1.5em;
         width: 100vw;
         margin: 0em -5vw;
-        background: var(--fds-card-background-secondary);
+        background: linear-gradient(
+                rgba(0, 0, 0, 12%),
+                rgba(0, 0, 0, 12%)
+            ),
+            linear-gradient(
+                var(--fds-solid-background-tertiary),
+                var(--fds-solid-background-tertiary)
+            ); /* first bg is on top of this */
         margin-bottom: 0em;
     }
 
     .corner {
         margin: auto;
-        transform: scale(1.2);
     }
 
-    .corner a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        text-decoration: none;
-        color: inherit;
-        margin-bottom: 0.5em;
-    }
-
-    .corner img {
-        width: 2.5em;
-        height: 2.5em;
-        object-fit: contain;
-        margin-right: 0.5em;
-    }
 </style>
