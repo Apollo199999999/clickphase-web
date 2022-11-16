@@ -2,7 +2,8 @@
 	import "fluent-svelte/theme.css";
 	import SvelteSeo from "svelte-seo";
 	import HeroSection from "/src/sections/aboutcontact/HeroSection.svelte";
-	import AboutSection from "/src/sections/aboutcontact/AboutSection.svelte";
+	import AboutSection from "/src/sections/aboutcontact/AboutSection.svelte";	
+	import OldAboutSection from "/src/sections/aboutcontact/OldAboutSection.svelte";
 	import ContactSection from "/src/sections/aboutcontact/ContactSection.svelte";
 </script>
 
