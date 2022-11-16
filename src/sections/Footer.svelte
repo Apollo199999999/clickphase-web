@@ -7,7 +7,12 @@
     <div class="cards-collection">
         <div class="card card-left">
             <div class="card-content-left">
-                <p class="card-text">About ClickPhase</p>
+                <div class="corner">
+                    <a sveltekit:prefetch href="/">
+                        <img src="/logo-img.png" alt="ClickPhase" />
+                        <TextBlock variant="titleLarge">ClickPhase</TextBlock>
+                    </a>
+                </div>
                 <p class="card-subtext">
                     Hi! I am Matthias from ClickPhase, the only person here. I
                     make software and animations during my free time and I hope
@@ -69,7 +74,7 @@
         </div>
 
         <div class="card copyright">
-            <div class="corner">
+            <div class="copyright-text">
                 <p>Copyright &copy; 2020-present ClickPhase</p>
             </div>
         </div>
@@ -145,6 +150,28 @@
         margin-right: 2em;
     }
 
+    .corner {
+        margin-left: -7.5px;
+        display: inline-block;
+	}
+
+	.corner a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.corner img {
+		width: 3.6em;
+		height: 3.6em;
+		object-fit: contain;
+		margin-right: 0.7em;
+	}
+
     .card-text {
         font-family: var(--fds-font-family-display);
         font-weight: 600;
@@ -184,7 +211,7 @@
         margin-bottom: 0em;
     }
 
-    .corner {
+    .copyright-text {
         margin: auto;
     }
 

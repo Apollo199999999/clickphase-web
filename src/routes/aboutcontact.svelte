@@ -2,7 +2,8 @@
 	import "fluent-svelte/theme.css";
 	import SvelteSeo from "svelte-seo";
 	import HeroSection from "/src/sections/aboutcontact/HeroSection.svelte";
-	import InfoSection from "/src/sections/aboutcontact/InfoSection.svelte";
+	import AboutSection from "/src/sections/aboutcontact/AboutSection.svelte";
+	import ContactSection from "/src/sections/aboutcontact/ContactSection.svelte";
 </script>
 
 <svelte:head>
@@ -31,4 +32,5 @@
 />
 
 <HeroSection/>
-<InfoSection/>
+<AboutSection/>
+<ContactSection/>
