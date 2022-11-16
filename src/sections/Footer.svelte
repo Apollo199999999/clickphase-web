@@ -68,16 +68,24 @@
             </div>
         </div>
 
-        <div class="card logo">
-            <div class="corner">
-                <a sveltekit:prefetch href="/">
-                    <img src="/logo-img.png" alt="ClickPhase" />
-                    <TextBlock variant="title">ClickPhase</TextBlock>
-                </a>
+        <div class="card card-left">
+            <div class="card-content-left">
+                <div class="corner">
+                    <a sveltekit:prefetch href="/">
+                        <img src="/logo-img.png" alt="ClickPhase" />
+                        <TextBlock variant="title">ClickPhase</TextBlock>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-                <TextBlock variant="body"
-                    >Copyright &copy; 2020-present ClickPhase</TextBlock
-                >
+        <div class="card">
+            <div class="card-content-right">
+                <div>
+                    <TextBlock variant="body" class="copyright-text"
+                        >Copyright &copy; 2020-present ClickPhase</TextBlock
+                    >
+                </div>
             </div>
         </div>
     </div>
@@ -176,27 +184,14 @@
         margin-left: 0px;
     }
 
-    .logo {
-        align-items: center;
-        padding: 1.5em;
-        border-radius: var(--fds-control-corner-radius);
-        -webkit-transition: 200ms ease-in-out;
-        -o-transition: 200ms ease-in-out;
-        transition: 200ms ease-in-out;
-        -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        background: linear-gradient(
-                var(--fds-card-background-default),
-                var(--fds-card-background-default)
-            ),
-            linear-gradient(
-                var(--fds-solid-background-tertiary),
-                var(--fds-solid-background-tertiary)
-            ); /* first bg is on top of this */
+
+    :global(.copyright-text) {
+        margin: auto;
     }
 
     .corner {
         margin: auto;
+        display: inline-block;
         transform: scale(1.2);
     }
 
