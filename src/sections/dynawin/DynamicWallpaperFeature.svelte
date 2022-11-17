@@ -59,7 +59,7 @@
         background-color: var(--fds-solid-background-secondary);
         overflow: hidden;
         word-wrap: break-word;
-        align-items: stretch;
+        align-items: center;
         justify-content: center;
         text-align: center;
         overflow: hidden;
@@ -86,7 +86,6 @@
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        align-items: stretch;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         -webkit-box-pack: center;
