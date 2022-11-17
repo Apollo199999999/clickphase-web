@@ -187,7 +187,7 @@
     }
 
     .external-links {
-        margin-top: 1.5em;
+        margin-top: 2em;
     }
 
     :global(.hyperlink) {
