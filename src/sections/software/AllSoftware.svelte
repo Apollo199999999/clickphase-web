@@ -125,8 +125,8 @@
         -webkit-transition: 200ms ease-in-out;
         -o-transition: 200ms ease-in-out;
         transition: 200ms ease-in-out;
-        -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         background: linear-gradient(
                 var(--fds-card-background-default),
                 var(--fds-card-background-default)
