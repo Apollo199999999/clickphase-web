@@ -17,7 +17,7 @@
     <div class="cards-collection">
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Contact us</p>
+                <p class="card-text">Contact Us</p>
                 <div class="hyperlink-group">
                     <Button
                         class="hyperlinks"
@@ -45,7 +45,7 @@
 
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Give feedback</p>
+                <p class="card-text">Give Feedback</p>
                 <p class="card-subtext">
                     If you need support or want to leave feedback, you may tell
                     us on the designated GitHub repository for each piece of
