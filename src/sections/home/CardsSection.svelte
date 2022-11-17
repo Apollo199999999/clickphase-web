@@ -70,7 +70,7 @@
     }
 
     .container {
-        margin-top: -10em;
+        margin-top: max(-20vh, -10em);
         padding: 3em 5vw 4.5em 5vw;
         background-color: var(--fds-solid-background-base);
         overflow: hidden;
