@@ -10,7 +10,7 @@
             //scale logo
             let logo = document.querySelector(".logo");
             let width = logo.clientWidth;
-            let scale = width / 500;
+            let scale = width / 550;
             logo.style.transform = "scale(" + scale + ")";
         }
 
@@ -102,7 +102,7 @@
     }
 
     .logo {
-        max-width: 450px;
+        max-width: 500px;
         margin-top: min(3vw, 2.5em);
         margin-left: auto;
         margin-right: auto;
