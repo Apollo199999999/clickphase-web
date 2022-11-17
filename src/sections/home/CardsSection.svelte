@@ -22,7 +22,7 @@
 
         <div
             class="card"
-            onclick="window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank');"
+            onclick="window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank', 'noopener');"
         >
             <div class="card-content">
                 <p class="card-default-icon">&#x0379;</p>
@@ -42,7 +42,7 @@
 
         <div
             class="card"
-            onclick="window.open('https://github.com/Apollo199999999', '_blank');"
+            onclick="window.open('https://github.com/Apollo199999999', '_blank', 'noopener');"
         >
             <div class="card-content">
                 <svg

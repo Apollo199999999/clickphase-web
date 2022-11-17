@@ -22,7 +22,7 @@
                     Click the button below to download Granny Keyboard:
                 </p>
                 <Button
-                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/releases', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/releases', '_blank', 'noopener');"
                     variant="accent"
                     class="download-btn"
                     >Download Granny Keyboard
@@ -35,17 +35,17 @@
                 <p class="card-text">Granny Keyboard links</p>
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard', '_blank', 'noopener');"
                     variant="hyperlink">Granny Keyboard source code</Button
                 >
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/issues', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/issues', '_blank', 'noopener');"
                     variant="hyperlink">Report a bug</Button
                 >
                 <Button
                     class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/issues', '_blank');"
+                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/issues', '_blank', 'noopener');"
                     variant="hyperlink">Request a feature</Button
                 >
             </div>

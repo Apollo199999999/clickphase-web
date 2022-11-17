@@ -5,54 +5,53 @@
 </script>
 
 <div class="container">
-    <HeaderChip>Links</HeaderChip>
+    <HeaderChip>Contact</HeaderChip>
 
     <TextBlock class="titleText" variant="titleLarge"
-        >Downloads and Links</TextBlock
+        >Contact ClickPhase</TextBlock
     >
     <TextBlock variant="bodyLarge" class="bodyText">
-        DynaWin download links and other links.
+        How to contact ClickPhase.
     </TextBlock>
 
     <div class="cards-collection">
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Download DynaWin</p>
-                <p class="card-subtext">
-                    Click the button below to download DynaWin:
-                </p>
-                <Button
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/releases', '_blank', 'noopener');"
-                    variant="accent"
-                    class="download-btn"
-                    >Download DynaWin
-                </Button>
+                <p class="card-text">Contact us</p>
+                <div class="hyperlink-group">
+                    <Button
+                        class="hyperlinks"
+                        onclick="window.open('mailto:clickphasehelp@gmail.com', 'noopener');"
+                        variant="hyperlink">Send us an email</Button
+                    >
+                    <Button
+                        class="hyperlinks"
+                        onclick="window.open('https://github.com/Apollo199999999', '_blank', 'noopener');"
+                        variant="hyperlink">GitHub account</Button
+                    >
+                    <Button
+                        class="hyperlinks"
+                        onclick="window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank', 'noopener');"
+                        variant="hyperlink">Youtube Channel</Button
+                    >
+                    <Button
+                        class="hyperlinks"
+                        onclick="window.open('https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ', '_blank', 'noopener');"
+                        variant="hyperlink">Personal Youtube Channel</Button
+                    >
+                </div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-content">
-                <p class="card-text">DynaWin links</p>
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin', '_blank', 'noopener');"
-                    variant="hyperlink">DynaWin source code</Button
-                >
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank', 'noopener');"
-                    variant="hyperlink">Report a bug</Button
-                >
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank', 'noopener');"
-                    variant="hyperlink">Request a feature</Button
-                >
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/blob/main/NOTICE.txt', '_blank', 'noopener');"
-                    variant="hyperlink">Third Party Notices and Licenses</Button
-                >
+                <p class="card-text">Give feedback</p>
+                <p class="card-subtext">
+                    If you need support or want to leave feedback, you may tell
+                    us on the designated GitHub repository for each piece of
+                    software. Alternatively, you may email us. We will respond
+                    within 5 business days
+                </p>
             </div>
         </div>
     </div>
@@ -110,11 +109,10 @@
         justify-content: center;
         align-items: center;
         margin: 0em 0.7em 1.5em 0.7em;
-        padding: 1.5em;
+        padding: 2em 1em 2em 1em;
         width: 180px;
         min-width: 200px;
         flex-grow: 1;
-        min-height: 145px;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
         z-index: 999;
@@ -151,13 +149,8 @@
         font-size: 18px;
         margin: 0px;
         margin-top: 1rem;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-    :global(.download-btn) {
-        margin-top: calc(1.5em / 1.1);
-        transform: scale(1.1);
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     :global(.hyperlinks) {

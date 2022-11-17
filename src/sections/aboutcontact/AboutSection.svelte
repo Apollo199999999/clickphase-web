@@ -2,57 +2,74 @@
     import { TextBlock, Button } from "fluent-svelte";
     import "fluent-svelte/theme.css";
     import HeaderChip from "/src/components/HeaderChip.svelte";
+    import { onMount } from "svelte";
+
+    onMount(() => {
+        //function to change the scale of the logo div
+        function changeLogoScale() {
+            //scale logo
+            let logo = document.querySelector(".logo");
+            let width = logo.clientWidth;
+            let scale = width / 550;
+            logo.style.transform = "scale(" + scale + ")";
+        }
+
+        //change the logo scale everytime the window resizes
+        changeLogoScale();
+        window.addEventListener("resize", changeLogoScale);
+    });
 </script>
 
 <div class="container">
-    <HeaderChip>Links</HeaderChip>
+    <HeaderChip>About</HeaderChip>
 
     <TextBlock class="titleText" variant="titleLarge"
-        >Downloads and Links</TextBlock
+        >About ClickPhase</TextBlock
     >
     <TextBlock variant="bodyLarge" class="bodyText">
-        DynaWin download links and other links.
+        Information about ClickPhase.
     </TextBlock>
+
+    <div class="logo">
+        <a href={void 0}>
+            <img src="/logo-img.png" alt="ClickPhase" />
+            <TextBlock variant="display">ClickPhase</TextBlock>
+        </a>
+    </div>
 
     <div class="cards-collection">
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Download DynaWin</p>
+                <p class="card-text">About Us</p>
                 <p class="card-subtext">
-                    Click the button below to download DynaWin:
+                    Hi! I am Matthias from ClickPhase, the only person here. I
+                    make software and animations during my free time and I hope
+                    you like using my software and watching my animations as
+                    much as I enjoy making them :)
                 </p>
-                <Button
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/releases', '_blank', 'noopener');"
-                    variant="accent"
-                    class="download-btn"
-                    >Download DynaWin
-                </Button>
             </div>
         </div>
 
         <div class="card">
             <div class="card-content">
-                <p class="card-text">DynaWin links</p>
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin', '_blank', 'noopener');"
-                    variant="hyperlink">DynaWin source code</Button
-                >
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank', 'noopener');"
-                    variant="hyperlink">Report a bug</Button
-                >
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank', 'noopener');"
-                    variant="hyperlink">Request a feature</Button
-                >
-                <Button
-                    class="hyperlinks"
-                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/blob/main/NOTICE.txt', '_blank', 'noopener');"
-                    variant="hyperlink">Third Party Notices and Licenses</Button
-                >
+                <p class="card-text">Useful Links</p>
+                <div class="hyperlink-group">
+                    <Button
+                        class="hyperlinks"
+                        onclick="window.open('https://github.com/Apollo199999999/clickphase-web', '_blank', 'noopener');"
+                        variant="hyperlink">Website GitHub repo</Button
+                    >
+                    <Button
+                        class="hyperlinks"
+                        onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank', 'noopener');"
+                        variant="hyperlink">Report a bug</Button
+                    >
+                    <Button
+                        class="hyperlinks"
+                        onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank', 'noopener');"
+                        variant="hyperlink">Suggest improvements</Button
+                    >
+                </div>
             </div>
         </div>
     </div>
@@ -61,7 +78,7 @@
 <style>
     .container {
         padding: 3em 5vw 4.5em 5vw;
-        background-color: var(--fds-solid-background-secondary);
+        background-color: var(--fds-solid-background-base);
         overflow: hidden;
         word-wrap: break-word;
         align-items: center;
@@ -84,9 +101,33 @@
         margin-top: 1.5em;
     }
 
+    .logo {
+        max-width: 500px;
+        margin-top: min(3vw, 2.5em);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .logo a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .logo img {
+        width: 6em;
+        height: 6em;
+        object-fit: contain;
+        margin-right: 1.2em;
+    }
+
     .cards-collection {
         /* set negative margin-bottom to account for .card margin-bottom */
-        margin: 2em auto -1.5em auto;
+        margin: min(3vw, 2.5em) auto -1.5em auto;
         max-width: 90vw;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -110,11 +151,10 @@
         justify-content: center;
         align-items: center;
         margin: 0em 0.7em 1.5em 0.7em;
-        padding: 1.5em;
+        padding: 2em 1em 2em 1em;
         width: 180px;
         min-width: 200px;
         flex-grow: 1;
-        min-height: 145px;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
         z-index: 999;
@@ -128,8 +168,8 @@
                 var(--fds-card-background-default)
             ),
             linear-gradient(
-                var(--fds-solid-background-secondary),
-                var(--fds-solid-background-secondary)
+                var(--fds-solid-background-base),
+                var(--fds-solid-background-base)
             ); /* first bg is on top of this */
     }
 
@@ -151,13 +191,8 @@
         font-size: 18px;
         margin: 0px;
         margin-top: 1rem;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-    :global(.download-btn) {
-        margin-top: calc(1.5em / 1.1);
-        transform: scale(1.1);
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     :global(.hyperlinks) {
