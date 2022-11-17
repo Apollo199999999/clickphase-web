@@ -87,10 +87,11 @@
         justify-content: center;
         align-items: center;
         margin: 0em 0.7em 1.5em 0.7em;
+        padding: 1.5em 1em 1.5em 1em;
         width: 180px;
         min-width: 200px;
         flex-grow: 1;
-        height: 350px;
+        min-height: 180px;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
         z-index: 999;

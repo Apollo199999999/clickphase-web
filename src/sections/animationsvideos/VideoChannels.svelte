@@ -97,10 +97,11 @@
         justify-content: center;
         align-items: center;
         margin: 0em 0.7em 1.5em 0.7em;
+        padding: 1.5em 1em 1.5em 1em;
         width: 180px;
         min-width: 200px;
         flex-grow: 1;
-        height: 350px;
+        min-height: 270px;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
         z-index: 999;
@@ -130,7 +131,7 @@
     }
 
     .card-image {
-        width: 40%;
+        width: 42%;
         max-width: 260px;
     }
 
@@ -139,7 +140,7 @@
         font-weight: 600;
         font-size: 28px;
         margin: 0px;
-        margin-top: 1rem;
+        margin-top: 1.2rem;
         margin-left: 20px;
         margin-right: 20px;
     }

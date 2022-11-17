@@ -154,6 +154,7 @@
         padding: 2em 1em 2em 1em;
         width: 180px;
         min-width: 200px;
+        min-height: 180px;
         flex-grow: 1;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
