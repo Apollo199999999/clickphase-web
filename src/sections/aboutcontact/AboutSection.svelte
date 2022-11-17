@@ -69,6 +69,11 @@
                         onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank', 'noopener');"
                         variant="hyperlink">Suggest improvements</Button
                     >
+                    <Button
+                        class="hyperlinks"
+                        onclick="window.open('https://clickphase-old.vercel.app', '_blank', 'noopener');"
+                        variant="hyperlink">Archived version of ClickPhase's old Weebly site</Button
+                    >
                 </div>
             </div>
         </div>

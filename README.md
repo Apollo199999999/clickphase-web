@@ -1,24 +1,14 @@
-# create-svelte
+# clickphase-web
+The official GitHub repository for ClickPhase's new website, located at https://clickphase.vercel.app. This new website replaces our old website created using Weebly, originally located at https://clickphase.weebly.com, but is now archived [here](https://clickphase-old.vercel.app).
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+![ClickPhase website](https://i.imgur.com/9eytHs9.png)
 
-## Creating a project
+## Overview
+This repository contains the source code for the new ClickPhase website. The site is written using SvelteKit, and deployed with Vercel.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Building this project
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
-
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+After you have installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
 npm run dev
@@ -26,15 +16,12 @@ npm run dev
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
 ```
-
-## Building
-
-To create a production version of your app:
+## Compiling a production version
+We currently use [SvelteKit's vercel adapter](https://www.npmjs.com/package/@sveltejs/adapter-vercel) module, which allows us to deploy to Vercel. 
+To create a production version:
 
 ```bash
 npm run build
 ```
 
 You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
