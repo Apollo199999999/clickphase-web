@@ -96,7 +96,7 @@
 
     .card {
         display: flex;
-        margin: 0em 0.5em 1.5em 0.5em;
+        margin: 0em 0.7em 1.5em 0.7em;
         padding: 2em 1em 2em 1em;
         width: 180px;
         min-width: 30vw;
