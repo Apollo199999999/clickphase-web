@@ -199,15 +199,9 @@
     .copyright {
         align-items: center;
         width: 100vw;
+        padding: 0em;
         margin: 0em -5vw;
-        background: linear-gradient(
-                rgba(0, 0, 0, 12%),
-                rgba(0, 0, 0, 12%)
-            ),
-            linear-gradient(
-                var(--fds-solid-background-tertiary),
-                var(--fds-solid-background-tertiary)
-            ); /* first bg is on top of this */
+        background: var(--fds-layer-background-alt);
         margin-bottom: 0em;
     }
 
