@@ -97,11 +97,10 @@
     .card {
         display: flex;
         margin: 0em 0.5em 1.5em 0.5em;
-        padding: 2em 1em 1.5em 1em;
+        padding: 2em 1em 2em 1em;
         width: 180px;
         min-width: 30vw;
         flex-grow: 1;
-        min-height: 180px;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
         z-index: 999;
