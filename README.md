@@ -4,7 +4,7 @@ The official GitHub repository for ClickPhase's new website, located at https://
 ![ClickPhase website](https://i.imgur.com/B8TDFq8.png)
 
 ## Overview
-This repository contains the source code for the new ClickPhase website. The site is written using SvelteKit, and deployed with Vercel.
+This repository contains the source code for ClickPhase's new website. The site is written using SvelteKit, and deployed with Vercel.
 
 ## Building this project
 
