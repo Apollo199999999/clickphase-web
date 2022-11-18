@@ -33,7 +33,7 @@
     <div class="logo">
         <a href={void 0}>
             <img src="/logo-img.png" alt="ClickPhase" />
-            <TextBlock variant="display" class="logo-text">ClickPhase</TextBlock>
+            <TextBlock variant="display">ClickPhase</TextBlock>
         </a>
     </div>
 
@@ -128,10 +128,6 @@
         height: 6em;
         object-fit: contain;
         margin-right: 1.2em;
-    }
-
-    :global(.logo-text){
-        font-weight: bold;
     }
 
     .cards-collection {
