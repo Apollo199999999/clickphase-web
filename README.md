@@ -8,7 +8,7 @@ This repository contains the source code for the new ClickPhase website. The sit
 
 ## Building this project
 
-After you have installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+After you have cloned/forked this repository and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
 npm run dev
@@ -25,3 +25,8 @@ npm run build
 ```
 
 You can preview the production build with `npm run preview`.
+
+## License
+clickphase-web is licensed under the MIT License, which you can view [here](https://github.com/Apollo199999999/clickphase-web/blob/main/LICENSE)
+
+Copyright &copy; 2020-present ClickPhase
