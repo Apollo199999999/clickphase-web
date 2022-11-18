@@ -17,7 +17,7 @@ npm run dev
 npm run dev -- --open
 ```
 ## Compiling a production version
-We currently use [SvelteKit's vercel adapter](https://www.npmjs.com/package/@sveltejs/adapter-vercel) module, which allows us to deploy to Vercel. 
+We currently use [SvelteKit's auto adapter](https://www.npmjs.com/package/@sveltejs/adapter-auto) module, which is then deployed to Vercel. 
 To create a production version:
 
 ```bash
