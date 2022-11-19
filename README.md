@@ -1,10 +1,10 @@
 # clickphase-web
-The official GitHub repository for ClickPhase's new website, located at https://clickphase.vercel.app. This new website replaces our old website created using Weebly, originally located at https://clickphase.weebly.com, but is now archived [here](https://clickphase-old.vercel.app).
+The official GitHub repository for ClickPhase's new website built with [SvelteKit](https://kit.svelte.dev/), located at https://clickphase.vercel.app. This new website replaces our old website created using Weebly, which was originally located at https://clickphase.weebly.com, but is now archived [here](https://clickphase-old.vercel.app).
 
 ![ClickPhase website](https://i.imgur.com/B8TDFq8.png)
 
 ## Overview
-This repository contains the source code for ClickPhase's new website. The site is written using SvelteKit, and deployed with Vercel.
+This repository contains the source code for ClickPhase's new website. The site is written using [SvelteKit](https://kit.svelte.dev/), and deployed with [Vercel](https://vercel.com/).
 
 ## Building this project
 
