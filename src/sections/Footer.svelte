@@ -16,7 +16,7 @@
                 <p class="card-subtext">
                     Hi! I am Matthias from ClickPhase, the only person here.
                     ClickPhase specialises in desktop software and utilities. I
-                    make software and animations during my free time and I hope
+                    make software and animations during my free time, and I hope
                     you enjoy them :)
                 </p>
             </div>
