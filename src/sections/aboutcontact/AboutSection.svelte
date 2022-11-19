@@ -42,10 +42,10 @@
             <div class="card-content">
                 <p class="card-text">About Us</p>
                 <p class="card-subtext">
-                    Hi! I am Matthias from ClickPhase, the only person here. I
+                    Hi! I am Matthias from ClickPhase, the only person here.
+                    ClickPhase specialises in desktop software and utilities. I
                     make software and animations during my free time and I hope
-                    you like using my software and watching my animations as
-                    much as I enjoy making them :)
+                    you enjoy them :)
                 </p>
             </div>
         </div>
