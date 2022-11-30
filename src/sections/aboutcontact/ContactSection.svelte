@@ -50,7 +50,7 @@
                     If you need support or want to leave feedback, you may tell
                     us on the designated GitHub repository for each piece of
                     software. Alternatively, you may email us. We will respond
-                    within 5 business days
+                    within 5 business days.
                 </p>
             </div>
         </div>

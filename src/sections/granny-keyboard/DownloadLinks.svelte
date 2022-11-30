@@ -48,6 +48,11 @@
                     onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/issues', '_blank', 'noopener');"
                     variant="hyperlink">Request a feature</Button
                 >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/blob/master/PRIVACYPOLICY.md', '_blank', 'noopener');"
+                    variant="hyperlink">Granny Keyboard's privacy policy</Button
+                >
             </div>
         </div>
     </div>
