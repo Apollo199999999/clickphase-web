@@ -1,4 +1,4 @@
-# clickphase-web
+# ClickPhase's website
 The official GitHub repository for ClickPhase's new website built with [SvelteKit](https://kit.svelte.dev/), located at https://clickphase.vercel.app. This new website replaces our old website created using Weebly, which was originally located at https://clickphase.weebly.com, but is now archived [here](https://clickphase-old.vercel.app).
 
 ![ClickPhase website](https://i.imgur.com/B8TDFq8.png)
@@ -26,7 +26,10 @@ npm run build
 
 You can preview the production build with `npm run preview`.
 
+## Privacy Policy
+The privacy policy for ClickPhase's website can be viewed [here](https://github.com/Apollo199999999/clickphase-web/blob/main/PRIVACYPOLICY.md)
+
 ## License
-clickphase-web is licensed under the MIT License, which you can view [here](https://github.com/Apollo199999999/clickphase-web/blob/main/LICENSE)
+ClickPhase's website is licensed under the MIT License, which you can view [here](https://github.com/Apollo199999999/clickphase-web/blob/main/LICENSE)
 
 Copyright &copy; 2020-present ClickPhase
