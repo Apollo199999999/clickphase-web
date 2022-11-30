@@ -27,9 +27,9 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 ## Privacy Policy
-The privacy policy for ClickPhase's website can be viewed [here](https://github.com/Apollo199999999/clickphase-web/blob/main/PRIVACYPOLICY.md)
+The privacy policy for ClickPhase's website can be viewed [here](https://github.com/Apollo199999999/clickphase-web/blob/main/PRIVACYPOLICY.md).
 
 ## License
-ClickPhase's website is licensed under the MIT License, which you can view [here](https://github.com/Apollo199999999/clickphase-web/blob/main/LICENSE)
+ClickPhase's website is licensed under the MIT License, which you can view [here](https://github.com/Apollo199999999/clickphase-web/blob/main/LICENSE).
 
 Copyright &copy; 2020-present ClickPhase
