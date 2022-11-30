@@ -51,7 +51,12 @@
                 <Button
                     class="hyperlinks"
                     onclick="window.open('https://github.com/Apollo199999999/LauncherX/blob/master/NOTICE.txt', '_blank', 'noopener');"
-                    variant="hyperlink">Third Party Notices and Licenses</Button
+                    variant="hyperlink">Third party notices and licenses</Button
+                >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/blob/master/PRIVACYPOLICY.md', '_blank', 'noopener');"
+                    variant="hyperlink">LauncherX's privacy policy</Button
                 >
             </div>
         </div>

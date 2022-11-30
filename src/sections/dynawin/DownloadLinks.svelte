@@ -51,7 +51,7 @@
                 <Button
                     class="hyperlinks"
                     onclick="window.open('https://github.com/Apollo199999999/DynaWin/blob/main/NOTICE.txt', '_blank', 'noopener');"
-                    variant="hyperlink">Third Party Notices and Licenses</Button
+                    variant="hyperlink">Third party notices and licenses</Button
                 >
             </div>
         </div>
