@@ -53,6 +53,11 @@
                     onclick="window.open('https://github.com/Apollo199999999/DynaWin/blob/main/NOTICE.txt', '_blank', 'noopener');"
                     variant="hyperlink">Third party notices and licenses</Button
                 >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/blob/main/PRIVACYPOLICY.md', '_blank', 'noopener');"
+                    variant="hyperlink">DynaWin's privacy policy</Button
+                >
             </div>
         </div>
     </div>
