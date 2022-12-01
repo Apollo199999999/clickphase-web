@@ -20,7 +20,7 @@
                 <p class="card-text">Download RedditVideoGenerator</p>
                 <p class="card-subtext">
                     Unfortunately, RedditVideoGenerator is not yet available for
-                    download, pending approval from verification by Google APIs
+                    download, pending approval from verification by Google APIs,
                     and further testing being required. If you are part of
                     Google's Trust and Safety team, email me and I will provide
                     you with a build of RedditVideoGenerator if needed.
