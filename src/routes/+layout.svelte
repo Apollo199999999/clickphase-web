@@ -4,7 +4,7 @@
 	import "fluent-svelte/theme.css";
 	import { TextBlock } from "fluent-svelte";
 	import { webVitals } from "/src/vitals";
-	import { browser } from "$app/env";
+	import { browser } from "$app/environment";
 	import { page } from "$app/stores";
 	import { inject } from "@vercel/analytics";
 
