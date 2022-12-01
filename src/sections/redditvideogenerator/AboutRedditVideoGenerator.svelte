@@ -20,7 +20,7 @@
         </p>
         <p>
             RedditVideoGenerator is able to fully generate a minimum 15 minute
-            Reddit video with background music courtesy of Kevin Macleod, a
+            Reddit video, with background music courtesy of Kevin Macleod, a
             thumbnail image for YouTube, as well as a title and description for
             YouTube, all fully autonomously.
         </p>
