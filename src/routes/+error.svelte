@@ -1,19 +1,7 @@
-<script context="module">
-    export function load({ error, status }) {
-        return {
-            props: {
-                message: error.message,
-                status, // same as status: status
-            },
-        };
-    }
-</script>
-
 <script>
     import "fluent-svelte/theme.css";
     import { TextBlock, Button } from "fluent-svelte";
-    export let message;
-    export let status;
+    import { page } from '$app/stores';
 </script>
 
 <!-- Container element -->
@@ -23,10 +11,10 @@
     </div>
     <div class="components">
         <div class="error-status">
-            <TextBlock variant="display">Error {status}</TextBlock>
+            <TextBlock variant="display">Error {$page.status}</TextBlock>
         </div>
         <div class="error-message">
-            <TextBlock variant="bodyLarge">Error message: {message}</TextBlock>
+            <TextBlock variant="bodyLarge">Error message: {$page.error.message}</TextBlock>
         </div>
         <div class="error-button">
             <Button href="/">Return to homepage</Button>
