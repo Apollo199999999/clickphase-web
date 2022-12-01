@@ -9,6 +9,7 @@
 	import { inject } from "@vercel/analytics";
 
 	// Make sure to call this only once in your app
+	// Ignore the "script.js" not being found error, it will work once deployed to Vercel.
 	inject();
 
 	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
