@@ -13,7 +13,7 @@
 <SvelteSeo
 	title="Granny Keyboard - ClickPhase"
 	description="Granny Keyboard - Your keys will start worshipping Granny"
-	keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"
+	keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js, redditvideogenerator, reddit, video, generator, bot, api, youtube"
 	canonical="https://clickphase.vercel.app/granny-keyboard"
 	openGraph={{
 		title: "Granny Keyboard - ClickPhase",

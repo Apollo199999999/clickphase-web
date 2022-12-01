@@ -17,7 +17,7 @@
 <SvelteSeo
 	title="DynaWin - ClickPhase"
 	description="DynaWin - Dynamic Desktop for Windows 10 and Windows 11"
-	keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"
+	keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js, redditvideogenerator, reddit, video, generator, bot, api, youtube"
 	canonical="https://clickphase.vercel.app/dynawin"
 	openGraph={{
 		title: "DynaWin - ClickPhase",

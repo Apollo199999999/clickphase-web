@@ -1,53 +1,71 @@
 <script>
-    import { TextBlock } from "fluent-svelte";
+    import { TextBlock, Button } from "fluent-svelte";
     import "fluent-svelte/theme.css";
     import HeaderChip from "/src/components/HeaderChip.svelte";
-    import { CompareImage } from "svelte-compare-image";
 </script>
 
 <div class="container">
-    <HeaderChip>Feature</HeaderChip>
+    <HeaderChip>Links</HeaderChip>
 
-    <TextBlock class="titleText" variant="titleLarge">Dynamic Theme</TextBlock>
+    <TextBlock class="titleText" variant="titleLarge"
+        >Downloads and Links</TextBlock
+    >
     <TextBlock variant="bodyLarge" class="bodyText">
-        Switch your Windows theme or app theme based on time.
+        RedditVideoGenerator download links and other links.
     </TextBlock>
 
     <div class="cards-collection">
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Automatic theme switching</p>
+                <p class="card-text">Download RedditVideoGenerator</p>
                 <p class="card-subtext">
-                    DynaWin can automatically switch the Windows theme at specific
-                    timings. For example, you can automatically switch Windows
-                    to Dark theme at night, so that it is easier on the eyes.
+                    Unfortunately, RedditVideoGenerator is not yet available for
+                    download, pending approval from verification by Google APIs
+                    and further testing being required. If you are part of
+                    Google's Trust and Safety team, email me and I will provide
+                    you with a build of RedditVideoGenerator if needed.
                 </p>
+                <Button
+                    onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator/releases', '_blank', 'noopener');"
+                    variant="accent"
+                    class="download-btn"
+                    disabled="true"
+                    >Download RedditVideoGenerator
+                </Button>
             </div>
         </div>
 
         <div class="card">
             <div class="card-content">
-                <p class="card-text">Choose which mode to switch</p>
-                <p class="card-subtext">
-                    You can configure DynaWin to switch only the app or system
-                    theme, or both. This gives you more control over DynaWin's
-                    behaviour and allows DynaWin to better cater to your needs.
-                </p>
+                <p class="card-text">RedditVideoGenerator links</p>
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator', '_blank', 'noopener');"
+                    variant="hyperlink">RedditVideoGenerator source code</Button
+                >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator/issues', '_blank', 'noopener');"
+                    variant="hyperlink">Report a bug</Button
+                >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator/issues', '_blank', 'noopener');"
+                    variant="hyperlink">Request a feature</Button
+                >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator/blob/main/NOTICE.txt', '_blank', 'noopener');"
+                    variant="hyperlink">Third party notices and licenses</Button
+                >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator/blob/main/PRIVACYPOLICY.md', '_blank', 'noopener');"
+                    variant="hyperlink"
+                    >RedditVideoGenerator's privacy policy</Button
+                >
             </div>
         </div>
-    </div>
-
-    <div class="compare-image-div">
-        <CompareImage
-            class="image-comparer"
-            imageLeftSrc="/screenshots/dynawin/DynamicThemeLight.png"
-            imageLeftAlt="Light Theme"
-            imageRightSrc="/screenshots/dynawin/DynamicThemeDark.png"
-            imageRightAlt="Dark Theme"
-            --handle-size="2.5rem"
-            --slider-color="#ffffff"
-            --slider-width="0.125rem"
-        />
     </div>
 </div>
 
@@ -143,12 +161,20 @@
         font-size: 18px;
         margin: 0px;
         margin-top: 1rem;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 
-    .compare-image-div {
-        max-width: min(1250px, 85vw);
-        margin: 2em auto 0 auto;
+    :global(.download-btn) {
+        margin-top: calc(1.5em / 1.1);
+        transform: scale(1.1);
+        font-size: 16px;
+    }
+
+    :global(.hyperlinks) {
+        margin-top: 1em;
+        margin-bottom: -0.5em;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 </style>

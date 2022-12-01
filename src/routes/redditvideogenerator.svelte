@@ -1,6 +1,10 @@
 <script>
 	import "fluent-svelte/theme.css";
 	import SvelteSeo from "svelte-seo";
+    import HeroSection from "/src/sections/redditvideogenerator/HeroSection.svelte";
+    import AboutRedditVideoGenerator from "/src/sections/redditvideogenerator/AboutRedditVideoGenerator.svelte";
+    import GroupedSamples from "/src/sections/redditvideogenerator/GroupedSamples.svelte";
+	import DownloadLinks from "/src/sections/redditvideogenerator/DownloadLinks.svelte";
 </script>
 
 <svelte:head>
@@ -10,7 +14,7 @@
 <SvelteSeo
 	title="RedditVideoGenerator - ClickPhase"
 	description="RedditVideoGenerator - Generate r/AskReddit Reddit videos and upload them to YouTube automatically"
-	keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js"
+	keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js, redditvideogenerator, reddit, video, generator, bot, api, youtube"
 	canonical="https://clickphase.vercel.app/redditvideogenerator"
 	openGraph={{
 		title: "RedditVideoGenerator - ClickPhase",
@@ -28,3 +32,7 @@
 	}}
 />
 
+<HeroSection/>
+<AboutRedditVideoGenerator/>
+<GroupedSamples/>
+<DownloadLinks/>
