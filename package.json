@@ -15,7 +15,6 @@
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
     "fluent-svelte": "^1.6.0",
-    "node-sass": "^7.0.1",
     "svelte": "^3.48.0",
     "svelte-check": "^2.7.2",
     "svelte-preprocess": "^4.10.7",

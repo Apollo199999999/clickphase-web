@@ -57,7 +57,7 @@
                     <Button
                         class="hyperlinks"
                         onclick="window.open('https://github.com/Apollo199999999/clickphase-web', '_blank', 'noopener');"
-                        variant="hyperlink">Website GitHub repo</Button
+                        variant="hyperlink">Website GitHub repository</Button
                     >
                     <Button
                         class="hyperlinks"
@@ -72,7 +72,7 @@
                     <Button
                         class="hyperlinks"
                         onclick="window.open('https://clickphase-old.vercel.app', '_blank', 'noopener');"
-                        variant="hyperlink">Archive of ClickPhase's old Weebly site</Button
+                        variant="hyperlink">Archive of ClickPhase's old Weebly website</Button
                     >
                     <Button
                         class="hyperlinks"

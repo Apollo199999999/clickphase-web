@@ -32,12 +32,12 @@
                     <Button
                         class="hyperlinks"
                         onclick="window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank', 'noopener');"
-                        variant="hyperlink">Youtube Channel</Button
+                        variant="hyperlink">YouTube channel</Button
                     >
                     <Button
                         class="hyperlinks"
                         onclick="window.open('https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ', '_blank', 'noopener');"
-                        variant="hyperlink">Personal Youtube Channel</Button
+                        variant="hyperlink">Personal YouTube channel</Button
                     >
                 </div>
             </div>
