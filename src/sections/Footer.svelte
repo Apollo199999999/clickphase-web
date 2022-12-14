@@ -56,7 +56,7 @@
                         <Button
                             class="hyperlink"
                             onclick="window.open('https://github.com/Apollo199999999/clickphase-web', '_blank', 'noopener');"
-                            variant="hyperlink">Website GitHub repo</Button
+                            variant="hyperlink">Website GitHub repository</Button
                         >
                         <Button
                             class="hyperlink"
