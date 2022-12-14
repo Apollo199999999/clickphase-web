@@ -56,7 +56,8 @@
                         <Button
                             class="hyperlink"
                             onclick="window.open('https://github.com/Apollo199999999/clickphase-web', '_blank', 'noopener');"
-                            variant="hyperlink">Website GitHub repository</Button
+                            variant="hyperlink"
+                            >Website GitHub repository</Button
                         >
                         <Button
                             class="hyperlink"
@@ -64,9 +65,10 @@
                             variant="hyperlink">Report a bug</Button
                         >
                         <Button
-                            class="hyperlink"
-                            onclick="window.open('https://github.com/Apollo199999999/clickphase-web/issues', '_blank', 'noopener');"
-                            variant="hyperlink">Suggest improvements</Button
+                            class="hyperlinks"
+                            onclick="window.open('https://github.com/Apollo199999999/clickphase-web/blob/main/PRIVACYPOLICY.md', '_blank', 'noopener');"
+                            variant="hyperlink"
+                            >Privacy policy for this website</Button
                         >
                     </div>
                 </div>
@@ -153,24 +155,24 @@
     .logo {
         margin-left: -7px;
         display: inline-block;
-	}
+    }
 
-	.logo a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-		text-decoration: none;
-		color: inherit;
-	}
+    .logo a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: inherit;
+    }
 
-	.logo img {
-		width: 3.6em;
-		height: 3.6em;
-		object-fit: contain;
-		margin-right: 0.7em;
-	}
+    .logo img {
+        width: 3.6em;
+        height: 3.6em;
+        object-fit: contain;
+        margin-right: 0.7em;
+    }
 
     .card-text {
         font-family: var(--fds-font-family-display);
@@ -208,5 +210,4 @@
     .copyright-text {
         margin: auto;
     }
-
 </style>
