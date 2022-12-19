@@ -25,7 +25,11 @@
             onclick="window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank', 'noopener');"
         >
             <div class="card-content">
-                <p class="card-default-icon">&#x0379;</p>
+                <img
+                    src="/youtube-profiles/yt_icon_rgb.png"
+                    alt="YouTube Icon"
+                    class="card-yt-icon"
+                />
                 <p class="card-text">YouTube</p>
             </div>
         </div>
@@ -140,6 +144,12 @@
         font-size: 100px;
         color: var(--fds-accent-default);
         margin: 0px;
+    }
+
+    .card-yt-icon {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
     }
 
     .card-github-icon {
