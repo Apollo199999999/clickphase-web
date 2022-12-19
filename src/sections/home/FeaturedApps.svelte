@@ -39,6 +39,7 @@
                         alt="DynaWin"
                         src="/app-images/dynawin/DynaWinImageLight.png"
                     />
+                </picture>
                 <p class="card-text">DynaWin</p>
                 <p class="card-subtext">
                     Dynamic Desktop for Windows 10 and Windows 11

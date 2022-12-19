@@ -6,7 +6,7 @@
 
 <div class="container">
     <HeaderChip>Software</HeaderChip>
-    
+
     <TextBlock variant="titleLarge">All Software</TextBlock>
 
     <div class="cards-collection">
@@ -54,6 +54,7 @@
                         alt="DynaWin"
                         src="/app-images/dynawin/DynaWinImageLight.png"
                     />
+                </picture>
                 <p class="card-text">DynaWin</p>
                 <p class="card-subtext">
                     Dynamic Desktop for Windows 10 and Windows 11

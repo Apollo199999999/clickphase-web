@@ -22,6 +22,16 @@
 
         <div
             class="card"
+            onclick="window.location.href = 'mailto:clickphasehelp@gmail.com';"
+        >
+            <div class="card-content">
+                <p class="card-default-icon">&#xF509;</p>
+                <p class="card-text">Email</p>
+            </div>
+        </div>
+
+        <div
+            class="card"
             onclick="window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank', 'noopener');"
         >
             <div class="card-content">
@@ -31,16 +41,6 @@
                     class="card-yt-icon"
                 />
                 <p class="card-text">YouTube</p>
-            </div>
-        </div>
-
-        <div
-            class="card"
-            onclick="window.location.href = 'mailto:clickphasehelp@gmail.com';"
-        >
-            <div class="card-content">
-                <p class="card-default-icon">&#xF509;</p>
-                <p class="card-text">Email</p>
             </div>
         </div>
 
