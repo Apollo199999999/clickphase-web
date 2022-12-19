@@ -136,7 +136,7 @@
         margin: 0em 0.7em 1.5em 0.7em;
         padding: 2em 1em 2em 1em;
         width: 180px;
-        min-width: 15vw;
+        min-width: 200px;
         flex-grow: 1;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);
