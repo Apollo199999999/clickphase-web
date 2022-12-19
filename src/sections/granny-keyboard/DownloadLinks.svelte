@@ -36,7 +36,7 @@
                 <Button
                     class="hyperlinks"
                     onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard', '_blank', 'noopener');"
-                    variant="hyperlink">Granny Keyboard source code</Button
+                    variant="hyperlink">Granny Keyboard's source code</Button
                 >
                 <Button
                     class="hyperlinks"
@@ -52,6 +52,11 @@
                     class="hyperlinks"
                     onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/blob/master/PRIVACYPOLICY.md', '_blank', 'noopener');"
                     variant="hyperlink">Granny Keyboard's privacy policy</Button
+                >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/Granny-Keyboard/blob/master/LICENSE', '_blank', 'noopener');"
+                    variant="hyperlink">Granny Keyboard's MIT License</Button
                 >
             </div>
         </div>

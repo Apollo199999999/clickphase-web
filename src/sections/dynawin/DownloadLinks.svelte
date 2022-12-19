@@ -36,7 +36,7 @@
                 <Button
                     class="hyperlinks"
                     onclick="window.open('https://github.com/Apollo199999999/DynaWin', '_blank', 'noopener');"
-                    variant="hyperlink">DynaWin source code</Button
+                    variant="hyperlink">DynaWin's source code</Button
                 >
                 <Button
                     class="hyperlinks"
@@ -47,6 +47,11 @@
                     class="hyperlinks"
                     onclick="window.open('https://github.com/Apollo199999999/DynaWin/issues', '_blank', 'noopener');"
                     variant="hyperlink">Request a feature</Button
+                >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/DynaWin/blob/main/LICENSE.txt', '_blank', 'noopener');"
+                    variant="hyperlink">DynaWin's MIT License</Button
                 >
                 <Button
                     class="hyperlinks"

@@ -10,6 +10,24 @@
     <TextBlock variant="titleLarge">All Software</TextBlock>
 
     <div class="cards-collection">
+        <div class="card" onclick="window.location.href = '/redditvideogenerator';">
+            <div class="card-content">
+                <picture>
+                    <source
+                        srcset="/app-images/redditvideogenerator/RVGImageDark.png"
+                        media="(prefers-color-scheme: dark)"
+                    />
+                    <img
+                        class="card-image"
+                        alt="RedditVideoGenerator"
+                        src="/app-images/redditvideogenerator/RVGImageLight.png"
+                    />
+                </picture>
+                <p class="card-text">RedditVideoGenerator</p>
+                <p class="card-subtext">Generate r/AskReddit Reddit videos and upload them to YouTube automatically</p>
+            </div>
+        </div>
+
         <div class="card" onclick="window.location.href = '/launcherx';">
             <div class="card-content">
                 <picture>
@@ -118,7 +136,7 @@
         margin: 0em 0.7em 1.5em 0.7em;
         padding: 2em 1em 2em 1em;
         width: 180px;
-        min-width: 200px;
+        min-width: 15vw;
         flex-grow: 1;
         text-align: center;
         border-radius: var(--fds-control-corner-radius);

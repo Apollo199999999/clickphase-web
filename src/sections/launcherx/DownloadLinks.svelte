@@ -36,7 +36,7 @@
                 <Button
                     class="hyperlinks"
                     onclick="window.open('https://github.com/Apollo199999999/LauncherX', '_blank', 'noopener');"
-                    variant="hyperlink">LauncherX source code</Button
+                    variant="hyperlink">LauncherX's source code</Button
                 >
                 <Button
                     class="hyperlinks"
@@ -47,6 +47,11 @@
                     class="hyperlinks"
                     onclick="window.open('https://github.com/Apollo199999999/LauncherX/issues', '_blank', 'noopener');"
                     variant="hyperlink">Request a feature</Button
+                >
+                <Button
+                    class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/LauncherX/blob/master/LICENSE.txt', '_blank', 'noopener');"
+                    variant="hyperlink">LauncherX's MIT License</Button
                 >
                 <Button
                     class="hyperlinks"

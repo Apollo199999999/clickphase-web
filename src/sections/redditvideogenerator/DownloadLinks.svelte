@@ -55,6 +55,11 @@
                 >
                 <Button
                     class="hyperlinks"
+                    onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator/blob/main/LICENSE', '_blank', 'noopener');"
+                    variant="hyperlink">RedditVideoGenerator's MIT License</Button
+                >
+                <Button
+                    class="hyperlinks"
                     onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator/blob/main/NOTICE.txt', '_blank', 'noopener');"
                     variant="hyperlink">Third party notices and licenses</Button
                 >
