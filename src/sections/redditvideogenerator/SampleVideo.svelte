@@ -18,14 +18,14 @@
     </div>
 
     <div class="bottom">
-        <!-- svelte-ignore a11y-media-has-caption -->
-        <video controls disablePictureInPicture class="video-player">
-            <source
-                src="/screenshots/redditvideogenerator/SampleVideo.mp4"
-                type="video/mp4"
-            />
-            Your browser does not support the video tag.
-        </video>
+        <iframe
+            src="https://www.youtube.com/embed/0_h4B9_SXWU"
+            title="YouTube video player"
+            frameborder="0"
+            class="video-player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+        />
     </div>
 </div>
 
@@ -62,7 +62,7 @@
     }
 
     .video-player {
-        height: 100%;
         width: 100%;
+        height: 100%;
     }
 </style>
