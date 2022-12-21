@@ -19,17 +19,12 @@
             <div class="card-content">
                 <p class="card-text">Download RedditVideoGenerator</p>
                 <p class="card-subtext">
-                    Unfortunately, RedditVideoGenerator is not yet available for
-                    download, pending approval from verification by Google APIs,
-                    and further testing being required. If you are part of
-                    Google's Trust and Safety team, email me and I will provide
-                    you with a build of RedditVideoGenerator if needed.
+                    Click the button below to download RedditVideoGenerator:
                 </p>
                 <Button
                     onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator/releases', '_blank', 'noopener');"
                     variant="accent"
                     class="download-btn"
-                    disabled="true"
                     >Download RedditVideoGenerator
                 </Button>
             </div>
@@ -56,7 +51,8 @@
                 <Button
                     class="hyperlinks"
                     onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator/blob/main/LICENSE', '_blank', 'noopener');"
-                    variant="hyperlink">RedditVideoGenerator's MIT License</Button
+                    variant="hyperlink"
+                    >RedditVideoGenerator's MIT License</Button
                 >
                 <Button
                     class="hyperlinks"

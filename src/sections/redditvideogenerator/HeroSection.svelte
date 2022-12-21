@@ -11,7 +11,7 @@
 <svelte:window bind:scrollY={sy} />
 
 <div class="parallax-container">
-    <MicaBackground/>
+    <MicaBackground />
 
     <div class="bg-image-div">
         <img
@@ -21,20 +21,25 @@
     </div>
 
     <div class="logo-components">
-        <img style="transform: translate(0,{-sy * 0.1}px)" alt="RedditVideoGenerator Logo" />
+        <img
+            style="transform: translate(0,{-sy * 0.1}px)"
+            alt="RedditVideoGenerator Logo"
+        />
         <TextBlock
             variant="subtitle"
             style="transform: translate(0,{-sy * 0.1}px)"
-            class="caption-text">
-            Generate r/AskReddit Reddit videos and upload them to YouTube automatically.
+            class="caption-text"
+        >
+            Generate r/AskReddit Reddit videos and upload them to YouTube
+            automatically.
         </TextBlock>
 
         <Button
             class="download-btn"
-            disabled="true"
             style="transform: translate(0,{-sy * 0.1}px) scale(calc(16/14))"
             onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator/releases', '_blank', 'noopener');"
-            variant="accent">Download RedditVideoGenerator
+            variant="accent"
+            >Download RedditVideoGenerator
         </Button>
     </div>
 </div>
@@ -108,7 +113,6 @@
     }
 
     .logo-components :global(.download-btn) {
-        margin-top: calc(25px / calc(16/14));
+        margin-top: calc(25px / calc(16 / 14));
     }
-
 </style>
