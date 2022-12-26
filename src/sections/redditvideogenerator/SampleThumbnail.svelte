@@ -59,7 +59,8 @@
     }
 
     .thumbnail-img {
-        height: 100%;
         width: 100%;
+        height: auto;
+        aspect-ratio: 16 /9;
     }
 </style>

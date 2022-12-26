@@ -63,6 +63,7 @@
 
     .video-player {
         width: 100%;
-        height: 100%;
+        height: unset;
+        aspect-ratio: 16 / 9;
     }
 </style>
