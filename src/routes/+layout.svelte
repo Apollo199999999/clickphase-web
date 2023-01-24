@@ -13,26 +13,23 @@
 	inject();
 
 	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
-
-	if (browser && analyticsId) {
-		page.subscribe(({ url, params }) =>
-			webVitals({
-				path: url.pathname,
-				params,
-				analyticsId,
-			})
-		);
+	$: if (browser && analyticsId) {
+		webVitals({
+			path: $page.url.pathname,
+			params: $page.params,
+			analyticsId,
+		});
 	}
 </script>
 
-<Header/>
+<Header />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <main>
 	<slot />
 </main>
 
-<Footer/>
+<Footer />
 
 <style>
 	/* Some base styles to get things looking right. */
