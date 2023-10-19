@@ -1,5 +1,6 @@
 <script>
   export let headerText = "";
+  export let subtitleText = "";
   export let clickEvent = "";
 </script>
 
@@ -10,12 +11,14 @@
   </div>
   <div class="card-header">
     <h1>{headerText}</h1>
+    <h2>{subtitleText}</h2>
   </div>
 </div>
 
 <style>
   .card {
-    width: 23%;
+    width: 20%;
+    flex-grow: 1;
     background: linear-gradient(
         var(--fds-card-background-default),
         var(--fds-card-background-default)
@@ -28,18 +31,21 @@
     z-index: 999;
     transition: 200ms ease-in-out;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    margin-bottom: 50px;
+    margin-bottom: 2em;
   }
 
   .card-header {
     text-align: center;
-    padding: 10px 10px 30px 10px;
+    font-size: 12px;
+    padding-bottom: 0.5em;
   }
 
+  h2 {
+    font-weight: 400;
+  }
   .card-body {
-    padding: 50px 20px 30px 20px;
+    padding: 20px 10px 0px 10px;
     text-align: center;
-    font-size: 18px;
     align-items: center;
   }
 

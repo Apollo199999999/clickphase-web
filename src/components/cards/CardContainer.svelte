@@ -8,19 +8,14 @@
 <style>
     .container {
         width: 90%;
-        margin: 4em auto;
+        margin: 2em auto;
     }
 
     .row {
         display: flex;
         justify-content: space-around;
         flex-flow: wrap;
+        gap: 1em;
     }
 
-    /* Media queries */
-    @media screen and (max-width: 620px) {
-        .container {
-            width: 100%;
-        }
-    }
 </style>

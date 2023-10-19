@@ -1,6 +1,5 @@
 <script>
   import Header from "/src/sections/Header.svelte";
-  import Footer from "/src/sections/Footer.svelte";
   import "fluent-svelte/theme.css";
   import { TextBlock } from "fluent-svelte";
   import { webVitals } from "/src/vitals";
@@ -22,14 +21,19 @@
   }
 </script>
 
-<Header />
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <main>
-  <slot />
-</main>
+  <!-- Mica background -->
+  <div class="mica-div">
+    <div class="mica-image" />
+  </div>
 
-<Footer />
+  <!-- Main page -->
+  <div class="container">
+    <Header />
+    <slot />
+  </div>
+</main>
 
 <style>
   /* Some base styles to get things looking right. */
@@ -43,9 +47,63 @@
 
   :global(h1, h2, h3, h4, h5, h6, p, span) {
     font-family: var(--fds-font-family-display) !important;
+    margin-left: 1em;
+    margin-right: 1em;
   }
 
-  main {
-    padding: 2em;
+  .mica-div {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .mica-image {
+      background-image: url("/MicaDark.png");
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    .mica-image {
+      background-image: url("/MicaLight.png");
+    }
+  }
+
+  .mica-image {
+    width: 100%;
+    height: 100%;
+    filter: saturate(160%);
+    transform: scale(1.7);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .container {
+      background-color: hsla(0, 0%, 13%, 0.8);
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    .container {
+      background-color: hsla(0, 0%, 95%, 0.8);
+    }
+  }
+
+  .container {
+    word-wrap: break-word;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    overflow: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   }
 </style>
