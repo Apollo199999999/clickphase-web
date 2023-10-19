@@ -1,7 +1,7 @@
 <script>
   import Header from "/src/sections/Header.svelte";
   import "fluent-svelte/theme.css";
-  import { TextBlock } from "fluent-svelte";
+  import "../app.css";
   import { webVitals } from "/src/vitals";
   import { browser } from "$app/environment";
   import { page } from "$app/stores";
