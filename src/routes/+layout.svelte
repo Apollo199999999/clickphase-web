@@ -92,6 +92,7 @@
   }
 
   .container {
+    backdrop-filter: blur(6px);
     word-wrap: break-word;
     align-items: center;
     justify-content: center;
