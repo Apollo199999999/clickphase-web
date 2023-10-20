@@ -92,7 +92,6 @@
   }
 
   .container {
-    backdrop-filter: blur(6px);
     word-wrap: break-word;
     align-items: center;
     justify-content: center;
@@ -106,5 +105,17 @@
     z-index: 999;
     overflow: auto;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+  }
+
+  .container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(6px);
+    z-index: -1;
   }
 </style>
