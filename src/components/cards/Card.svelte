@@ -9,6 +9,7 @@
   <div class="card-body">
     <slot />
   </div>
+
   <div class="card-header">
     <h1>{headerText}</h1>
     <h2>{subtitleText}</h2>

@@ -14,16 +14,6 @@ body {
     width: 3px;
 }
 
-::-webkit-scrollbar-button:end {
-    height: 1%;
-    width: 3px;
-}
-
-::-webkit-scrollbar-button:start {
-    height: 1%;
-    width: 3px;
-}
-
 /* Track */
 ::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.05);

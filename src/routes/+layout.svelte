@@ -55,6 +55,15 @@
     margin-right: 1em;
   }
 
+  :global(h1) {
+    font-weight: 600;
+  }
+
+  :global(h2) {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
   .mica-div {
     width: 100%;
     height: 100vh;
