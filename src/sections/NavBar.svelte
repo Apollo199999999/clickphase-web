@@ -1,7 +1,6 @@
 <script>
-  import { page } from "$app/stores";
   import "fluent-svelte/theme.css";
-  import { TextBlock } from "fluent-svelte";
+  import { page } from "$app/stores";
 </script>
 
 <svelte:head>
@@ -13,13 +12,6 @@
 </svelte:head>
 
 <header>
-  <div class="logo">
-    <a sveltekit:prefetch href="/">
-      <img src="/logo-img.png" alt="ClickPhase" />
-      <TextBlock variant="title">ClickPhase</TextBlock>
-    </a>
-  </div>
-
   <nav>
     <ul>
       <li class:active={$page.url.pathname === "/"}>
@@ -58,7 +50,8 @@
 
   header {
     position: sticky;
-    top: 0;
+    height: 4em;
+    bottom: 0;
     z-index: 2147483647;
     display: flex;
     overflow: auto;
@@ -66,35 +59,19 @@
     backdrop-filter: blur(100px) saturate(200%);
   }
 
-  .logo {
-    height: 4em;
-  }
-
-  .logo a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: inherit;
-    margin-right: 3em;
-  }
-
-  .logo img {
-    width: 2.5em;
-    height: 2.5em;
-    object-fit: contain;
-    margin-right: 0.5em;
+  @media (min-width: 660px) {
+    nav {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   nav {
     display: flex;
     justify-content: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 0 1em;
   }
 
   ul {
@@ -127,23 +104,19 @@
   li a::after {
     content: "";
     display: block;
-    width: 80%;
+    width: 100%;
     height: 3px;
     border-radius: 999px;
     background: var(--fds-accent-default);
     position: absolute;
     top: 100%;
-    left: 10%;
+    left: 0;
     transform: scaleX(0);
     transition: transform 0.25s ease-out;
   }
 
-  li a:hover {
-    color: var(--fds-text-primary);
-  }
-
   li a:hover::after {
-    transform: scaleX(1);
+    transform: scaleX(0.6);
     transform-origin: bottom center;
   }
 
@@ -152,7 +125,7 @@
   }
 
   .active a::after {
-    transform: scaleX(1);
+    transform: scaleX(0.6);
   }
 
   .linkIcon {

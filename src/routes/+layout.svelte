@@ -1,11 +1,12 @@
 <script>
-  import Header from "/src/sections/Header.svelte";
   import "fluent-svelte/theme.css";
   import "../app.css";
   import { webVitals } from "/src/vitals";
   import { browser } from "$app/environment";
   import { page } from "$app/stores";
   import { inject } from "@vercel/analytics";
+  import NavBar from "../sections/NavBar.svelte";
+  import LogoBar from "../sections/LogoBar.svelte";
 
   // Make sure to call this only once in your app
   // Ignore the "script.js" not being found error, it will work once deployed to Vercel.
@@ -30,8 +31,9 @@
 
   <!-- Main page -->
   <div class="container">
-    <Header />
+    <LogoBar />
     <slot />
+    <NavBar />
   </div>
 </main>
 
@@ -109,7 +111,7 @@
   }
 
   .container::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;

@@ -1,0 +1,53 @@
+<script>
+  import "fluent-svelte/theme.css";
+  import { TextBlock } from "fluent-svelte";
+</script>
+
+<header>
+  <div class="logo">
+    <a sveltekit:prefetch href="/">
+      <img src="/logo-img.png" alt="ClickPhase" />
+      <TextBlock variant="title">ClickPhase</TextBlock>
+    </a>
+  </div>
+</header>
+
+<style>
+  @font-face {
+    font-family: "FluentUIIcons";
+    src: url("/FluentSystemIcons-Regular.ttf"); /*URL to font*/
+  }
+
+  header {
+    position: sticky;
+    height: 4em;
+    top: 0;
+    z-index: 2147483647;
+    display: flex;
+    overflow: auto;
+    background-color: var(--fds-control-fill-default);
+    backdrop-filter: blur(100px) saturate(200%);
+  }
+
+  .logo {
+    height: 4em;
+    margin: 0 auto;
+  }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo img {
+    width: 2.5em;
+    height: 2.5em;
+    object-fit: contain;
+    margin-right: 0.5em;
+  }
+</style>
