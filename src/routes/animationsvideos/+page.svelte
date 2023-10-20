@@ -1,7 +1,6 @@
 <script>
 	import "fluent-svelte/theme.css";
 	import SvelteSeo from "svelte-seo";
-	import HeroSection from "/src/sections/animationsvideos/HeroSection.svelte";
 	import VideoChannels from "/src/sections/animationsvideos/VideoChannels.svelte";
 </script>
 
@@ -30,5 +29,4 @@
 	}}
 />
 
-<HeroSection/>
 <VideoChannels/>

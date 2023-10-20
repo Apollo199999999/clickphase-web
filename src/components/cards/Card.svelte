@@ -36,12 +36,16 @@
 
   .card-header {
     text-align: center;
-    font-size: 12px;
     padding-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 24px;
   }
 
   h2 {
     font-weight: 400;
+    font-size: 18px;
   }
   .card-body {
     padding: 20px 10px 0px 10px;

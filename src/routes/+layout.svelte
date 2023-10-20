@@ -125,6 +125,6 @@
 
   .content {
     /* To force the bottom nav bar to be at the bottom */
-    min-height: calc(100% - 9em);
+    min-height: calc(100% - 10em);
   }
 </style>
