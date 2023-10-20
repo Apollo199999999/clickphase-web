@@ -20,8 +20,8 @@
 
   header {
     position: sticky;
-    height: 4em;
     top: 0;
+    height: 4em;
     z-index: 2147483647;
     display: flex;
     overflow: auto;

@@ -20,11 +20,13 @@
       clickEvent="window.location.href = '/software';">
       <p class="card-default-icon">&#x02A7;</p>
     </Card>
+
     <Card
       headerText="Email"
       clickEvent="window.location.href = 'mailto:clickphasehelp@gmail.com';">
       <p class="card-default-icon">&#xF509;</p>
     </Card>
+
     <Card
       headerText="YouTube"
       clickEvent="window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank', 'noopener');">
@@ -33,6 +35,7 @@
         alt="YouTube Icon"
         class="card-yt-icon" />
     </Card>
+    
     <Card
       headerText="GitHub"
       clickEvent="window.open('https://github.com/Apollo199999999', '_blank', 'noopener');">

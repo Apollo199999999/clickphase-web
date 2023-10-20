@@ -32,7 +32,9 @@
   <!-- Main page -->
   <div class="container">
     <LogoBar />
-    <slot />
+    <div class="content">
+      <slot />
+    </div>
     <NavBar />
   </div>
 </main>
@@ -119,5 +121,10 @@
     left: 0;
     backdrop-filter: blur(6px);
     z-index: -1;
+  }
+
+  .content {
+    /* To force the bottom nav bar to be at the bottom */
+    min-height: calc(100% - 9em);
   }
 </style>

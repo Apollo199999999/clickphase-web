@@ -1,7 +1,6 @@
 <script>
 	import "fluent-svelte/theme.css";
 	import SvelteSeo from "svelte-seo";
-	import HeroSection from "/src/sections/software/HeroSection.svelte";
 	import AllSoftware from "/src/sections/software/AllSoftware.svelte";
 </script>
 
@@ -30,5 +29,4 @@
 	}}
 />
 
-<HeroSection/>
 <AllSoftware/>

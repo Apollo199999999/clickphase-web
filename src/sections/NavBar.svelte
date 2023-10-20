@@ -50,8 +50,8 @@
 
   header {
     position: sticky;
-    height: 4em;
     bottom: 0;
+    height: 4em;
     z-index: 2147483647;
     display: flex;
     overflow: auto;
@@ -61,17 +61,18 @@
 
   @media (min-width: 660px) {
     nav {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      margin: 0 auto;
+    }
+  }
+  @media (max-width: 659px) {
+    nav {
+      margin: 0 1em;
     }
   }
 
   nav {
     display: flex;
     justify-content: center;
-    margin: 0 1em;
   }
 
   ul {
