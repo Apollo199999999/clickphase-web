@@ -11,7 +11,7 @@
 
   <CardContainer>
     <Card headerText="Contact Us">
-      <div class="hyperlink-group">
+      <p class="hyperlink-group">
         <Button
           class="hyperlinks"
           onclick="window.open('mailto:clickphasehelp@gmail.com', 'noopener');"
@@ -28,13 +28,12 @@
           class="hyperlinks"
           onclick="window.open('https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ', '_blank', 'noopener');"
           variant="hyperlink">Personal YouTube channel</Button>
-      </div>
+      </p>
     </Card>
 
     <Card headerText="Give Feedback">
       <h2>
-        If you need support or want to leave feedback, you may tell us on the
-        designated GitHub repository for each piece of software. Alternatively,
+        If you need support or want to leave feedback, you may tell us on GitHub, or
         you may email us. We will respond within 5 business days.
       </h2>
     </Card>

@@ -109,8 +109,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: calc(100% - 4em);
-    height: calc(100% - 4em);
+    width: calc(100% - 2em);
+    height: calc(100% - 2em);
     position: absolute;
     top: 50%;
     left: 50%;

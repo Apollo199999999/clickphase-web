@@ -19,7 +19,7 @@
     </Card>
 
     <Card headerText="Useful Links">
-      <div class="hyperlink-group">
+      <p class="hyperlink-group">
         <Button
           class="hyperlinks"
           onclick="window.open('https://github.com/Apollo199999999/clickphase-web', '_blank', 'noopener');"
@@ -41,7 +41,7 @@
           class="hyperlinks"
           onclick="window.open('https://github.com/Apollo199999999/clickphase-web/blob/main/PRIVACYPOLICY.md', '_blank', 'noopener');"
           variant="hyperlink">Privacy policy for this website</Button>
-      </div>
+      </p>
     </Card>
   </CardContainer>
 </div>

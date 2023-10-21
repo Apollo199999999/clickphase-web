@@ -48,6 +48,7 @@
     font-weight: 400;
     font-size: 18px;
   }
+
   .card-body {
     padding: 20px 10px 0px 10px;
     text-align: center;
