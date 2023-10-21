@@ -109,14 +109,15 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: calc(100% - 2em);
-    height: calc(100% - 2em);
+    /* 1em margin all around */
+    width: calc(100vw - 2em);
+    height: calc(100vh - 2em);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 999;
-    overflow: auto;
+    overflow: hidden;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
   }
@@ -133,7 +134,9 @@
   }
 
   .content {
-    /* To force the bottom nav bar to be at the bottom */
-    min-height: calc(100% - 10em);
+    /* Minus 8em to account for logobar and navbar */
+    height: calc(100% - 8em);
+    overflow: auto;
   }
+
 </style>

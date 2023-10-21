@@ -49,8 +49,9 @@
   }
 
   header {
-    position: sticky;
+    position: absolute;
     bottom: 0;
+    width: 100%;
     height: 4em;
     z-index: 2147483647;
     display: flex;
