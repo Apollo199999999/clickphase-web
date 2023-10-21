@@ -52,6 +52,6 @@
   }
 
   :global(.hyperlinks) {
-    margin: 0px 10px;
+    margin: 0.2em 0.5em !important;
   }
 </style>

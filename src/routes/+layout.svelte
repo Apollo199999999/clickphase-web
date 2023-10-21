@@ -51,8 +51,6 @@
 
   :global(h1, h2, h3, h4, h5, h6, p, span) {
     font-family: var(--fds-font-family-display) !important;
-    margin-left: 1em;
-    margin-right: 1em;
   }
 
   :global(h1) {
@@ -134,8 +132,12 @@
   }
 
   .content {
-    /* Minus 8em to account for logobar and navbar */
-    height: calc(100% - 8em);
+    box-sizing: border-box;
+    /* 4em vertical padding to account for nav and logo bars */
+    height: 100%;
+    padding: 4em 5% 4em 5%;
+    /* Shift content to under the logo bar */
+    margin-top: -4em;
     overflow: auto;
   }
 

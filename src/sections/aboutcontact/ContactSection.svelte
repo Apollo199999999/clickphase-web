@@ -33,12 +33,11 @@
 
     <Card headerText="Give Feedback">
       <h2>
-        If you need support or want to leave feedback, you may tell us on GitHub, or
-        you may email us. We will respond within 5 business days.
+        If you need support or want to leave feedback, you may tell us on
+        GitHub, or you may email us. We will respond within 5 business days.
       </h2>
     </Card>
   </CardContainer>
-
 </div>
 
 <style>
@@ -47,6 +46,6 @@
   }
 
   :global(.hyperlinks) {
-    margin: 0px 10px;
+    margin: 0.2em 0.5em !important;
   }
 </style>

@@ -37,7 +37,7 @@
 
   .card-header {
     text-align: center;
-    padding-bottom: 0.5em;
+    padding: 0em 1em 0.5em 1em;
   }
 
   h1 {
