@@ -2,9 +2,10 @@
   import "fluent-svelte/theme.css";
   import CardContainer from "../../components/cards/CardContainer.svelte";
   import Card from "../../components/cards/Card.svelte";
+  import PageSection from "../../components/PageSection.svelte";
 </script>
 
-<div class="container">
+<PageSection isTopSection={true}>
   <h1>All Software</h1>
 
   <CardContainer>
@@ -74,15 +75,11 @@
     </Card>
   </CardContainer>
 
-</div>
+</PageSection>
 
 <style>
-  .container {
-    margin-top: 2em;
-  }
-
   .card-image {
-    width: 80%;
+    width: 100%;
     max-width: 260px;
     height: 120px;
     object-fit: contain;

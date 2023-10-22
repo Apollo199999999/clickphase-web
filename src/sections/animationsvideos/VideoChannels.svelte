@@ -2,9 +2,10 @@
   import "fluent-svelte/theme.css";
   import CardContainer from "../../components/cards/CardContainer.svelte";
   import Card from "../../components/cards/Card.svelte";
+  import PageSection from "../../components/PageSection.svelte";
 </script>
 
-<div class="container">
+<PageSection isTopSection={true}>
   <h1>My animations & videos</h1>
   <h2>
     You can find all of my animations and videos on my 3 YouTube channels.
@@ -38,18 +39,9 @@
         src="/youtube-profiles/granny.png" />
     </Card>
   </CardContainer>
-</div>
+</PageSection>
 
 <style>
-  .container {
-    margin-top: 2em;
-  }
-
-  h2 {
-    font-weight: 400;
-    font-size: 18px;
-  }
-
   .card-image {
     width: 80%;
     max-width: 260px;

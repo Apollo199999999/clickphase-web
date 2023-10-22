@@ -2,10 +2,11 @@
   import { Button } from "fluent-svelte";
   import CardContainer from "../../components/cards/CardContainer.svelte";
   import Card from "../../components/cards/Card.svelte";
+  import PageSection from "../../components/PageSection.svelte";
   import "fluent-svelte/theme.css";
 </script>
 
-<div class="container">
+<PageSection>
   <h1>Contact ClickPhase</h1>
   <h2>How to contant ClickPhase</h2>
 
@@ -38,10 +39,4 @@
       </h2>
     </Card>
   </CardContainer>
-</div>
-
-<style>
-  .container {
-    margin-top: 2em;
-  }
-</style>
+</PageSection>

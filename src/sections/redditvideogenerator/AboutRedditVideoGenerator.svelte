@@ -1,11 +1,12 @@
 <script>  
-  import ImageComparison from "../../components/ImageComparison.svelte";
   import "fluent-svelte/theme.css";
   import CardContainer from "../../components/cards/CardContainer.svelte";
-  import Card from "../../components/cards/Card.svelte";
+  import Card from "../../components/cards/Card.svelte";  
+  import ImageComparison from "../../components/ImageComparison.svelte";
+  import PageSection from "../../components/PageSection.svelte";
 </script>
 
-<div class="container">
+<PageSection isTopSection={true}>
   <picture>
     <source
       srcset="/app-images/redditvideogenerator/logoDark.png"
@@ -56,13 +57,9 @@
         class="thumbnail-img" />
     </Card>
   </CardContainer>
-</div>
+</PageSection>
 
 <style>
-  .container {
-    margin-top: 2em;
-  }
-
   .logo {
     width: 100%;
     max-width: 600px;
@@ -70,11 +67,6 @@
 
   .links {
     color: var(--fds-accent-text-primary);
-    text-align: center;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
   }
 
   .video-player,

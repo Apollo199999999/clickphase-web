@@ -2,6 +2,7 @@
   import "fluent-svelte/theme.css";
   import CardContainer from "../../components/cards/CardContainer.svelte";
   import Card from "../../components/cards/Card.svelte";
+  import PageSection from "../../components/PageSection.svelte";
 </script>
 
 <svelte:head>
@@ -12,7 +13,7 @@
     crossorigin="anonymous" />
 </svelte:head>
 
-<div class="container">
+<PageSection isTopSection={true}>
   <h1>Home</h1>
   <CardContainer>
     <Card
@@ -51,16 +52,12 @@
       </svg>
     </Card>
   </CardContainer>
-</div>
+</PageSection>
 
 <style>
   @font-face {
     font-family: "FluentUIIcons";
     src: url("/FluentSystemIcons-Regular.ttf"); /*URL to font*/
-  }
-
-  .container {
-    margin-top: 2em;
   }
 
   .card-default-icon {

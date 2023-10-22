@@ -20,10 +20,10 @@
   @import "./card-styles.css";
 
   .card-header {
-    padding: 0em 1em 0.5em 1em;
+    padding: 0em 1em 1em 1em;
   }
 
   .card-body {
-    padding: 1em 1em 0px 1em;
+    padding: 1em 1em 0em 1em;
   }
 </style>
