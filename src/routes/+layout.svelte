@@ -7,7 +7,7 @@
   import { inject } from "@vercel/analytics";
   import NavBar from "../sections/NavBar.svelte";
   import LogoBar from "../sections/LogoBar.svelte";
-    import { onMount } from "svelte";
+  import { onMount } from "svelte";
 
   // Make sure to call this only once in your app
   // Ignore the "script.js" not being found error, it will work once deployed to Vercel.
