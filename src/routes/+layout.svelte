@@ -7,6 +7,7 @@
   import { inject } from "@vercel/analytics";
   import NavBar from "../sections/NavBar.svelte";
   import LogoBar from "../sections/LogoBar.svelte";
+    import { onMount } from "svelte";
 
   // Make sure to call this only once in your app
   // Ignore the "script.js" not being found error, it will work once deployed to Vercel.
@@ -20,6 +21,13 @@
       analyticsId,
     });
   }
+
+  let container;
+
+  onMount(() => {
+    //Acts as a failsafe in case device doesnt support dvh units
+    container.style.height = "calc(" + window.innerHeight.toString() + "px" + " - 2em)"
+  });
 </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,7 +38,7 @@
   </div>
 
   <!-- Main page -->
-  <div class="container">
+  <div class="container" bind:this={container}>
     <LogoBar />
     <div class="content">
       <slot />
@@ -108,7 +116,7 @@
     justify-content: center;
     text-align: center;
     /* 1em margin all around */
-    width: calc(100dvw - 2em);
+    width: calc(100vw - 2em);
     height: calc(100dvh - 2em);
     position: absolute;
     top: 50%;
