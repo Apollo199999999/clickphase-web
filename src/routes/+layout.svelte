@@ -141,4 +141,8 @@
     overflow: auto;
   }
 
+  :global(.hyperlinks) {
+    margin: 0.2em 0.5em !important;
+  }
+
 </style>

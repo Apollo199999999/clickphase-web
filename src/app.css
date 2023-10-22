@@ -11,14 +11,14 @@ body {
 /* Create a custom thinner scrollbar for webkit based browsers, so that it occupies less space */
 /* width */
 ::-webkit-scrollbar {
+    height: 3px;
     width: 3px;
 }
+
 
 /* Track */
 ::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.05);
-    background-position: center;
-    background-size: 100% 35px; 
 }
 
 /* Handle */

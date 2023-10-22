@@ -6,13 +6,13 @@
 
 <!-- Card component -->
 <div class="card" onclick={clickEvent}>
-  <div class="card-body">
-    <slot />
-  </div>
-
   <div class="card-header">
     <h1 class="card-title">{headerText}</h1>
     <h2 class="card-subtitle">{subtitleText}</h2>
+  </div>
+
+  <div class="card-body">
+    <slot />
   </div>
 </div>
 
@@ -20,10 +20,10 @@
   @import "./card-styles.css";
 
   .card-header {
-    padding: 0em 1em 0.5em 1em;
+    padding: 0.5em 1em 0em 1em;
   }
 
   .card-body {
-    padding: 1em 1em 0px 1em;
+    padding: 0em 1em 1em 1em;
   }
 </style>
