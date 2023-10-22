@@ -108,8 +108,8 @@
     justify-content: center;
     text-align: center;
     /* 1em margin all around */
-    width: calc(100vw - 2em);
-    height: calc(100vh - 2em);
+    width: calc(100dvw - 2em);
+    height: calc(100dvh - 2em);
     position: absolute;
     top: 50%;
     left: 50%;
