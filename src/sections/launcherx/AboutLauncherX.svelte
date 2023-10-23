@@ -32,7 +32,7 @@
 
     <Card
       headerText="Compatibility"
-      subtitleText="LauncherX is compatible with Windows 7, 8.1, 10 and 11, although it has not been tested extensively with Windows 7 and 8.1. Therefore, use LauncherX with these Windows versions at your own risk.">
+      subtitleText="LauncherX is compatible with Windows 7, 8.1, 10 and 11, although it has not been tested extensively with Windows 7 and 8.1.">
       <picture>
         <source
           srcset="/screenshots/launcherx/LauncherXDesktopDark.png"
