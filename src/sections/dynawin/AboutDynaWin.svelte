@@ -1,14 +1,16 @@
 <script>
-    import { TextBlock, InfoBar, Button, ContentDialog } from "fluent-svelte";
-    import HeaderChip from "/src/components/HeaderChip.svelte";
+    import { InfoBar, Button, ContentDialog } from "fluent-svelte";
     import "fluent-svelte/theme.css";
+    import CardContainer from "../../components/cards/CardContainer.svelte";
+    import Card from "../../components/cards/Card.svelte";
+    import PageSection from "../../components/PageSection.svelte";
 
     //variable to control state of ContentDialog
     let open = false;
 </script>
-
-<div class="padding-div">
-    <InfoBar severity="caution" class="install-infobar" title="Before you install...">
+  
+  <PageSection isTopSection={true}>
+    <!-- <InfoBar severity="caution" class="install-infobar" title="Before you install...">
         Please read this notice about some antiviruses preventing DynaWin from functioning normally.
         <Button slot="action" on:click={() => (open = true)}>View Notice</Button>
      </InfoBar>
@@ -20,30 +22,49 @@
          <p>Some antiviruses and/or firewalls may block DynaWin from accessing the internet, causing the auto-update system to not work. In this case, please add DynaWin to your firewall's or antivrus's exclusion list.</p>
          
          <Button slot="footer" variant="accent" on:click={() => (open = false)}>OK</Button>
-     </ContentDialog>
+     </ContentDialog> -->
      
-     <div class="container">
-        <HeaderChip>About</HeaderChip>
-         <TextBlock variant="titleLarge" class="titleText">About DynaWin</TextBlock>
-         <TextBlock variant="bodyLarge" class="bodyText"
-             >DynaWin is a utility that allows the Windows desktop to change
-             dynamically.</TextBlock>
-         <iframe
-             src="https://www.youtube-nocookie.com/embed/J0iyzZG5tXc"
-             title="YouTube video player"
-             frameborder="0"
-             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-             allowfullscreen
-         />
-     </div>
-</div>
+    <picture>
+      <source
+        srcset="/app-images/dynawin/logoDark.png"
+        media="(prefers-color-scheme: dark)" />
+      <img
+        class="logo"
+        alt="DynaWin"
+        src="/app-images/dynawin/logoLight.png" />
+    </picture>
+  
+    <h2>Dynamic Desktop for Windows 10 and Windows 11.</h2>
+  
+    <CardContainer>
+      <Card
+        headerText="About"
+        subtitleText="DynaWin is a utility that allows the Windows desktop to change dynamically.">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/J0iyzZG5tXc"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen />
+      </Card>
+  
+      <Card
+        headerText="Compatibility"
+        subtitleText="DynaWin works with Windows 10 and Windows 11, and requires .NET Framework 4.8 to function properly.">
+        <picture>
+          <source
+            srcset="/screenshots/dynawin/WindowDark.png"
+            media="(prefers-color-scheme: dark)" />
+          <img
+            class="compat-img"
+            alt="DynaWin Window"
+            src="/screenshots/dynawin/WindowLight.png" />
+        </picture>
+      </Card>
+    </CardContainer>
+  </PageSection>
 
 <style>
-    .padding-div{
-        padding: 3em 5vw 4.5em 5vw;
-        background-color: var(--fds-solid-background-base);
-    }
-
     :global(.install-infobar){
         max-width: 1024px;
         margin: auto;
@@ -52,38 +73,25 @@
 
     /* Prevent the content dialog from touching the navigation bar by adding a top margin */
     :global(.content-dialog){
+        position: absolute;
         margin-top: 20px;
+        z-index: 99999999;
     }
 
-    .container {
-        margin-top: 1em;
-        overflow: hidden;
-        word-wrap: break-word;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        overflow: hidden;
+    .logo {
+      width: 100%;
+      max-width: 450px;
     }
 
-    /* force the title to wrap if it is almost touching the edges */
-    .container :global(.titleText) {
-        display: block;
-        margin-left: 5px;
-        margin-right: 5px;
+    iframe {
+        width: 100%;
+        height: unset;
+        aspect-ratio: 16 / 9;
     }
 
-    .container :global(.bodyText) {
-        display: block;
-        text-align: center;
-        margin: auto;
-        margin-top: 1.5em;
-    }
-
-    .container iframe {
-        width: 90vw;
-        max-width: 840px;
-        height: calc(calc(90vw / 16) * 9);
-        max-height: 473px;
-        margin-top: 1.5em;
+    .compat-img {
+        width: 90%;
+        height: unset;
+        aspect-ratio: 928 / 606;
     }
 </style>

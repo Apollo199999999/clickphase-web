@@ -2,7 +2,7 @@
   import "fluent-svelte/theme.css";
   import { Button } from "fluent-svelte";
   import CardContainer from "../../components/cards/CardContainer.svelte";
-  import DownloadCard from "../../components/cards/DownloadCard.svelte";
+  import InvertedCard from "../../components/cards/InvertedCard.svelte";
   import PageSection from "../../components/PageSection.svelte";
 </script>
 
@@ -11,7 +11,7 @@
   <h2>RedditVideoGenerator download links and other links.</h2>
 
   <CardContainer>
-    <DownloadCard
+    <InvertedCard
       headerText="Download"
       subtitleText="Click the button below to download RedditVideoGenerator:">
       <Button
@@ -19,9 +19,9 @@
         variant="accent">
         Download RedditVideoGenerator
       </Button>
-    </DownloadCard>
+    </InvertedCard>
 
-    <DownloadCard headerText="Links">
+    <InvertedCard headerText="Links">
       <Button
         class="hyperlinks"
         onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator', '_blank', 'noopener');"
@@ -46,6 +46,6 @@
         class="hyperlinks"
         onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator/blob/main/PRIVACYPOLICY.md', '_blank', 'noopener');"
         variant="hyperlink">Privacy policy</Button>
-    </DownloadCard>
+    </InvertedCard>
   </CardContainer>
 </PageSection>
