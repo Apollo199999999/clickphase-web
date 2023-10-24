@@ -1,3 +1,0 @@
-MicaBackground.svelte
-HeaderChip.svelte
-npm uninstall svelte-compare-image
