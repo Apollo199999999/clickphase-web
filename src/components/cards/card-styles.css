@@ -22,11 +22,14 @@
     font-size: 18px;
 }
 
-.card-header {
+.card-top {
+    padding: 1em 1em 0em 1em;
     text-align: center;
+    align-items: center;
 }
 
-.card-body {
+.card-bottom {
+    padding: 0em 1em 1em 1em;
     text-align: center;
     align-items: center;
 }
