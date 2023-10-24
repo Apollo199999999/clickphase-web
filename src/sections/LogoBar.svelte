@@ -26,8 +26,9 @@
     z-index: 999999;
     display: flex;
     overflow: auto;
-    background-color: var(--fds-control-fill-default);
+    background-color: var(--fds-control-fill-tertiary);
     backdrop-filter: blur(100px) saturate(200%);
+    border-bottom: 1px solid var(--fds-control-stroke-default);
   }
 
   .logo {

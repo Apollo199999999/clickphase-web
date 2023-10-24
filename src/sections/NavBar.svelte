@@ -56,8 +56,9 @@
     z-index: 99999;
     display: flex;
     overflow: auto;
-    background-color: var(--fds-control-fill-default);
+    background-color: var(--fds-control-fill-tertiary);
     backdrop-filter: blur(100px) saturate(200%);
+    border-top: 1px solid var(--fds-control-stroke-default);
   }
 
   @media (min-width: 660px) {
