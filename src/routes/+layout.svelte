@@ -29,14 +29,15 @@
     container.style.height = "calc(" + window.innerHeight.toString() + "px" + " - 2em)"
   });
 
-  function onResize() {
+  //Window resize event
+  function onWindowResize() {
     //Change the width and height of container
     container.style.width = "calc(100vw - 2em)";
     container.style.height = "calc(" + window.innerHeight.toString() + "px" + " - 2em)"
   }
 </script>
 
-<svelte:window on:resize={onResize}/>
+<svelte:window on:resize={onWindowResize}/>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <main>
