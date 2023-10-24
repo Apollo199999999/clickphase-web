@@ -28,7 +28,15 @@
     //Acts as a failsafe in case device doesnt support dvh units
     container.style.height = "calc(" + window.innerHeight.toString() + "px" + " - 2em)"
   });
+
+  function onResize() {
+    //Change the width and height of container
+    container.style.width = "calc(100vw - 2em)";
+    container.style.height = "calc(" + window.innerHeight.toString() + "px" + " - 2em)"
+  }
 </script>
+
+<svelte:window on:resize={onResize}/>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <main>
