@@ -36,7 +36,7 @@
         variant="hyperlink">Request a feature</Button>
       <Button
         class="hyperlinks"
-        onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator/blob/main/LICENSE', '_blank', 'noopener');"
+        onclick="window.open('https://github.com/Apollo199999999/RedditVideoGenerator/blob/main/LICENSE.txt', '_blank', 'noopener');"
         variant="hyperlink">MIT License</Button>
       <Button
         class="hyperlinks"

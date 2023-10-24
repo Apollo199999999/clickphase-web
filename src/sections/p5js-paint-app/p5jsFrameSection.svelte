@@ -38,6 +38,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 2em;
   }
 
   .paint-app-frame :global(.fullscreen-btn) {
@@ -45,7 +46,7 @@
   }
 
   .frame-div {
-    overflow-x: scroll;
+    overflow-x: auto;
     width: 90vw;
   }
 
