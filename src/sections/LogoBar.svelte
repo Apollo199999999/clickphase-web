@@ -23,7 +23,7 @@
     top: 0;
     width: 100%;
     height: 4em;
-    z-index: 2147483647;
+    z-index: 999999;
     display: flex;
     overflow: auto;
     background-color: var(--fds-control-fill-default);
