@@ -11,6 +11,12 @@
     A lightweight, online, and minimal paint app developed in p5.js by me.
     (Works best on desktop, does not work well on mobile)
   </h2>
+  <h2>
+    You can use the embed below, or try it out here: <a
+      class="links"
+      href="https://editor.p5js.org/Apollo199999999/full/X0Y6tSIjJ"
+      >https://editor.p5js.org/Apollo199999999/full/X0Y6tSIjJ</a>
+  </h2>
 
   <Fullscreen let:onToggle>
     <div class="paint-app-frame">
@@ -34,6 +40,10 @@
 </PageSection>
 
 <style>
+  .links {
+    color: var(--fds-accent-text-primary);
+  }
+  
   .paint-app-frame {
     display: flex;
     align-items: center;

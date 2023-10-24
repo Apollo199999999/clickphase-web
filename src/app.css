@@ -3,9 +3,13 @@ html {
     overscroll-behavior: none;
 }
 
-/* This is to prevent scrollbars for GraphWindow */
 body {
     overflow: hidden;
+}
+
+/* Smooth scrolling */
+* {
+    scroll-behavior: smooth;
 }
 
 /* Create a custom thinner scrollbar for webkit based browsers, so that it occupies less space */
