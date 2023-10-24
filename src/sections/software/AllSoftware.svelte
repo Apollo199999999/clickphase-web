@@ -40,6 +40,16 @@
     </Card>
 
     <Card
+      headerText="Granny Keyboard"
+      subtitleText="Your keys will start worshipping Granny"
+      clickEvent="window.location.href = '/granny-keyboard';">
+      <img
+        class="card-image"
+        alt="Granny Keyboard"
+        src="/app-images/granny-keyboard/GrannyKeyboardImage.png" />
+    </Card>
+
+    <Card
       headerText="DynaWin"
       subtitleText="Dynamic Desktop for Windows 10 and Windows 11"
       clickEvent="window.location.href = '/dynawin';">
@@ -63,18 +73,7 @@
         alt="p5.js Paint App"
         src="/app-images/p5js-paint-app/p5jsPaintAppImage.png" />
     </Card>
-
-    <Card
-      headerText="Granny Keyboard"
-      subtitleText="Your keys will start worshipping Granny"
-      clickEvent="window.location.href = '/granny-keyboard';">
-      <img
-        class="card-image"
-        alt="Granny Keyboard"
-        src="/app-images/granny-keyboard/GrannyKeyboardImage.png" />
-    </Card>
   </CardContainer>
-
 </PageSection>
 
 <style>

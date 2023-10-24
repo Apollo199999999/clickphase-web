@@ -49,7 +49,7 @@
 <style>
   .logo {
     width: 100%;
-    max-width: 450px;
+    max-width: 400px;
   }
 
   iframe,
