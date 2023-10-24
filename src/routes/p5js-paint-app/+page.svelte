@@ -1,7 +1,6 @@
 <script>
 	import "fluent-svelte/theme.css";
 	import SvelteSeo from "svelte-seo";
-	import HeroSection from "/src/sections/p5js-paint-app/HeroSection.svelte"
     import P5jsFrameSection from "/src/sections/p5js-paint-app/p5jsFrameSection.svelte";
 </script>
 
@@ -30,5 +29,4 @@
 	}}
 />
 
-<HeroSection/>
 <P5jsFrameSection/>

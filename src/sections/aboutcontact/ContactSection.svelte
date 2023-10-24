@@ -1,162 +1,40 @@
 <script>
-    import { TextBlock, Button } from "fluent-svelte";
-    import "fluent-svelte/theme.css";
-    import HeaderChip from "/src/components/HeaderChip.svelte";
+  import { Button } from "fluent-svelte";
+  import CardContainer from "../../components/cards/CardContainer.svelte";
+  import Card from "../../components/cards/Card.svelte";
+  import InvertedCard from "../../components/cards/InvertedCard.svelte";
+  import PageSection from "../../components/PageSection.svelte";
+  import "fluent-svelte/theme.css";
 </script>
 
-<div class="container">
-    <HeaderChip>Contact</HeaderChip>
+<PageSection>
+  <h1>Contact ClickPhase</h1>
+  <h2>How to contant ClickPhase</h2>
 
-    <TextBlock class="titleText" variant="titleLarge"
-        >Contact ClickPhase</TextBlock
-    >
-    <TextBlock variant="bodyLarge" class="bodyText">
-        How to contact ClickPhase.
-    </TextBlock>
+  <CardContainer>
+    <InvertedCard headerText="Contact Us">
+      <p class="hyperlink-group">
+        <Button
+          class="hyperlinks"
+          onclick="window.open('mailto:clickphasehelp@gmail.com', 'noopener');"
+          variant="hyperlink">Send us an email</Button>
+        <Button
+          class="hyperlinks"
+          onclick="window.open('https://github.com/Apollo199999999', '_blank', 'noopener');"
+          variant="hyperlink">GitHub account</Button>
+        <Button
+          class="hyperlinks"
+          onclick="window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank', 'noopener');"
+          variant="hyperlink">YouTube channel</Button>
+        <Button
+          class="hyperlinks"
+          onclick="window.open('https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ', '_blank', 'noopener');"
+          variant="hyperlink">Personal YouTube channel</Button>
+      </p>
+    </InvertedCard>
 
-    <div class="cards-collection">
-        <div class="card">
-            <div class="card-content">
-                <p class="card-text">Contact Us</p>
-                <div class="hyperlink-group">
-                    <Button
-                        class="hyperlinks"
-                        onclick="window.open('mailto:clickphasehelp@gmail.com', 'noopener');"
-                        variant="hyperlink">Send us an email</Button
-                    >
-                    <Button
-                        class="hyperlinks"
-                        onclick="window.open('https://github.com/Apollo199999999', '_blank', 'noopener');"
-                        variant="hyperlink">GitHub account</Button
-                    >
-                    <Button
-                        class="hyperlinks"
-                        onclick="window.open('https://www.youtube.com/channel/UCUy3erIflkjOWYsfGPVIM6g', '_blank', 'noopener');"
-                        variant="hyperlink">YouTube channel</Button
-                    >
-                    <Button
-                        class="hyperlinks"
-                        onclick="window.open('https://www.youtube.com/channel/UCyx7JU3eigRv4A9HnxRWAIQ', '_blank', 'noopener');"
-                        variant="hyperlink">Personal YouTube channel</Button
-                    >
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-content">
-                <p class="card-text">Give Feedback</p>
-                <p class="card-subtext">
-                    If you need support or want to leave feedback, you may tell
-                    us on the designated GitHub repository for each piece of
-                    software. Alternatively, you may email us. We will respond
-                    within 5 business days.
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-    .container {
-        padding: 3em 5vw 4.5em 5vw;
-        background-color: var(--fds-solid-background-secondary);
-        overflow: hidden;
-        word-wrap: break-word;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        overflow: hidden;
-    }
-
-    /* force the title to wrap if it is almost touching the edges */
-    .container :global(.titleText) {
-        display: block;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    .container :global(.bodyText) {
-        display: block;
-        text-align: center;
-        margin: auto;
-        margin-top: 1.5em;
-    }
-
-    .cards-collection {
-        /* set negative margin-bottom to account for .card margin-bottom */
-        margin: 2em auto -1.5em auto;
-        max-width: 90vw;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-        align-items: stretch;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-    }
-
-    .card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0em 0.7em 1.5em 0.7em;
-        padding: 2em 1em 2em 1em;
-        width: 180px;
-        min-width: 200px;
-        flex-grow: 1;
-        text-align: center;
-        border-radius: var(--fds-control-corner-radius);
-        z-index: 999;
-        -webkit-transition: 200ms ease-in-out;
-        -o-transition: 200ms ease-in-out;
-        transition: 200ms ease-in-out;
-        -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        background: linear-gradient(
-                var(--fds-card-background-default),
-                var(--fds-card-background-default)
-            ),
-            linear-gradient(
-                var(--fds-solid-background-secondary),
-                var(--fds-solid-background-secondary)
-            ); /* first bg is on top of this */
-    }
-
-    .card-content {
-        width: 100%;
-    }
-
-    .card-text {
-        font-family: var(--fds-font-family-display);
-        font-weight: 600;
-        font-size: 28px;
-        margin: 0px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .card-subtext {
-        font-family: var(--fds-font-family-display);
-        font-size: 18px;
-        margin: 0px;
-        margin-top: 1rem;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    :global(.hyperlinks) {
-        margin-top: 1em;
-        margin-bottom: -0.5em;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-</style>
+    <Card
+      headerText="Give Feedback"
+      subtitleText="If you need support or want to leave feedback, you may tell us on GitHub, or you may email us. We will respond within 5 business days." />
+  </CardContainer>
+</PageSection>

@@ -1,89 +1,109 @@
 <script>
-    import { TextBlock, InfoBar, Button, ContentDialog } from "fluent-svelte";
-    import HeaderChip from "/src/components/HeaderChip.svelte";
-    import "fluent-svelte/theme.css";
+  import { InfoBar, Button, ContentDialog } from "fluent-svelte";
+  import "fluent-svelte/theme.css";
+  import CardContainer from "../../components/cards/CardContainer.svelte";
+  import Card from "../../components/cards/Card.svelte";
+  import PageSection from "../../components/PageSection.svelte";
+  import Dialog from "../../components/Dialog.svelte";
 
-    //variable to control state of ContentDialog
-    let open = false;
+  //Variable to open notice dialog
+  let dialogOpen = false;
 </script>
 
-<div class="padding-div">
-    <InfoBar severity="caution" class="install-infobar" title="Before you install...">
-        Please read this notice about some antiviruses preventing DynaWin from functioning normally.
-        <Button slot="action" on:click={() => (open = true)}>View Notice</Button>
-     </InfoBar>
-     
-     <ContentDialog class="content-dialog" size="max" bind:open title="NOTICE: Before you install...">
-         <p class="content-dialog-first-para">To run on startup, DynaWin creates a batch script in the user's startup folder. However, some antiviruses may flag this as unsafe. If this is the case, please add DynaWin and the batch script, located at 
-             <code><strong>%APPDATA%\<wbr/>Microsoft\<wbr/>Windows\<wbr/>Start&nbsp;Menu\<wbr/>Programs\<wbr/>Startup\<wbr/>StartDynaWin.bat</strong></code> to your antivirus's exclusions list. </p>
-     
-         <p>Some antiviruses and/or firewalls may block DynaWin from accessing the internet, causing the auto-update system to not work. In this case, please add DynaWin to your firewall's or antivrus's exclusion list.</p>
-         
-         <Button slot="footer" variant="accent" on:click={() => (open = false)}>OK</Button>
-     </ContentDialog>
-     
-     <div class="container">
-        <HeaderChip>About</HeaderChip>
-         <TextBlock variant="titleLarge" class="titleText">About DynaWin</TextBlock>
-         <TextBlock variant="bodyLarge" class="bodyText"
-             >DynaWin is a utility that allows the Windows desktop to change
-             dynamically.</TextBlock>
-         <iframe
-             src="https://www.youtube-nocookie.com/embed/J0iyzZG5tXc"
-             title="YouTube video player"
-             frameborder="0"
-             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-             allowfullscreen
-         />
-     </div>
-</div>
+<PageSection isTopSection={true}>
+  <InfoBar
+    severity="caution"
+    class="install-infobar"
+    title="Before you install...">
+    Please read this notice about some antiviruses preventing DynaWin from
+    functioning normally.
+    <Button slot="action" on:click={() => (dialogOpen = true)}>View Notice</Button>
+  </InfoBar>
+
+  <Dialog dialogTitle="NOTICE: Before you install..." isOpen={dialogOpen}>
+    <div slot="content-slot" class="notice-content">
+      <p>
+        To run on startup, DynaWin creates a batch script in the user's startup
+        folder. However, some antiviruses may flag this as unsafe. If this is the
+        case, please add DynaWin and the batch script, located at
+        <code
+          ><strong
+            >%APPDATA%\<wbr />Microsoft\<wbr />Windows\<wbr />Start&nbsp;Menu\<wbr />Programs\<wbr />Startup\<wbr />StartDynaWin.bat</strong
+          ></code> to your antivirus's exclusions list.
+      </p>
+  
+      <p>
+        Some antiviruses and/or firewalls may block DynaWin from accessing the
+        internet, causing the auto-update system to not work. In this case, please
+        add DynaWin to your firewall's or antivrus's exclusion list.
+      </p>
+    </div>
+
+    <Button class="dialog-btn" slot="footer-slot" variant="accent" on:click={() => {dialogOpen = false}}>OK</Button>
+  </Dialog>
+  
+  <picture>
+    <source
+      srcset="/app-images/dynawin/logoDark.png"
+      media="(prefers-color-scheme: dark)" />
+    <img class="logo" alt="DynaWin" src="/app-images/dynawin/logoLight.png" />
+  </picture>
+
+  <h2>Dynamic Desktop for Windows 10 and Windows 11.</h2>
+
+  <CardContainer>
+    <Card
+      headerText="About"
+      subtitleText="DynaWin is a utility that allows the Windows desktop to change dynamically.">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/J0iyzZG5tXc"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen />
+    </Card>
+
+    <Card
+      headerText="Compatibility"
+      subtitleText="DynaWin works with Windows 10 and Windows 11, and requires .NET Framework 4.8 to function properly.">
+      <picture>
+        <source
+          srcset="/screenshots/dynawin/WindowDark.png"
+          media="(prefers-color-scheme: dark)" />
+        <img
+          class="compat-img"
+          alt="DynaWin Window"
+          src="/screenshots/dynawin/WindowLight.png" />
+      </picture>
+    </Card>
+  </CardContainer>
+</PageSection>
 
 <style>
-    .padding-div{
-        padding: 3em 5vw 4.5em 5vw;
-        background-color: var(--fds-solid-background-base);
-    }
+  :global(.install-infobar) {
+    max-width: 1024px;
+    margin: 0em auto 2em auto;
+    text-align: left;
+  }
 
-    :global(.install-infobar){
-        max-width: 1024px;
-        margin: auto;
-        padding: 0.2em;
-    }
+  .notice-content {
+    font-size: 15px;
+  }
 
-    /* Prevent the content dialog from touching the navigation bar by adding a top margin */
-    :global(.content-dialog){
-        margin-top: 20px;
-    }
+  .logo {
+    width: 100%;
+    max-width: 400px;
+  }
 
-    .container {
-        margin-top: 1em;
-        overflow: hidden;
-        word-wrap: break-word;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        overflow: hidden;
-    }
+  iframe {
+    width: 100%;
+    height: unset;
+    aspect-ratio: 16 / 9;
+  }
 
-    /* force the title to wrap if it is almost touching the edges */
-    .container :global(.titleText) {
-        display: block;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    .container :global(.bodyText) {
-        display: block;
-        text-align: center;
-        margin: auto;
-        margin-top: 1.5em;
-    }
-
-    .container iframe {
-        width: 90vw;
-        max-width: 840px;
-        height: calc(calc(90vw / 16) * 9);
-        max-height: 473px;
-        margin-top: 1.5em;
-    }
+  .compat-img {
+    width: 90%;
+    height: unset;
+    aspect-ratio: 928 / 606;
+  }
 </style>

@@ -1,9 +1,7 @@
 <script>
 	import "fluent-svelte/theme.css";
 	import SvelteSeo from "svelte-seo";
-    import HeroSection from "/src/sections/redditvideogenerator/HeroSection.svelte";
     import AboutRedditVideoGenerator from "/src/sections/redditvideogenerator/AboutRedditVideoGenerator.svelte";
-    import GroupedSamples from "/src/sections/redditvideogenerator/GroupedSamples.svelte";
 	import DownloadLinks from "/src/sections/redditvideogenerator/DownloadLinks.svelte";
 </script>
 
@@ -32,7 +30,5 @@
 	}}
 />
 
-<HeroSection/>
 <AboutRedditVideoGenerator/>
-<GroupedSamples/>
 <DownloadLinks/>

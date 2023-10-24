@@ -1,61 +1,56 @@
 <script>
-    import { TextBlock } from "fluent-svelte";
-    import HeaderChip from "/src/components/HeaderChip.svelte";
-    import "fluent-svelte/theme.css";
+  import "fluent-svelte/theme.css";
+  import CardContainer from "../../components/cards/CardContainer.svelte";
+  import Card from "../../components/cards/Card.svelte";
+  import PageSection from "../../components/PageSection.svelte";
 </script>
 
-<div class="container">
-    <HeaderChip>About</HeaderChip>
-    
-    <TextBlock variant="titleLarge" class="titleText">About Granny Keyboard</TextBlock>
-
-    <TextBlock variant="bodyLarge" class="bodyText"
-        >Granny Keyboard is a keyboard modifier that modifies your keyboard to
-        make it worthy of Granny. Whichever key you press, the word 'Granny'
-        will be added in front of it and a dialog box will pop up.</TextBlock>
-
-    <iframe
-        src="https://www.youtube-nocookie.com/embed/NdBmcblzhFA"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-    />
-</div>
+<PageSection isTopSection={true}>
+    <picture>
+      <source
+        srcset="/app-images/granny-keyboard/logoDark.png"
+        media="(prefers-color-scheme: dark)" />
+      <img
+        class="logo"
+        alt="Granny Keyboard"
+        src="/app-images/granny-keyboard/logoLight.png" />
+    </picture>
+  
+    <h2>Your keys will start worshipping Granny.</h2>
+  
+    <CardContainer>
+      <Card
+        headerText="About"
+        subtitleText="Granny Keyboard is a keyboard modifier that modifies your keyboard to make it worthy of Granny. Whichever key you press, the word 'Granny' will be added in front of it (only for Windows version), and a dialog box will pop up.">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/NdBmcblzhFA"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen />
+      </Card>
+  
+      <Card
+        headerText="Compatibility"
+        subtitleText='Granny Keyboard (Windows) has been tested with Windows 10 and 11. An alternative, lighter Python version is available under the "Granny Keyboard links" section, but you will have to install the dependencies yourself.'>
+        <img
+            class="compat-img"
+            alt="Granny Keyboard"
+            src="/screenshots/granny-keyboard/Window.png" />
+      </Card>
+    </CardContainer>
+  </PageSection>
 
 <style>
-    .container {
-        padding: 3em 5vw 4.5em 5vw;
-        background-color: var(--fds-solid-background-base);
-        margin-top: 1em;
-        overflow: hidden;
-        word-wrap: break-word;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        overflow: hidden;
-    }
+  .logo {
+    width: 100%;
+    max-width: 450px;
+  }
 
-    /* force the title to wrap if it is almost touching the edges */
-    .container :global(.titleText) {
-        display: block;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-
-    .container :global(.bodyText) {
-        display: block;
-        text-align: center;
-        margin: auto;
-        margin-top: 1.5em;
-        max-width: 1100px;
-    }
-
-    .container iframe {
-        width: 90vw;
-        max-width: 840px;
-        height: calc(calc(90vw / 16) * 9);
-        max-height: 473px;
-        margin-top: 1.5em;
-    }
+  iframe,
+  .compat-img {
+    width: 100%;
+    height: unset;
+    aspect-ratio: 16 / 9;
+  }
 </style>

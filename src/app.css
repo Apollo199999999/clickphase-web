@@ -1,0 +1,38 @@
+/* Prevent overscroll on mobile devices */
+html {
+    overscroll-behavior: none;
+}
+
+/* This is to prevent scrollbars for GraphWindow */
+body {
+    overflow: hidden;
+}
+
+/* Create a custom thinner scrollbar for webkit based browsers, so that it occupies less space */
+/* width */
+::-webkit-scrollbar {
+    height: 3px;
+    width: 3px;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5000px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* For non webkit based browsers (basically firefox lol), use scrollbar-width property */
+body * {
+    scrollbar-width: thin;
+}
