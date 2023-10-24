@@ -1,7 +1,7 @@
-<script>  
+<script>
   import "fluent-svelte/theme.css";
   import CardContainer from "../../components/cards/CardContainer.svelte";
-  import Card from "../../components/cards/Card.svelte";  
+  import Card from "../../components/cards/Card.svelte";
   import ImageComparison from "../../components/ImageComparison.svelte";
   import PageSection from "../../components/PageSection.svelte";
 </script>
@@ -16,6 +16,10 @@
       alt="RedditVideoGenerator"
       src="/app-images/redditvideogenerator/logoLight.png" />
   </picture>
+
+  <h2>
+    Generate r/AskReddit Reddit videos and upload them to YouTube automatically.
+  </h2>
 
   <h2>
     For more information and details, please head here: <a
