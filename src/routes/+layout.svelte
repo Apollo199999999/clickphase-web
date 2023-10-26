@@ -135,6 +135,7 @@
     overflow: hidden;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
+    border: 1px solid var(--fds-control-stroke-default);
   }
 
   .container::before {

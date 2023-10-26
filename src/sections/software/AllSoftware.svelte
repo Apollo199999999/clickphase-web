@@ -10,6 +10,21 @@
 
   <CardContainer>
     <Card
+      headerText="Typeracer"
+      subtitleText="A simple typeracing game made for a school project"
+      clickEvent="window.location.href = '/typeracer';">
+      <picture>
+        <source
+          srcset="/app-images/typeracer/TyperacerImageDark.png"
+          media="(prefers-color-scheme: dark)" />
+        <img
+          class="card-image"
+          alt="Typeracer"
+          src="/app-images/typeracer/TyperacerImageLight.png" />
+      </picture>
+    </Card>
+
+    <Card
       headerText="RedditVideoGenerator"
       subtitleText="Generate r/AskReddit Reddit videos and upload them to YouTube automatically"
       clickEvent="window.location.href = '/redditvideogenerator';">
