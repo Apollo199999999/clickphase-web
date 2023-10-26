@@ -33,7 +33,7 @@
         variant="hyperlink">Give feedback</Button>
       <Button
         class="hyperlinks"
-        onclick="window.open('https://github.com/Apollo199999999/cep-wa1-typeracer/blob/master/LICENSE', '_blank', 'noopener');"
+        onclick="window.open('https://github.com/Apollo199999999/cep-wa1-typeracer/blob/main/LICENSE', '_blank', 'noopener');"
         variant="hyperlink">MIT License</Button>
       <Button
         class="hyperlinks"
