@@ -3,7 +3,6 @@
   import CardContainer from "../../components/cards/CardContainer.svelte";
   import Card from "../../components/cards/Card.svelte";
   import PageSection from "../../components/PageSection.svelte";
-  import ImageComparison from "../../components/ImageComparison.svelte";
 </script>
 
 <PageSection isTopSection={true}>
@@ -21,18 +20,18 @@
       subtitleText="Typeracer is available on the web, without the need to download anything. Typeracer is compatible with both desktop and mobile." />
   </CardContainer>
 
-  <ImageComparison
-    srcLeft="/screenshots/typeracer/WindowLight.png"
-    altLeft="Light Theme"
-    srcRight="/screenshots/typeracer/WindowDark.png"
-    altRight="Dark Theme" />
-
-  <!-- Force a bottom margin of 2em using a div as ImageComparisonControl doesn't come with bottom margin of 2em-->
-  <div class="bottom-margin" />
+  <iframe
+    title="Typeracer"
+    src="https://cep-wa1-typeracer.vercel.app"
+    class="typeracer-frame" />
 </PageSection>
 
 <style>
-  .bottom-margin {
-    height: 2em;
+  .typeracer-frame {
+    width: 100%;
+    height: 80vh;
+    margin-bottom: 2em;
+    border: 1px solid var(--fds-control-strong-stroke-default);
+    border-radius: 4px;
   }
 </style>
