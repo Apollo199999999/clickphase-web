@@ -22,7 +22,7 @@
     type: "website",
     images: [
       {
-        url: "https://clickphase.vercel.app/typeracer/TyperacerImage.png",
+        url: "https://clickphase.vercel.app/typeracer/open-graph-images/TyperacerImage.png",
         width: 1200,
         height: 630,
         alt: "Typeracer - ClickPhase",
