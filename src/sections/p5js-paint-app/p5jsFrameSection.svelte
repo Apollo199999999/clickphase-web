@@ -14,6 +14,8 @@
   <h2>
     You can use the embed below, or try it out here: <a
       class="links"
+      target="_blank"
+      rel="noopener"
       href="https://editor.p5js.org/Apollo199999999/full/X0Y6tSIjJ"
       >https://editor.p5js.org/Apollo199999999/full/X0Y6tSIjJ</a>
   </h2>
@@ -43,7 +45,7 @@
   .links {
     color: var(--fds-accent-text-primary);
   }
-  
+
   .paint-app-frame {
     display: flex;
     align-items: center;
@@ -59,5 +61,4 @@
     overflow-x: auto;
     width: 90vw;
   }
-
 </style>
