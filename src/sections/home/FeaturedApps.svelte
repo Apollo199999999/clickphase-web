@@ -10,6 +10,31 @@
 
   <CardContainer>
     <Card
+      headerText="Orbit Simulator"
+      subtitleText="Simulate the orbits of planets, moons, and stars in space"
+      clickEvent="window.location.href = '/orbit-simulator';">
+      <img
+        class="card-image"
+        alt="Orbit Simulator"
+        src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
+    </Card>
+
+    <Card
+      headerText="Typeracer"
+      subtitleText="A simple typeracing game made for a school project"
+      clickEvent="window.location.href = '/typeracer';">
+      <picture>
+        <source
+          srcset="/app-images/typeracer/TyperacerImageDark.png"
+          media="(prefers-color-scheme: dark)" />
+        <img
+          class="card-image"
+          alt="Typeracer"
+          src="/app-images/typeracer/TyperacerImageLight.png" />
+      </picture>
+    </Card>
+
+    <Card
       headerText="LauncherX"
       subtitleText="Modern app launcher for Windows"
       clickEvent="window.location.href = '/launcherx';">
@@ -21,21 +46,6 @@
           class="card-image"
           alt="LauncherX"
           src="/app-images/launcherx/LauncherXImageLight.png" />
-      </picture>
-    </Card>
-
-    <Card
-      headerText="DynaWin"
-      subtitleText="Dynamic Desktop for Windows 10 and Windows 11"
-      clickEvent="window.location.href = '/dynawin';">
-      <picture>
-        <source
-          srcset="/app-images/dynawin/DynaWinImageDark.png"
-          media="(prefers-color-scheme: dark)" />
-        <img
-          class="card-image"
-          alt="DynaWin"
-          src="/app-images/dynawin/DynaWinImageLight.png" />
       </picture>
     </Card>
   </CardContainer>
