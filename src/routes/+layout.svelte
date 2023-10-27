@@ -109,13 +109,13 @@
 
   @media (prefers-color-scheme: dark) {
     .container {
-      background-color: hsla(0, 0%, 13%, 0.5);
+      background-color: hsla(0, 0%, 13%, 0.65);
     }
   }
 
   @media (prefers-color-scheme: light) {
     .container {
-      background-color: hsla(0, 0%, 95%, 0.5);
+      background-color: hsla(0, 0%, 95%, 0.65);
     }
   }
 
