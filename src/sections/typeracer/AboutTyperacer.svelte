@@ -8,7 +8,7 @@
 <PageSection isTopSection={true}>
   <h1>Typeracer</h1>
 
-  <h2>A simple typeracing game made for a school project.</h2>
+  <h2>A simple typeracing game made for a school project. You can try it out in the embed below.</h2>
 
   <CardContainer>
     <Card
