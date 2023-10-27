@@ -12,7 +12,7 @@
 <SvelteSeo
 	title="RedditVideoGenerator - ClickPhase"
 	description="RedditVideoGenerator - Generate r/AskReddit Reddit videos and upload them to YouTube automatically"
-	keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js, redditvideogenerator, reddit, video, generator, bot, api, youtube"
+	keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js, redditvideogenerator, reddit, video, generator, bot, api, youtube, typeracer, typing, game, keyboard, visualisation, minimal, muted, mountains, modern, orbits, space, ksp, kerbal, simulator, physics, educational"
 	canonical="https://clickphase.vercel.app/redditvideogenerator"
 	openGraph={{
 		title: "RedditVideoGenerator - ClickPhase",

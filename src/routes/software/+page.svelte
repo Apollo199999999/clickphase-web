@@ -1,32 +1,31 @@
 <script>
-	import "fluent-svelte/theme.css";
-	import SvelteSeo from "svelte-seo";
-	import AllSoftware from "/src/sections/software/AllSoftware.svelte";
+  import "fluent-svelte/theme.css";
+  import SvelteSeo from "svelte-seo";
+  import AllSoftware from "/src/sections/software/AllSoftware.svelte";
 </script>
 
 <svelte:head>
-	<meta name="author" content="ClickPhase" />
+  <meta name="author" content="ClickPhase" />
 </svelte:head>
 
 <SvelteSeo
-	title="Software - ClickPhase"
-	description="Software made by ClickPhase. LauncherX, DynaWin, and others."
-	keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js, redditvideogenerator, reddit, video, generator, bot, api, youtube"
-	canonical="https://clickphase.vercel.app/software"
-	openGraph={{
-		title: "Software - ClickPhase",
-		description: "Software made by ClickPhase. LauncherX, DynaWin, and others.",
-		url: "https://clickphase.vercel.app/software",
-		type: "website",
-		images: [
-			{
-				url: "https://clickphase.vercel.app/open-graph-images/ClickPhaseImage.png",
-				width: 1200,
-				height: 630,
-				alt: "Software - ClickPhase",
-			},
-		],
-	}}
-/>
+  title="Software - ClickPhase"
+  description="Software made by ClickPhase. LauncherX, DynaWin, and others."
+  keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny keyboard, launcherx, dynawin, DynaWin, p5js, p5.js, redditvideogenerator, reddit, video, generator, bot, api, youtube, typeracer, typing, game, keyboard, visualisation, minimal, muted, mountains, modern, orbits, space, ksp, kerbal, simulator, physics, educational"
+  canonical="https://clickphase.vercel.app/software"
+  openGraph={{
+    title: "Software - ClickPhase",
+    description: "Software made by ClickPhase. LauncherX, DynaWin, and others.",
+    url: "https://clickphase.vercel.app/software",
+    type: "website",
+    images: [
+      {
+        url: "https://clickphase.vercel.app/open-graph-images/ClickPhaseImage.png",
+        width: 1200,
+        height: 630,
+        alt: "Software - ClickPhase",
+      },
+    ],
+  }} />
 
-<AllSoftware/>
+<AllSoftware />
