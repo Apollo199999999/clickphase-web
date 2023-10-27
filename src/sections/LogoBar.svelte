@@ -26,9 +26,20 @@
     z-index: 999999;
     display: flex;
     overflow: auto;
-    background-color: var(--fds-control-fill-tertiary);
     backdrop-filter: blur(100px) saturate(200%);
     border-bottom: 1px solid var(--fds-control-stroke-default);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    header {
+      background-color: hsla(0, 0%, 13%, 0.7);
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    header {
+      background-color: hsla(0, 0%, 100%, 0.7);
+    }
   }
 
   .logo {
