@@ -2,6 +2,8 @@
   import "fluent-svelte/theme.css";
   import SvelteSeo from "svelte-seo";
   import AboutSimulator from "/src/sections/orbit-simulator/AboutSimulator.svelte";
+  import Features from "/src/sections/orbit-simulator/Features.svelte";
+  import Links from "/src/sections/orbit-simulator/Links.svelte";
 </script>
 
 <svelte:head>
@@ -29,3 +31,5 @@
   }} />
 
 <AboutSimulator />
+<Features />
+<Links />

@@ -9,10 +9,11 @@
   <h2>
     A n-body simulation that allows you to simulate the gravitational forces
     between a maximum of 5 bodies. You can simulate the orbits of planets,
-    moons, and stars in space, and construct your own solar systems. Try it out
-    in the embed below.
+    moons, and stars in space, and construct your own solar systems. This was
+    created using SvelteKit, Tailwind CSS, and p5.js. Try it out in the embed
+    below.
   </h2>
-  
+
   <h2>(Note: This does not work well on mobile.)</h2>
 
   <div class="frame-div">

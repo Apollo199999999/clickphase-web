@@ -42,11 +42,6 @@
 </PageSection>
 
 <style>
-  .difficulty-caption {
-    color: var(--fds-text-secondary);
-    font-weight: 400;
-  }
-
   .metrics-img {
     width: 100%;
   }
