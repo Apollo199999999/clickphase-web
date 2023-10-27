@@ -10,6 +10,16 @@
 
   <CardContainer>
     <Card
+      headerText="Mountain Visualisation"
+      subtitleText="A procedual, muted mountain landscape generator created in p5.js."
+      clickEvent="window.location.href = '/mountain-visualisation';">
+      <img
+        class="card-image"
+        alt="Mountain Visualisation"
+        src="/app-images/mountain-visualisation/VisualisationImage.png" />
+    </Card>
+
+    <Card
       headerText="Typeracer"
       subtitleText="A simple typeracing game made for a school project"
       clickEvent="window.location.href = '/typeracer';">
@@ -94,8 +104,7 @@
 <style>
   .card-image {
     width: 100%;
-    max-width: 260px;
-    height: 120px;
+    max-height: 20vh;
     object-fit: contain;
   }
 </style>

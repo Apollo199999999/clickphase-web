@@ -23,7 +23,7 @@
           src="/app-images/launcherx/LauncherXImageLight.png" />
       </picture>
     </Card>
-    
+
     <Card
       headerText="DynaWin"
       subtitleText="Dynamic Desktop for Windows 10 and Windows 11"
@@ -43,9 +43,8 @@
 
 <style>
   .card-image {
-    width: 80%;
-    max-width: 260px;
-    height: 120px;
+    width: 100%;
+    max-height: 20vh;
     object-fit: contain;
   }
 </style>
