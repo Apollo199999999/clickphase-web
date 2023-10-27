@@ -25,7 +25,7 @@
   .visualisation-frame {
     width: 100%;
     height: 90vh;
-    margin: 1em 0 2em 0;
+    margin: 2em 0;
     border: 1px solid var(--fds-control-strong-stroke-default);
     border-radius: 4px;
   }

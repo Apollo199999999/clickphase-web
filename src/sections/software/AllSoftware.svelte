@@ -10,8 +10,18 @@
 
   <CardContainer>
     <Card
+      headerText="Orbit Simulator"
+      subtitleText="Simulate the orbits of planets, moons, and stars in space"
+      clickEvent="window.location.href = '/orbit-simulator';">
+      <img
+        class="card-image"
+        alt="Orbit Simulator"
+        src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
+    </Card>
+
+    <Card
       headerText="Mountain Visualisation"
-      subtitleText="A procedual, muted mountain landscape generator created in p5.js."
+      subtitleText="A procedual, muted mountain landscape generator created in p5.js"
       clickEvent="window.location.href = '/mountain-visualisation';">
       <img
         class="card-image"
