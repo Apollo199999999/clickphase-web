@@ -1,6 +1,8 @@
 <script>
   import "fluent-svelte/theme.css";
   import SvelteSeo from "svelte-seo";
+  import AboutGrannyOS from "../../sections/grannyos/AboutGrannyOS.svelte";
+  import AboutGrannyOs from "../../sections/grannyos/AboutGrannyOS.svelte";
 </script>
 
 <svelte:head>
@@ -9,12 +11,12 @@
 
 <SvelteSeo
   title="GrannyOS - ClickPhase"
-  description="GrannyOS - The world's best operating system™."
+  description="GrannyOS - The best operating system in the world™"
   keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny, launcherx, dynawin, DynaWin, p5js, p5.js, redditvideogenerator, reddit, video, generator, bot, api, youtube, typeracer, typing, game, keyboard, visualisation, minimal, muted, mountains, modern, orbits, space, ksp, kerbal, simulator, physics, educational, linux, distro, os, operating, system, ubuntu, mate, grannyos"
   canonical="https://clickphase.vercel.app/grannyos"
   openGraph={{
     title: "GrannyOS - ClickPhase",
-    description: "GrannyOS - The world's best operating system™.",
+    description: "GrannyOS - The best operating system in the world™",
     url: "https://clickphase.vercel.app/grannyos",
     type: "website",
     images: [
@@ -26,3 +28,5 @@
       },
     ],
   }} />
+
+<AboutGrannyOS />

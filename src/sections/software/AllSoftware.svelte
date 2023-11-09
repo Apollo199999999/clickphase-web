@@ -10,6 +10,16 @@
 
   <CardContainer>
     <Card
+      headerText="GrannyOS"
+      subtitleText="The best operating system in the world™"
+      clickEvent="window.location.href = '/grannyos';">
+      <img
+        class="card-image"
+        alt="GrannyOS"
+        src="/app-images/grannyos/GrannyOSImage.png" />
+    </Card>
+
+    <Card
       headerText="Orbit Simulator"
       subtitleText="Simulate the orbits of planets, moons, and stars in space"
       clickEvent="window.location.href = '/orbit-simulator';">
