@@ -2,7 +2,7 @@
   import "fluent-svelte/theme.css";
   import SvelteSeo from "svelte-seo";
   import AboutGrannyOS from "../../sections/grannyos/AboutGrannyOS.svelte";
-  import AboutGrannyOs from "../../sections/grannyos/AboutGrannyOS.svelte";
+  import Features from "../../sections/grannyos/Features.svelte";
 </script>
 
 <svelte:head>
@@ -30,3 +30,4 @@
   }} />
 
 <AboutGrannyOS />
+<Features />

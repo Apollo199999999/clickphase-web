@@ -16,7 +16,6 @@
       subtitleText="GrannyOS is a Linux distro based on Ubuntu MATE, complete with custom sounds, icons, and
       themes, to make it Granny approved™.">
       <img
-        class="grannyos-img"
         alt="GrannyOS Desktop"
         src="/screenshots/grannyos/MainUI.png" />
     </Card>
@@ -25,7 +24,6 @@
       headerText="Compatibility"
       subtitleText="You can install GrannyOS on a virtual machine, a real computer, or try it out on the web (coming soon).">
       <img
-        class="grannyos-img"
         alt="GrannyOS Desktop"
         src="/screenshots/grannyos/CompatibilityImage.png" />
     </Card>
