@@ -1,7 +1,9 @@
 <script>
   import "fluent-svelte/theme.css";
   import SvelteSeo from "svelte-seo";
-  import VideoChannels from "/src/sections/animationsvideos/VideoChannels.svelte";
+  import AboutGrannyOS from "../../sections/grannyos/AboutGrannyOS.svelte";
+  import Features from "../../sections/grannyos/Features.svelte";
+  import DownloadLinks from "../../sections/grannyos/DownloadLinks.svelte";
 </script>
 
 <svelte:head>
@@ -9,23 +11,25 @@
 </svelte:head>
 
 <SvelteSeo
-  title="Animations & Videos - ClickPhase"
-  description="Animations and Videos from ClickPhase and others."
+  title="GrannyOS - ClickPhase"
+  description="GrannyOS - The best operating system in the world™"
   keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny, launcherx, dynawin, DynaWin, p5js, p5.js, redditvideogenerator, reddit, video, generator, bot, api, youtube, typeracer, typing, game, keyboard, visualisation, minimal, muted, mountains, modern, orbits, space, ksp, kerbal, simulator, physics, educational, linux, distro, os, operating, system, ubuntu, mate, grannyos"
-  canonical="https://clickphase.vercel.app/animationsvideos"
+  canonical="https://clickphase.vercel.app/grannyos"
   openGraph={{
-    title: "Animations & Videos - ClickPhase",
-    description: "Animations and Videos from ClickPhase and others.",
-    url: "https://clickphase.vercel.app/animationsvideos",
+    title: "GrannyOS - ClickPhase",
+    description: "GrannyOS - The best operating system in the world™",
+    url: "https://clickphase.vercel.app/grannyos",
     type: "website",
     images: [
       {
-        url: "https://clickphase.vercel.app/open-graph-images/ClickPhaseImage.png",
+        url: "https://clickphase.vercel.app/open-graph-images/GrannyOSImage.png",
         width: 1200,
         height: 630,
-        alt: "Animations & Videos - ClickPhase",
+        alt: "GrannyOS - ClickPhase",
       },
     ],
   }} />
 
-<VideoChannels />
+<AboutGrannyOS />
+<Features />
+<DownloadLinks />
