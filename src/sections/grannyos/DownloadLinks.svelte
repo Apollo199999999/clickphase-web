@@ -15,7 +15,7 @@
       headerText="Download GrannyOS"
       subtitleText="Click the button below to download the amd64 disk image file for GrannyOS">
       <Button
-        onclick="window.open('https://example.com', '_blank', 'noopener');"
+        onclick="window.open('https://mega.nz/file/zMAXWJqT#mgpf4VWiwJgEnvPnO5e_KUE6jFfTgP7PtVQDFqP5eUc', '_blank', 'noopener');"
         variant="accent"
         class="download-btn">
         Download GrannyOS (ISO)
