@@ -23,7 +23,7 @@
 
     <Card
       headerText="Granny™ Keyboard™"
-      subtitleText="GrannyOS comes bundled in with Granny Keyboard without any additional cost, to remind you who's in charge :)">
+      subtitleText="GrannyOS comes bundled in with Granny Keyboard with no additional cost, to remind you who's in charge :)">
       <img alt="GrannyOS Desktop" src="/screenshots/grannyos/GrannyKeyboard.png" />
     </Card>
   </CardContainer>

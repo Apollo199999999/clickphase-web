@@ -3,6 +3,7 @@
   import SvelteSeo from "svelte-seo";
   import AboutGrannyOS from "../../sections/grannyos/AboutGrannyOS.svelte";
   import Features from "../../sections/grannyos/Features.svelte";
+  import DownloadLinks from "../../sections/grannyos/DownloadLinks.svelte";
 </script>
 
 <svelte:head>
@@ -31,3 +32,4 @@
 
 <AboutGrannyOS />
 <Features />
+<DownloadLinks />

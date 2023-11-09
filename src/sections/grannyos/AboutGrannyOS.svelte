@@ -22,7 +22,7 @@
 
     <Card
       headerText="Compatibility"
-      subtitleText="You can install GrannyOS on a virtual machine, a real computer, or try it out on the web (coming soon).">
+      subtitleText="You can install GrannyOS on a virtual machine, a real computer, or try it out on the web (coming soon). GrannyOS is only supported on amd64 devices.">
       <img
         alt="GrannyOS Desktop"
         src="/screenshots/grannyos/CompatibilityImage.png" />
