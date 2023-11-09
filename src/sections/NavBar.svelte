@@ -62,13 +62,13 @@
 
   @media (prefers-color-scheme: dark) {
     header {
-      background-color: hsla(0, 0%, 13%, 0.7);
+      background-color: var(--fds-card-background-secondary);
     }
   }
 
   @media (prefers-color-scheme: light) {
     header {
-      background-color: hsla(0, 0%, 95%, 0.7);
+      background-color: var(--fds-card-background-default);
     }
   }
 

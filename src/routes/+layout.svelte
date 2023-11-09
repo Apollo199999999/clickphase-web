@@ -109,7 +109,7 @@
 
   @media (prefers-color-scheme: dark) {
     .container {
-      background-color: hsla(0, 0%, 13%, 0.65);
+      background-color: hsla(0, 0%, 15%, 0.65);
     }
   }
 
