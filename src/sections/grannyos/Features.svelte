@@ -17,13 +17,13 @@
 
     <Card
       headerText="Granny™ Approved™ Icons™"
-      subtitleText="GrannyOS comes with a 6th dimension approved icon pack approved by Granny itself, comprising of roughly 7 whole gigabytes of svg and png icons.">
+      subtitleText="GrannyOS comes with a 6th dimension approved icon pack, approved by Granny itself, consisting of roughly 7 whole gigabytes of svg and png icons.">
       <img alt="GrannyOS Desktop" src="/screenshots/grannyos/Icons.png" />
     </Card>
 
     <Card
       headerText="Granny™ Keyboard™"
-      subtitleText="GrannyOS comes bundled in with Granny Keyboard with no additional cost, to remind you who's in charge :)">
+      subtitleText="GrannyOS comes bundled in with Granny Keyboard with no additional cost, to remind you of who's in charge :)">
       <img alt="GrannyOS Desktop" src="/screenshots/grannyos/GrannyKeyboard.png" />
     </Card>
   </CardContainer>
