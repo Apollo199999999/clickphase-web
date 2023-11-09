@@ -11,7 +11,7 @@
   <CardContainer>
     <Card
       headerText="Very™ Gorgeous™ User™ Interface™"
-      subtitleText="Featuring a custom Gtk theme, the user interface of GrannyOS is sure to make your eyes water (interpret that however you want).">
+      subtitleText="Featuring a custom Gtk theme, the extremely aesthetically pleasing user interface of GrannyOS is sure to make your eyes water.">
       <img alt="GrannyOS Desktop" src="/screenshots/grannyos/GorgeousUI.png" />
     </Card>
 
