@@ -10,21 +10,21 @@
 </svelte:head>
 
 <SvelteSeo
-	title="Granny Keyboard - ClickPhase"
-	description="Granny Keyboard - Your keys will start worshipping Granny"
+	title="GrannyOS - ClickPhase"
+	description="GrannyOS - The world's best operating system™."
 	keywords="Microsoft, microsoft, windows, app, program, click, phase, software, launcher, launcherX, cool, cool apps, clickphase, granny, launcherx, dynawin, DynaWin, p5js, p5.js, redditvideogenerator, reddit, video, generator, bot, api, youtube, typeracer, typing, game, keyboard, visualisation, minimal, muted, mountains, modern, orbits, space, ksp, kerbal, simulator, physics, educational, linux, distro, os, operating, system, ubuntu, mate, grannyos"
-	canonical="https://clickphase.vercel.app/granny-keyboard"
+	canonical="https://clickphase.vercel.app/grannyos"
 	openGraph={{
-		title: "Granny Keyboard - ClickPhase",
-		description: "Granny Keyboard - Your keys will start worshipping Granny",
-		url: "https://clickphase.vercel.app/granny-keyboard",
+		title: "GrannyOS - ClickPhase",
+		description: "GrannyOS - The world's best operating system™.",
+		url: "https://clickphase.vercel.app/grannyos",
 		type: "website",
 		images: [
 			{
-				url: "https://clickphase.vercel.app/open-graph-images/GrannyKeyboardImage.png",
+				url: "https://clickphase.vercel.app/open-graph-images/GrannyOSImage.png",
 				width: 1200,
 				height: 630,
-				alt: "Granny Keyboard - ClickPhase",
+				alt: "GrannyOS - ClickPhase",
 			},
 		],
 	}}
