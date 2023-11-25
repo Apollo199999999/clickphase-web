@@ -22,7 +22,8 @@
       </Button>
     </InvertedCard>
 
-    <InvertedCard
+    <!-- Oracle's a bitch, so this feature no longer exists -->
+    <!-- <InvertedCard
       headerText="Try GrannyOS on the web (Coming soon)"
       subtitleText="Click the button below to try GrannyOS on the web. A new tab will be opened,">
       <Tooltip text="This feature is not yet available." delay={200}>
@@ -34,6 +35,6 @@
           Try GrannyOS on the web
         </Button>
       </Tooltip>
-    </InvertedCard>
+    </InvertedCard> -->
   </CardContainer>
 </PageSection>
