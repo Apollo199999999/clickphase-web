@@ -13,7 +13,7 @@
   <CardContainer>
     <InvertedCard
       headerText="Download GrannyOS"
-      subtitleText="Click the button below to download the latest amd64 disk image file for GrannyOS (Build 071123.0)">
+      subtitleText="Download the latest amd64 disk image file for GrannyOS (Build 071123.0) below">
       <Button
         onclick="window.open('https://mega.nz/file/zMAXWJqT#mgpf4VWiwJgEnvPnO5e_KUE6jFfTgP7PtVQDFqP5eUc', '_blank', 'noopener');"
         variant="accent"
