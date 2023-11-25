@@ -13,13 +13,28 @@
   <CardContainer>
     <InvertedCard
       headerText="Download GrannyOS"
-      subtitleText="Click the button below to download the amd64 disk image file for GrannyOS">
+      subtitleText="Click the button below to download the latest amd64 disk image file for GrannyOS (Build 071123.0)">
       <Button
         onclick="window.open('https://mega.nz/file/zMAXWJqT#mgpf4VWiwJgEnvPnO5e_KUE6jFfTgP7PtVQDFqP5eUc', '_blank', 'noopener');"
         variant="accent"
         class="download-btn">
         Download GrannyOS (ISO)
       </Button>
+    </InvertedCard>
+
+    <InvertedCard headerText="Links to older builds">
+      <Button
+        class="hyperlinks"
+        onclick="window.open('https://mega.nz/file/zURHgCRA#Euob2d2J_WSAWRJ2SFnuIbcztGzMupu8xSVoiIMUWxg', '_blank', 'noopener');"
+        variant="hyperlink">GrannyOS Build 121023.1</Button>
+      <Button
+        class="hyperlinks"
+        onclick="window.open('https://mega.nz/file/2NwRWDCI#I5CtywkawDlDNpMavgQCdyuv0UP9n-QLBreS5bVFWrA', '_blank', 'noopener');"
+        variant="hyperlink">GrannyOS Build 151023.2</Button>
+      <Button
+        class="hyperlinks"
+        onclick="window.open('https://mega.nz/file/OIoWVCIB#AajkTuGDrV6gy5KTzgkQ2TBKTI4e9i7VaEZKayaqbww', '_blank', 'noopener');"
+        variant="hyperlink">GrannyOS Build 281023.0</Button>
     </InvertedCard>
 
     <!-- Oracle's a bitch, so this feature no longer exists -->

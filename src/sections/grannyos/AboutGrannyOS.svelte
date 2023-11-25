@@ -15,14 +15,17 @@
       headerText="About"
       subtitleText="GrannyOS is a Linux distro based on Ubuntu MATE, complete with custom sounds, icons, and
       themes, to make it Granny approved™.">
-      <img
-        alt="GrannyOS Desktop"
-        src="/screenshots/grannyos/MainUI.png" />
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/rwzpeG1jO7k"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen />
     </Card>
 
     <Card
       headerText="Compatibility"
-      subtitleText="You can install GrannyOS on a virtual machine, a real computer, or try it out on the web (coming soon). GrannyOS is only supported on amd64 devices.">
+      subtitleText="You can install GrannyOS on a virtual machine or a real computer. GrannyOS is only supported on amd64 devices.">
       <img
         alt="GrannyOS Desktop"
         src="/screenshots/grannyos/CompatibilityImage.png" />
@@ -31,8 +34,13 @@
 </PageSection>
 
 <style>
+  iframe, 
   img {
     width: 100%;
     height: unset;
+  }
+  
+  iframe {
+    aspect-ratio: 16 / 9;
   }
 </style>
