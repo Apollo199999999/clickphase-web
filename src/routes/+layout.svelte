@@ -4,7 +4,7 @@
   import NavBar from "../sections/NavBar.svelte";
   import LogoBar from "../sections/LogoBar.svelte";
   import { onMount } from "svelte";
-  import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit"
+  import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
 
   // For Vercel speed analytics
   injectSpeedInsights();
@@ -13,18 +13,20 @@
 
   onMount(() => {
     //Acts as a failsafe in case device doesnt support dvh units
-    container.style.height = "calc(" + window.innerHeight.toString() + "px" + " - 2em)"
+    container.style.height =
+      "calc(" + window.innerHeight.toString() + "px" + " - 2em)";
   });
 
   //Window resize event
   function onWindowResize() {
     //Change the width and height of container
     container.style.width = "calc(100vw - 2em)";
-    container.style.height = "calc(" + window.innerHeight.toString() + "px" + " - 2em)"
+    container.style.height =
+      "calc(" + window.innerHeight.toString() + "px" + " - 2em)";
   }
 </script>
 
-<svelte:window on:resize={onWindowResize}/>
+<svelte:window on:resize={onWindowResize} />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <main>
@@ -149,5 +151,4 @@
   :global(.hyperlinks) {
     margin: 0.2em 0.5em !important;
   }
-
 </style>
