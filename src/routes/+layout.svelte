@@ -1,26 +1,13 @@
 <script>
   import "fluent-svelte/theme.css";
   import "../app.css";
-  import { webVitals } from "/src/vitals";
-  import { browser } from "$app/environment";
-  import { page } from "$app/stores";
-  import { inject } from "@vercel/analytics";
   import NavBar from "../sections/NavBar.svelte";
   import LogoBar from "../sections/LogoBar.svelte";
   import { onMount } from "svelte";
+  import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit"
 
-  // Make sure to call this only once in your app
-  // Ignore the "script.js" not being found error, it will work once deployed to Vercel.
-  inject();
-
-  let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
-  $: if (browser && analyticsId) {
-    webVitals({
-      path: $page.url.pathname,
-      params: $page.params,
-      analyticsId,
-    });
-  }
+  // For Vercel speed analytics
+  injectSpeedInsights();
 
   let container;
 

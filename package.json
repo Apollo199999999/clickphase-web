@@ -23,6 +23,7 @@
   "type": "module",
   "dependencies": {
     "@vercel/analytics": "^0.1.6",
+    "@vercel/speed-insights": "^1.0.1",
     "svelte-fullscreen": "^2.0.0",
     "svelte-seo": "^1.4.1",
     "vite": "^4.0.1",
