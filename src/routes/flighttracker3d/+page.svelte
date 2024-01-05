@@ -1,6 +1,9 @@
 <script>
   import "fluent-svelte/theme.css";
   import SvelteSeo from "svelte-seo";
+  import AboutFlightTracker3D from "/src/sections/flighttracker3d/AboutFlightTracker3D.svelte";
+  import Features from "/src/sections/flighttracker3d/Features.svelte";
+  import DownloadLinks from "/src/sections/flighttracker3d/DownloadLinks.svelte";
 </script>
 
 <svelte:head>
@@ -28,4 +31,6 @@
     ],
   }} />
 
-<h1>FlightTracker3D - Coming soon!</h1>
+<AboutFlightTracker3D />
+<Features />
+<DownloadLinks />
