@@ -397,23 +397,24 @@ of this license document, but changing it is not allowed.
     line and a pointer to where the full notice is found.
   </p>
 
-  <pre><var>    one line to give the program's name and an idea of what it does.</var>
-    Copyright (C) <var>yyyy</var>  <var>name of author</var>
+  <pre><var
+      >one line to give the program's name and an idea of what it does.</var>
+Copyright (C) <var>yyyy</var>  <var>name of author</var>
     
-    This program is free software; you can redistribute it and/or
-    modify it under the terms of the GNU General Public License
-    as published by the Free Software Foundation; either version 2
-    of the License, or (at your option) any later version.
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
     
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
     
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
-    </pre>
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+</pre>
 
   <p>
     Also add information on how to contact you by electronic and paper mail.
@@ -424,12 +425,12 @@ of this license document, but changing it is not allowed.
     it starts in an interactive mode:
   </p>
 
-  <pre>    Gnomovision version 69, Copyright (C) <var>year</var> <var
+  <pre>Gnomovision version 69, Copyright (C) <var>year</var> <var
       >name of author</var>
-    Gnomovision comes with ABSOLUTELY NO WARRANTY; for details
-    type `show w'.  This is free software, and you are welcome
-    to redistribute it under certain conditions; type `show c' 
-    for details.
+Gnomovision comes with ABSOLUTELY NO WARRANTY; for details
+type `show w'.  This is free software, and you are welcome
+to redistribute it under certain conditions; type `show c' 
+for details.
     </pre>
 
   <p>
@@ -448,14 +449,14 @@ of this license document, but changing it is not allowed.
     necessary. Here is a sample; alter the names:
   </p>
 
-  <pre>    Yoyodyne, Inc., hereby disclaims all copyright
-    interest in the program `Gnomovision'
-    (which makes passes at compilers) written 
-    by James Hacker.
+  <pre>Yoyodyne, Inc., hereby disclaims all copyright
+interest in the program `Gnomovision'
+(which makes passes at compilers) written 
+by James Hacker.
     
-    <var>signature of Ty Coon</var>, 1 April 1989
-    Ty Coon, President of Vice
-    </pre>
+<var>signature of Ty Coon</var>, 1 April 1989
+Ty Coon, President of Vice
+</pre>
 
   <p>
     This General Public License does not permit incorporating your program into
@@ -1451,6 +1452,10 @@ of this license document, but changing it is not allowed.
   dl,
   .cca-legal-code-body {
     font-family: var(--fds-font-family-display) !important;
+  }
+
+  pre {
+    white-space: pre-wrap;
   }
 
   .line {
