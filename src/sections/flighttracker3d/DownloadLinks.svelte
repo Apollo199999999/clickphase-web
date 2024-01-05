@@ -26,16 +26,24 @@
     <InvertedCard headerText="Links">
       <Button
         class="hyperlinks"
-        onclick="window.location.href = '/flighttracker3d/license';"
+        onclick="window.open('https://clickphase.vercel.app/flighttracker3d/license', '_blank', 'noopener');"
         variant="hyperlink">End-user license agreement</Button>
       <Button
         class="hyperlinks"
-        onclick="window.location.href = '/flighttracker3d/privacypolicy';"
+        onclick="window.open('https://clickphase.vercel.app/flighttracker3d/privacypolicy', '_blank', 'noopener');"
         variant="hyperlink">Privacy policy</Button>
       <Button
         class="hyperlinks"
-        onclick="window.location.href = '/flighttracker3d/third-party-licenses';"
+        onclick="window.open('https://clickphase.vercel.app/flighttracker3d/third-party-licenses', '_blank', 'noopener');"
         variant="hyperlink">Third party licenses</Button>
+      <Button
+        class="hyperlinks"
+        onclick="window.open('mailto:clickphasehelp@gmail.com', 'noopener');"
+        variant="hyperlink">Report a bug</Button>
+      <Button
+        class="hyperlinks"
+        onclick="window.open('mailto:clickphasehelp@gmail.com', 'noopener');"
+        variant="hyperlink">Request a feature</Button>
     </InvertedCard>
   </CardContainer>
 </PageSection>
