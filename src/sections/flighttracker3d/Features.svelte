@@ -81,6 +81,9 @@
           <img
             alt="Airplanes.live globe view"
             src="/screenshots/flighttracker3d/GlobeImage2.png" />
+          <img
+            alt="Airplanes.live globe view"
+            src="/screenshots/flighttracker3d/GlobeImage3.png" />
         </Carousel>
       {/if}
     </Card>
