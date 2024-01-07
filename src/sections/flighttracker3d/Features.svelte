@@ -31,7 +31,7 @@
 
     <Card
       headerText="High quality 3D terrain"
-      subtitleText="FlightTracker3D also provides highly detailed 3D terrain data while tracking a plane, which includes surrounding buildings, airports, and structures.">
+      subtitleText="FlightTracker3D also provides highly detailed 3D terrain data for surrounding buildings, airports, and structures for the aircraft being tracked.">
       {#if browser}
         <Carousel>
           <img
@@ -54,7 +54,7 @@
   <CardContainer>
     <Card
       headerText="Realistic plane movement"
-      subtitleText="FlightTracker3D automatically calculates the roll, pitch, and yaw of the aircraft being tracked based on its flight path, allowing the plane to move more realistically.">
+      subtitleText="FlightTracker3D automatically calculates the acceleration, deceleration, roll, pitch, and yaw of the aircraft being tracked based on its flight path, allowing the aircraft to move more realistically.">
       {#if browser}
         <Carousel>
           <img
@@ -72,7 +72,7 @@
 
     <Card
       headerText="Wide coverage"
-      subtitleText="Flight data used by FlightTracker3D is provided by https://airplanes.live/, ensuring that FlightTracker3D is able to track a wide variety of flights around the world.">
+      subtitleText="Flight data used by FlightTracker3D is provided by https://airplanes.live/, ensuring that FlightTracker3D is able to track a wide range of flights around the world.">
       {#if browser}
         <Carousel>
           <img
