@@ -2,12 +2,12 @@
 
 <p>
   This end-user license agreement (the AGREEMENT) is an agreement between you
-  (individual or single entity), and the author (ClickPhase/Matthias Wang) of
+  (individual or single entity), and the author (ClickPhase) of
   FlightTracker3D (the SOFTWARE).
 </p>
 
 <p>
-  The SOFTWARE is the property of its author (ClickPhase/Matthias Wang) and is
+  The SOFTWARE is the property of its author (ClickPhase) and is
   protected by copyright laws and international copyright treaties. The SOFTWARE
   is not sold, it is licensed.
 </p>
