@@ -10,6 +10,16 @@
 
   <CardContainer>
     <Card
+      headerText="FlightTracker3D (COMING SOON)"
+      subtitleText="Track the real-time location of any aircraft, all in 3D"
+      clickEvent="window.location.href = '/flighttracker3d';">
+      <img
+        class="card-image"
+        alt="FlightTracker3D"
+        src="/app-images/flighttracker3d/FlightTracker3DImage.png" />
+    </Card>
+
+    <Card
       headerText="GrannyOS"
       subtitleText="The world's best operating system™"
       clickEvent="window.location.href = '/grannyos';">
@@ -27,21 +37,6 @@
         class="card-image"
         alt="Orbit Simulator"
         src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
-    </Card>
-
-    <Card
-      headerText="Typeracer"
-      subtitleText="A simple typeracing game made for a school project"
-      clickEvent="window.location.href = '/typeracer';">
-      <picture>
-        <source
-          srcset="/app-images/typeracer/TyperacerImageDark.png"
-          media="(prefers-color-scheme: dark)" />
-        <img
-          class="card-image"
-          alt="Typeracer"
-          src="/app-images/typeracer/TyperacerImageLight.png" />
-      </picture>
     </Card>
 
     <Card

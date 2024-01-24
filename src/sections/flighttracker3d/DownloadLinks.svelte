@@ -15,9 +15,8 @@
       headerText="Buy FlightTracker3D (COMING SOON)"
       subtitleText="Click the button below to buy FlightTracker3D from Steam.">
       <Button
-        onclick="window.open('https://example.com', '_blank', 'noopener');"
+        onclick="window.open('https://store.steampowered.com/app/2789510/FlightTracker3D/', '_blank', 'noopener');"
         variant="accent"
-        disabled={true}
         class="download-btn">
         Buy FlightTracker3D from Steam
       </Button>

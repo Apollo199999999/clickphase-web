@@ -18,6 +18,12 @@
       real-time location and movement of any aircraft.">
       {#if browser}
         <Carousel>
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/x4OLYf_L1s8"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen />
           <img
             alt="Screenshot of FlightTracker3D"
             src="/screenshots/flighttracker3d/MainImage1.png" />
@@ -42,6 +48,7 @@
 </PageSection>
 
 <style>
+  iframe,
   img {
     width: 100%;
   }
