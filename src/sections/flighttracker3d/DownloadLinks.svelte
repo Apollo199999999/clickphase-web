@@ -12,7 +12,7 @@
 
   <CardContainer>
     <InvertedCard
-      headerText="Buy FlightTracker3D (COMING SOON)"
+      headerText="Buy FlightTracker3D"
       subtitleText="Click the button below to buy FlightTracker3D from Steam.">
       <Button
         onclick="window.open('https://store.steampowered.com/app/2789510/FlightTracker3D/', '_blank', 'noopener');"

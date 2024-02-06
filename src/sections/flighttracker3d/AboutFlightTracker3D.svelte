@@ -8,7 +8,7 @@
 </script>
 
 <PageSection isTopSection={true}>
-  <h1>FlightTracker3D (COMING SOON)</h1>
+  <h1>FlightTracker3D</h1>
 
   <h2>Track the real-time location of any aircraft, all in 3D.</h2>
   <CardContainer>

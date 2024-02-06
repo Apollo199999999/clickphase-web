@@ -10,7 +10,7 @@
 
   <CardContainer>
     <Card
-      headerText="FlightTracker3D (COMING SOON)"
+      headerText="FlightTracker3D"
       subtitleText="Track the real-time location of any aircraft, all in 3D"
       clickEvent="window.location.href = '/flighttracker3d';">
       <img
