@@ -5,6 +5,11 @@
   import LogoBar from "../sections/LogoBar.svelte";
   import { onMount } from "svelte";
   import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
+  import { dev } from "$app/environment";
+  import { inject } from "@vercel/analytics";
+
+  // For Vercel web analytics
+  inject({ mode: dev ? "development" : "production" });
 
   // For Vercel speed analytics
   injectSpeedInsights();
