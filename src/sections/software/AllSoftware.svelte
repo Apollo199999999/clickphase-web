@@ -10,6 +10,21 @@
 
   <CardContainer>
     <Card
+      headerText="LauncherX"
+      subtitleText="Modern app launcher for Windows"
+      clickEvent="window.location.href = '/launcherx';">
+      <picture>
+        <source
+          srcset="/app-images/launcherx/LauncherXImageDark.png"
+          media="(prefers-color-scheme: dark)" />
+        <img
+          class="card-image"
+          alt="LauncherX"
+          src="/app-images/launcherx/LauncherXImageLight.png" />
+      </picture>
+    </Card>
+    
+    <Card
       headerText="FlightTracker3D"
       subtitleText="Track the real-time location of any aircraft, all in 3D"
       clickEvent="window.location.href = '/flighttracker3d';">
@@ -76,21 +91,6 @@
           class="card-image"
           alt="RedditVideoGenerator"
           src="/app-images/redditvideogenerator/RVGImageLight.png" />
-      </picture>
-    </Card>
-
-    <Card
-      headerText="LauncherX"
-      subtitleText="Modern app launcher for Windows"
-      clickEvent="window.location.href = '/launcherx';">
-      <picture>
-        <source
-          srcset="/app-images/launcherx/LauncherXImageDark.png"
-          media="(prefers-color-scheme: dark)" />
-        <img
-          class="card-image"
-          alt="LauncherX"
-          src="/app-images/launcherx/LauncherXImageLight.png" />
       </picture>
     </Card>
 

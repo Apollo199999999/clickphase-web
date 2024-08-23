@@ -21,27 +21,39 @@
     </Card>
 
     <Card
-      headerText="Drag and Drop support"
-      subtitleText="LauncherX now supports dragging and dropping files and folders from File Explorer as well as websites directly into the window. LauncherX also supports the ability to reorder your items.">
+      headerText="Group your items together"
+      subtitleText="You can now create groups in LauncherX, to categorise your files, folders, and websites.">
       <video autoplay loop muted disablePictureInPicture class="video-player">
-        <source src="/screenshots/launcherx/DragAndDrop.mp4" type="video/mp4" />
+        <source
+          src="/screenshots/launcherx/Groups.mp4"
+          type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </Card>
 
+
     <Card
-      headerText="Search Anything"
-      subtitleText="Using LauncherX's search function, you can easily and conveniently find and access any file, folder, or website that you have added to LauncherX, saving time and energy.">
+      headerText="Drag and Drop support"
+      subtitleText="LauncherX now supports dragging and dropping files and folders from File Explorer, as well as websites, directly into the window. LauncherX also supports the ability to reorder your items.">
       <video autoplay loop muted disablePictureInPicture class="video-player">
-        <source
-          src="/screenshots/launcherx/SearchAnything.mp4"
-          type="video/mp4" />
+        <source src="/screenshots/launcherx/DragAndDrop.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </Card>
   </CardContainer>
 
   <CardContainer>
+    <Card
+    headerText="Search anything"
+    subtitleText="Using LauncherX's search function, you can easily and conveniently find and access any file, folder, or website that you have added to LauncherX, saving time and energy.">
+    <video autoplay loop muted disablePictureInPicture class="video-player">
+      <source
+        src="/screenshots/launcherx/SearchAnything.mp4"
+        type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </Card>
+
     <Card
       headerText="Customisable"
       subtitleText="LauncherX adapts to your desktop wallpaper and accent color, making LauncherX feel consistent with your desktop. LauncherX also allows you to modify the icon size and header text to your liking.">
