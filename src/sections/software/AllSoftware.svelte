@@ -7,6 +7,7 @@
 
 <PageSection isTopSection={true}>
   <h1>All Software</h1>
+  <h2>All software projects that I have worked on, sorted by when it was last updated (latest to oldest).</h2>
 
   <CardContainer>
     <Card
@@ -24,6 +25,76 @@
       </picture>
     </Card>
     
+    <Card
+      headerText="Orbit Simulator"
+      subtitleText="Simulate the orbits of planets, moons, and stars in space"
+      clickEvent="window.location.href = '/orbit-simulator';">
+      <img
+        class="card-image"
+        alt="Orbit Simulator"
+        src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
+    </Card>
+
+    <Card
+      headerText="Orbit Simulator"
+      subtitleText="Simulate the orbits of planets, moons, and stars in space"
+      clickEvent="window.location.href = '/orbit-simulator';">
+      <img
+        class="card-image"
+        alt="Orbit Simulator"
+        src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
+    </Card>
+
+    <Card
+      headerText="Orbit Simulator"
+      subtitleText="Simulate the orbits of planets, moons, and stars in space"
+      clickEvent="window.location.href = '/orbit-simulator';">
+      <img
+        class="card-image"
+        alt="Orbit Simulator"
+        src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
+    </Card>
+
+    <Card
+      headerText="Orbit Simulator"
+      subtitleText="Simulate the orbits of planets, moons, and stars in space"
+      clickEvent="window.location.href = '/orbit-simulator';">
+      <img
+        class="card-image"
+        alt="Orbit Simulator"
+        src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
+    </Card>
+
+    <Card
+      headerText="Orbit Simulator"
+      subtitleText="Simulate the orbits of planets, moons, and stars in space"
+      clickEvent="window.location.href = '/orbit-simulator';">
+      <img
+        class="card-image"
+        alt="Orbit Simulator"
+        src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
+    </Card>
+
+    <Card
+      headerText="Orbit Simulator"
+      subtitleText="Simulate the orbits of planets, moons, and stars in space"
+      clickEvent="window.location.href = '/orbit-simulator';">
+      <img
+        class="card-image"
+        alt="Orbit Simulator"
+        src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
+    </Card>
+
+    <Card
+      headerText="p5.js Robot Vacuum Cleaner"
+      subtitleText="A robot vacuum cleaner written in p5.js that can clean a room with obstacles within 2 minutes"
+      clickEvent="window.location.href = '/p5js-robot-vacuum-cleaner';">
+      <img
+        class="card-image"
+        alt="p5.js Robot Vacuum Cleaner"
+        src="/app-images/p5js-robot-vacuum-cleaner/VacuumImage.png" />
+    </Card>
+
     <Card
       headerText="FlightTracker3D"
       subtitleText="Track the real-time location of any aircraft, all in 3D"
