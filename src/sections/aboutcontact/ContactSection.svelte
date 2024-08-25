@@ -9,7 +9,7 @@
 
 <PageSection>
   <h1>Contact ClickPhase</h1>
-  <h2>How to contant ClickPhase</h2>
+  <h2>How to contact ClickPhase.</h2>
 
   <CardContainer>
     <InvertedCard headerText="Contact Us">
@@ -35,6 +35,6 @@
 
     <Card
       headerText="Give Feedback"
-      subtitleText="If you need support or want to leave feedback, you may tell us on GitHub, or you may email us. We will respond within 5 business days." />
+      subtitleText="If you need support or want to leave feedback, you may tell me on GitHub, or you may email me. I will respond within 5 business days." />
   </CardContainer>
 </PageSection>
