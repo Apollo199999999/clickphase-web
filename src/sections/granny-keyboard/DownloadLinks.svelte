@@ -24,7 +24,7 @@
 
     <InvertedCard headerText="Download Granny Keyboard (Python)">
       <p class="card-subtitle">
-        Click the button below to download Granny Keyboard (Python).
+        Click the button below to download Granny Keyboard (Python):
       </p>
       <p class="card-subtitle">
         Note that no executable is provided, so you will have to install the
