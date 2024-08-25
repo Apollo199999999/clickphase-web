@@ -7,8 +7,12 @@
   <h1>p5.js Robot Vacuum Cleaner</h1>
   <h2>
     An algorithm, written in p5.js, that programs a robot vacuum cleaner to
-    effectively clean a room with obstacles within 2 minutes. For more details
-    about how I did this, click on the "Documentation/Portfolio link" button,
+    effectively clean a room with obstacles within 2 minutes.
+  </h2>
+
+  <h2>
+    This was made for a school project. Thus, for a much more in-depth look into
+    how I made this, please click on the "Documentation/Portfolio link" button,
     under the "Links" section below.
   </h2>
 
