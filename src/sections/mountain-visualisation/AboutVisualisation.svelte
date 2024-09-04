@@ -7,6 +7,11 @@
   <h1>Mountain Visualisation</h1>
   <h2>A procedual, muted mountain landscape generator created in p5.js.</h2>
   <h2>
+    This was made for a school project. Thus, for a much more in-depth look into
+    how I made this, please click on the "Documentation/Portfolio link" button,
+    under the "Links" section below.
+  </h2>
+  <h2>
     You can use the embed below, or try it out here: <a
       class="links"
       target="_blank"

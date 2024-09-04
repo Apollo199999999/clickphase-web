@@ -10,8 +10,31 @@
     An n-body simulation that allows you to simulate the gravitational forces
     between a maximum of 5 bodies. You can simulate the orbits of planets,
     moons, and stars in space, and construct your own solar systems. This was
-    created using SvelteKit, Tailwind CSS, and p5.js. Try it out in the embed
-    below.
+    created using SvelteKit, Tailwind CSS, and p5.js.
+  </h2>
+
+  <h2>
+    For best experience, use Chrome to load this sketch, with the "Use hardware
+    acceleration where possible" switch toggled on (it should be on by default,
+    but please check). This is important as it allows p5.js to render frames
+    faster (>100 times per second) when you increase the simulation speed.
+  </h2>
+
+  <h2>
+    This was made for a school project. Thus, for a much more in-depth look into
+    how I made this, please click on the "Documentation/Portfolio link" button,
+    under the "Links" section below.
+  </h2>
+
+  <h2>
+    You can use the embed below, or try it out here:
+    <a
+      class="links"
+      target="_blank"
+      rel="noopener"
+      href="https://cep-wa3-orbit-simulator.vercel.app">
+      https://cep-wa3-orbit-simulator.vercel.app
+    </a>
   </h2>
 
   <h2>(Note: This does not work well on mobile.)</h2>
@@ -38,5 +61,9 @@
     margin: 2em 0;
     border: 1px solid var(--fds-control-strong-stroke-default);
     border-radius: 4px;
+  }
+
+  .links {
+    color: var(--fds-accent-text-primary);
   }
 </style>

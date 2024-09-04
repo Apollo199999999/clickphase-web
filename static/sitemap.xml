@@ -7,6 +7,15 @@
     <loc>https://clickphase.vercel.app/animationsvideos</loc>
   </url>
   <url>
+    <loc>https://clickphase.vercel.app/button-game</loc>
+  </url>
+  <url>
+    <loc>https://clickphase.vercel.app/cellular-automata</loc>
+  </url>
+  <url>
+    <loc>https://clickphase.vercel.app/chat-program</loc>
+  </url>
+  <url>
     <loc>https://clickphase.vercel.app/dynawin</loc>
   </url>
   <url>
@@ -34,12 +43,21 @@
     <loc>https://clickphase.vercel.app/p5js-paint-app</loc>
   </url>
   <url>
+    <loc>https://clickphase.vercel.app/p5js-robot-vacuum-cleaner</loc>
+  </url>
+  <url>
     <loc>https://clickphase.vercel.app/redditvideogenerator</loc>
+  </url>
+  <url>
+    <loc>https://clickphase.vercel.app/saboteur-escape-room</loc>
   </url>
   <url>
     <loc>https://clickphase.vercel.app/software</loc>
   </url>
    <url>
     <loc>https://clickphase.vercel.app/typeracer</loc>
+  </url>
+  <url>
+    <loc>https://clickphase.vercel.app/youre-the-server</loc>
   </url>
 </urlset>

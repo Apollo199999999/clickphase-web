@@ -7,6 +7,10 @@
 
 <PageSection isTopSection={true}>
   <h1>All Software</h1>
+  <h2>
+    All software projects that I have worked on, sorted by when it was last
+    updated (latest to oldest).
+  </h2>
 
   <CardContainer>
     <Card
@@ -23,7 +27,67 @@
           src="/app-images/launcherx/LauncherXImageLight.png" />
       </picture>
     </Card>
-    
+
+    <Card
+      headerText="You're the Server!"
+      subtitleText="A game where you are a chat server, managing user connections and messages"
+      clickEvent="window.location.href = '/youre-the-server';">
+      <img
+        class="card-image"
+        alt="You're the Server!"
+        src="/app-images/youre-the-server/YoureTheServerImage.png" />
+    </Card>
+
+    <Card
+      headerText="Button Game"
+      subtitleText="A simple idle button game written in p5.js"
+      clickEvent="window.location.href = '/button-game';">
+      <img
+        class="card-image"
+        alt="Button Game"
+        src="/app-images/button-game/ButtonGameImage.png" />
+    </Card>
+
+    <Card
+      headerText="Saboteur Escape Room"
+      subtitleText="A multiplayer escape room based on the card game Saboteur, made together with 2 other classmates"
+      clickEvent="window.location.href = '/saboteur-escape-room';">
+      <img
+        class="card-image"
+        alt="Saboteur Escape Room"
+        src="/app-images/saboteur-escape-room/SaboteurImage.png" />
+    </Card>
+
+    <Card
+      headerText="Cellular Automata"
+      subtitleText="A more probabilistic and &quot;musical&quot; take on Conway's Game of Life"
+      clickEvent="window.location.href = '/cellular-automata';">
+      <img
+        class="card-image"
+        alt="Cellular Automata"
+        src="/app-images/cellular-automata/CellularAutomataImage.png" />
+    </Card>
+
+    <Card
+      headerText="p5.js Robot Vacuum Cleaner"
+      subtitleText="A robot vacuum cleaner written in p5.js that can clean a room with obstacles within 2 minutes"
+      clickEvent="window.location.href = '/p5js-robot-vacuum-cleaner';">
+      <img
+        class="card-image"
+        alt="p5.js Robot Vacuum Cleaner"
+        src="/app-images/p5js-robot-vacuum-cleaner/VacuumImage.png" />
+    </Card>
+
+    <Card
+      headerText="Chat Program"
+      subtitleText="A simple chat program that allows you to chat with others online in private rooms, made using Socket.IO"
+      clickEvent="window.location.href = '/chat-program';">
+      <img
+        class="card-image"
+        alt="Chat Program"
+        src="/app-images/chat-program/ChatProgramImage.png" />
+    </Card>
+
     <Card
       headerText="FlightTracker3D"
       subtitleText="Track the real-time location of any aircraft, all in 3D"
@@ -33,7 +97,7 @@
         alt="FlightTracker3D"
         src="/app-images/flighttracker3d/FlightTracker3DImage.png" />
     </Card>
-    
+
     <Card
       headerText="GrannyOS"
       subtitleText="The best operating system in the world™"
@@ -42,6 +106,16 @@
         class="card-image"
         alt="GrannyOS"
         src="/app-images/grannyos/GrannyOSImage.png" />
+    </Card>
+    
+    <Card
+      headerText="Granny Keyboard"
+      subtitleText="Your keys will start worshipping Granny"
+      clickEvent="window.location.href = '/granny-keyboard';">
+      <img
+        class="card-image"
+        alt="Granny Keyboard"
+        src="/app-images/granny-keyboard/GrannyKeyboardImage.png" />
     </Card>
 
     <Card
@@ -92,16 +166,6 @@
           alt="RedditVideoGenerator"
           src="/app-images/redditvideogenerator/RVGImageLight.png" />
       </picture>
-    </Card>
-
-    <Card
-      headerText="Granny Keyboard"
-      subtitleText="Your keys will start worshipping Granny"
-      clickEvent="window.location.href = '/granny-keyboard';">
-      <img
-        class="card-image"
-        alt="Granny Keyboard"
-        src="/app-images/granny-keyboard/GrannyKeyboardImage.png" />
     </Card>
 
     <Card
