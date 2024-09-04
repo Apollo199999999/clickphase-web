@@ -46,7 +46,7 @@
 
       <p class="card-subtitle">
         Over time, I published more pieces of software under the
-        &quot;ClickPhase&quot; identity, such as DynaWin and
+        &quot;ClickPhase&quot; name, such as DynaWin and
         RedditVideoGenerator. However, as I started to build more software for
         school projects, I felt that I should have one website to showcase
         everything that I have made.

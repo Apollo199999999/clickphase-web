@@ -69,13 +69,13 @@
     </Card>
 
     <Card
-      headerText="Orbit Simulator"
-      subtitleText="Simulate the orbits of planets, moons, and stars in space"
-      clickEvent="window.location.href = '/orbit-simulator';">
+      headerText="Cellular Automata"
+      subtitleText="A more probabilistic and &quot;musical&quot; take on Conway's Game of Life"
+      clickEvent="window.location.href = '/cellular-automata';">
       <img
         class="card-image"
-        alt="Orbit Simulator"
-        src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
+        alt="Cellular Automata"
+        src="/app-images/cellular-automata/CellularAutomataImage.png" />
     </Card>
 
     <Card
