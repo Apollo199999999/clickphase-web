@@ -29,43 +29,33 @@
     </Card>
 
     <Card
-      headerText="Orbit Simulator"
-      subtitleText="Simulate the orbits of planets, moons, and stars in space"
-      clickEvent="window.location.href = '/orbit-simulator';">
+      headerText="You're the Server!"
+      subtitleText="A game where you are a chat server, managing user connections and messages"
+      clickEvent="window.location.href = '/youre-the-server';">
       <img
         class="card-image"
-        alt="Orbit Simulator"
-        src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
+        alt="You're the Server!"
+        src="/app-images/youre-the-server/YoureTheServerImage.png" />
     </Card>
 
     <Card
-      headerText="Orbit Simulator"
-      subtitleText="Simulate the orbits of planets, moons, and stars in space"
-      clickEvent="window.location.href = '/orbit-simulator';">
+      headerText="Button Game"
+      subtitleText="A simple idle button game"
+      clickEvent="window.location.href = '/button-game';">
       <img
         class="card-image"
-        alt="Orbit Simulator"
-        src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
+        alt="Button Game"
+        src="/app-images/button-game/ButtonGameImage.png" />
     </Card>
 
     <Card
-      headerText="Orbit Simulator"
-      subtitleText="Simulate the orbits of planets, moons, and stars in space"
-      clickEvent="window.location.href = '/orbit-simulator';">
+      headerText="Saboteur Escape Room"
+      subtitleText="A multiplayer escape room based on the card game Saboteur, made together with 2 other classmates"
+      clickEvent="window.location.href = '/saboteur-escape-room';">
       <img
         class="card-image"
-        alt="Orbit Simulator"
-        src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
-    </Card>
-
-    <Card
-      headerText="Orbit Simulator"
-      subtitleText="Simulate the orbits of planets, moons, and stars in space"
-      clickEvent="window.location.href = '/orbit-simulator';">
-      <img
-        class="card-image"
-        alt="Orbit Simulator"
-        src="/app-images/orbit-simulator/OrbitSimulatorImage.png" />
+        alt="Saboteur Escape Room"
+        src="/app-images/saboteur-escape-room/SaboteurImage.png" />
     </Card>
 
     <Card
@@ -117,6 +107,16 @@
         alt="GrannyOS"
         src="/app-images/grannyos/GrannyOSImage.png" />
     </Card>
+    
+    <Card
+      headerText="Granny Keyboard"
+      subtitleText="Your keys will start worshipping Granny"
+      clickEvent="window.location.href = '/granny-keyboard';">
+      <img
+        class="card-image"
+        alt="Granny Keyboard"
+        src="/app-images/granny-keyboard/GrannyKeyboardImage.png" />
+    </Card>
 
     <Card
       headerText="Orbit Simulator"
@@ -166,16 +166,6 @@
           alt="RedditVideoGenerator"
           src="/app-images/redditvideogenerator/RVGImageLight.png" />
       </picture>
-    </Card>
-
-    <Card
-      headerText="Granny Keyboard"
-      subtitleText="Your keys will start worshipping Granny"
-      clickEvent="window.location.href = '/granny-keyboard';">
-      <img
-        class="card-image"
-        alt="Granny Keyboard"
-        src="/app-images/granny-keyboard/GrannyKeyboardImage.png" />
     </Card>
 
     <Card
