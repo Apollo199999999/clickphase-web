@@ -6,7 +6,7 @@
 <PageSection isTopSection={true}>
   <h1>Cellular Automata</h1>
   <h2>
-    An extension of Conway's Game of Life, written in p5.js and Tailwind CSS. New rules are added to make the game more probablistic in nature, and I added the ability to generate "music" from the cells.
+    An extension of Conway's Game of Life, written in p5.js and Tailwind CSS. New rules are added to make the game more probablistic in nature, and I also added the ability to generate "music" from the cells.
   </h2>
 
   <h2>
