@@ -23,6 +23,13 @@
       class="links">@shreddedpaper</a
     >.
   </h2>
+
+  <h2>
+    For instructions on how to play, you can either read my portfolio (under the
+    "Links") section, or read the "How to play" guide that can be accessed
+    whilst you are playing the game.
+  </h2>
+
   <h2>
     Do note that if you are trying out this game, it may take 1-2 minutes for
     the chat server to exit from sleep mode. This is because the server is
