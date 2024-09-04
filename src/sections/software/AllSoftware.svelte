@@ -40,7 +40,7 @@
 
     <Card
       headerText="Button Game"
-      subtitleText="A simple idle button game"
+      subtitleText="A simple idle button game written in p5.js"
       clickEvent="window.location.href = '/button-game';">
       <img
         class="card-image"
