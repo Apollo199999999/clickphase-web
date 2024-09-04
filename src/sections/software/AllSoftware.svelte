@@ -30,7 +30,7 @@
 
     <Card
       headerText="You're the Server!"
-      subtitleText="A game where you are a chat server, managing user connections and messages"
+      subtitleText="A game where you are a chat server, managing client connections and messages"
       clickEvent="window.location.href = '/youre-the-server';">
       <img
         class="card-image"
