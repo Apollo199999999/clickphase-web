@@ -37,11 +37,11 @@
         variant="hyperlink">Third party licenses</Button>
       <Button
         class="hyperlinks"
-        onclick="window.open('mailto:clickphasehelp@gmail.com', 'noopener');"
+        onclick="window.open('https://steamcommunity.com/app/2789510', '_blank', 'noopener');"
         variant="hyperlink">Report a bug</Button>
       <Button
         class="hyperlinks"
-        onclick="window.open('mailto:clickphasehelp@gmail.com', 'noopener');"
+        onclick="window.open('https://steamcommunity.com/app/2789510', '_blank', 'noopener');"
         variant="hyperlink">Request a feature</Button>
     </InvertedCard>
   </CardContainer>

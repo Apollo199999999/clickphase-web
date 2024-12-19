@@ -60,12 +60,19 @@
     width: 100%;
   }
 
-  :global(h1, h2, h3, h4, h5, h6, p, span) {
+  :global(h1, h2, h3, h4, h5, h6, p, ul, li) {
     font-family: var(--fds-font-family-display) !important;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     max-width: 1000px;
+  }
+
+  :global(span, pre, dl, dt, dd, ol) {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px
   }
 
   :global(h1) {
