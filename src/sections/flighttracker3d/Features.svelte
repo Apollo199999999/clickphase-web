@@ -13,17 +13,17 @@
   <CardContainer>
     <Card
       headerText="High quality 3D models"
-      subtitleText="FlightTracker3D provides high quality models and custom liveries for over 50 unique aircraft, to ensure that the aircraft being tracked is rendered accurately and realistically.">
+      subtitleText="FlightTracker3D provides high quality models and custom liveries for over 50 unique aircraft. Each model also has fully animated landing gear and engines, to ensure that the aircraft being tracked is rendered accurately and realistically.">
       {#if browser}
         <Carousel>
           <img
-            alt="Boeing C-17 Globemaster III"
+            alt="Air Canada Airbus A330 on deploying landing gear"
             src="/screenshots/flighttracker3d/ModelImage1.png" />
           <img
-            alt="FedEx Boeing 777"
+            alt="Lufthansa Boeing 747 exiting runway after landing"
             src="/screenshots/flighttracker3d/ModelImage2.png" />
           <img
-            alt="Japan Airlines Boeing 787"
+            alt="Thai Airways Boeing 777 taxiing at the airport"
             src="/screenshots/flighttracker3d/ModelImage3.png" />
         </Carousel>
       {/if}
@@ -35,17 +35,14 @@
       {#if browser}
         <Carousel>
           <img
-            alt="Plane approaching Newark Airport, New York"
+            alt="Helicopter flying among mountains"
             src="/screenshots/flighttracker3d/TerrainImage1.png" />
           <img
-            alt="Plane approaching Newark Airport, New York"
+            alt="Plane flying among mountains near Innsbruck"
             src="/screenshots/flighttracker3d/TerrainImage2.png" />
           <img
-            alt="Plane approaching Newark Airport, New York"
+            alt="Planes lining up for take-off at Haneda Airport, Tokyo"
             src="/screenshots/flighttracker3d/TerrainImage3.png" />
-          <img
-            alt="Plane taxiing at Newark Airport, New York"
-            src="/screenshots/flighttracker3d/TerrainImage4.png" />
         </Carousel>
       {/if}
     </Card>
@@ -58,14 +55,14 @@
       {#if browser}
         <Carousel>
           <img
-            alt="Etihad Boeing 787 near London"
-            src="/screenshots/flighttracker3d/RollImage1.png" />
+            alt="Lufthansa A319 taking off"
+            src="/screenshots/flighttracker3d/MoveImage1.png" />
           <img
-            alt="Etihad Boeing 787 near London"
-            src="/screenshots/flighttracker3d/RollImage2.png" />
+            alt="Singapore Airlines A350 cruising"
+            src="/screenshots/flighttracker3d/MoveImage2.png" />
           <img
-            alt="Etihad Boeing 787 near London"
-            src="/screenshots/flighttracker3d/RollImage3.png" />
+            alt="Lufthansa A321 touching down"
+            src="/screenshots/flighttracker3d/MoveImage3.png" />
         </Carousel>
       {/if}
     </Card>
@@ -76,13 +73,13 @@
       {#if browser}
         <Carousel>
           <img
-            alt="Airplanes.live globe view"
+            alt="FlightTracker3D globe view"
             src="/screenshots/flighttracker3d/GlobeImage1.png" />
           <img
-            alt="Airplanes.live globe view"
+            alt="FlightTracker3D globe view"
             src="/screenshots/flighttracker3d/GlobeImage2.png" />
           <img
-            alt="Airplanes.live globe view"
+            alt="FlightTracker3D globe view"
             src="/screenshots/flighttracker3d/GlobeImage3.png" />
         </Carousel>
       {/if}

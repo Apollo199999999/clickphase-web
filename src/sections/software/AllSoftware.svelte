@@ -14,6 +14,16 @@
 
   <CardContainer>
     <Card
+      headerText="FlightTracker3D"
+      subtitleText="Track the real-time location of any aircraft, all in 3D"
+      clickEvent="window.location.href = '/flighttracker3d';">
+      <img
+        class="card-image"
+        alt="FlightTracker3D"
+        src="/app-images/flighttracker3d/FlightTracker3DImage.png" />
+    </Card>
+    
+    <Card
       headerText="LauncherX"
       subtitleText="Modern app launcher for Windows"
       clickEvent="window.location.href = '/launcherx';">
@@ -86,16 +96,6 @@
         class="card-image"
         alt="Chat Program"
         src="/app-images/chat-program/ChatProgramImage.png" />
-    </Card>
-
-    <Card
-      headerText="FlightTracker3D"
-      subtitleText="Track the real-time location of any aircraft, all in 3D"
-      clickEvent="window.location.href = '/flighttracker3d';">
-      <img
-        class="card-image"
-        alt="FlightTracker3D"
-        src="/app-images/flighttracker3d/FlightTracker3DImage.png" />
     </Card>
 
     <Card

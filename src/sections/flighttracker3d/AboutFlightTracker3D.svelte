@@ -16,25 +16,12 @@
       headerText="About"
       subtitleText="FlightTracker3D is a 3D flight tracker made in Unreal Engine that allows you to visualise the
       real-time location and movement of any aircraft.">
-      {#if browser}
-        <Carousel>
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/x4OLYf_L1s8"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen />
-          <img
-            alt="Screenshot of FlightTracker3D"
-            src="/screenshots/flighttracker3d/MainImage1.png" />
-          <img
-            alt="Screenshot of FlightTracker3D"
-            src="/screenshots/flighttracker3d/MainImage2.png" />
-          <img
-            alt="Screenshot of FlightTracker3D"
-            src="/screenshots/flighttracker3d/MainImage3.png" />
-        </Carousel>
-      {/if}
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/7ndNYeOXnRw"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen />
     </Card>
 
     <Card
@@ -51,5 +38,9 @@
   iframe,
   img {
     width: 100%;
+  }
+  iframe {
+    height: unset;
+    aspect-ratio: 16 / 9;
   }
 </style>
